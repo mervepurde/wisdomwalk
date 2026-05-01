@@ -303,6 +303,129 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   border-color: rgba(154,120,54,0.8);
 }
 
+
+/* UPCOMING WALKS — no-conflict Harvest-style cards */
+.walks-upcoming-section {
+  background: #f7f3ea;
+  padding: 72px 80px;
+}
+.walks-upcoming-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+.walks-upcoming-header {
+  margin-bottom: 48px;
+}
+.walks-upcoming-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.88);
+  margin-bottom: 16px;
+}
+.walks-upcoming-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  font-style: italic;
+  color: #2a2822;
+  line-height: 1.2;
+}
+.walks-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: rgba(196,165,90,0.12);
+}
+.walks-card {
+  background: #f7f3ea;
+  display: flex;
+  flex-direction: column;
+}
+.walks-card:nth-child(even) {
+  background: #f0ebe0;
+}
+.walks-card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  filter: sepia(8%) contrast(1.04) brightness(0.92);
+}
+.walks-card-body {
+  padding: 32px 36px 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.walks-card-tag {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.78);
+  margin-bottom: 14px;
+}
+.walks-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 300;
+  font-style: italic;
+  color: #2a2822;
+  margin-bottom: 6px;
+}
+.walks-card-location {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(42,40,34,0.45);
+  margin-bottom: 4px;
+}
+.walks-card-date {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.75);
+  margin-bottom: 20px;
+}
+.walks-card-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: #4a4238;
+  margin-bottom: 28px;
+  flex: 1;
+}
+.walks-card-link {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #9a7836;
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(154,120,54,0.35);
+  padding-bottom: 4px;
+  transition: all 0.3s;
+  display: inline-block;
+  align-self: flex-start;
+}
+.walks-card-link:hover {
+  color: #6a4f1f;
+  border-color: rgba(154,120,54,0.8);
+}
+@media (max-width: 768px) {
+  .walks-upcoming-section { padding: 48px 24px; }
+  .walks-cards-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .walks-upcoming-section { padding: 32px 16px; }
+  .walks-card-body { padding: 24px 20px 28px; }
+}
+
 /* PAST JOURNEYS */
 .past-section { background: #f7f3ea; padding: 80px; }
 .past-inner { max-width: 1100px; margin: 0 auto; }
@@ -784,79 +907,46 @@ body .hero-rule {
 </section>
 
 <!-- UPCOMING WALKS -->
-<section class="upcoming-section" id="upcoming">
-  <div class="upcoming-inner">
-    <div class="upcoming-header">
-      <p class="section-eyebrow-light">Open Applications</p>
-      <h2 class="upcoming-title">Upcoming Walks</h2>
+<section class="walks-upcoming-section" id="upcoming">
+  <div class="walks-upcoming-inner">
+    <div class="walks-upcoming-header">
+      <p class="walks-upcoming-eyebrow">Open Applications</p>
+      <h2 class="walks-upcoming-title">Upcoming Walks</h2>
     </div>
 
-    <!-- Mexico -->
-    <div class="upcoming-featured">
-      <div class="featured-image">
+    <div class="walks-cards-grid">
+      <article class="walks-card">
         <img
+          class="walks-card-img"
           src="https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=1600&q=80"
           alt="Oaxaca, Mexico"
         >
-      </div>
-      <div class="featured-card">
-        <p class="featured-region">Mexico · Oaxaca</p>
-        <h3 class="featured-title">Oaxaca & the Ancient South</h3>
-        <p class="featured-subtitle">Ancestral sites, cacao ceremony & highland forest</p>
-        <div class="featured-meta">
-          <div class="meta-row">
-            <span class="meta-lbl">When</span>
-            <span class="meta-val">Autumn 2026 — Dates upon acceptance</span>
-          </div>
-          <div class="meta-row">
-            <span class="meta-lbl">Duration</span>
-            <span class="meta-val">10 days</span>
-          </div>
-          <div class="meta-row">
-            <span class="meta-lbl">Spots</span>
-            <span class="meta-val">Limited — applications open</span>
-          </div>
+        <div class="walks-card-body">
+          <p class="walks-card-tag">Mexico · Oaxaca</p>
+          <h3 class="walks-card-title">Oaxaca &amp; the Ancient South</h3>
+          <p class="walks-card-location">Ancestral sites, cacao ceremony &amp; highland forest</p>
+          <p class="walks-card-date">Autumn 2026 · 10 days</p>
+          <p class="walks-card-desc">Mexico's deep south holds some of the oldest living Indigenous cultures on the continent. We walk Zapotec sites at dawn, participate in cacao ceremony, and move through the cloud forests and markets of Oaxaca.</p>
+          <a href="la-familia.html#apply" class="walks-card-link">Walk with us →</a>
         </div>
-        <p class="featured-desc">
-          Mexico's deep south holds some of the oldest living Indigenous cultures on the continent. We walk Zapotec sites at dawn, participate in cacao ceremony, and move through the cloud forests and markets of Oaxaca. The land here is ancient, generous, and deeply alive.
-        </p>
-        <a href="la-familia.html#apply" class="featured-link">Walk with us →</a>
-      </div>
-    </div>
+      </article>
 
-    <!-- Peru -->
-    <div class="upcoming-featured reversed">
-      <div class="featured-image">
+      <article class="walks-card">
         <img
+          class="walks-card-img"
           src="photos/upcominghero/peruamazoniaupcoming-hero.jpg"
           alt="Amazonia, Peru"
         >
-      </div>
-      <div class="featured-card">
-        <p class="featured-region">Peru · Amazonia</p>
-        <h3 class="featured-title">Jungle Path & Sacred River</h3>
-        <p class="featured-subtitle">Plant medicine traditions, deep listening & the Amazon</p>
-        <div class="featured-meta">
-          <div class="meta-row">
-            <span class="meta-lbl">When</span>
-            <span class="meta-val">Autumn 2026 — Dates upon acceptance</span>
-          </div>
-          <div class="meta-row">
-            <span class="meta-lbl">Duration</span>
-            <span class="meta-val">12 days</span>
-          </div>
-          <div class="meta-row">
-            <span class="meta-lbl">Spots</span>
-            <span class="meta-val">Limited — applications open</span>
-          </div>
+        <div class="walks-card-body">
+          <p class="walks-card-tag">Peru · Amazonia</p>
+          <h3 class="walks-card-title">Jungle Path &amp; Sacred River</h3>
+          <p class="walks-card-location">Plant medicine traditions, deep listening &amp; the Amazon</p>
+          <p class="walks-card-date">Autumn 2026 · 12 days</p>
+          <p class="walks-card-desc">We descend into the Amazon basin to sit with the oldest traditions of the continent. Deep listening in the jungle, ceremonies with lineage holders, and time on the river that has shaped this land for millennia.</p>
+          <a href="la-familia.html#apply" class="walks-card-link">Walk with us →</a>
         </div>
-        <p class="featured-desc">
-          We descend into the Amazon basin to sit with the oldest traditions of the continent. Deep listening in the jungle, ceremonies with lineage holders, and time on the river that has shaped this land for millennia. A journey that asks you to slow down completely.
-        </p>
-        <a href="la-familia.html#apply" class="featured-link">Walk with us →</a>
-      </div>
+      </article>
     </div>
-
   </div>
 </section>
 
@@ -874,7 +964,7 @@ body .hero-rule {
       <div class="journey-upper">
         <div class="journey-media">
           <iframe
-            src="https://www.youtube.com/embed/BJRr80bvS50?autoplay=1&mute=1&loop=1&playlist=0cSZep_WOFQ&controls=0&playsinline=1"
+            src="https://www.youtube.com/embed/BJRr80bvS50?autoplay=1&mute=1&loop=1&playlist=BJRr80bvS50&controls=0&playsinline=1"
             allow="autoplay; encrypted-media"
             allowfullscreen
             loading="lazy"
