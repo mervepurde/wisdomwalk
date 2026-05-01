@@ -123,7 +123,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .manifesto { background: #f7f3ea; padding: 116px 56px; text-align: center; }
 .manifesto h2 {
   font-size: clamp(30px, 4vw, 50px); font-weight: 300; color: #1e1c18;
-  line-height: 1.25; margin-bottom: 44px; letter-spacing: -0.3px;
+  line-height: 1.25; margin-bottom: 32px; letter-spacing: -0.3px;
 }
 .manifesto h2 em { font-style: italic; color: #6a5a28; }
 .manifesto-body { margin-bottom: 44px; }
@@ -136,10 +136,11 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .manifesto-rule { width: 56px; height: 0.5px; background: rgba(122,104,48,0.3); margin: 52px auto; }
 .manifesto-split {
-  display: flex; gap: 56px; align-items: flex-start;
+  display: flex; gap: 56px; align-items: center;
   max-width: 960px; margin: 0 auto 44px; text-align: left;
 }
 .manifesto-split .manifesto-body { flex: 1; margin-bottom: 0; }
+.manifesto-split .manifesto-body h2 { max-width: 620px; margin-left: 0; margin-right: 0; }
 .manifesto-split .manifesto-body p { max-width: none; margin: 0 0 22px; }
 .manifesto-split .manifesto-body p:last-child { margin-bottom: 0; }
 .manifesto-video {
@@ -293,8 +294,8 @@ a.pillar-tag:hover {
   font-size: 22px; font-weight: 300; color: #1e1c18;
 }
 .upcoming-group-desc {
-  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 2px;
-  text-transform: uppercase; color: rgba(122,104,48,0.45);
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(30,28,24,0.72); font-weight: 300;
 }
 .upcoming-pair {
   display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
@@ -644,7 +645,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .hero h1 { font-size: clamp(32px, 5vw, 50px); margin-bottom: 32px; }
   .hero p { font-size: 16px; }
   .manifesto, .philosophy, .testimonials, .past-walks, .upcoming { padding: 64px 24px; }
-  .manifesto-split { flex-direction: column; gap: 36px; }
+  .manifesto-split { flex-direction: column; gap: 36px; align-items: stretch; }
   .manifesto-video { aspect-ratio: 16/9; width: 100%; }
   .upcoming-pair { grid-template-columns: 1fr; }
   .upcoming-group-header { flex-direction: column; gap: 6px; }
@@ -770,9 +771,9 @@ function handleIndexCircle(e) {
 
 <!-- MANIFESTO -->
 <section class="manifesto" id="manifesto">
-  <h2>We come as students.<br>The land is <em>the teacher.</em></h2>
   <div class="manifesto-split">
     <div class="manifesto-body">
+      <h2>We come as students.<br>The land is <em>the teacher.</em></h2>
       <p>We listen to the land, and to the wisdom carried by those who belong to it. We learn through its rhythms, its stories, and its quiet ways of speaking.</p>
       <p>This is not about seeking something new, but about feeling into what has always been here. A way of honouring it, celebrating it, and slowly finding our way back into love.</p>
       <p class="remembered">Along the way, a quiet shift happens: we soften, we open, and we begin to remember.</p>
@@ -810,11 +811,11 @@ function handleIndexCircle(e) {
   <div class="upcoming-group">
     <div class="upcoming-group-header">
       <h3 class="upcoming-group-title">Harvests</h3>
-      <span class="upcoming-group-desc">2 &ndash; 3 days &nbsp;&middot;&nbsp; Seasonal Harvest Retreat with long table</span>
+      <span class="upcoming-group-desc">2 &ndash; 3 days &nbsp;&middot;&nbsp; Seasonal Harvest Retreats</span>
     </div>
     <div class="upcoming-pair">
       <div class="upcoming-pair-card">
-        <img src="photos/lavender%20upcoming.jpg" alt="Lavender Harvest, Ida Mountains" class="upcoming-pair-img">
+        <img src="photos/lavender%20upcoming.jpg" alt="Lavender Harvest, Ida Mountains" class="upcoming-pair-img" style="object-position: center top;">
         <div class="upcoming-pair-body">
           <div class="card-priority-tag">&#9889; Now open</div>
           <div class="card-type card-type-earth">Harvest</div>
@@ -841,7 +842,7 @@ function handleIndexCircle(e) {
   <div class="upcoming-group">
     <div class="upcoming-group-header">
       <h3 class="upcoming-group-title">Walks</h3>
-      <span class="upcoming-group-desc">7 &ndash; 14 days &nbsp;&middot;&nbsp; Journeys through sacred lands</span>
+      <span class="upcoming-group-desc">7 &ndash; 14 days &nbsp;&middot;&nbsp; Retreat Journeys through Sacred Lands</span>
     </div>
     <div class="upcoming-pair">
       <div class="upcoming-pair-card">
