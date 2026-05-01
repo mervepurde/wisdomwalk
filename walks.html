@@ -50,7 +50,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
   font-family: 'Josefin Sans', sans-serif; font-size: 11.5px; letter-spacing: 2px;
-  text-transform: uppercase; color: rgba(42,40,34,0.72); text-decoration: none; transition: color 0.3s;
+  text-transform: uppercase; color: rgba(237,228,208,0.82); text-decoration: none; transition: color 0.3s;
 }
 .nav-links a:hover { color: rgba(237,228,208,1); }
 .action-link {
@@ -72,7 +72,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
   font-family: 'Josefin Sans', sans-serif; font-size: 11.5px; letter-spacing: 2px;
-  text-transform: uppercase; color: rgba(42,40,34,0.72); text-decoration: none; transition: color 0.3s;
+  text-transform: uppercase; color: rgba(237,228,208,0.82); text-decoration: none; transition: color 0.3s;
 }
 .nav-links a:hover { color: rgba(237,228,208,1); }
 .nav-apply { border: 0.5px solid rgba(237,228,208,0.3) !important; padding: 8px 20px; color: rgba(237,228,208,0.85) !important; }
@@ -113,7 +113,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .hero-body {
   font-size: 18px; font-weight: 300; line-height: 2;
-  color: rgba(42,40,34,0.72); margin-bottom: 40px;
+  color: rgba(237,228,208,0.82); margin-bottom: 40px;
 }
 .hero-cta {
   font-family: 'Josefin Sans', sans-serif; font-size: 11.5px; letter-spacing: 2px;
@@ -144,164 +144,80 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .what-body p + p { margin-top: 18px; }
 
-/* UPCOMING WALKS — matching Harvest upcoming layout */
+/* UPCOMING — stacked featured blocks */
 .upcoming-section {
-  background: #f7f3ea;
-  padding: 72px 80px;
-  position: relative;
-  overflow: hidden;
+  background: #1e1b14; padding: 80px; position: relative; overflow: hidden;
 }
 .upcoming-section::before {
-  display: none;
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('photos/mainpagegallery/ausangate-peru.JPG');
+  background-size: cover; background-position: center; opacity: 0.04;
 }
-.upcoming-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1060px;
-  margin: 0 auto;
-}
-.upcoming-header {
-  margin-bottom: 48px;
-}
+.upcoming-inner { position: relative; z-index: 2; max-width: 1060px; margin: 0 auto; }
+.upcoming-header { margin-bottom: 52px; }
 .section-eyebrow-light {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: rgba(196,165,90,0.88);
-  margin-bottom: 16px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(196,165,90,0.85); margin-bottom: 18px;
 }
 .upcoming-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 300;
-  font-style: italic;
-  color: #2a2822;
-  line-height: 1.2;
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 46px);
+  font-weight: 300; font-style: italic; color: #ede4d0; line-height: 1.2;
 }
 .upcoming-featured {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 1px;
   background: rgba(196,165,90,0.12);
 }
-.upcoming-featured + .upcoming-featured {
-  margin-top: 2px;
-}
-.upcoming-featured.reversed {
-  direction: ltr;
-}
-.upcoming-featured.reversed .featured-image {
-  order: 2;
-}
-.upcoming-featured.reversed .featured-card {
-  order: 1;
-}
-.featured-image {
-  position: relative;
-  overflow: hidden;
-  background: #e8e0d0;
-}
+.upcoming-featured + .upcoming-featured { margin-top: 1px; }
+.upcoming-featured.reversed { direction: rtl; }
+.upcoming-featured.reversed > * { direction: ltr; }
+.featured-image { position: relative; overflow: hidden; }
 .featured-image img {
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-  object-fit: cover;
-  display: block;
-  filter: sepia(10%) contrast(1.04) brightness(0.92);
+  width: 100%; height: 100%; min-height: 460px;
+  object-fit: cover; display: block;
+  filter: sepia(15%) contrast(1.05) brightness(0.65);
   transition: transform 0.8s ease;
 }
-.upcoming-featured:hover .featured-image img {
-  transform: scale(1.03);
-}
+.upcoming-featured:hover .featured-image img { transform: scale(1.03); }
 .featured-card {
-  background: #f7f3ea;
-  padding: 48px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.upcoming-featured:nth-of-type(even) .featured-card {
-  background: #f0ebe0;
+  background: #1e1b14; padding: 52px 44px;
+  display: flex; flex-direction: column; justify-content: center;
 }
 .featured-region {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(196,165,90,0.78);
-  margin-bottom: 16px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(196,165,90,0.55); margin-bottom: 14px;
 }
 .featured-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(26px, 3vw, 36px);
-  font-weight: 300;
-  font-style: italic;
-  color: #2a2822;
-  line-height: 1.2;
-  margin-bottom: 12px;
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3vw, 34px);
+  font-weight: 300; font-style: italic; color: #ede4d0; line-height: 1.2; margin-bottom: 12px;
 }
 .featured-subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: rgba(42,40,34,0.52);
-  margin-bottom: 28px;
-  font-style: italic;
-  line-height: 1.6;
+  font-family: 'Cormorant Garamond', serif; font-size: 15px;
+  font-weight: 300; color: rgba(237,228,208,0.38); margin-bottom: 24px;
+  font-style: italic; line-height: 1.6;
 }
-.featured-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 28px;
-}
-.meta-row {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
+.featured-meta { display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px; }
+.meta-row { display: flex; gap: 12px; align-items: flex-start; }
 .meta-lbl {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(196,165,90,0.78);
-  width: 64px;
-  flex-shrink: 0;
-  padding-top: 2px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(196,165,90,0.45); width: 64px; flex-shrink: 0; padding-top: 2px;
 }
 .meta-val {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 10.5px;
-  letter-spacing: 1px;
-  color: rgba(42,40,34,0.62);
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1px;
+  color: rgba(237,228,208,0.82);
 }
 .featured-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.85;
-  color: #4a4238;
+  font-family: 'Cormorant Garamond', serif; font-size: 16px;
+  font-weight: 300; line-height: 1.8; color: rgba(237,228,208,0.52);
   margin-bottom: 32px;
 }
 .featured-link {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 11px;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: #9a7836;
-  text-decoration: none;
-  border-bottom: 0.5px solid rgba(154,120,54,0.35);
-  padding-bottom: 4px;
-  transition: all 0.3s;
-  display: inline-block;
-  align-self: flex-start;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: #c4a55a; text-decoration: none;
+  border-bottom: 0.5px solid rgba(196,165,90,0.35); padding-bottom: 4px;
+  transition: all 0.3s; display: inline-block; align-self: flex-start;
 }
-.featured-link:hover {
-  color: #6a4f1f;
-  border-color: rgba(154,120,54,0.8);
-}
+.featured-link:hover { color: #d4b56a; border-color: rgba(196,165,90,0.88); }
 
 
 /* UPCOMING WALKS — no-conflict Harvest-style cards */
@@ -373,15 +289,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   font-weight: 300;
   font-style: italic;
   color: #2a2822;
-  margin-bottom: 6px;
-}
-.walks-card-location {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(42,40,34,0.45);
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 .walks-card-date {
   font-family: 'Josefin Sans', sans-serif;
@@ -397,8 +305,17 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   font-weight: 300;
   line-height: 1.85;
   color: #4a4238;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
   flex: 1;
+}
+.walks-card-tags {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(122,104,48,0.62);
+  margin-bottom: 24px;
+  line-height: 1.8;
 }
 .walks-card-link {
   font-family: 'Josefin Sans', sans-serif;
@@ -744,6 +661,8 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 }
 
 @media (max-width: 1020px) {
+  .upcoming-featured { grid-template-columns: 1fr; }
+  .upcoming-featured.reversed { direction: ltr; }
   .featured-image img { min-height: 300px; }
   .featured-card { padding: 40px 32px; }
   .journey-upper,
@@ -783,67 +702,6 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .apply-cta { padding: 52px 24px; }
   footer { padding: 28px 24px; }
 }
-
-
-/* UPCOMING WALKS mobile stacking */
-@media (max-width: 768px) {
-  .upcoming-section { padding: 48px 24px; }
-  .upcoming-featured,
-  .upcoming-featured.reversed {
-    grid-template-columns: 1fr !important;
-  }
-  .upcoming-featured.reversed .featured-image,
-  .upcoming-featured.reversed .featured-card {
-    order: initial !important;
-  }
-  .featured-image img { min-height: 280px; }
-  .featured-card { padding: 32px 24px; }
-}
-@media (max-width: 480px) {
-  .upcoming-section { padding: 32px 16px; }
-  .featured-card { padding: 24px 20px 28px; }
-}
-
-/* FORCE FIX — Walks page hero/nav visibility */
-body nav,
-body nav.scrolled {
-  background: rgba(14,12,8,0.72) !important;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-body .nav-logo,
-body .nav-links a,
-body .action-link,
-body .nav-hamburger {
-  color: rgba(237,228,208,0.92) !important;
-}
-body .nav-links a:hover,
-body .action-link:hover {
-  color: rgba(237,228,208,1) !important;
-}
-body .hero-content {
-  position: relative !important;
-  z-index: 5 !important;
-}
-body .hero-label {
-  color: rgba(196,165,90,0.92) !important;
-}
-body .hero-title,
-body .hero-body {
-  color: #ede4d0 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-body .hero-overlay {
-  z-index: 1 !important;
-}
-body .hero-bg {
-  z-index: 0 !important;
-}
-body .hero-rule {
-  background: rgba(196,165,90,0.45) !important;
-}
-
 </style>
 </head>
 <body>
@@ -885,10 +743,11 @@ body .hero-rule {
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-label">Sacred Land Pilgrimages</p>
+    <p class="hero-label">Retreat journeys</p>
     <h1 class="hero-title">Walks</h1>
     <div class="hero-rule"></div>
-    <p class="hero-body">Multi-day journeys through landscapes that have shaped human consciousness for millennia. On foot. In silence. Together.</p>
+    <p class="hero-body">Small group journeys across different lands, each with its own rhythm, its own way of being.</p>
+    <p class="hero-meta">7–14 days · Small group</p>
     <a href="la-familia.html#apply" class="hero-cta">Walk with us</a>
   </div>
 </section>
@@ -897,11 +756,11 @@ body .hero-rule {
 <section style="background:#f7f3ea; padding:0;">
 <div class="what-section">
   <p class="what-eyebrow">What Is a Walk</p>
-  <h2 class="what-title">A transformational pilgrimage into the soul of the land</h2>
+  <h2 class="what-title">Modern pilgrimages for curious souls.</h2>
   <div class="what-body">
-    <p>Wisdom Walk is a transformational pilgrimage inviting us to discover the soul of sacred geographies through culture, nature, and ancient wisdom. Each journey feels like a passage woven with ritual, movement, and deep connection.</p>
-    <p>These journeys are not only physical — they are inner explorations. They unfold through ancient ceremonies, sacred sites, mindfulness practices, nature walks, individual healing sessions, dance, yoga, somatic work, music, and intuitive sharing that emerges in each land.</p>
-    <p>A Wisdom Walk is not an arrival — it is a remembering. Every step brings us closer to ourselves. Every encounter is an invitation to hear, feel, and awaken.</p>
+    <p>We follow a route over several days, sometimes returning to the same places, sometimes moving on. Over time, something shifts in how the land is felt and how we move through it.</p>
+    <p>Each day takes shape around the land itself — its paths, stories, people, rituals, silence, and unexpected moments. Some parts are planned, some are left open. The rhythm changes as the journey unfolds, and so does the way we pay attention.</p>
+    <p>Each journey lasts between 7 and 14 days, in small groups. We stay close to the land and work with people who know it well. The structure is there, but it stays open enough for things to unfold.</p>
   </div>
 </div>
 </section>
@@ -923,10 +782,10 @@ body .hero-rule {
         >
         <div class="walks-card-body">
           <p class="walks-card-tag">Mexico · Oaxaca</p>
-          <h3 class="walks-card-title">Oaxaca &amp; the Ancient South</h3>
-          <p class="walks-card-location">Ancestral sites, cacao ceremony &amp; highland forest</p>
+          <h3 class="walks-card-title">Oaxaca &amp; the South</h3>
           <p class="walks-card-date">Autumn 2026 · 10 days</p>
-          <p class="walks-card-desc">Mexico's deep south holds some of the oldest living Indigenous cultures on the continent. We walk Zapotec sites at dawn, participate in cacao ceremony, and move through the cloud forests and markets of Oaxaca.</p>
+          <p class="walks-card-desc">Moving through villages, markets, and surrounding landscapes, with time spent in the everyday life of the region.</p>
+          <p class="walks-card-tags">Ancient sites · cenotes · temazcal · cacao</p>
           <a href="la-familia.html#apply" class="walks-card-link">Walk with us →</a>
         </div>
       </article>
@@ -935,14 +794,14 @@ body .hero-rule {
         <img
           class="walks-card-img"
           src="photos/upcominghero/peruamazoniaupcoming-hero.jpg"
-          alt="Amazonia, Peru"
+          alt="Sacred Valley and Amazon, Peru"
         >
         <div class="walks-card-body">
-          <p class="walks-card-tag">Peru · Amazonia</p>
-          <h3 class="walks-card-title">Jungle Path &amp; Sacred River</h3>
-          <p class="walks-card-location">Plant medicine traditions, deep listening &amp; the Amazon</p>
+          <p class="walks-card-tag">Peru · Andes &amp; Amazonia</p>
+          <h3 class="walks-card-title">Sacred Valley &amp; Amazon</h3>
           <p class="walks-card-date">Autumn 2026 · 12 days</p>
-          <p class="walks-card-desc">We descend into the Amazon basin to sit with the oldest traditions of the continent. Deep listening in the jungle, ceremonies with lineage holders, and time on the river that has shaped this land for millennia.</p>
+          <p class="walks-card-desc">Moving between mountains and jungle over several days, with time spent in the Sacred Valley and along the river.</p>
+          <p class="walks-card-tags">Mountains · jungle · river · plant wisdom</p>
           <a href="la-familia.html#apply" class="walks-card-link">Walk with us →</a>
         </div>
       </article>
@@ -963,9 +822,7 @@ body .hero-rule {
     <article class="journey-card" style="background:#f7f3ea;">
       <div class="journey-upper">
         <div class="journey-media">
-          
-        <!-- VIDEO: Peru videos swapped per latest revision -->
-        <iframe
+          <iframe
             src="https://www.youtube.com/embed/0cSZep_WOFQ?autoplay=1&mute=1&loop=1&playlist=0cSZep_WOFQ&controls=0&playsinline=1"
             allow="autoplay; encrypted-media"
             allowfullscreen
@@ -1015,7 +872,6 @@ body .hero-rule {
           <span class="practice-tag">Plant Medicine Ceremony</span>
           
           <span class="practice-tag">Despacho Ritual</span>
-          <span class="practice-tag">Move Beyond</span>
           <span class="practice-tag">Gong Bath</span>
           <span class="practice-tag">Cacao &amp; Dance</span>
           <span class="practice-tag">High Altitude Trekking</span>
@@ -1077,7 +933,6 @@ body .hero-rule {
         <div class="journey-practices">
           <span class="practice-tag">Temple Rituals</span>
           <span class="practice-tag">Sound Healing</span>
-          <span class="practice-tag">Move Beyond</span>
           <span class="practice-tag">Nile Cruise</span>
           <span class="practice-tag">Desert Silence</span>
           <span class="practice-tag">Salt Lake Bathing</span>
@@ -1149,7 +1004,7 @@ body .hero-rule {
       <div class="journey-upper reversed">
         <div class="journey-media">
           <iframe
-            src="https://www.youtube.com/embed/BJRr80bvS50?autoplay=1&mute=1&loop=1&playlist=BJRr80bvS50&controls=0&playsinline=1"
+            src="https://www.youtube.com/embed/0cSZep_WOFQ?autoplay=1&mute=1&loop=1&playlist=0cSZep_WOFQ&controls=0&playsinline=1"
             allow="autoplay; encrypted-media"
             allowfullscreen
             loading="lazy"
@@ -1200,7 +1055,6 @@ body .hero-rule {
           <span class="practice-tag">Kambo</span>
           <span class="practice-tag">Despacho</span>
           <span class="practice-tag">Temazkal</span>
-          <span class="practice-tag">Move Beyond</span>
           <span class="practice-tag">Q'ero Teachings</span>
           <span class="practice-tag">Munay-Ki</span>
         </div>
@@ -1256,7 +1110,6 @@ body .hero-rule {
           <span class="practice-tag">Silent Retreat</span>
           <span class="practice-tag">Shamata Meditation</span>
           <span class="practice-tag">Ashram Yoga</span>
-          <span class="practice-tag">Move Beyond</span>
           <span class="practice-tag">Vedic Fire Puja</span>
           <span class="practice-tag">Ayurveda</span>
           <span class="practice-tag">Tibetan Bowl</span>

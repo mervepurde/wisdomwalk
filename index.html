@@ -123,7 +123,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .manifesto { background: #f7f3ea; padding: 116px 56px; text-align: center; }
 .manifesto h2 {
   font-size: clamp(30px, 4vw, 50px); font-weight: 300; color: #1e1c18;
-  line-height: 1.25; margin-bottom: 32px; letter-spacing: -0.3px;
+  line-height: 1.25; margin-bottom: 44px; letter-spacing: -0.3px;
 }
 .manifesto h2 em { font-style: italic; color: #6a5a28; }
 .manifesto-body { margin-bottom: 44px; }
@@ -136,11 +136,10 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .manifesto-rule { width: 56px; height: 0.5px; background: rgba(122,104,48,0.3); margin: 52px auto; }
 .manifesto-split {
-  display: flex; gap: 56px; align-items: center;
+  display: flex; gap: 56px; align-items: flex-start;
   max-width: 960px; margin: 0 auto 44px; text-align: left;
 }
 .manifesto-split .manifesto-body { flex: 1; margin-bottom: 0; }
-.manifesto-split .manifesto-body h2 { max-width: 620px; margin-left: 0; margin-right: 0; }
 .manifesto-split .manifesto-body p { max-width: none; margin: 0 0 22px; }
 .manifesto-split .manifesto-body p:last-child { margin-bottom: 0; }
 .manifesto-video {
@@ -294,8 +293,8 @@ a.pillar-tag:hover {
   font-size: 22px; font-weight: 300; color: #1e1c18;
 }
 .upcoming-group-desc {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px;
-  text-transform: uppercase; color: rgba(30,28,24,0.72); font-weight: 300;
+  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(122,104,48,0.45);
 }
 .upcoming-pair {
   display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
@@ -645,7 +644,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .hero h1 { font-size: clamp(32px, 5vw, 50px); margin-bottom: 32px; }
   .hero p { font-size: 16px; }
   .manifesto, .philosophy, .testimonials, .past-walks, .upcoming { padding: 64px 24px; }
-  .manifesto-split { flex-direction: column; gap: 36px; align-items: stretch; }
+  .manifesto-split { flex-direction: column; gap: 36px; }
   .manifesto-video { aspect-ratio: 16/9; width: 100%; }
   .upcoming-pair { grid-template-columns: 1fr; }
   .upcoming-group-header { flex-direction: column; gap: 6px; }
@@ -698,42 +697,6 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   footer { padding: 16px; }
   .footer-links { gap: 16px; flex-direction: column; }
 }
-
-/* LA FAMILIA BANNER — alignment fix */
-.circle-banner-form {
-  align-items: flex-start !important;
-  margin-left: 0 !important;
-}
-.circle-banner-form form,
-.circle-banner-form .circle-banner-form-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.circle-banner-note {
-  width: 280px !important;
-  text-align: left !important;
-  align-self: flex-start !important;
-  margin-left: 0 !important;
-  margin-top: 18px !important;
-}
-@media (max-width: 768px) {
-  .circle-banner-form {
-    width: 100% !important;
-  }
-  .circle-banner-form form,
-  .circle-banner-form .circle-banner-form-row {
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .circle-banner-input,
-  .circle-banner-note {
-    width: 100% !important;
-  }
-}
-
-
 /* HOME COPY UPDATE — upcoming intro */
 .upcoming-intro {
   margin-top: 18px;
@@ -742,7 +705,6 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   color: #4a4438;
   font-weight: 300;
 }
-
 </style>
 <script>
 window.addEventListener('scroll', function() {
@@ -803,9 +765,9 @@ function handleIndexCircle(e) {
     <h1>Walk the land.<br><em>Let the land walk you.</em></h1>
     <div class="hero-rule"></div>
     <div class="hero-stanzas">
-      <p class="stanza-break">A different way of walking.<br>A different way of being together.</p>
-      <p class="stanza-break">Closer to the land,<br>to each other,<br>and to yourself.</p>
-      <p>Through nature, culture, and shared time,<br>we slow things down,<br>pay attention,<br>and begin to feel what&rsquo;s already here.</p>
+      <p class="stanza-break">A different way of walking. A different way of being together.</p>
+      <p class="stanza-break">Closer to the land, to each other, and to yourself.</p>
+      <p>Through nature, culture, and shared time, we slow things down, pay attention, and begin to feel what&rsquo;s already here.</p>
     </div>
     <div class="hero-btn-wrap">
       <a href="walks.html" class="hero-btn">Walks</a>
@@ -819,11 +781,9 @@ function handleIndexCircle(e) {
   <div class="manifesto-split">
     <div class="manifesto-body">
       <h2>We come as students.<br>The land is <em>the teacher.</em></h2>
-      <p>We listen to the land,<br>and to the wisdom carried by those who belong to it.</p>
-      <p>We learn through its rhythms,<br>its stories,<br>and its quiet ways of speaking.</p>
-      <p>This is not about searching for something new.<br>It&rsquo;s about spending time with what is already here.</p>
-      <p>Being with it.<br>Moving with it.<br>Letting it shape the way we relate.</p>
-      <p class="remembered">And somewhere along the way,<br>something shifts.<br><br>We soften,<br>we open,<br>and we begin to remember.</p>
+      <p>We listen to the land, and to the wisdom carried by those who belong to it. We learn through its rhythms, its stories, and its quiet ways of speaking.</p>
+      <p>We spend time with what is already here. Being with the land, moving through it, and letting the experience unfold over time.</p>
+      <p class="remembered">And somewhere along the way, something shifts. We soften, we open, and we begin to remember.</p>
     </div>
     <div class="manifesto-video">
       <iframe
@@ -852,18 +812,18 @@ function handleIndexCircle(e) {
   <div class="upcoming-header">
     <div class="upcoming-label">&#10022; What's opening</div>
     <h2>Upcoming Walks &amp; Harvests</h2>
-    <p class="upcoming-intro">Small group retreats and journeys,<br>shaped by the land.</p>
+    <p class="upcoming-intro">Small group retreats and journeys shaped by the land.</p>
   </div>
 
   <!-- HARVESTS -->
   <div class="upcoming-group">
     <div class="upcoming-group-header">
       <h3 class="upcoming-group-title">Harvests</h3>
-      <span class="upcoming-group-desc">2 &ndash; 3 days &nbsp;&middot;&nbsp; Seasonal Harvest Retreats</span>
+      <span class="upcoming-group-desc">2 &ndash; 3 days &nbsp;&middot;&nbsp; Seasonal Harvest Retreat with long table</span>
     </div>
     <div class="upcoming-pair">
       <div class="upcoming-pair-card">
-        <img src="photos/lavender%20upcoming.jpg" alt="Lavender Harvest, Ida Mountains" class="upcoming-pair-img" style="object-position: center top;">
+        <img src="photos/lavender%20upcoming.jpg" alt="Lavender Harvest, Ida Mountains" class="upcoming-pair-img">
         <div class="upcoming-pair-body">
           <div class="card-priority-tag">&#9889; Now open</div>
           <div class="card-type card-type-earth">Harvest</div>
@@ -890,7 +850,7 @@ function handleIndexCircle(e) {
   <div class="upcoming-group">
     <div class="upcoming-group-header">
       <h3 class="upcoming-group-title">Walks</h3>
-      <span class="upcoming-group-desc">7 &ndash; 14 days &nbsp;&middot;&nbsp; Retreat Journeys through Sacred Lands</span>
+      <span class="upcoming-group-desc">7 &ndash; 14 days &nbsp;&middot;&nbsp; Journeys through sacred lands</span>
     </div>
     <div class="upcoming-pair">
       <div class="upcoming-pair-card">
@@ -1009,7 +969,7 @@ function handleIndexCircle(e) {
         <input type="email" id="indexCircleEmail" class="circle-banner-input" placeholder="your e-mail" required>
         <button type="submit" class="circle-banner-btn">Join La Familia &rarr;</button>
       </form>
-      <p class="circle-banner-note">No noise &nbsp;&middot;&nbsp; Only what matters</p>
+      <p class="circle-banner-note">No noise &nbsp;&middot;&nbsp; Only what matters &nbsp;&middot;&nbsp; <a href="la-familia.html" class="circle-banner-link">About La Familia &rarr;</a></p>
     </div>
   </div>
 </section>
