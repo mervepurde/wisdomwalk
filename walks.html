@@ -144,76 +144,164 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .what-body p + p { margin-top: 18px; }
 
-/* UPCOMING — light featured blocks */
+/* UPCOMING WALKS — matching Harvest upcoming layout */
 .upcoming-section {
-  background: #f7f3ea; padding: 80px; position: relative; overflow: hidden;
+  background: #f7f3ea;
+  padding: 72px 80px;
+  position: relative;
+  overflow: hidden;
 }
-.upcoming-section::before { display: none; }
-.upcoming-inner { position: relative; z-index: 2; max-width: 1060px; margin: 0 auto; }
-.upcoming-header { margin-bottom: 52px; }
+.upcoming-section::before {
+  display: none;
+}
+.upcoming-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+.upcoming-header {
+  margin-bottom: 48px;
+}
 .section-eyebrow-light {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px;
-  text-transform: uppercase; color: rgba(196,165,90,0.88); margin-bottom: 18px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.88);
+  margin-bottom: 16px;
 }
 .upcoming-title {
-  font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 46px);
-  font-weight: 300; font-style: italic; color: #2a2822; line-height: 1.2;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  font-style: italic;
+  color: #2a2822;
+  line-height: 1.2;
 }
 .upcoming-featured {
-  display: grid; grid-template-columns: 1.2fr 1fr; gap: 2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
   background: rgba(196,165,90,0.12);
 }
-.upcoming-featured + .upcoming-featured { margin-top: 2px; }
-.upcoming-featured:nth-of-type(even) .featured-card { background: #f7f3ea; }
-.upcoming-featured.reversed { direction: rtl; }
-.upcoming-featured.reversed > * { direction: ltr; }
-.featured-image { position: relative; overflow: hidden; }
+.upcoming-featured + .upcoming-featured {
+  margin-top: 2px;
+}
+.upcoming-featured.reversed {
+  direction: ltr;
+}
+.upcoming-featured.reversed .featured-image {
+  order: 2;
+}
+.upcoming-featured.reversed .featured-card {
+  order: 1;
+}
+.featured-image {
+  position: relative;
+  overflow: hidden;
+  background: #e8e0d0;
+}
 .featured-image img {
-  width: 100%; height: 100%; min-height: 460px;
-  object-fit: cover; display: block;
-  filter: sepia(8%) contrast(1.04) brightness(0.92);
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  display: block;
+  filter: sepia(10%) contrast(1.04) brightness(0.92);
   transition: transform 0.8s ease;
 }
-.upcoming-featured:hover .featured-image img { transform: scale(1.03); }
+.upcoming-featured:hover .featured-image img {
+  transform: scale(1.03);
+}
 .featured-card {
-  background: #f0ebe0; padding: 52px 44px;
-  display: flex; flex-direction: column; justify-content: center;
+  background: #f7f3ea;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.upcoming-featured:nth-of-type(even) .featured-card {
+  background: #f0ebe0;
 }
 .featured-region {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px;
-  text-transform: uppercase; color: rgba(122,104,48,0.7); margin-bottom: 14px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.78);
+  margin-bottom: 16px;
 }
 .featured-title {
-  font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3vw, 34px);
-  font-weight: 300; font-style: italic; color: #2a2822; line-height: 1.2; margin-bottom: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 300;
+  font-style: italic;
+  color: #2a2822;
+  line-height: 1.2;
+  margin-bottom: 12px;
 }
 .featured-subtitle {
-  font-family: 'Cormorant Garamond', serif; font-size: 15px;
-  font-weight: 300; color: rgba(42,40,34,0.52); margin-bottom: 24px;
-  font-style: italic; line-height: 1.6;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(42,40,34,0.52);
+  margin-bottom: 28px;
+  font-style: italic;
+  line-height: 1.6;
 }
-.featured-meta { display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px; }
-.meta-row { display: flex; gap: 12px; align-items: flex-start; }
+.featured-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.meta-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
 .meta-lbl {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.5px;
-  text-transform: uppercase; color: rgba(122,104,48,0.62); width: 64px; flex-shrink: 0; padding-top: 2px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.78);
+  width: 64px;
+  flex-shrink: 0;
+  padding-top: 2px;
 }
 .meta-val {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1px;
-  color: rgba(42,40,34,0.72);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  color: rgba(42,40,34,0.62);
 }
 .featured-desc {
-  font-family: 'Cormorant Garamond', serif; font-size: 16px;
-  font-weight: 300; line-height: 1.8; color: #4a4238;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: #4a4238;
   margin-bottom: 32px;
 }
 .featured-link {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
-  text-transform: uppercase; color: #c4a55a; text-decoration: none;
-  border-bottom: 0.5px solid rgba(196,165,90,0.35); padding-bottom: 4px;
-  transition: all 0.3s; display: inline-block; align-self: flex-start;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #9a7836;
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(154,120,54,0.35);
+  padding-bottom: 4px;
+  transition: all 0.3s;
+  display: inline-block;
+  align-self: flex-start;
 }
-.featured-link:hover { color: #d4b56a; border-color: rgba(196,165,90,0.88); }
+.featured-link:hover {
+  color: #6a4f1f;
+  border-color: rgba(154,120,54,0.8);
+}
 
 /* PAST JOURNEYS */
 .past-section { background: #f7f3ea; padding: 80px; }
@@ -533,8 +621,6 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 }
 
 @media (max-width: 1020px) {
-  .upcoming-featured { grid-template-columns: 1fr; }
-  .upcoming-featured.reversed { direction: ltr; }
   .featured-image img { min-height: 300px; }
   .featured-card { padding: 40px 32px; }
   .journey-upper,
@@ -574,6 +660,67 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .apply-cta { padding: 52px 24px; }
   footer { padding: 28px 24px; }
 }
+
+
+/* UPCOMING WALKS mobile stacking */
+@media (max-width: 768px) {
+  .upcoming-section { padding: 48px 24px; }
+  .upcoming-featured,
+  .upcoming-featured.reversed {
+    grid-template-columns: 1fr !important;
+  }
+  .upcoming-featured.reversed .featured-image,
+  .upcoming-featured.reversed .featured-card {
+    order: initial !important;
+  }
+  .featured-image img { min-height: 280px; }
+  .featured-card { padding: 32px 24px; }
+}
+@media (max-width: 480px) {
+  .upcoming-section { padding: 32px 16px; }
+  .featured-card { padding: 24px 20px 28px; }
+}
+
+/* FORCE FIX — Walks page hero/nav visibility */
+body nav,
+body nav.scrolled {
+  background: rgba(14,12,8,0.72) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+body .nav-logo,
+body .nav-links a,
+body .action-link,
+body .nav-hamburger {
+  color: rgba(237,228,208,0.92) !important;
+}
+body .nav-links a:hover,
+body .action-link:hover {
+  color: rgba(237,228,208,1) !important;
+}
+body .hero-content {
+  position: relative !important;
+  z-index: 5 !important;
+}
+body .hero-label {
+  color: rgba(196,165,90,0.92) !important;
+}
+body .hero-title,
+body .hero-body {
+  color: #ede4d0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+body .hero-overlay {
+  z-index: 1 !important;
+}
+body .hero-bg {
+  z-index: 0 !important;
+}
+body .hero-rule {
+  background: rgba(196,165,90,0.45) !important;
+}
+
 </style>
 </head>
 <body>
@@ -727,7 +874,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
       <div class="journey-upper">
         <div class="journey-media">
           <iframe
-            src="https://www.youtube.com/embed/0cSZep_WOFQ?autoplay=1&mute=1&loop=1&playlist=0cSZep_WOFQ&controls=0&playsinline=1"
+            src="https://www.youtube.com/embed/BJRr80bvS50?autoplay=1&mute=1&loop=1&playlist=0cSZep_WOFQ&controls=0&playsinline=1"
             allow="autoplay; encrypted-media"
             allowfullscreen
             loading="lazy"
