@@ -190,13 +190,22 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
   color: rgba(196,165,90,0.78); margin-bottom: 20px;
 }
+.pillar-icon {
+  width: 34px; height: 34px; color: rgba(196,165,90,0.68);
+  margin-bottom: 18px;
+}
+.pillar-icon svg { width: 34px; height: 34px; display: block; }
+.pillar-icon path {
+  fill: none; stroke: currentColor; stroke-width: 1.05;
+  stroke-linecap: round; stroke-linejoin: round;
+}
 .pillar-title {
   font-family: 'Cormorant Garamond', serif; font-size: 26px;
   font-weight: 400; font-style: italic; color: #2a2822; margin-bottom: 16px;
 }
 .pillar-body {
   font-family: 'Cormorant Garamond', serif; font-size: 17px;
-  font-weight: 300; line-height: 1.85; color: #4a4238;
+  font-weight: 300; line-height: 1.72; color: #4a4238;
 }
 
 /* UPCOMING GATHERING */
@@ -595,7 +604,7 @@ img[src="photos/lavender%20upcoming.jpg"] {
   <div class="hero-content">
     <p class="hero-label">2–3 days · Seasonal retreats</p>
     <h1 class="hero-title">Harvests</h1>
-    <p class="hero-body">Gatherings around a seasonal harvest.<br>Working with the land, sharing a long table, staying close to it.</p>
+    <p class="hero-body">Gatherings around a seasonal harvest.<br>Working with the land, sharing a long table, staying close.</p>
     <a href="la-familia.html#apply" class="hero-cta">Join the harvest</a>
   </div>
 </section>
@@ -606,7 +615,7 @@ img[src="photos/lavender%20upcoming.jpg"] {
   <div class="what-grid">
     <div class="what-text">
       <p class="what-eyebrow">What is a Harvest</p>
-      <h2 class="what-title">A few days shaped by the season.</h2>
+      <h2 class="what-title">Shaped by the season, held by the land.</h2>
       <div class="what-body">
         <p>A Harvest is a few days shaped by the season — olives, grapes, herbs, depending on the time of year.</p>
         <p>We spend time with the land, take part in the work, and gather around what it offers. The days are simple and open: being outside, making a harvest together, sharing long tables, and letting things unfold at their own pace.</p>
@@ -631,23 +640,23 @@ img[src="photos/lavender%20upcoming.jpg"] {
   <div class="pillars-inner">
     <div class="pillars-header">
       <p class="section-eyebrow">How We Gather</p>
-      <h2 class="pillars-title">Three threads, held through the day.</h2>
+      <h2 class="pillars-title">What shapes the day</h2>
     </div>
     <div class="pillars-grid">
       <div class="pillar-card">
-        <p class="pillar-number">I</p>
+        <div class="pillar-number pillar-icon" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M8 25c8-2 15-8 20-17"/><path d="M15 19c-3-3-4-6-3-9 4 1 6 4 6 8"/><path d="M21 14c3-4 6-5 10-4-1 4-4 6-9 7"/></svg></div>
         <h3 class="pillar-title">The Harvest</h3>
-        <p class="pillar-body">We arrive with the season — olives, grapes, herbs — each with its own timing.<br><br>We spend time working alongside the people who know this land well. Most of what we learn happens through doing — slowly, with attention, and often without needing many words.</p>
+        <p class="pillar-body">We arrive with the season — olives, grapes, herbs — each with its own timing.<br>We spend time working alongside the people who know this land well. Most of what we learn happens through doing — slowly, with attention, and often without needing many words.</p>
       </div>
       <div class="pillar-card">
-        <p class="pillar-number">II</p>
+        <div class="pillar-number pillar-icon" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M8 17h20"/><path d="M11 17c1 5 2 8 2 12"/><path d="M25 17c-1 5-2 8-2 12"/><path d="M13 13c3-2 7-2 10 0"/></svg></div>
         <h3 class="pillar-title">The Shared Table</h3>
-        <p class="pillar-body">At the end of the day, we come together around the table.<br><br>We eat what the land has offered. We sit a little longer. Conversations open, the pace softens, and something shifts in how we meet each other.<br><br>The table becomes part of the experience — a different kind of nourishment, shaped by the day we’ve shared.</p>
+        <p class="pillar-body">At the end of the day, we come together around the table.<br>We eat what the land has offered. We sit a little longer. Conversations open, the pace softens, and something shifts in how we meet each other.<br>The table becomes part of the experience — a different kind of nourishment, shaped by the day we’ve shared.</p>
       </div>
       <div class="pillar-card">
-        <p class="pillar-number">III</p>
+        <div class="pillar-number pillar-icon" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M7 21c5-6 10-6 15 0s8 5 10 0"/><path d="M10 15c4-4 8-4 12 0"/><path d="M15 26c4 3 8 3 12 0"/></svg></div>
         <h3 class="pillar-title">The Movement</h3>
-        <p class="pillar-body">Throughout the day, we gather.<br><br>In the mornings and evenings — for movement, for stillness, for being in the body together. Sometimes we dance, sometimes we sit in circle, sometimes we simply stay with what is there.<br><br>It’s not separate from the day. It belongs to it.</p>
+        <p class="pillar-body">Throughout the day, we gather.<br>In the mornings and evenings — for movement, for stillness, for being in the body together. Sometimes we dance, sometimes we sit in circle, sometimes we simply stay with what is there.<br>It’s not separate from the day. It belongs to it.</p>
       </div>
     </div>
   </div>
@@ -725,8 +734,7 @@ img[src="photos/lavender%20upcoming.jpg"] {
 <!-- APPLY CTA -->
 <section class="apply-cta">
   <div class="apply-cta-inner">
-    <p class="apply-cta-label">Applications</p>
-    <h2 class="apply-cta-title">What the season offers, it offers once. Then it moves on.</h2>
+    <h2 class="apply-cta-title">Each harvest comes and goes.<br>We meet it while it's here.</h2>
     <p class="apply-cta-body">Tell us what's drawing you here, and we'll take it from there.</p>
     <a href="la-familia.html#apply" class="btn-gold">Join the harvest</a>
   </div>
