@@ -698,6 +698,41 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   footer { padding: 16px; }
   .footer-links { gap: 16px; flex-direction: column; }
 }
+
+/* LA FAMILIA BANNER — alignment fix */
+.circle-banner-form {
+  align-items: flex-start !important;
+  margin-left: 0 !important;
+}
+.circle-banner-form form,
+.circle-banner-form .circle-banner-form-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.circle-banner-note {
+  width: 280px !important;
+  text-align: left !important;
+  align-self: flex-start !important;
+  margin-left: 0 !important;
+  margin-top: 18px !important;
+}
+@media (max-width: 768px) {
+  .circle-banner-form {
+    width: 100% !important;
+  }
+  .circle-banner-form form,
+  .circle-banner-form .circle-banner-form-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .circle-banner-input,
+  .circle-banner-note {
+    width: 100% !important;
+  }
+}
+
 </style>
 <script>
 window.addEventListener('scroll', function() {
@@ -961,7 +996,7 @@ function handleIndexCircle(e) {
         <input type="email" id="indexCircleEmail" class="circle-banner-input" placeholder="your e-mail" required>
         <button type="submit" class="circle-banner-btn">Join La Familia &rarr;</button>
       </form>
-      <p class="circle-banner-note">No noise &nbsp;&middot;&nbsp; Only what matters &nbsp;&middot;&nbsp; <a href="la-familia.html" class="circle-banner-link">About La Familia &rarr;</a></p>
+      <p class="circle-banner-note">No noise &nbsp;&middot;&nbsp; Only what matters</p>
     </div>
   </div>
 </section>
