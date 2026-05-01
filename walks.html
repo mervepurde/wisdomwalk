@@ -702,6 +702,123 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .apply-cta { padding: 52px 24px; }
   footer { padding: 28px 24px; }
 }
+
+/* FINAL PATCH — Walks upcoming Harvest-style cards */
+.walks-upcoming-section {
+  background: #f7f3ea;
+  padding: 72px 80px;
+}
+.walks-upcoming-inner { max-width: 1060px; margin: 0 auto; }
+.walks-upcoming-header { margin-bottom: 48px; }
+.walks-upcoming-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.88);
+  margin-bottom: 16px;
+}
+.walks-upcoming-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  font-style: italic;
+  color: #2a2822;
+  line-height: 1.2;
+}
+.walks-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: rgba(196,165,90,0.12);
+}
+.walks-card {
+  background: #f7f3ea;
+  display: flex;
+  flex-direction: column;
+}
+.walks-card:nth-child(even) { background: #f0ebe0; }
+.walks-card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  filter: sepia(8%) contrast(1.04) brightness(0.92);
+}
+.walks-card-body {
+  padding: 32px 36px 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.walks-card-tag {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.78);
+  margin-bottom: 14px;
+}
+.walks-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 300;
+  font-style: italic;
+  color: #2a2822;
+  margin-bottom: 8px;
+}
+.walks-card-date {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.75);
+  margin-bottom: 20px;
+}
+.walks-card-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: #4a4238;
+  margin-bottom: 18px;
+  flex: 1;
+}
+.walks-card-tags {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(122,104,48,0.62);
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+.walks-card-link {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #9a7836;
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(154,120,54,0.35);
+  padding-bottom: 4px;
+  transition: all 0.3s;
+  display: inline-block;
+  align-self: flex-start;
+}
+.walks-card-link:hover {
+  color: #6a4f1f;
+  border-color: rgba(154,120,54,0.8);
+}
+@media (max-width: 768px) {
+  .walks-upcoming-section { padding: 48px 24px; }
+  .walks-cards-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .walks-upcoming-section { padding: 32px 16px; }
+  .walks-card-body { padding: 24px 20px 28px; }
+}
+
 </style>
 </head>
 <body>
@@ -743,7 +860,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-label">Retreat journeys</p>
+    <p class="hero-label">7–14 days · Retreat journeys</p>
     <h1 class="hero-title">Walks</h1>
     <div class="hero-rule"></div>
     <p class="hero-body">Small group journeys across different lands, each with its own rhythm, its own way of being.</p>
