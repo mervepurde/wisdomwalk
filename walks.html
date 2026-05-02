@@ -411,6 +411,19 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .journey-media--landscape iframe {
   width: 100%; height: 100%;
 }
+.journey-media.youtube-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: #1e1b14;
+  animation: youtubeStartMaskWalks 3.2s ease forwards;
+}
+@keyframes youtubeStartMaskWalks {
+  0%, 82% { opacity: 1; }
+  100% { opacity: 0; }
+}
 
 .journey-card:hover .journey-media video,
 .journey-card:hover .journey-media img { transform: scale(1.03); }

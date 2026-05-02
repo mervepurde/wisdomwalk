@@ -153,6 +153,19 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
+.manifesto-video.youtube-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: #f7f3ea;
+  animation: youtubeStartMaskIndex 3.2s ease forwards;
+}
+@keyframes youtubeStartMaskIndex {
+  0%, 82% { opacity: 1; }
+  100% { opacity: 0; }
+}
 
 .manifesto-words { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
 .manifesto-words span {
