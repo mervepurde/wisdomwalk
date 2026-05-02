@@ -160,19 +160,14 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   position: relative; width: 100%; aspect-ratio: 4/5; overflow: hidden;
 }
 .what-video-wrap iframe {
-  position: absolute; top: 50%; left: 50%; width: 120%; height: 120%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 316%;
+  height: 142%;
   border: none;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
-.what-video-wrap.youtube-video::after {
-  content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background: #1a1610;
-  animation: youtubeStartMask 2.2s ease forwards;
-}
-@keyframes youtubeStartMask {
-  0%, 72% { opacity: 1; }
-  100% { opacity: 0; }
 }
 
 /* THREE PILLARS OF GATHERING */
@@ -633,10 +628,11 @@ img[src="photos/lavender%20upcoming.jpg"] {
         <p>Over time, something shifts — in how we relate to the land, to food, and to each other.</p>
       </div>
     </div>
-    <div class="what-video-wrap youtube-video">
+    <div class="what-video-wrap">
       <iframe
-        src="https://www.youtube.com/embed/9JB2rccCoZM?autoplay=1&mute=1&loop=1&playlist=9JB2rccCoZM&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&amp;vq=hd1080"
+        src="https://www.youtube.com/embed/9JB2rccCoZM?autoplay=1&mute=1&loop=1&playlist=9JB2rccCoZM&controls=0&playsinline=1"
         allow="autoplay; encrypted-media"
+        allowfullscreen
         loading="lazy"
       ></iframe>
     </div>

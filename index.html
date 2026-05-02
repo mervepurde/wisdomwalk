@@ -148,25 +148,15 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   border: 0.5px solid rgba(122,104,48,0.12);
 }
 .manifesto-video iframe {
-  position: absolute; top: 50%; left: 50%;
-  width: 120%; height: 120%; border: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 316%;
+  height: 100%;
+  border: 0;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
-.manifesto-video.youtube-video::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: #f7f3ea;
-  animation: youtubeStartMaskIndex 3.2s ease forwards;
-}
-@keyframes youtubeStartMaskIndex {
-  0%, 82% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
 .manifesto-words { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
 .manifesto-words span {
   font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 4px;
@@ -660,8 +650,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .hero p { font-size: 16px; }
   .manifesto, .philosophy, .testimonials, .past-walks, .upcoming { padding: 64px 24px; }
   .manifesto-split { flex-direction: column; gap: 36px; }
-  .manifesto-video { aspect-ratio: 4/5; width: 100%; }
-  .manifesto-video iframe { width: 120%; height: 120%; }
+  .manifesto-video { aspect-ratio: 16/9; width: 100%; }
   .upcoming-pair { grid-template-columns: 1fr; }
   .upcoming-group-header { flex-direction: column; gap: 6px; }
   .pillars, .cards, .testimonials-grid { grid-template-columns: 1fr; }
@@ -867,9 +856,9 @@ function handleIndexCircle(e) {
       <p>We spend time with what is already here. Being with the land, moving through it, and letting the experience unfold over time.</p>
       <p class="remembered">And somewhere along the way, something shifts. We soften, we open, and we begin to remember.</p>
     </div>
-    <div class="manifesto-video youtube-video">
+    <div class="manifesto-video">
       <iframe
-        src="https://www.youtube.com/embed/Z0L0toxiWBU?autoplay=1&mute=1&loop=1&playlist=Z0L0toxiWBU&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&amp;vq=hd1080"
+        src="https://www.youtube.com/embed/Z0L0toxiWBU?autoplay=1&mute=1&loop=1&playlist=Z0L0toxiWBU&controls=0&playsinline=1&rel=0&modestbranding=1"
         allow="autoplay; encrypted-media"
         frameborder="0"></iframe>
     </div>
