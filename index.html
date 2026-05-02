@@ -1035,9 +1035,12 @@ function handleIndexCircle(e) {
       <p class="circle-banner-copy">Field notes from the road.<br>Early access to new walks and harvests. A quiet welcome.</p>
     </div>
     <div class="circle-banner-form">
-      <!-- SUBSTACK: embed here -->
-      <form onsubmit="handleIndexCircle(event)">
-        <input type="email" id="indexCircleEmail" class="circle-banner-input" placeholder="your e-mail" required>
+      <form action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST">
+        <input name="_subject" type="hidden" value="New La Familia signup from homepage"/>
+        <input name="_captcha" type="hidden" value="false"/>
+        <input name="_template" type="hidden" value="table"/>
+        <input name="_next" type="hidden" value="https://wisdomwalk.earth/la-familia"/>
+        <input type="email" id="indexCircleEmail" name="email" class="circle-banner-input" placeholder="your e-mail" required>
         <button type="submit" class="circle-banner-btn">Join La Familia &rarr;</button>
       </form>
       <p class="circle-banner-note">No noise &nbsp;&middot;&nbsp; Only what matters</p>
