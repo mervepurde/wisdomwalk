@@ -820,6 +820,121 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .walks-card-body { padding: 24px 20px 28px; }
 }
 
+
+/* FINAL CTA PATCH */
+.hero-cta-group {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.hero-cta-secondary {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(237,228,208,0.92);
+  text-decoration: none;
+  border: 0.5px solid rgba(237,228,208,0.42);
+  padding: 13px 30px;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.hero-cta-secondary:hover {
+  border-color: rgba(196,165,90,0.78);
+  color: #c4a55a;
+}
+
+.what-cta {
+  margin-top: 30px;
+}
+
+.what-cta a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #9a7836;
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(154,120,54,0.35);
+  padding-bottom: 4px;
+  transition: all 0.3s;
+}
+
+.what-cta a:hover {
+  color: #6a4f1f;
+  border-color: rgba(154,120,54,0.8);
+}
+
+@media (max-width: 600px) {
+  .hero-cta-group {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .hero-cta-secondary,
+  .hero-cta {
+    padding: 12px 22px;
+    font-size: 10.5px;
+  }
+}
+
+.walk-cta {
+  margin-top: 20px;
+}
+.walk-cta a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #9a7836;
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(154,120,54,0.35);
+  padding-bottom: 4px;
+}
+.final-cta {
+  margin-top: 24px;
+}
+
+/* FINAL CTA POSITION PATCH */
+.walks-card-body {
+  justify-content: flex-start !important;
+}
+
+.walks-card-desc {
+  flex: 0 0 auto !important;
+  margin-bottom: 18px !important;
+}
+
+.walks-card-tags {
+  margin-bottom: 14px !important;
+}
+
+.walk-cta {
+  margin-top: 8px !important;
+}
+
+.walk-cta a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #9a7836;
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(154,120,54,0.35);
+  padding-bottom: 4px;
+  display: inline-block;
+}
+
+.walk-cta a:hover {
+  color: #6a4f1f;
+  border-color: rgba(154,120,54,0.8);
+}
+
+.final-cta {
+  margin-top: 24px !important;
+}
 </style>
 </head>
 <body>
@@ -840,7 +955,6 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <div class="action-group">
 <a class="action-link" href="la-familia.html">La Familia</a>
 <div class="action-sep"></div>
-
 <div class="action-sep"></div>
 <a class="action-link" href="la-familia.html#bespoke">Bespoke</a>
 </div>
@@ -850,7 +964,6 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <a href="harvests.html">Harvests</a>
 <a href="about.html">About</a>
 <a href="la-familia.html">La Familia</a>
-
 <a href="la-familia.html#bespoke">Bespoke</a>
 </div>
 </nav>
@@ -864,8 +977,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <div class="hero-rule"></div>
 <p class="hero-body">Small group journeys across different lands, each with its own rhythm, its own way of being.</p>
 <p class="hero-meta">7–14 days · Small group</p>
-
-</div>
+<div class="hero-cta-group"><a class="hero-cta" href="#upcoming">Upcoming</a><a class="hero-cta-secondary" href="#past-journeys">Past</a></div></div>
 </section>
 <!-- WHAT IS A MAGIC WALK -->
 <section style="background:#f7f3ea; padding:0;">
@@ -877,7 +989,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <p>Each day takes shape around the land itself — its paths, stories, people, rituals, silence, and what unfolds along the way. Some parts are planned, some are left open. The rhythm changes as the journey moves, and so does the way we pay attention.</p>
 <p>Each journey lasts between 7 and 14 days, in small groups. We stay close to the land and spend time with the people who know it well. There is a structure, but it stays open enough for things to unfold.</p>
 </div>
-</div>
+<div class="what-cta"><a href="about.html#how-we-walk">Learn how we walk →</a></div></div>
 </section>
 <!-- UPCOMING WALKS -->
 <section class="walks-upcoming-section" id="upcoming">
@@ -894,8 +1006,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <h3 class="walks-card-title">Oaxaca &amp; the South</h3>
 <p class="walks-card-date">Autumn 2026 · 10 days</p>
 <p class="walks-card-desc">Moving through villages, markets, and surrounding landscapes, with time spent in the everyday life of the region.</p>
-<p class="walks-card-tags">Ancient sites · cenotes · temazcal · cacao</p>
-
+<p class="walks-card-tags">Ancient sites · cenotes · temazcal · cacao</p><div class="walk-cta"><a href="#apply">Join the walk →</a></div>
 </div>
 </article>
 <article class="walks-card">
@@ -905,8 +1016,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <h3 class="walks-card-title">Sacred Valley &amp; Amazon</h3>
 <p class="walks-card-date">Autumn 2026 · 12 days</p>
 <p class="walks-card-desc">Moving between mountains and jungle over several days, with time spent in the Sacred Valley and along the river.</p>
-<p class="walks-card-tags">Mountains · jungle · river · plant wisdom</p>
-
+<p class="walks-card-tags">Mountains · jungle · river · plant wisdom</p><div class="walk-cta"><a href="#apply">Join the walk →</a></div>
 </div>
 </article>
 </div>
@@ -1244,9 +1354,8 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <!-- APPLY CTA -->
 <section class="apply-cta">
 <div class="apply-cta-inner">
-<h2 class="apply-cta-title">If something here stays with you,</h2>
-<p class="apply-cta-body">Tell us what's drawing you here, and we'll take it from there.</p>
-
+<h2 class="apply-cta-title">If something here stays with you,</h2><div></div>
+<p class="apply-cta-body">Tell us what's drawing you here, and we'll take it from there.</p><div class="final-cta"><a class="btn-gold" href="#apply">Walk with us</a></div>
 </div>
 </section>
 <!-- FOOTER -->
