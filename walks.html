@@ -402,13 +402,20 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   transition: transform 0.7s ease;
 }
 .journey-media iframe {
-  width: 100%; height: 100%; display: block;
+  width: 316%;
+  height: 100%;
+  display: block;
   border: none;
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(1.08);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 .journey-media--landscape iframe {
-  transform: translate(-50%, -50%) scale(1.04);
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
 }
 .journey-card:hover .journey-media video,
 .journey-card:hover .journey-media img { transform: scale(1.03); }
@@ -619,7 +626,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
     position: absolute;
     top: 0;
     left: 0;
-    width: 225%;
+    width: 100%;
     height: 100%;
     transform: none;
   }
@@ -935,20 +942,6 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 .final-cta {
   margin-top: 24px !important;
 }
-/* MOBILE ONLY — YouTube crop fix for Walks videos (desktop untouched) */
-@media (max-width: 768px) {
-  .journey-media.youtube-video:not(.journey-media--landscape) iframe {
-    width: 225% !important;
-    height: 100% !important;
-    transform: translate(-50%, -50%) !important;
-  }
-  .journey-media--landscape.youtube-video iframe {
-    width: 100% !important;
-    height: 100% !important;
-    transform: translate(-50%, -50%) !important;
-  }
-}
-
 </style>
 </head>
 <body>
