@@ -402,7 +402,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   transition: transform 0.7s ease;
 }
 .journey-media iframe {
-  width: 178%; height: 100%; display: block;
+  width: 178%; height: 178%; display: block;
   border: none;
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
@@ -410,19 +410,6 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .journey-media--landscape iframe {
   width: 100%; height: 100%;
-}
-.journey-media.youtube-video::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: #1e1b14;
-  animation: youtubeStartMaskWalks 3.2s ease forwards;
-}
-@keyframes youtubeStartMaskWalks {
-  0%, 82% { opacity: 1; }
-  100% { opacity: 0; }
 }
 
 .journey-card:hover .journey-media video,
@@ -635,7 +622,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
     top: 50%;
     left: 50%;
     width: 222%;
-    height: 100%;
+    height: 178%;
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
