@@ -1071,24 +1071,24 @@ section:not(.principles-section):not(#principles) p {
       </p>
 </div>
 <div>
-<form onsubmit="handleSubmit(event)">
+<form action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST"><input name="_template" type="hidden" value="table"/><input name="_captcha" type="hidden" value="false"/><input name="_subject" type="hidden" value="New Wisdom Walk application from About"/>
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
 <div class="form-group">
 <label class="form-label">First Name</label>
-<input class="form-input" placeholder="Your name" type="text"/>
+<input class="form-input" name="first_name" placeholder="Your name" required="" type="text"/>
 </div>
 <div class="form-group">
 <label class="form-label">Last Name</label>
-<input class="form-input" placeholder="Your surname" type="text"/>
+<input class="form-input" name="last_name" placeholder="Your surname" required="" type="text"/>
 </div>
 </div>
 <div class="form-group">
 <label class="form-label">Email</label>
-<input class="form-input" placeholder="your@email.com" type="email"/>
+<input class="form-input" name="email" placeholder="your@email.com" required="" type="email"/>
 </div>
 <div class="form-group">
 <label class="form-label">Which journey interests you?</label>
-<select class="form-select form-input">
+<select class="form-select form-input" name="journey_interest" required="">
 <option value="">Select a journey</option>
 <option>Walk — Peru, Amazonia</option>
 <option>Walk — Mexico, Mesoamerican Path</option>
@@ -1099,9 +1099,9 @@ section:not(.principles-section):not(#principles) p {
 </div>
 <div class="form-group">
 <label class="form-label">What draws you to this?</label>
-<textarea class="form-input form-textarea" placeholder="Say as much or as little as feels right…"></textarea>
+<textarea class="form-input form-textarea" name="message" placeholder="Say as much or as little as feels right…" required=""></textarea>
 </div>
-<p class="form-note" style="; text-align:left;">We do not share your information with anyone.<br/>This is the beginning of a real conversation.</p>
+<button class="form-submit" type="submit">Walk with us</button><p class="form-note" style="; text-align:left;">We do not share your information with anyone.<br/>This is the beginning of a real conversation.</p>
 </form>
 </div>
 </div>
