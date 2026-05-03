@@ -1056,8 +1056,29 @@ section:not(.principles-section):not(#principles) p {
   .hold-card-title { font-size: 19px !important; }
   .hold-card-body { font-size: 14.5px !important; }
 }
-</style>
 
+/* LAND BACKGROUND IMAGE PATCH */
+#land-not-backdrop {
+  position: relative;
+  background-image: url('photos/mervepurde/ausangate - peru .JPG');
+  background-size: cover;
+  background-position: center;
+}
+
+#land-not-backdrop::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(240,236,224,0.82);
+  backdrop-filter: blur(2px);
+}
+
+#land-not-backdrop .why-inner {
+  position: relative;
+  z-index: 2;
+}
+
+</style>
 </head>
 <body>
 <!-- NAV -->
