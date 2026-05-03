@@ -857,7 +857,36 @@ section:not(.principles-section):not(#principles) p {
     top: 4px;
     font-size: 14px !important;
   }
-}</style></head>
+}</style>
+<style>
+/* FINAL ABOUT BIO WIDTH PATCH */
+.founder-bio {
+  max-width: 800px !important;
+  margin: 0 !important;
+}
+.founder-bio p {
+  font-size: 17px !important;
+  line-height: 1.58 !important;
+  margin-bottom: 12px !important;
+}
+.founder-bio p:nth-child(9) {
+  margin: 20px 0 !important;
+  font-weight: 500 !important;
+}
+.founder-grid {
+  max-width: 860px !important;
+}
+@media (max-width: 768px) {
+  .founder-bio {
+    max-width: 100% !important;
+  }
+  .founder-bio p {
+    font-size: 16.5px !important;
+    line-height: 1.58 !important;
+  }
+}
+</style>
+</head>
 <body>
 <!-- NAV -->
 <nav id="nav">
