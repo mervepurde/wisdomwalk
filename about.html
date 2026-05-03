@@ -742,6 +742,35 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 
 
 
+
+/* FIXED LAND IMAGE BACKGROUND */
+#land-not-backdrop {
+  position: relative;
+  background: none !important;
+}
+
+#land-not-backdrop::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("photos/mervepurde/ausangate - peru .JPG");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35;
+}
+
+#land-not-backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(247,243,234,0.9), rgba(247,243,234,0.75));
+}
+
+#land-not-backdrop .why-inner {
+  position: relative;
+  z-index: 2;
+}
+
 </style>
 <style>
 /* ABOUT PAGE BALANCE PATCH — excludes Principles section */
@@ -1056,29 +1085,8 @@ section:not(.principles-section):not(#principles) p {
   .hold-card-title { font-size: 19px !important; }
   .hold-card-body { font-size: 14.5px !important; }
 }
-
-/* LAND BACKGROUND IMAGE PATCH */
-#land-not-backdrop {
-  position: relative;
-  background-image: url('photos/mervepurde/ausangate - peru .JPG');
-  background-size: cover;
-  background-position: center;
-}
-
-#land-not-backdrop::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(240,236,224,0.82);
-  backdrop-filter: blur(2px);
-}
-
-#land-not-backdrop .why-inner {
-  position: relative;
-  z-index: 2;
-}
-
 </style>
+
 </head>
 <body>
 <!-- NAV -->
