@@ -527,7 +527,6 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   nav { padding: 16px 24px; }
   nav.scrolled { padding: 14px 24px; }
   .nav-links { display: none; }
-  .nav-row-action { display: none; }
   .nav-hamburger { display: block; }
   .nav-logo { font-size: 17px; }
   .hero-content { padding: 0 24px; }
@@ -750,55 +749,83 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 
 
 
-
-/* FINAL WORDMARK LOGO PATCH */
-.nav-logo,
-.footer-logo {
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 7px !important;
-}
-.nav-logo {
-  font-size: 17px !important;
-}
-.footer-logo {
-  font-size: 13px !important;
-}
-@media (max-width: 600px) {
-  .nav-logo {
-    font-size: 13px !important;
-    letter-spacing: 4px !important;
-  }
-  .footer-logo {
-    font-size: 11px !important;
-    letter-spacing: 4px !important;
-  }
-}
-
-
-
-/* LOGO FINAL ALIGN + SIZE */
-.nav-logo {
-  position: relative;
-  top: 6px;
-  font-size: 18px !important;
-}
-@media (max-width: 600px) {
-  .nav-logo {
-    top: 4px;
-    font-size: 14px !important;
-  }
-}
-
 </style>
-</head>
+<style>
+/* ABOUT PAGE BALANCE PATCH — excludes Principles section */
+body.about-page section:not(.principles-section):not(#principles),
+body:not(.about-page) section:not(.principles-section):not(#principles) {
+  /* no global section override */
+}
+
+/* Founder / story text balance */
+.founder-bio {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.founder-bio p {
+  font-size: 17px;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.founder-bio p:nth-child(9) {
+  margin: 24px 0;
+  font-weight: 500;
+}
+
+/* General About page spacing balance, safely scoped away from principles */
+.about-section:not(.principles-section),
+.founder-section:not(.principles-section),
+.story-section:not(.principles-section),
+.how-section:not(.principles-section),
+.approach-section:not(.principles-section),
+.bespoke-section:not(.principles-section),
+.faq-section:not(.principles-section) {
+  padding-top: 72px !important;
+  padding-bottom: 72px !important;
+}
+
+/* Headings outside Principles */
+section:not(.principles-section):not(#principles) h1,
+section:not(.principles-section):not(#principles) h2 {
+  margin-bottom: 18px;
+}
+
+/* Paragraph rhythm outside Principles */
+section:not(.principles-section):not(#principles) p {
+  margin-bottom: 14px;
+}
+
+/* Mobile balance */
+@media (max-width: 768px) {
+  .founder-bio {
+    max-width: 100%;
+  }
+
+  .founder-bio p {
+    font-size: 16.5px;
+    line-height: 1.62;
+    margin-bottom: 13px;
+  }
+
+  .about-section:not(.principles-section),
+  .founder-section:not(.principles-section),
+  .story-section:not(.principles-section),
+  .how-section:not(.principles-section),
+  .approach-section:not(.principles-section),
+  .bespoke-section:not(.principles-section),
+  .faq-section:not(.principles-section) {
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+  }
+}
+</style></head>
 <body>
 <!-- NAV -->
 <nav id="nav">
 <div class="nav-row-main">
-<a class="nav-logo" href="index.html">WISDOM WALK</a>
+<a class="nav-logo" href="index.html">Wisdom Walk</a>
 <div class="nav-links">
 <a href="walks.html">Walks</a>
 <a href="harvests.html">Harvests</a>
@@ -827,21 +854,21 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <section class="hero">
 <div class="hero-bg"></div>
 <div class="hero-overlay"></div>
-<div class="hero-content">
-<p class="hero-label">About</p>
+<div class="hero-content" style="; text-align:left; margin-left:0;">
+<p class="hero-label" style="; text-align:left;">About</p>
 <h1 class="hero-title">Walking the Path<br/>of Remembrance</h1>
-<p class="hero-subtitle">Closer to the land, to each other, and to yourself.</p>
+<p class="hero-subtitle" style="; text-align:left;">Closer to the land, to each other, and to yourself.</p>
 </div>
 </section>
 <!-- HOW WE WALK -->
 <section class="why-section" id="how-we-walk">
 <div class="why-inner">
-<p class="section-eyebrow light">The Intention</p>
+<p class="section-eyebrow light" style="; text-align:left;">The Intention</p>
 <h2 class="why-title">How We Walk</h2>
 <div class="why-body">
-<p><em>How we walk shapes how we see, and how we meet the world.</em></p>
-<p>We create the kind of space where something real can happen — through pace, attention, and the way we are together.</p>
-<p>Each walk is guided by a few simple principles, held lightly and shaped by the land itself.</p>
+<p style="; text-align:left;"><em>How we walk shapes how we see, and how we meet the world.</em></p>
+<p style="; text-align:left;">We create the kind of space where something real can happen — through pace, attention, and the way we are together.</p>
+<p style="; text-align:left;">Each walk is guided by a few simple orientations — held lightly, and shaped by the land itself.</p>
 </div>
 </div>
 </section>
@@ -852,27 +879,27 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <div class="hold-card">
 <div aria-hidden="true" class="principle-icon"><svg viewbox="0 0 36 36"><path d="M7 18c5-4 10-5 15-3"></path><path d="M22 15c3 1 5 3 7 6"></path><path d="M13 23c4 2 9 2 13-1"></path><circle cx="18" cy="18" r="1.2"></circle></svg></div>
 <h3 class="hold-card-title">Listening comes first</h3>
-<p class="hold-card-body">We come to each land as students. In the mountains of Peru, meaning doesn’t arrive right away. In the olive groves of the Aegean, things take their time. What’s asked is simple — a willingness to be taught. It often begins with silence.</p>
+<p class="hold-card-body" style="; text-align:left;">We come to each land as students. In the mountains of Peru, meaning doesn’t arrive right away. In the olive groves of the Aegean, things take their time. What’s asked is simple — a willingness to be taught. It often begins with silence.</p>
 </div>
 <div class="hold-card">
 <div aria-hidden="true" class="principle-icon"><svg viewbox="0 0 36 36"><path d="M18 31c1-8 1-17 0-25"></path><path d="M18 12c4-4 8-5 12-3"></path><path d="M18 18c-4-4-8-5-12-3"></path><path d="M18 24c5-2 8-2 11 1"></path></svg></div>
 <h3 class="hold-card-title">The land leads</h3>
-<p class="hold-card-body">Each land carries its own way of knowing. The mountains, the ancient cities, the pyramids, the forests, the deserts — each arrives with its own teaching. We follow where it leads.</p>
+<p class="hold-card-body" style="; text-align:left;">Each land carries its own way of knowing. The mountains, the ancient cities, the pyramids, the forests, the deserts — each arrives with its own teaching. We follow where it leads.</p>
 </div>
 <div class="hold-card">
 <div aria-hidden="true" class="principle-icon"><svg viewbox="0 0 36 36"><path d="M18 7c5 5 5 16 0 22"></path><path d="M18 7c-5 5-5 16 0 22"></path><path d="M11 18h14"></path><path d="M8 24c6 2 14 2 20-1"></path></svg></div>
 <h3 class="hold-card-title">The body remembers</h3>
-<p class="hold-card-body">Ancient wisdom was carried in the body — in how people walked, ate, slept, breathed, grieved, celebrated. Our work is embodied: movement, breath, stillness — not as techniques, but as languages the body already knows. Safety comes first. Depth follows.</p>
+<p class="hold-card-body" style="; text-align:left;">Ancient wisdom was carried in the body — in how people walked, ate, slept, breathed, grieved, celebrated. Our work is embodied: movement, breath, stillness — not as techniques, but as languages the body already knows. Safety comes first. Depth follows.</p>
 </div>
 <div class="hold-card">
 <div aria-hidden="true" class="principle-icon"><svg viewbox="0 0 36 36"><path d="M8 20c4-8 13-9 18-3"></path><path d="M12 25c5 4 12 4 17-1"></path><path d="M18 12c2-3 5-4 8-3"></path></svg></div>
 <h3 class="hold-card-title">We stay present with the unknown</h3>
-<p class="hold-card-body">We are already in the unknown. This journey is guiding us to sit with it. Each place reminds us of that, in its own way.</p>
+<p class="hold-card-body" style="; text-align:left;">We are already in the unknown. This journey is guiding us to sit with it. Each place reminds us of that, in its own way.</p>
 </div>
 <div class="hold-card">
 <div aria-hidden="true" class="principle-icon"><svg viewbox="0 0 36 36"><path d="M10 17c3-4 7-4 10 0"></path><path d="M16 17c3-4 7-4 10 0"></path><path d="M11 22c5 5 13 5 18 0"></path><circle cx="13" cy="14" r="1"></circle><circle cx="24" cy="14" r="1"></circle></svg></div>
 <h3 class="hold-card-title">Together, in this</h3>
-<p class="hold-card-body">We become mirrors, guides, and reminders for one another. There’s a kind of strength that comes from moving together. It gives rise to the courage to take one more step — both inward and outward.</p>
+<p class="hold-card-body" style="; text-align:left;">We become mirrors, guides, and reminders for one another. There’s a kind of strength that comes from moving together. It gives rise to the courage to take one more step — both inward and outward.</p>
 </div>
 </div>
 </div>
@@ -880,14 +907,14 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <!-- THE LAND IS NOT A BACKDROP -->
 <section class="why-section" style="background: #1a1610;">
 <div class="why-inner">
-<p class="section-eyebrow light">The Land</p>
+<p class="section-eyebrow light" style="; text-align:left;">The Land</p>
 <h2 class="why-title">The land is not a backdrop</h2>
 <div class="why-body">
-<p>Every place carries its own intelligence — a way of knowing that existed long before language.</p>
-<p>The desert teaches patience. The mountain teaches surrender. The olive grove reminds us that what grows slowly tends to give more.</p>
-<p>We come to embody what is here, as it is — through the body, through attention, through being in relationship with the land.</p>
-<p>In the Andean tradition, this is called <em>munay</em> — a quality of love that moves without force, without needing to arrive anywhere.</p>
-<p><em>And slowly, what was always here begins to be felt again.</em></p>
+<p style="; text-align:left;">Every place carries its own intelligence — a way of knowing that existed long before language.</p>
+<p style="; text-align:left;">The desert teaches patience. The mountain teaches surrender. The olive grove reminds us that what grows slowly tends to give more.</p>
+<p style="; text-align:left;">We come to embody what is here, as it is — through the body, through attention, through being in relationship with the land.</p>
+<p style="; text-align:left;">In the Andean tradition, this is called <em>munay</em> — a quality of love that moves without force, without needing to arrive anywhere.</p>
+<p style="; text-align:left;"><em>And slowly, what was always here begins to be felt again.</em></p>
 </div>
 </div>
 </section>
@@ -897,21 +924,12 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <div class="founder-grid">
 <div class="founder-right">
 <div class="founder-header">
-<p class="founder-eyebrow">How this began</p>
-<h2 class="founder-name">Merve Purde</h2>
-<p class="founder-role">Founder · Guide · Facilitator</p>
+<p class="founder-eyebrow" style="; text-align:left;">How this began</p>
+<h2 class="founder-name" style="; text-align:left; margin-left:0;">Merve Purde</h2>
+<p class="founder-role" style="; text-align:left;">Founder · Guide · Facilitator</p>
 </div>
 <div class="gold-rule"></div>
-<div class="founder-bio">
-<p>Hello, I'm Merve — walking the path of love. I walk with a practice, a few trusted collaborators, and a belief that the land still has something to offer us, if we arrive slowly enough to receive it.</p>
-<p>Wisdom Walk began as a personal reckoning. After years of working in the world of conscious travel and somatic facilitation, I found myself asking: what would it look like to create the kind of journey I had always been searching for?</p>
-<p>One that moves slowly.<br/>That trusts silence.<br/>That works with the body as well as the mind.</p>
-<p>I have walked the sacred paths of Peru, sat in ceremony in India, harvested olives in the Aegean, and listened to the Himalayan wind. I have led groups through these landscapes — and what I have learned, again and again, is that the most important thing I can offer is not information.</p>
-<p>It is presence.</p>
-<p>The willingness to slow down, to be genuinely with people, and to trust that the land will do what words cannot.</p>
-<p>Each journey I lead is small — deliberately so. I want to know the people I walk with. To remember their names, their questions, the moment something shifts for them on the trail.</p>
-<p>That intimacy is not incidental. It is the whole point.</p>
-</div>
+<div class="founder-bio" style="; text-align:left; margin-left:0;"><p style="; text-align:left; margin-left:0;; text-align:left;">Hello, I’m Merve.</p><p style="; text-align:left;">I work with movement, presence, and time spent close to the land, often alongside a small circle of collaborators.</p><p style="; text-align:left;">Wisdom Walk began with a simple question: what kind of journey do I actually want to be part of?</p><p style="; text-align:left;">Something slower, with space for silence and a bit more attention to what’s actually there.</p><p style="; text-align:left;">Over time, my path has taken me through different places and ways of working — from time spent in the Andes and India, to quieter moments in monasteries, deserts, and shared practices with teachers and communities along the way.</p><p style="; text-align:left;">I’ve been returning to Ayvalık for over a decade, working with olive trees and staying in relationship with the land over time.</p><p style="; text-align:left;">These experiences weren’t something to collect, but to stay with. They’ve shaped the way I listen, the way I work, and what I’m able to hold.</p><p style="; text-align:left;">Over time, I’ve come to see that the most valuable thing I can offer isn’t something I explain.</p><p style="; text-align:left;">It’s presence.</p><p style="; text-align:left;">The pace, the attention, and the willingness to stay with something a little longer than usual.</p><p style="; text-align:left;">Each journey is intentionally small — so there’s space to really meet each other, and for something to shift.</p><p style="; text-align:left;">That intimacy isn’t a detail. It’s the point.</p></div>
 </div>
 </div>
 </div>
@@ -919,7 +937,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <!-- PHOTO CAROUSEL -->
 <section class="photo-collage">
 <div class="collage-inner">
-<p class="collage-eyebrow">A few moments from the road</p>
+<p class="collage-eyebrow" style="; text-align:left;">A few moments from the road</p>
 <div class="carousel-wrap">
 <button aria-label="Previous" class="carousel-btn prev" onclick="scrollCarousel(-1)">←</button>
 <div class="collage-grid" id="photoCarousel">
@@ -951,9 +969,9 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <!-- FAQ -->
 <section class="faq-section">
 <div class="faq-inner">
-<p class="section-eyebrow dark">Questions</p>
+<p class="section-eyebrow dark" style="; text-align:left;">Questions</p>
 <h2 class="faq-title">What people ask us</h2>
-<p class="faq-intro">If your question isn't here, write to us. We read every message.</p>
+<p class="faq-intro" style="; text-align:left;">If your question isn't here, write to us. We read every message.</p>
 <div class="faq-list">
 <div class="faq-item">
 <button class="faq-question" onclick="toggleFaq(this)">
@@ -1043,37 +1061,34 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <section class="apply-section" id="apply">
 <div class="apply-inner">
 <div>
-<p class="apply-note" style="color: rgba(196,165,90,0.45); font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px;">✦ Applications</p>
+<p class="apply-note" style="color: rgba(196,165,90,0.45); font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px;; text-align:left;">✦ Applications</p>
 <h2 class="apply-title">Begin the conversation</h2>
-<p class="apply-body">Tell us what’s drawing you here.<br/>We’ll take it from there.</p>
-<p class="apply-note">
+<p class="apply-body" style="; text-align:left;">Tell us what’s drawing you here.<br/>We’ll take it from there.</p>
+<p class="apply-note" style="; text-align:left;">
         We typically respond within 2–3 days.<br/>
         All walks are application only.<br/>
         We'll schedule a short video call to get to know each other.
       </p>
 </div>
 <div>
-<form action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST">
-<input name="_subject" type="hidden" value="New Wisdom Walk application"/>
-<input name="_captcha" type="hidden" value="false"/>
-<input name="_template" type="hidden" value="table"/>
+<form onsubmit="handleSubmit(event)">
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
 <div class="form-group">
 <label class="form-label">First Name</label>
-<input class="form-input" name="first_name" placeholder="Your name" required="" type="text"/>
+<input class="form-input" placeholder="Your name" type="text"/>
 </div>
 <div class="form-group">
 <label class="form-label">Last Name</label>
-<input class="form-input" name="last_name" placeholder="Your surname" required="" type="text"/>
+<input class="form-input" placeholder="Your surname" type="text"/>
 </div>
 </div>
 <div class="form-group">
 <label class="form-label">Email</label>
-<input class="form-input" name="email" placeholder="your@email.com" required="" type="email"/>
+<input class="form-input" placeholder="your@email.com" type="email"/>
 </div>
 <div class="form-group">
 <label class="form-label">Which journey interests you?</label>
-<select class="form-select form-input" name="journey_interest" required="">
+<select class="form-select form-input">
 <option value="">Select a journey</option>
 <option>Walk — Peru, Amazonia</option>
 <option>Walk — Mexico, Mesoamerican Path</option>
@@ -1084,10 +1099,9 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 </div>
 <div class="form-group">
 <label class="form-label">What draws you to this?</label>
-<textarea class="form-input form-textarea" name="message" placeholder="Say as much or as little as feels right…" required=""></textarea>
+<textarea class="form-input form-textarea" placeholder="Say as much or as little as feels right…"></textarea>
 </div>
-<button class="form-submit" type="submit">Walk with us</button>
-<p class="form-note">We do not share your information with anyone.<br/>This is the beginning of a real conversation.</p>
+<p class="form-note" style="; text-align:left;">We do not share your information with anyone.<br/>This is the beginning of a real conversation.</p>
 </form>
 </div>
 </div>
@@ -1100,15 +1114,14 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <h2>Bring your circle.<br/>We'll hold <em>the container.</em></h2>
 </div>
 <div class="bespoke-right">
-<p>Are you a facilitator, a teacher, or a group with a shared intention? We can design a walk around your community — same lands, same depth, your own rhythm. A bespoke journey, held with care.</p>
+<p style="; text-align:left;">Are you a facilitator, a teacher, or a group with a shared intention? We can design a walk around your community — same lands, same depth, your own rhythm. A bespoke journey, held with care.</p>
 <a class="bespoke-btn" href="mailto:hellowisdomwalk@gmail.com">Let's talk →</a>
 </div>
 </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
-<a class="footer-logo" href="index.html">WISDOM WALK</a>
+<a class="footer-logo" href="index.html">Wisdom Walk</a>
 <div class="footer-links">
 <a href="walks.html">Walks</a>
 <a href="harvests.html">Harvests</a>
@@ -1116,7 +1129,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <a href="la-familia.html">La Familia</a>
 <a href="#bespoke">Bespoke</a>
 </div>
-<p class="footer-copy">© 2026 Wisdom Walk  ·  <em>Walking the path of remembrance.</em></p>
+<p class="footer-copy" style="; text-align:left;">© 2026 Wisdom Walk  ·  <em>Walking the path of remembrance.</em></p>
 </footer>
 <script>
 // Carousel scroll
