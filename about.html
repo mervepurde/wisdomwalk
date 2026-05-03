@@ -886,6 +886,26 @@ section:not(.principles-section):not(#principles) p {
   }
 }
 </style>
+
+<style>
+/* FINAL PATCH — soften How We Walk + Land sections */
+.why-section.soft-text-section {
+  background: #f0ece0 !important;
+}
+.why-section.soft-text-section::before {
+  display: none !important;
+  background-image: none !important;
+}
+.why-section.soft-text-section .why-title {
+  color: #2a2822 !important;
+}
+.why-section.soft-text-section .why-body {
+  color: #3a3028 !important;
+}
+.why-section.soft-text-section .section-eyebrow.light {
+  color: rgba(122,104,48,0.62) !important;
+}
+</style>
 </head>
 <body>
 <!-- NAV -->
@@ -927,7 +947,7 @@ section:not(.principles-section):not(#principles) p {
 </div>
 </section>
 <!-- HOW WE WALK -->
-<section class="why-section" id="how-we-walk">
+<section class="why-section soft-text-section" id="how-we-walk">
 <div class="why-inner">
 <p class="section-eyebrow light" style="; text-align:left;">The Intention</p>
 <h2 class="why-title">How We Walk</h2>
@@ -971,7 +991,7 @@ section:not(.principles-section):not(#principles) p {
 </div>
 </section>
 <!-- THE LAND IS NOT A BACKDROP -->
-<section class="why-section" style="background: #1a1610;">
+<section class="why-section soft-text-section" id="land-not-backdrop">
 <div class="why-inner">
 <p class="section-eyebrow light" style="; text-align:left;">The Land</p>
 <h2 class="why-title">The land is not a backdrop</h2>
