@@ -743,10 +743,11 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 
 
 
-/* FIXED LAND IMAGE BACKGROUND */
+
+/* LAND — clean image background with soft mask */
 #land-not-backdrop {
   position: relative;
-  background: none !important;
+  background: #f0ece0 !important; /* fallback */
 }
 
 #land-not-backdrop::before {
@@ -755,22 +756,21 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   inset: 0;
   background-image: url("photos/mervepurde/ausangate - peru .JPG");
   background-size: cover;
-  background-position: center;
-  opacity: 0.35;
+  background-position: center 40%;
+  opacity: 0.5; /* stronger image */
 }
 
 #land-not-backdrop::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(247,243,234,0.9), rgba(247,243,234,0.75));
+  background: linear-gradient(to bottom, rgba(247,243,234,0.92) 0%, rgba(247,243,234,0.78) 60%, rgba(247,243,234,0.85) 100%);
 }
 
 #land-not-backdrop .why-inner {
   position: relative;
   z-index: 2;
 }
-
 </style>
 <style>
 /* ABOUT PAGE BALANCE PATCH — excludes Principles section */
@@ -1172,7 +1172,7 @@ section:not(.principles-section):not(#principles) p {
 </div>
 </section>
 <!-- THE LAND IS NOT A BACKDROP -->
-<section class="why-section soft-text-section" id="land-not-backdrop">
+<section class="why-section" id="land-not-backdrop">
 <div class="why-inner">
 <p class="section-eyebrow light" style="; text-align:left;">The Land</p>
 <h2 class="why-title">The land is not a backdrop</h2>
