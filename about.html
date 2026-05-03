@@ -277,10 +277,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .why-body p + p { margin-top: 20px; }
 
 /* HOW WE HOLD SPACE */
-.hold-space {
-  background: #f7f3ea;
-  padding: 120px 80px;
-}
+.hold-space { background: #eee7da !important; }
 .hold-inner { max-width: 1000px; margin: 0 auto; }
 .hold-header { margin-bottom: 72px; }
 .hold-title {
@@ -541,7 +538,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .carousel-btn.next { right: 4px; }
   .collage-grid { column-count: 2; }
   .why-section { padding: 64px 24px; }
-  .hold-space { padding: 64px 24px; }
+  .hold-space { background: #eee7da !important; }
   .hold-cards { grid-template-columns: 1fr; }
   .faq-section { padding: 64px 24px; }
   .apply-section { padding: 64px 24px; }
@@ -566,7 +563,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .why-section { padding: 40px 16px; }
   .why-cards { grid-template-columns: 1fr; }
   .why-card h3 { font-size: 18px; }
-  .hold-space { padding: 40px 16px; }
+  .hold-space { background: #eee7da !important; }
   .hold-space h2 { font-size: clamp(22px, 3vw, 32px); }
   .hold-cards { grid-template-columns: 1fr; }
   .hold-card { padding: 24px 16px; }
@@ -593,7 +590,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .col-item.tall { grid-row: span 1; }
   .col-item.wide { grid-column: span 2; }
   .why-section { padding: 80px 40px; }
-  .hold-space { padding: 80px 40px; }
+  .hold-space { background: #eee7da !important; }
   .hold-cards { grid-template-columns: 1fr; }
   .faq-section { padding: 80px 40px; }
   .apply-section { padding: 80px 40px; }
@@ -616,16 +613,14 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   .collage-grid { column-count: 2; }
   .col-item.wide { grid-column: span 2; }
   .why-section { padding: 60px 24px; }
-  .hold-space { padding: 60px 24px; }
+  .hold-space { background: #eee7da !important; }
   .hold-card { padding: 36px 24px; }
   .faq-section { padding: 60px 24px; }
   .apply-section { padding: 60px 24px; }
   footer { padding: 32px 24px; }
 }
 /* FINAL PATCH — About principles: 2 + 2 + centered 1 layout */
-.hold-space {
-  background: #f7f3ea;
-}
+.hold-space { background: #eee7da !important; }
 .hold-cards.principles-five {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -664,7 +659,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 /* FINAL TIGHTEN PATCH — keep original design, reduce width and spacing */
 .why-body { font-size: 17px; line-height: 1.76; }
 .why-body p + p { margin-top: 14px; }
-.hold-space { padding: 82px 80px !important; background: #f7f3ea !important; }
+.hold-space { background: #eee7da !important; }
 .hold-inner { max-width: 820px !important; margin: 0 auto !important; }
 .hold-cards.principles-five {
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -690,7 +685,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 .founder-bio { font-size: 18px !important; line-height: 1.72 !important; }
 .founder-bio p + p { margin-top: 14px !important; }
 @media (max-width: 768px) {
-  .hold-space { padding: 56px 24px !important; }
+  .hold-space { background: #eee7da !important; }
   .hold-inner { max-width: 100% !important; }
   .hold-cards.principles-five { grid-template-columns: 1fr !important; max-width: 460px !important; }
   .hold-cards.principles-five .hold-card:nth-child(5) { grid-column: auto !important; width: 100% !important; }
@@ -699,9 +694,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 
 
 /* FINAL COLOR + PRINCIPLES LAYOUT FIX — added last so it wins */
-.hold-space {
-  background: #f7f3ea !important;
-}
+.hold-space { background: #eee7da !important; }
 
 .hold-cards.principles-five {
   background: transparent !important;
@@ -906,6 +899,165 @@ section:not(.principles-section):not(#principles) p {
   color: rgba(122,104,48,0.62) !important;
 }
 </style>
+
+<style>
+/* FINAL PATCH — Principles timeline, smaller + softer */
+.hold-space { background: #eee7da !important; }
+
+.hold-inner {
+  max-width: 880px !important;
+  position: relative !important;
+  margin: 0 auto !important;
+}
+
+.hold-inner::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(122,104,48,0.22) 10%, rgba(122,104,48,0.22) 90%, transparent);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.hold-cards.principles-five {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 42px 88px !important;
+  max-width: 820px !important;
+  margin: 0 auto !important;
+  background: transparent !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.hold-cards.principles-five .hold-card {
+  position: relative !important;
+  padding: 24px 26px 26px !important;
+  min-height: auto !important;
+  background: rgba(247,243,234,0.48) !important;
+  border: 0.5px solid rgba(122,104,48,0.14) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 30px rgba(42,40,34,0.035) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.hold-cards.principles-five .hold-card:nth-child(1),
+.hold-cards.principles-five .hold-card:nth-child(3) {
+  transform: translateY(0);
+}
+
+.hold-cards.principles-five .hold-card:nth-child(2),
+.hold-cards.principles-five .hold-card:nth-child(4) {
+  transform: translateY(12px);
+}
+
+.hold-cards.principles-five .hold-card:nth-child(5) {
+  grid-column: 1 / -1 !important;
+  width: 46% !important;
+  justify-self: center !important;
+  transform: translateY(0) !important;
+}
+
+.hold-cards.principles-five .hold-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(122,104,48,0.48);
+  box-shadow: 0 0 0 8px rgba(196,165,90,0.06);
+  transform: translateY(-50%);
+}
+
+.hold-cards.principles-five .hold-card:nth-child(odd)::after {
+  right: -48px;
+}
+
+.hold-cards.principles-five .hold-card:nth-child(even)::after {
+  left: -48px;
+}
+
+.hold-cards.principles-five .hold-card:nth-child(5)::after {
+  left: 50%;
+  top: -26px;
+  transform: translateX(-50%);
+}
+
+.principle-icon {
+  width: 26px !important;
+  height: 26px !important;
+  margin-bottom: 12px !important;
+  color: rgba(122,104,48,0.54) !important;
+  background: rgba(196,165,90,0.08) !important;
+  border-radius: 50% !important;
+  padding: 5px !important;
+}
+
+.principle-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.hold-card-title {
+  font-size: 20px !important;
+  line-height: 1.18 !important;
+  margin-bottom: 10px !important;
+  color: #2a2822 !important;
+}
+
+.hold-card-body {
+  font-size: 14.8px !important;
+  line-height: 1.58 !important;
+  color: #3f382f !important;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .hold-space { background: #eee7da !important; }
+  .hold-inner::before {
+    left: 16px;
+  }
+  .hold-cards.principles-five {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    max-width: 460px !important;
+    padding-left: 34px !important;
+  }
+  .hold-cards.principles-five .hold-card,
+  .hold-cards.principles-five .hold-card:nth-child(1),
+  .hold-cards.principles-five .hold-card:nth-child(2),
+  .hold-cards.principles-five .hold-card:nth-child(3),
+  .hold-cards.principles-five .hold-card:nth-child(4),
+  .hold-cards.principles-five .hold-card:nth-child(5) {
+    width: 100% !important;
+    grid-column: auto !important;
+    transform: none !important;
+    padding: 22px 22px !important;
+  }
+  .hold-cards.principles-five .hold-card::after,
+  .hold-cards.principles-five .hold-card:nth-child(odd)::after,
+  .hold-cards.principles-five .hold-card:nth-child(even)::after,
+  .hold-cards.principles-five .hold-card:nth-child(5)::after {
+    left: -22px !important;
+    right: auto !important;
+    top: 28px !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hold-space { background: #eee7da !important; }
+  .hold-cards.principles-five { padding-left: 28px !important; }
+  .hold-card-title { font-size: 19px !important; }
+  .hold-card-body { font-size: 14.5px !important; }
+}
+</style>
+
 </head>
 <body>
 <!-- NAV -->
