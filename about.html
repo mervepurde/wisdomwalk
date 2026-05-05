@@ -1087,6 +1087,305 @@ section:not(.principles-section):not(#principles) p {
 }
 </style>
 
+<style>
+/* === DESIGN POLISH — Land 2-col, Founder single-col, Principles rounded+lines, Testimonials === */
+
+/* --- LAND SECTION: 2-column with photo on right --- */
+#land-not-backdrop {
+  background: #f0ece0 !important;
+  padding: 100px 80px !important;
+}
+/* Kill BOTH pseudo-elements — ::after had a cream overlay killing the photo */
+#land-not-backdrop::before { display: none !important; }
+#land-not-backdrop::after  { display: none !important; }
+#land-not-backdrop .why-inner { max-width: none !important; margin: 0 !important; }
+
+.land-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+.land-photo-right {
+  overflow: hidden;
+  height: 520px;
+}
+.land-photo-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+  filter: none !important;
+  opacity: 1 !important;
+  display: block;
+  transition: transform 0.8s ease;
+}
+.land-photo-right:hover img { transform: scale(1.03); }
+
+@media (max-width: 880px) {
+  #land-not-backdrop { padding: 72px 40px !important; }
+  .land-2col { grid-template-columns: 1fr; gap: 40px; }
+  .land-photo-right { height: 320px; }
+}
+@media (max-width: 480px) {
+  #land-not-backdrop { padding: 52px 16px !important; }
+  .land-photo-right { height: 240px; }
+}
+
+/* --- FOUNDER: single-column, clean --- */
+.founder { padding: 100px 80px 80px; }
+.founder-inner { max-width: 780px; margin: 0 auto; }
+.founder-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 0 !important;
+  max-width: 780px !important;
+}
+@media (max-width: 480px) {
+  .founder { padding: 52px 16px 40px !important; }
+}
+
+/* --- PRINCIPLES: Rounded cards + connecting lines --- */
+
+/* --- PRINCIPLES: Vertical path — 5 circles connected by lines --- */
+
+/* No branch line on hold-inner (we use per-card lines instead) */
+.hold-inner::before { display: none !important; }
+
+/* Vertical stack */
+.hold-cards.principles-five {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  max-width: 580px !important;
+  margin: 0 auto !important;
+  background: transparent !important;
+  padding: 0 !important;
+  position: relative !important;
+}
+
+/* Each row: circle + text side by side */
+.hold-cards.principles-five .hold-card {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 36px !important;
+  padding: 0 0 0 0 !important;
+  margin-bottom: 40px !important;
+  position: relative !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  aspect-ratio: auto !important;
+  text-align: left !important;
+  transform: none !important;
+}
+.hold-cards.principles-five .hold-card:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Kill old connector pseudo */
+.hold-cards.principles-five .hold-card::after { display: none !important; }
+
+/* Circle node */
+.card-node {
+  width: 80px !important;
+  height: 80px !important;
+  min-width: 80px !important;
+  border-radius: 50% !important;
+  background: rgba(247,243,234,0.95) !important;
+  border: 0.5px solid rgba(196,165,90,0.32) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  z-index: 1 !important;
+  box-shadow: 0 2px 16px rgba(42,40,34,0.07) !important;
+}
+
+/* Connecting line: from bottom of circle to top of next */
+.hold-cards.principles-five .hold-card:not(:last-child) .card-node::after {
+  content: '' !important;
+  display: block !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 1px !important;
+  height: 40px !important;
+  background: linear-gradient(to bottom, rgba(196,165,90,0.5) 0%, rgba(196,165,90,0.15) 100%) !important;
+}
+
+/* Icon inside circle: bare SVG, no frame */
+.card-node svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+  color: rgba(122,104,48,0.75);
+}
+
+/* Text beside circle */
+.card-text { padding-top: 14px; }
+
+.hold-card-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 22px !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 10px !important;
+  color: #2a2822 !important;
+  text-align: left !important;
+}
+.hold-card-body {
+  font-size: 16px !important;
+  line-height: 1.72 !important;
+  color: #4a4238 !important;
+  font-weight: 400 !important;
+  text-align: left !important;
+  margin-bottom: 0 !important;
+}
+
+/* Section */
+.hold-space { padding: 100px 80px !important; background: #eee7da !important; }
+
+@media (max-width: 880px) {
+  .hold-space { padding: 72px 40px !important; }
+}
+@media (max-width: 600px) {
+  .hold-cards.principles-five .hold-card { gap: 24px !important; margin-bottom: 32px !important; }
+  .card-node { width: 64px !important; height: 64px !important; min-width: 64px !important; }
+  .card-node svg { width: 24px; height: 24px; }
+  .hold-cards.principles-five .hold-card:not(:last-child) .card-node::after { height: 32px !important; }
+  .hold-card-title { font-size: 20px !important; }
+  .hold-card-body { font-size: 15px !important; }
+  .hold-space { padding: 56px 24px !important; }
+}
+@media (max-width: 480px) {
+  .hold-space { padding: 48px 16px !important; }
+  .hold-card-title { font-size: 18px !important; }
+  .hold-card-body { font-size: 14px !important; }
+}
+
+/* Reset 5th card — old stacked CSS was applying width: 46% / calc(50%) which shrank it */
+.hold-cards.principles-five .hold-card:nth-child(5) {
+  width: auto !important;
+  max-width: none !important;
+  grid-column: auto !important;
+  justify-self: auto !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* --- TESTIMONIALS section --- */
+.testimonials-section {
+  background: #2a2822;
+  padding: 108px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.testimonials-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('photos/mervepurde/ausangateceremoy-peru.JPG');
+  background-size: cover; background-position: center 30%;
+  opacity: 0.06;
+}
+.testimonials-inner {
+  position: relative; z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.testimonials-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.75);
+  margin-bottom: 36px;
+  display: block;
+}
+.testimonials-quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 140px; line-height: 0.65;
+  color: rgba(196,165,90,0.14);
+  display: block;
+  font-weight: 300;
+  margin-bottom: 12px;
+  pointer-events: none;
+  user-select: none;
+}
+.testimonial-slide { display: none; }
+.testimonial-slide.active { display: block; animation: fadeInT 0.45s ease; }
+@keyframes fadeInT { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; line-height: 1.88;
+  color: rgba(237,228,208,0.85);
+  font-style: italic;
+  margin-bottom: 36px;
+}
+.testimonial-attribution {
+  display: flex; align-items: flex-start; gap: 16px;
+}
+.testimonial-line {
+  width: 28px; height: 0.5px;
+  background: rgba(196,165,90,0.4);
+  margin-top: 10px; flex-shrink: 0;
+}
+.testimonial-name {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(237,228,208,0.55);
+  display: block;
+}
+.testimonial-journey {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.6);
+  display: block; margin-top: 5px;
+}
+.testimonials-nav {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 52px;
+}
+.testimonials-btn {
+  background: none;
+  border: 0.5px solid rgba(237,228,208,0.18);
+  width: 40px; height: 40px; border-radius: 50%;
+  cursor: pointer; color: rgba(237,228,208,0.6);
+  font-size: 16px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s;
+}
+.testimonials-btn:hover {
+  border-color: rgba(196,165,90,0.4);
+  color: rgba(196,165,90,0.85);
+}
+.testimonials-dots { display: flex; gap: 8px; align-items: center; }
+.testimonials-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(237,228,208,0.18);
+  cursor: pointer; transition: all 0.3s;
+}
+.testimonials-dot.active {
+  background: rgba(196,165,90,0.55);
+  width: 22px; border-radius: 2.5px;
+}
+@media (max-width: 768px) {
+  .testimonials-section { padding: 72px 24px; }
+  .testimonial-text { font-size: 18px; }
+}
+@media (max-width: 480px) {
+  .testimonials-section { padding: 52px 16px; }
+  .testimonial-text { font-size: 17px; line-height: 1.8; }
+  .testimonials-quote-mark { font-size: 100px; }
+}
+</style>
 </head>
 <body>
 <!-- NAV -->
@@ -1143,45 +1442,96 @@ section:not(.principles-section):not(#principles) p {
 <section class="hold-space">
 <div class="hold-inner">
 <div class="hold-cards principles-five">
+
 <div class="hold-card">
-<div aria-hidden="true" class="principle-icon"><svg viewbox="0 0 36 36"><path d="M7 18c5-4 10-5 15-3"></path><path d="M22 15c3 1 5 3 7 6"></path><path d="M13 23c4 2 9 2 13-1"></path><circle cx="18" cy="18" r="1.2"></circle></svg></div>
-<h3 class="hold-card-title">Listening comes first</h3>
-<p class="hold-card-body" style="; text-align:left;">We come to each land as students. In the mountains of Peru, meaning doesn’t arrive right away. In the olive groves of the Aegean, things take their time. What’s asked is simple — a willingness to be taught. It often begins with silence.</p>
+  <div class="card-node">
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 14a6 6 0 1 0-12 0v5c0 2 1 3 2 4l1 3"/>
+      <path d="M15 26h4a2 2 0 0 0 0-4h-1"/>
+      <path d="M28 11a11 11 0 0 0-20 6v3"/>
+    </svg>
+  </div>
+  <div class="card-text">
+    <h3 class="hold-card-title">Listening comes first</h3>
+    <p class="hold-card-body">We come to each land as students. Meaning doesn’t arrive right away. What’s asked is simple — a willingness to be taught. It often begins with silence.</p>
+  </div>
 </div>
+
 <div class="hold-card">
-<div aria-hidden="true" class="principle-icon"><svg viewbox="0 0 36 36"><path d="M18 31c1-8 1-17 0-25"></path><path d="M18 12c4-4 8-5 12-3"></path><path d="M18 18c-4-4-8-5-12-3"></path><path d="M18 24c5-2 8-2 11 1"></path></svg></div>
-<h3 class="hold-card-title">The land leads</h3>
-<p class="hold-card-body" style="; text-align:left;">Each land carries its own way of knowing. The mountains, the ancient cities, the pyramids, the forests, the deserts — each arrives with its own teaching. We follow where it leads.</p>
+  <div class="card-node">
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 28L18 7l15 21"/>
+      <path d="M10 28l8-12 8 12"/>
+      <line x1="2" y1="28" x2="34" y2="28"/>
+    </svg>
+  </div>
+  <div class="card-text">
+    <h3 class="hold-card-title">The land leads</h3>
+    <p class="hold-card-body">Each land carries its own way of knowing. Mountains, ancient cities, forests, deserts — each arrives with its own teaching. We follow where it leads.</p>
+  </div>
 </div>
+
 <div class="hold-card">
-<div aria-hidden="true" class="principle-icon"><svg viewbox="0 0 36 36"><path d="M18 7c5 5 5 16 0 22"></path><path d="M18 7c-5 5-5 16 0 22"></path><path d="M11 18h14"></path><path d="M8 24c6 2 14 2 20-1"></path></svg></div>
-<h3 class="hold-card-title">The body remembers</h3>
-<p class="hold-card-body" style="; text-align:left;">Ancient wisdom was carried in the body — in how people walked, ate, slept, breathed, grieved, celebrated. Our work is embodied: movement, breath, stillness — not as techniques, but as languages the body already knows. Safety comes first. Depth follows.</p>
+  <div class="card-node">
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 30C18 30 8 24 8 14a10 10 0 0 1 20 0c0 10-10 16-10 16z"/>
+      <line x1="18" y1="30" x2="18" y2="18"/>
+      <path d="M18 22 l-5-4"/>
+      <path d="M18 18 l5-4"/>
+    </svg>
+  </div>
+  <div class="card-text">
+    <h3 class="hold-card-title">The body remembers</h3>
+    <p class="hold-card-body">Ancient wisdom was carried in the body — in how people walked, breathed, grieved, celebrated. Movement, breath, stillness: not techniques, but languages the body already knows.</p>
+  </div>
 </div>
+
 <div class="hold-card">
-<div aria-hidden="true" class="principle-icon"><svg viewbox="0 0 36 36"><path d="M8 20c4-8 13-9 18-3"></path><path d="M12 25c5 4 12 4 17-1"></path><path d="M18 12c2-3 5-4 8-3"></path></svg></div>
-<h3 class="hold-card-title">We stay present with the unknown</h3>
-<p class="hold-card-body" style="; text-align:left;">We are already in the unknown. This journey is guiding us to sit with it. Each place reminds us of that, in its own way.</p>
+  <div class="card-node">
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 18Q18 8 32 18Q18 28 4 18"/>
+      <circle cx="18" cy="18" r="4"/>
+      <circle cx="18" cy="18" r="1.5" fill="currentColor" stroke="none"/>
+    </svg>
+  </div>
+  <div class="card-text">
+    <h3 class="hold-card-title">We stay present with the unknown</h3>
+    <p class="hold-card-body">We are already in the unknown. This journey is guiding us to sit with it. Each place reminds us of that, in its own way.</p>
+  </div>
 </div>
+
 <div class="hold-card">
-<div aria-hidden="true" class="principle-icon"><svg viewbox="0 0 36 36"><path d="M10 17c3-4 7-4 10 0"></path><path d="M16 17c3-4 7-4 10 0"></path><path d="M11 22c5 5 13 5 18 0"></path><circle cx="13" cy="14" r="1"></circle><circle cx="24" cy="14" r="1"></circle></svg></div>
-<h3 class="hold-card-title">Together, in this</h3>
-<p class="hold-card-body" style="; text-align:left;">We become mirrors, guides, and reminders for one another. There’s a kind of strength that comes from moving together. It gives rise to the courage to take one more step — both inward and outward.</p>
+  <div class="card-node">
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="13" cy="18" r="7"/>
+      <circle cx="23" cy="18" r="7"/>
+    </svg>
+  </div>
+  <div class="card-text">
+    <h3 class="hold-card-title">Together, in this</h3>
+    <p class="hold-card-body">We become mirrors, guides, and reminders for one another. Moving together gives rise to the courage to take one more step — both inward and outward.</p>
+  </div>
 </div>
+
 </div>
 </div>
 </section>
 <!-- THE LAND IS NOT A BACKDROP -->
 <section class="why-section soft-text-section" id="land-not-backdrop">
-<div class="why-inner">
-<p class="section-eyebrow light" style="; text-align:left;">The Land</p>
+<div class="land-2col">
+<div class="why-inner land-text-col">
+<p class="section-eyebrow light" style="text-align:left;">The Land</p>
 <h2 class="why-title">The land is not a backdrop</h2>
 <div class="why-body">
-<p style="; text-align:left;">Every place carries its own intelligence — a way of knowing that existed long before language.</p>
-<p style="; text-align:left;">The desert teaches patience. The mountain teaches surrender. The olive grove reminds us that what grows slowly tends to give more.</p>
-<p style="; text-align:left;">We come to embody what is here, as it is — through the body, through attention, through being in relationship with the land.</p>
-<p style="; text-align:left;">In the Andean tradition, this is called <em>munay</em> — a quality of love that moves without force, without needing to arrive anywhere.</p>
-<p style="; text-align:left;"><em>And slowly, what was always here begins to be felt again.</em></p>
+<p style="text-align:left;">Every place carries its own intelligence — a way of knowing that existed long before language.</p>
+<p style="text-align:left;">The desert teaches patience. The mountain teaches surrender. The olive grove reminds us that what grows slowly tends to give more.</p>
+<p style="text-align:left;">We come to embody what is here, as it is — through the body, through attention, through being in relationship with the land.</p>
+<p style="text-align:left;">In the Andean tradition, this is called <em>munay</em> — a quality of love that moves without force, without needing to arrive anywhere.</p>
+<p style="text-align:left;"><em>And slowly, what was always here begins to be felt again.</em></p>
+</div>
+</div>
+<div class="land-photo-right">
+<img src="photos/mervepurde/ausangateceremoy-peru.JPG" alt="Ausangate ceremony, Peru"/>
 </div>
 </div>
 </section>
@@ -1230,6 +1580,54 @@ section:not(.principles-section):not(#principles) p {
 </div>
 </div>
 <button aria-label="Next" class="carousel-btn next" onclick="scrollCarousel(1)">→</button>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+<div class="testimonials-inner">
+<p class="testimonials-eyebrow">What people carry home</p>
+<span class="testimonials-quote-mark">"</span>
+<div class="testimonials-carousel" id="testimonialsCarousel">
+
+<div class="testimonial-slide active">
+<p class="testimonial-text">Add testimonial text here — full text, no cutting needed.</p>
+<div class="testimonial-attribution">
+<div class="testimonial-line"></div>
+<div>
+<p class="testimonial-name">— Name, Country</p>
+<p class="testimonial-journey">Peru Walk · 2025</p>
+</div>
+</div>
+</div>
+
+<div class="testimonial-slide">
+<p class="testimonial-text">Add second testimonial text here — as long as needed.</p>
+<div class="testimonial-attribution">
+<div class="testimonial-line"></div>
+<div>
+<p class="testimonial-name">— Name, Country</p>
+<p class="testimonial-journey">Olive Harvest · 2024</p>
+</div>
+</div>
+</div>
+
+<div class="testimonial-slide">
+<p class="testimonial-text">Add third testimonial text here.</p>
+<div class="testimonial-attribution">
+<div class="testimonial-line"></div>
+<div>
+<p class="testimonial-name">— Name, Country</p>
+<p class="testimonial-journey">Walk · Year</p>
+</div>
+</div>
+</div>
+
+</div>
+<div class="testimonials-nav">
+<button class="testimonials-btn" onclick="prevTestimonial()">←</button>
+<div class="testimonials-dots" id="testimonialsDots"></div>
+<button class="testimonials-btn" onclick="nextTestimonial()">→</button>
 </div>
 </div>
 </section>
@@ -1435,6 +1833,32 @@ function toggleFaq(btn) {
     answer.classList.add('open');
   }
 }
+
+// Testimonials carousel
+let testimonialIdx = 0;
+function initTestimonials() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.getElementById('testimonialsDots');
+  if (!dots) return;
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'testimonials-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goToTestimonial(i);
+    dots.appendChild(d);
+  });
+}
+function goToTestimonial(n) {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.querySelectorAll('.testimonials-dot');
+  slides[testimonialIdx].classList.remove('active');
+  if (dots[testimonialIdx]) dots[testimonialIdx].classList.remove('active');
+  testimonialIdx = (n + slides.length) % slides.length;
+  slides[testimonialIdx].classList.add('active');
+  if (dots[testimonialIdx]) dots[testimonialIdx].classList.add('active');
+}
+function nextTestimonial() { goToTestimonial(testimonialIdx + 1); }
+function prevTestimonial() { goToTestimonial(testimonialIdx - 1); }
+initTestimonials();
 
 // Form submit placeholder
 function handleSubmit(e) {
