@@ -74,7 +74,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .hero-bg {
   position: absolute; inset: 0;
   background-image: url('https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=2200&q=80');
-  background-size: cover; background-position: center 4%;
+  background-size: cover; background-position: center top;
   z-index: 0;
   filter: saturate(0.82) contrast(1.12) brightness(0.78) sepia(0.14);
 }
@@ -819,6 +819,20 @@ img[src="photos/lavender%20upcoming.jpg"].upcoming-pair-img {
   .nav-logo {
     top: 4px;
     font-size: 14px !important;
+  }
+}
+
+/* Mobile: soften hero brightness slightly */
+@media (max-width: 768px) {
+  .hero-bg {
+    filter: saturate(0.80) contrast(1.08) brightness(0.85) sepia(0.12);
+    background-position: center 8%;
+  }
+  .hero-veil {
+    background:
+      radial-gradient(ellipse 90% 70% at 22% 95%, rgba(160,68,18,0.28) 0%, transparent 58%),
+      radial-gradient(ellipse 70% 55% at 82% 4%, rgba(14,28,52,0.22) 0%, transparent 62%),
+      linear-gradient(180deg, rgba(14,12,8,0.60) 0%, rgba(14,12,8,0.36) 38%, rgba(14,12,8,0.50) 72%, rgba(14,12,8,0.82) 100%);
   }
 }
 
