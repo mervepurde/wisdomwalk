@@ -383,10 +383,15 @@ a.pillar-tag:hover {
 .testimonials-label { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 6px; text-transform: uppercase; color: rgba(122,104,48,0.5); margin-bottom: 16px; }
 .testimonials-header h2 { font-size: 36px; font-weight: 300; color: #2e2a22; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 960px; margin: 0 auto; }
+.testimonials-row2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 640px; margin: 32px auto 0; }
 .testimonial { padding: 36px 32px; border: 0.5px solid rgba(122,104,48,0.18); background: rgba(247,243,234,0.7); position: relative; }
 .testimonial-mark { font-size: 64px; line-height: 1; color: rgba(122,104,48,0.15); position: absolute; top: 14px; left: 22px; font-weight: 300; }
 .testimonial p { font-size: 16px; line-height: 2; color: #5a5040; font-style: italic; position: relative; z-index: 1; margin-bottom: 24px; }
 .testimonial-name { font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #9a8a5a; }
+.testimonial-journeys { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(122,104,48,0.4); margin-top: 6px; }
+@media (max-width: 768px) {
+  .testimonials-row2 { grid-template-columns: 1fr; max-width: 100%; }
+}
 
 /* QUOTE CTA */
 .quote-cta { background: #1a1610; padding: 88px 56px; text-align: center; }
@@ -1066,18 +1071,35 @@ function handleIndexCircle(e) {
   <div class="testimonials-grid">
     <div class="testimonial">
       <div class="testimonial-mark">&ldquo;</div>
-      <p>Something shifted somewhere between the Nile and the desert. I didn't plan for it. I only felt it when I arrived home and the world looked different.</p>
-      <div class="testimonial-name">Egypt &nbsp;·&nbsp; 2025</div>
+      <p>Being with you gives me the opportunity to journey into myself — to bravely step into rooms that have stayed hidden, and sit there to my heart's content.</p>
+      <div class="testimonial-name">Arsay</div>
+      <div class="testimonial-journeys">Bali &middot; Himalayas &middot; Auroville &middot; Egypt &middot; Ayval&#305;k</div>
     </div>
     <div class="testimonial">
       <div class="testimonial-mark">&ldquo;</div>
-      <p>This wasn't a trip. It was a conversation — with the mountains, with the group, with something quiet inside me that I hadn't heard in years.</p>
-      <div class="testimonial-name">Peru &nbsp;·&nbsp; 2025</div>
+      <p>On this journey I dove into the realm of mysteries. The wisdom of the mountains passed into my soul and the healing of the Amazon worked through my body. I grew my heart and became one with my soul. I became a warrior of the light.</p>
+      <div class="testimonial-name">Alican</div>
+      <div class="testimonial-journeys">Peru &middot; 2024</div>
     </div>
     <div class="testimonial">
       <div class="testimonial-mark">&ldquo;</div>
-      <p>I came to walk through sacred lands. I didn't expect the sacred land to walk through me.</p>
-      <div class="testimonial-name">India &nbsp;·&nbsp; 2023</div>
+      <p>This journey was not outward — it was an important step I took inward. I didn't fully understand it at the time, but as time passed, I understood its depth so clearly that I know: I grew from this journey.</p>
+      <div class="testimonial-name">Elif</div>
+      <div class="testimonial-journeys">Himalayas &middot; Peru &middot; Egypt</div>
+    </div>
+  </div>
+  <div class="testimonials-row2">
+    <div class="testimonial">
+      <div class="testimonial-mark">&ldquo;</div>
+      <p>The trust that comes from walking a path with Merve became the reality of becoming one great family. From the will to walk alone, to becoming one.</p>
+      <div class="testimonial-name">Selin</div>
+      <div class="testimonial-journeys">Peru &middot; 2024</div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-mark">&ldquo;</div>
+      <p>The spaces Merve creates offer ground where one can come back into contact with themselves, find balance, and deepen. Whatever she organizes — as long as my dates allow, I will join without hesitation and with joy.</p>
+      <div class="testimonial-name">Sezen</div>
+      <div class="testimonial-journeys">Peru &middot; Ayval&#305;k &middot; 2025</div>
     </div>
   </div>
 </section>

@@ -1279,112 +1279,6 @@ section:not(.principles-section):not(#principles) p {
   transform: none !important;
 }
 
-/* --- TESTIMONIALS section --- */
-.testimonials-section {
-  background: #2a2822;
-  padding: 108px 80px;
-  position: relative;
-  overflow: hidden;
-}
-.testimonials-section::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: url('photos/mervepurde/ausangateceremoy-peru.JPG');
-  background-size: cover; background-position: center 30%;
-  opacity: 0.06;
-}
-.testimonials-inner {
-  position: relative; z-index: 2;
-  max-width: 680px;
-  margin: 0 auto;
-}
-.testimonials-eyebrow {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 11px; letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: rgba(196,165,90,0.75);
-  margin-bottom: 36px;
-  display: block;
-}
-.testimonials-quote-mark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 140px; line-height: 0.65;
-  color: rgba(196,165,90,0.14);
-  display: block;
-  font-weight: 300;
-  margin-bottom: 12px;
-  pointer-events: none;
-  user-select: none;
-}
-.testimonial-slide { display: none; }
-.testimonial-slide.active { display: block; animation: fadeInT 0.45s ease; }
-@keyframes fadeInT { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-
-.testimonial-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px; line-height: 1.88;
-  color: rgba(237,228,208,0.85);
-  font-style: italic;
-  margin-bottom: 36px;
-}
-.testimonial-attribution {
-  display: flex; align-items: flex-start; gap: 16px;
-}
-.testimonial-line {
-  width: 28px; height: 0.5px;
-  background: rgba(196,165,90,0.4);
-  margin-top: 10px; flex-shrink: 0;
-}
-.testimonial-name {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 10px; letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(237,228,208,0.55);
-  display: block;
-}
-.testimonial-journey {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 9px; letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(196,165,90,0.6);
-  display: block; margin-top: 5px;
-}
-.testimonials-nav {
-  display: flex; align-items: center; gap: 16px;
-  margin-top: 52px;
-}
-.testimonials-btn {
-  background: none;
-  border: 0.5px solid rgba(237,228,208,0.18);
-  width: 40px; height: 40px; border-radius: 50%;
-  cursor: pointer; color: rgba(237,228,208,0.6);
-  font-size: 16px; line-height: 1;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.25s;
-}
-.testimonials-btn:hover {
-  border-color: rgba(196,165,90,0.4);
-  color: rgba(196,165,90,0.85);
-}
-.testimonials-dots { display: flex; gap: 8px; align-items: center; }
-.testimonials-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: rgba(237,228,208,0.18);
-  cursor: pointer; transition: all 0.3s;
-}
-.testimonials-dot.active {
-  background: rgba(196,165,90,0.55);
-  width: 22px; border-radius: 2.5px;
-}
-@media (max-width: 768px) {
-  .testimonials-section { padding: 72px 24px; }
-  .testimonial-text { font-size: 18px; }
-}
-@media (max-width: 480px) {
-  .testimonials-section { padding: 52px 16px; }
-  .testimonial-text { font-size: 17px; line-height: 1.8; }
-  .testimonials-quote-mark { font-size: 100px; }
-}
 </style>
 </head>
 <body>
@@ -1581,54 +1475,6 @@ section:not(.principles-section):not(#principles) p {
 </div>
 </div>
 <button aria-label="Next" class="carousel-btn next" onclick="scrollCarousel(1)">→</button>
-</div>
-</div>
-</section>
-<!-- TESTIMONIALS -->
-<section class="testimonials-section">
-<div class="testimonials-inner">
-<p class="testimonials-eyebrow">What people carry home</p>
-<span class="testimonials-quote-mark">"</span>
-<div class="testimonials-carousel" id="testimonialsCarousel">
-
-<div class="testimonial-slide active">
-<p class="testimonial-text">Add testimonial text here — full text, no cutting needed.</p>
-<div class="testimonial-attribution">
-<div class="testimonial-line"></div>
-<div>
-<p class="testimonial-name">— Name, Country</p>
-<p class="testimonial-journey">Peru Walk · 2025</p>
-</div>
-</div>
-</div>
-
-<div class="testimonial-slide">
-<p class="testimonial-text">Add second testimonial text here — as long as needed.</p>
-<div class="testimonial-attribution">
-<div class="testimonial-line"></div>
-<div>
-<p class="testimonial-name">— Name, Country</p>
-<p class="testimonial-journey">Olive Harvest · 2024</p>
-</div>
-</div>
-</div>
-
-<div class="testimonial-slide">
-<p class="testimonial-text">Add third testimonial text here.</p>
-<div class="testimonial-attribution">
-<div class="testimonial-line"></div>
-<div>
-<p class="testimonial-name">— Name, Country</p>
-<p class="testimonial-journey">Walk · Year</p>
-</div>
-</div>
-</div>
-
-</div>
-<div class="testimonials-nav">
-<button class="testimonials-btn" onclick="prevTestimonial()">←</button>
-<div class="testimonials-dots" id="testimonialsDots"></div>
-<button class="testimonials-btn" onclick="nextTestimonial()">→</button>
 </div>
 </div>
 </section>
@@ -1834,32 +1680,6 @@ function toggleFaq(btn) {
     answer.classList.add('open');
   }
 }
-
-// Testimonials carousel
-let testimonialIdx = 0;
-function initTestimonials() {
-  const slides = document.querySelectorAll('.testimonial-slide');
-  const dots = document.getElementById('testimonialsDots');
-  if (!dots) return;
-  slides.forEach((_, i) => {
-    const d = document.createElement('div');
-    d.className = 'testimonials-dot' + (i === 0 ? ' active' : '');
-    d.onclick = () => goToTestimonial(i);
-    dots.appendChild(d);
-  });
-}
-function goToTestimonial(n) {
-  const slides = document.querySelectorAll('.testimonial-slide');
-  const dots = document.querySelectorAll('.testimonials-dot');
-  slides[testimonialIdx].classList.remove('active');
-  if (dots[testimonialIdx]) dots[testimonialIdx].classList.remove('active');
-  testimonialIdx = (n + slides.length) % slides.length;
-  slides[testimonialIdx].classList.add('active');
-  if (dots[testimonialIdx]) dots[testimonialIdx].classList.add('active');
-}
-function nextTestimonial() { goToTestimonial(testimonialIdx + 1); }
-function prevTestimonial() { goToTestimonial(testimonialIdx - 1); }
-initTestimonials();
 
 // Form submit placeholder
 function handleSubmit(e) {
