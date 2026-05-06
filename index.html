@@ -119,6 +119,41 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .hero-btn-secondary:hover { background: rgba(237,228,208,0.06); border-color: rgba(237,228,208,0.4); color: rgba(237,228,208,0.8); }
 
+/* DESTINATION BAND */
+.dest-band {
+  background: rgba(14,12,8,0.92);
+  border-top: 0.5px solid rgba(196,165,90,0.12);
+  border-bottom: 0.5px solid rgba(196,165,90,0.12);
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  gap: 0;
+}
+.dest-band a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.78);
+  text-decoration: none;
+  padding: 0 18px;
+  white-space: nowrap;
+  transition: color 0.25s;
+}
+.dest-band a:hover { color: rgba(196,165,90,1); }
+.dest-band-sep {
+  color: rgba(196,165,90,0.35);
+  font-size: 7px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .dest-band { justify-content: flex-start; overflow-x: auto; padding: 0 16px; }
+  .dest-band::-webkit-scrollbar { display: none; }
+}
+
 /* MANIFESTO */
 .manifesto { background: #f7f3ea; padding: 116px 56px; text-align: center; }
 .manifesto h2 {
@@ -160,7 +195,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .manifesto-words { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
 .manifesto-words span {
   font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 4px;
-  text-transform: uppercase; color: rgba(122,104,48,0.82); font-weight: 400;
+  text-transform: uppercase; color: rgba(122,104,48,1); font-weight: 400;
 }
 
 /* PILLARS */
@@ -295,11 +330,11 @@ a.pillar-tag:hover {
   border-bottom: 0.5px solid rgba(122,104,48,0.15);
 }
 .upcoming-group-title {
-  font-size: 22px; font-weight: 300; color: #1e1c18;
+  font-size: 28px; font-weight: 300; color: #1e1c18;
 }
 .upcoming-group-desc {
   font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 2px;
-  text-transform: uppercase; color: rgba(122,104,48,0.45);
+  text-transform: uppercase; color: rgba(122,104,48,0.75);
 }
 .upcoming-pair {
   display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
@@ -316,7 +351,7 @@ a.pillar-tag:hover {
 .upcoming-pair-body h3 { font-size: 24px; font-weight: 300; color: #1e1c18; margin-bottom: 6px; }
 .upcoming-pair-body h3 em { font-style: italic; color: #6a5a28; }
 .upcoming-pair-body .card-date { margin-bottom: 14px; }
-.upcoming-pair-body p { font-size: 14px; line-height: 1.9; color: #5a5040; font-weight: 400; margin-bottom: 20px; flex: 1; }
+.upcoming-pair-body p { font-size: 16px; line-height: 1.9; color: #5a5040; font-weight: 400; margin-bottom: 20px; flex: 1; }
 .upcoming-pair-body a { font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(122,104,48,0.75); text-decoration: none; border-bottom: 0.5px solid rgba(122,104,48,0.3); padding-bottom: 3px; align-self: flex-start; }
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 920px; margin: 0 auto; }
 .cards-col { display: flex; flex-direction: column; gap: 24px; }
@@ -356,7 +391,7 @@ a.pillar-tag:hover {
 .card-type-earth { color: rgba(122,104,48,0.55); }
 .card h3 { font-size: 23px; font-weight: 300; color: #1e1c18; margin-bottom: 6px; }
 .card-date { font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px; color: rgba(122,104,48,0.6); margin-bottom: 14px; }
-.card p { font-size: 14px; line-height: 1.9; color: #5a5040; font-weight: 400; margin-bottom: 18px; }
+.card p { font-size: 16px; line-height: 1.9; color: #5a5040; font-weight: 400; margin-bottom: 18px; }
 .card a { font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(122,104,48,0.75); text-decoration: none; border-bottom: 0.5px solid rgba(122,104,48,0.3); padding-bottom: 3px; }
 
 /* PAST WALKS */
@@ -377,20 +412,110 @@ a.pillar-tag:hover {
 .past-item-year { font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px; color: #9a8a5a; margin-top: 2px; }
 .past-rule { width: 48px; height: 0.5px; background: rgba(122,104,48,0.2); margin: 52px auto; }
 
-/* TESTIMONIALS */
-.testimonials { background: #ddd3be; padding: 108px 56px; }
-.testimonials-header { text-align: center; margin-bottom: 64px; }
-.testimonials-label { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 6px; text-transform: uppercase; color: rgba(122,104,48,0.5); margin-bottom: 16px; }
-.testimonials-header h2 { font-size: 36px; font-weight: 300; color: #2e2a22; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 960px; margin: 0 auto; }
-.testimonials-row2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 640px; margin: 32px auto 0; }
-.testimonial { padding: 36px 32px; border: 0.5px solid rgba(122,104,48,0.18); background: rgba(247,243,234,0.7); position: relative; }
-.testimonial-mark { font-size: 64px; line-height: 1; color: rgba(122,104,48,0.15); position: absolute; top: 14px; left: 22px; font-weight: 300; }
-.testimonial p { font-size: 16px; line-height: 2; color: #5a5040; font-style: italic; position: relative; z-index: 1; margin-bottom: 24px; }
-.testimonial-name { font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #9a8a5a; }
-.testimonial-journeys { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(122,104,48,0.4); margin-top: 6px; }
+/* TESTIMONIALS — carousel */
+.testimonials {
+  background: #2a2822;
+  padding: 108px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.testimonials::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('photos/mainpagegallery/ausangate-peru.JPG');
+  background-size: cover; background-position: center 40%;
+  opacity: 0.05;
+}
+.testimonials-inner {
+  position: relative; z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.testimonials-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.75);
+  margin-bottom: 36px;
+  display: block;
+}
+.testimonials-quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 140px; line-height: 0.65;
+  color: rgba(196,165,90,0.12);
+  display: block;
+  font-weight: 300;
+  margin-bottom: 12px;
+  pointer-events: none;
+  user-select: none;
+}
+.testimonial-slide { display: none; }
+.testimonial-slide.active { display: block; animation: fadeInT 0.45s ease; }
+@keyframes fadeInT { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; line-height: 1.88;
+  color: rgba(237,228,208,0.85);
+  font-style: italic;
+  margin-bottom: 36px;
+}
+.testimonial-attribution {
+  display: flex; align-items: flex-start; gap: 16px;
+}
+.testimonial-attr-line {
+  width: 28px; height: 0.5px;
+  background: rgba(196,165,90,0.4);
+  margin-top: 10px; flex-shrink: 0;
+}
+.testimonial-name {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(237,228,208,0.55);
+  display: block;
+}
+.testimonial-journeys {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(196,165,90,0.6);
+  display: block; margin-top: 5px;
+}
+.testimonials-nav {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 52px;
+}
+.testimonials-btn {
+  background: none;
+  border: 0.5px solid rgba(237,228,208,0.18);
+  width: 40px; height: 40px; border-radius: 50%;
+  cursor: pointer; color: rgba(237,228,208,0.6);
+  font-size: 16px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s;
+}
+.testimonials-btn:hover {
+  border-color: rgba(196,165,90,0.4);
+  color: rgba(196,165,90,0.85);
+}
+.testimonials-dots { display: flex; gap: 8px; align-items: center; }
+.testimonials-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(237,228,208,0.18);
+  cursor: pointer; transition: all 0.3s;
+}
+.testimonials-dot.active {
+  background: rgba(196,165,90,0.55);
+  width: 22px; border-radius: 2.5px;
+}
 @media (max-width: 768px) {
-  .testimonials-row2 { grid-template-columns: 1fr; max-width: 100%; }
+  .testimonials { padding: 72px 24px; }
+  .testimonial-text { font-size: 18px; }
+}
+@media (max-width: 480px) {
+  .testimonials { padding: 52px 16px; }
+  .testimonial-text { font-size: 17px; line-height: 1.8; }
+  .testimonials-quote-mark { font-size: 100px; }
 }
 
 /* QUOTE CTA */
@@ -849,6 +974,39 @@ window.addEventListener('scroll', function() {
 function toggleMobileMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
 }
+// Testimonials carousel
+let testimonialIdx = 0;
+(function initTestimonials() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.getElementById('testimonialsDots');
+  if (!dots) return;
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'testimonials-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goToTestimonial(i);
+    dots.appendChild(d);
+  });
+})();
+function goToTestimonial(n) {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.querySelectorAll('.testimonials-dot');
+  slides[testimonialIdx].classList.remove('active');
+  if (dots[testimonialIdx]) dots[testimonialIdx].classList.remove('active');
+  testimonialIdx = (n + slides.length) % slides.length;
+  slides[testimonialIdx].classList.add('active');
+  if (dots[testimonialIdx]) dots[testimonialIdx].classList.add('active');
+}
+function nextTestimonial() { goToTestimonial(testimonialIdx + 1); }
+function prevTestimonial() { goToTestimonial(testimonialIdx - 1); }
+
+// Auto-advance every 6 seconds, pause on hover
+let autoPlay = setInterval(nextTestimonial, 6000);
+const carousel = document.querySelector('.testimonials');
+if (carousel) {
+  carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+  carousel.addEventListener('mouseleave', () => { autoPlay = setInterval(nextTestimonial, 6000); });
+}
+
 function handleIndexCircle(e) {
   e.preventDefault();
   const email = document.getElementById('indexCircleEmail').value;
@@ -906,6 +1064,29 @@ function handleIndexCircle(e) {
     </div>
   </div>
 </section>
+
+<!-- DESTINATION BAND -->
+<div class="dest-band">
+  <a href="walks.html">Peru</a>
+  <span class="dest-band-sep">&#10022;</span>
+  <a href="walks.html">India</a>
+  <span class="dest-band-sep">&#10022;</span>
+  <a href="walks.html">Himalayas</a>
+  <span class="dest-band-sep">&#10022;</span>
+  <a href="walks.html">Auroville</a>
+  <span class="dest-band-sep">&#10022;</span>
+  <a href="walks.html">Egypt</a>
+  <span class="dest-band-sep">&#10022;</span>
+  <a href="walks.html">Bali</a>
+  <span class="dest-band-sep">&#10022;</span>
+  <a href="walks.html">Mexico</a>
+  <span class="dest-band-sep">&#10022;</span>
+  <a href="harvests.html">Turkey</a>
+  <span class="dest-band-sep">&#10022;</span>
+  <a href="harvests.html">Ayval&#305;k</a>
+  <span class="dest-band-sep">&#10022;</span>
+  <a href="harvests.html">Ida Mountains</a>
+</div>
 
 <!-- MANIFESTO -->
 <section class="manifesto" id="manifesto">
@@ -998,7 +1179,7 @@ function handleIndexCircle(e) {
         <img src="photos/upcominghero/peruamazoniaupcoming-hero.jpg" alt="Amazonia, Peru" class="upcoming-pair-img">
         <div class="upcoming-pair-body">
           <div class="card-type">Walk</div>
-          <h3>Peru . Sacred Valley & Amazon</h3>
+          <h3>Peru . <em>Sacred Valley & Amazon</em></h3>
           <div class="card-date">Late Dec 2026 &nbsp;&middot;&nbsp; Early Jan 2027 &nbsp;&middot;&nbsp; Peru</div>
           <p>Deep into the living forest. Where the Amazon holds ancient teachings in its root systems and rivers.</p>
           <a href="walks.html">Walk with us &rarr;</a>
@@ -1064,42 +1245,71 @@ function handleIndexCircle(e) {
 
 <!-- TESTIMONIALS -->
 <section class="testimonials">
-  <div class="testimonials-header">
-    <div class="testimonials-label">&#10022; Words from the path</div>
-    <h2>What travelers carry home</h2>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testimonial">
-      <div class="testimonial-mark">&ldquo;</div>
-      <p>Being with you gives me the opportunity to journey into myself — to bravely step into rooms that have stayed hidden, and sit there to my heart's content.</p>
-      <div class="testimonial-name">Arsay</div>
-      <div class="testimonial-journeys">Bali &middot; Himalayas &middot; Auroville &middot; Egypt &middot; Ayval&#305;k</div>
+  <div class="testimonials-inner">
+    <span class="testimonials-label">&#10022; Words from the path</span>
+    <span class="testimonials-quote-mark">&ldquo;</span>
+    <div id="testimonialsCarousel">
+
+      <div class="testimonial-slide active">
+        <p class="testimonial-text">Being with you gives me the opportunity to journey into myself — to bravely step into rooms that have stayed hidden, and sit there to my heart's content.</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-attr-line"></div>
+          <div>
+            <span class="testimonial-name">Arsay</span>
+            <span class="testimonial-journeys">Bali &rsquo;23 &nbsp;&middot;&nbsp; Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Auroville &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-slide">
+        <p class="testimonial-text">With you, I began in India, deepened in the Sacred Valley of Peru, and experienced something entirely new along the Nile in Egypt. India opened something inward, Peru opened space for deeper connection and discovery. Egypt offered a completely different perspective within the layers of ancient history, civilizations, and time. Each journey was different — but what they all had in common was leaving a lasting mark on me.</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-attr-line"></div>
+          <div>
+            <span class="testimonial-name">Elif</span>
+            <span class="testimonial-journeys">Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Peru &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-slide">
+        <p class="testimonial-text">In 2025, following a challenging illness and treatment, I joined a walk and a harvest with Merve. What I found: practices built on trust, an atmosphere that was heartfelt and non-judgmental, and a community carefully brought together. The spaces she opens are not merely experiences — they offer ground where one can come back into contact with themselves, find balance, and deepen. Whatever she facilitates, as long as my dates allow, I will join without hesitation and with joy.</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-attr-line"></div>
+          <div>
+            <span class="testimonial-name">Sezen</span>
+            <span class="testimonial-journeys">Peru &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-slide">
+        <p class="testimonial-text">On this journey I dove into the realm of mysteries. The wisdom of the mountains passed into my soul and the healing of the Amazon worked through my body. I grew my heart and became one with my soul. I became a warrior of the light.</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-attr-line"></div>
+          <div>
+            <span class="testimonial-name">Alican</span>
+            <span class="testimonial-journeys">Peru &rsquo;24</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-slide">
+        <p class="testimonial-text">The trust that comes from walking a path with Merve became the reality of becoming one great family. From the will to walk alone, to becoming one.</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-attr-line"></div>
+          <div>
+            <span class="testimonial-name">Selin</span>
+            <span class="testimonial-journeys">Peru &rsquo;24</span>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="testimonial">
-      <div class="testimonial-mark">&ldquo;</div>
-      <p>On this journey I dove into the realm of mysteries. The wisdom of the mountains passed into my soul and the healing of the Amazon worked through my body. I grew my heart and became one with my soul. I became a warrior of the light.</p>
-      <div class="testimonial-name">Alican</div>
-      <div class="testimonial-journeys">Peru &middot; 2024</div>
-    </div>
-    <div class="testimonial">
-      <div class="testimonial-mark">&ldquo;</div>
-      <p>This journey was not outward — it was an important step I took inward. I didn't fully understand it at the time, but as time passed, I understood its depth so clearly that I know: I grew from this journey.</p>
-      <div class="testimonial-name">Elif</div>
-      <div class="testimonial-journeys">Himalayas &middot; Peru &middot; Egypt</div>
-    </div>
-  </div>
-  <div class="testimonials-row2">
-    <div class="testimonial">
-      <div class="testimonial-mark">&ldquo;</div>
-      <p>The trust that comes from walking a path with Merve became the reality of becoming one great family. From the will to walk alone, to becoming one.</p>
-      <div class="testimonial-name">Selin</div>
-      <div class="testimonial-journeys">Peru &middot; 2024</div>
-    </div>
-    <div class="testimonial">
-      <div class="testimonial-mark">&ldquo;</div>
-      <p>The spaces Merve creates offer ground where one can come back into contact with themselves, find balance, and deepen. Whatever she organizes — as long as my dates allow, I will join without hesitation and with joy.</p>
-      <div class="testimonial-name">Sezen</div>
-      <div class="testimonial-journeys">Peru &middot; Ayval&#305;k &middot; 2025</div>
+    <div class="testimonials-nav">
+      <button class="testimonials-btn" onclick="prevTestimonial()">&#8592;</button>
+      <div class="testimonials-dots" id="testimonialsDots"></div>
+      <button class="testimonials-btn" onclick="nextTestimonial()">&#8594;</button>
     </div>
   </div>
 </section>
