@@ -1411,46 +1411,51 @@ section:not(.principles-section):not(#principles) p {
 </section>
 <!-- FOUNDER / HOW THIS BEGAN -->
 <section class="founder" id="how-this-began">
-<div class="founder-inner" style="max-width:1080px !important;">
-<div class="founder-grid" style="display:grid !important; grid-template-columns:1fr 1.6fr !important; gap:72px !important; align-items:start !important; max-width:1080px !important;">
-<div class="founder-photo-col">
-  <img src="photos/mervepurde/mervehero.jpg" alt="Merve Purde" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; display:block; filter:sepia(8%) contrast(1.04);">
-</div>
-<div class="founder-right">
-<div class="founder-header">
-<p class="founder-eyebrow" style="text-align:left;">How this began</p>
-<h2 class="founder-name" style="text-align:left; margin-left:0;">Merve Purde</h2>
-<p class="founder-role" style="text-align:left;">Founder · Guide · Facilitator</p>
-</div>
-<div class="gold-rule"></div>
-<div class="founder-bio" style="text-align:left; margin-left:0;">
-<p>Hello, I'm Merve.</p>
-<p>I work with movement, presence, and time spent close to the land, often alongside a small circle of collaborators.</p>
-<p>Wisdom Walk began with a simple question: what kind of journey do I actually want to be part of?</p>
-<p>Something slower, with space for silence and a bit more attention to what's actually there.</p>
-<p>Over time, my path has taken me through different places and ways of working, from time spent in the Andes and India to quieter moments in monasteries, deserts, and shared practices with teachers and communities along the way.</p>
-<p>I've been returning to Ayvalık for over a decade, working with olive trees and staying in relationship with the land over time.</p>
-<p>These experiences weren't something to collect, but to stay with. They've shaped the way I listen, the way I work, and what I'm able to hold.</p>
-<p>For many years now, I've worked as a movement and meditation facilitator, guiding practices rooted in the body, breath, and presence. The journeys I hold weave together the inner and outer landscape, what is happening around us and what is moving within.</p>
-<p>Over time, I've come to see that the most valuable thing I can offer isn't something I explain.</p>
-<p>It's presence.</p>
-<p>The pace, the attention, and the willingness to stay with something a little longer than usual.</p>
-<p>Each journey is intentionally small, so there's space to really meet each other and for something to shift.</p>
-<p>That intimacy isn't a detail. It's the point.</p>
-</div>
-</div>
-</div>
+<div class="founder-inner" style="max-width:1040px !important;">
+
+  <!-- Top row: photo left, header right -->
+  <div id="founder-top" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:end; margin-bottom:48px;">
+
+    <!-- Photo in humble frame -->
+    <div>
+      <img src="photos/mervepurde/mervehero.jpg" alt="Merve Purde"
+           style="width:100%; height:auto; display:block; filter:sepia(10%) contrast(1.03) brightness(0.97);">
+    </div>
+
+    <!-- Header pinned to bottom of photo -->
+    <div>
+      <p class="founder-eyebrow">How this began</p>
+      <h2 class="founder-name">Merve Purde</h2>
+      <p class="founder-role">Founder · Guide · Facilitator</p>
+      <div class="gold-rule"></div>
+      <div class="founder-bio" style="margin-left:0;">
+        <p>Hello, I'm Merve.</p>
+        <p>I work with movement, presence, and time spent close to the land, often alongside a small circle of collaborators.</p>
+        <p>Wisdom Walk began with a simple question: what kind of journey do I actually want to be part of?</p>
+        <p>Something slower, with space for silence and a bit more attention to what's actually there.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Remaining bio — full width below photo -->
+  <div class="founder-bio" style="max-width:680px; margin-left:0;">
+    <p>Over time, my path has taken me through different places and ways of working, from time spent in the Andes and India to quieter moments in monasteries, deserts, and shared practices with teachers and communities along the way.</p>
+    <p>I've been returning to Ayvalık for over a decade, working with olive trees and staying in relationship with the land over time.</p>
+    <p>These experiences weren't something to collect, but to stay with. They've shaped the way I listen, the way I work, and what I'm able to hold.</p>
+    <p>For many years now, I've worked as a movement and meditation facilitator, guiding practices rooted in the body, breath, and presence. The journeys I hold weave together the inner and outer landscape, what is happening around us and what is moving within.</p>
+    <p>Over time, I've come to see that the most valuable thing I can offer isn't something I explain.</p>
+    <p>It's presence.</p>
+    <p>The pace, the attention, and the willingness to stay with something a little longer than usual.</p>
+    <p>Each journey is intentionally small, so there's space to really meet each other and for something to shift.</p>
+    <p>That intimacy isn't a detail. It's the point.</p>
+  </div>
+
 </div>
 </section>
 <style>
-@media (max-width: 880px) {
-  #how-this-began .founder-grid {
-    grid-template-columns: 1fr !important;
-    gap: 40px !important;
-  }
-  #how-this-began .founder-photo-col img {
-    aspect-ratio: 4/3 !important;
-  }
+@media (max-width: 768px) {
+  #founder-top { grid-template-columns: 1fr !important; gap: 32px !important; }
 }
 </style>
 <!-- HOW WE WALK — green harvest background -->
