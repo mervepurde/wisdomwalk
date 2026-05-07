@@ -109,7 +109,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .hero-subtitle {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 20px; font-weight: 400; line-height: 1.75;
+  font-size: clamp(17px, 2.8vw, 20px); font-weight: 400; line-height: 1.75;
   color: rgba(237,228,208,0.82); max-width: 520px;
 }
 
@@ -316,7 +316,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 
 /* FAQ */
 .faq-section {
-  background: #f0ece0;
+  background: #ddd5c2;
   padding: 104px 80px;
 }
 .faq-inner { max-width: 680px; margin: 0 auto; }
@@ -488,9 +488,46 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   .bespoke-inner { gap: 16px; }
 }
 
+/* LA FAMILIA BANNER */
+.circle-banner { background: #f7f3ea; border-top: 0.5px solid rgba(122,104,48,0.12); padding: 64px 56px; }
+.circle-banner-inner {
+  max-width: 960px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 48px; flex-wrap: wrap;
+}
+.circle-banner-label {
+  font-family: 'Josefin Sans', sans-serif; font-size: 8px; letter-spacing: 5px;
+  text-transform: uppercase; color: rgba(122,104,48,0.55); margin-bottom: 10px;
+}
+.circle-banner-copy { font-size: 16px; line-height: 2; color: #5a5040; font-weight: 300; }
+.circle-banner-form { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.circle-banner-form form { display: flex; align-items: center; gap: 12px; }
+.circle-banner-input {
+  padding: 13px 20px; width: 280px;
+  background: white; border: 0.5px solid rgba(122,104,48,0.25);
+  color: #3a3028;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.5px; outline: none;
+}
+.circle-banner-input::placeholder { color: rgba(122,104,48,0.3); }
+.circle-banner-input:focus { border-color: rgba(122,104,48,0.5); }
+.circle-banner-btn {
+  margin-top: 0; padding: 0; cursor: pointer; background: none; border: none;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(122,104,48,0.8); transition: color 0.3s; white-space: nowrap;
+}
+.circle-banner-btn:hover { color: #2a2822; }
+.circle-banner-note {
+  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: rgba(122,104,48,0.45);
+  margin-top: 14px; width: 280px;
+}
+@media (max-width: 880px) { .circle-banner-inner { flex-direction: column; gap: 28px; } }
+@media (max-width: 600px) { .circle-banner { padding: 40px 24px; } .circle-banner-input { width: 100%; } .circle-banner-form form { flex-direction: column; align-items: flex-start; width: 100%; } .circle-banner-note { width: 100%; } }
+@media (max-width: 480px) { .circle-banner { padding: 36px 16px; } }
+
 /* FOOTER */
 footer {
-  background: #141210; padding: 56px 80px;
+  background: #3b3b28; padding: 56px 80px;
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap; gap: 24px;
 }
@@ -1287,7 +1324,7 @@ section:not(.principles-section):not(#principles) p {
 <div class="nav-row-main">
 <a class="nav-logo" href="index.html">WISDOM WALK</a>
 <div class="nav-links">
-<a href="walks.html">Walks</a>
+<a href="journeys.html">Journeys</a>
 <a href="harvests.html">Harvests</a>
 <a href="about.html">About</a>
 </div>
@@ -1303,7 +1340,7 @@ section:not(.principles-section):not(#principles) p {
 </div>
 </div>
 <div class="nav-mobile-menu" id="mobileMenu">
-<a href="walks.html">Walks</a>
+<a href="journeys.html">Journeys</a>
 <a href="harvests.html">Harvests</a>
 <a href="about.html">About</a>
 <a href="la-familia.html">La Familia</a>
@@ -1320,129 +1357,23 @@ section:not(.principles-section):not(#principles) p {
 <p class="hero-subtitle" style="; text-align:left;">Closer to the land, to each other, and to yourself.</p>
 </div>
 </section>
-<!-- HOW WE WALK -->
-<section class="why-section soft-text-section" id="how-we-walk">
-<div class="why-inner">
-<p class="section-eyebrow light" style="; text-align:left;">The Intention</p>
-<h2 class="why-title">How We Walk</h2>
-<div class="why-body">
-<p style="; text-align:left;"><em>How we walk shapes how we see, and how we meet the world.</em></p>
-<p style="; text-align:left;">We create the kind of space where something real can happen — through pace, attention, and the way we are together.</p>
-<p style="; text-align:left;">Each walk is guided by a few simple orientations — held lightly, and shaped by the land itself.</p>
-</div>
-</div>
-</section>
-<!-- PRINCIPLES -->
-<section class="hold-space">
-<div class="hold-inner">
-<div class="hold-cards principles-five">
-
-<div class="hold-card">
-  <div class="card-node">
-    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M24 14a6 6 0 1 0-12 0v5c0 2 1 3 2 4l1 3"/>
-      <path d="M15 26h4a2 2 0 0 0 0-4h-1"/>
-      <path d="M28 11a11 11 0 0 0-20 6v3"/>
-    </svg>
-  </div>
-  <div class="card-text">
-    <h3 class="hold-card-title">Listening comes first</h3>
-    <p class="hold-card-body">We come to each land as students. Meaning doesn’t arrive right away. What’s asked is simple — a willingness to be taught. It often begins with silence.</p>
-  </div>
-</div>
-
-<div class="hold-card">
-  <div class="card-node">
-    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 28L18 7l15 21"/>
-      <path d="M10 28l8-12 8 12"/>
-      <line x1="2" y1="28" x2="34" y2="28"/>
-    </svg>
-  </div>
-  <div class="card-text">
-    <h3 class="hold-card-title">The land leads</h3>
-    <p class="hold-card-body">Each land carries its own way of knowing. Mountains, ancient cities, forests, deserts — each arrives with its own teaching. We follow where it leads.</p>
-  </div>
-</div>
-
-<div class="hold-card">
-  <div class="card-node">
-    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M18 30C18 30 8 24 8 14a10 10 0 0 1 20 0c0 10-10 16-10 16z"/>
-      <line x1="18" y1="30" x2="18" y2="18"/>
-      <path d="M18 22 l-5-4"/>
-      <path d="M18 18 l5-4"/>
-    </svg>
-  </div>
-  <div class="card-text">
-    <h3 class="hold-card-title">The body remembers</h3>
-    <p class="hold-card-body">Ancient wisdom was carried in the body — in how people walked, breathed, grieved, celebrated. Movement, breath, stillness: not techniques, but languages the body already knows.</p>
-  </div>
-</div>
-
-<div class="hold-card">
-  <div class="card-node">
-    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 18Q18 8 32 18Q18 28 4 18"/>
-      <circle cx="18" cy="18" r="4"/>
-      <circle cx="18" cy="18" r="1.5" fill="currentColor" stroke="none"/>
-    </svg>
-  </div>
-  <div class="card-text">
-    <h3 class="hold-card-title">We stay present with the unknown</h3>
-    <p class="hold-card-body">We are already in the unknown. This journey is guiding us to sit with it. Each place reminds us of that, in its own way.</p>
-  </div>
-</div>
-
-<div class="hold-card">
-  <div class="card-node">
-    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="13" cy="18" r="7"/>
-      <circle cx="23" cy="18" r="7"/>
-    </svg>
-  </div>
-  <div class="card-text">
-    <h3 class="hold-card-title">Together, in this</h3>
-    <p class="hold-card-body">We become mirrors, guides, and reminders for one another. Moving together gives rise to the courage to take one more step — both inward and outward.</p>
-  </div>
-</div>
-
-</div>
-</div>
-</section>
-<!-- THE LAND IS NOT A BACKDROP -->
+<!-- THE LAND IS NOT A BACKDROP (moved here, replaces How We Walk) -->
 <section class="why-section soft-text-section" id="land-not-backdrop">
 <div class="land-2col">
 <div class="why-inner land-text-col">
-<p class="section-eyebrow light" style="text-align:left;">The Land</p>
+<p class="section-eyebrow light" style="text-align:left;">How We Walk</p>
 <h2 class="why-title">The land is not a backdrop</h2>
 <div class="why-body">
-<p style="text-align:left;">Every place carries its own intelligence — a way of knowing that existed long before language.</p>
+<p style="text-align:left;">Every place carries its own intelligence: a way of knowing that existed long before language.</p>
 <p style="text-align:left;">The desert teaches patience. The mountain teaches surrender. The olive grove reminds us that what grows slowly tends to give more.</p>
-<p style="text-align:left;">We come to embody what is here, as it is — through the body, through attention, through being in relationship with the land.</p>
-<p style="text-align:left;">In the Andean tradition, this is called <em>munay</em> — a quality of love that moves without force, without needing to arrive anywhere.</p>
+<p style="text-align:left;">We come to embody what is here, as it is: through the body, through attention, through being in relationship with the land.</p>
+<p style="text-align:left;">In the Andean tradition, this is called <em>munay</em>: a quality of love that moves without force, without needing to arrive anywhere.</p>
 <p style="text-align:left;"><em>And slowly, what was always here begins to be felt again.</em></p>
 </div>
 </div>
 <div class="land-photo-right" style="position:relative;">
 <img src="photos/mervepurde/ausangate-ceremony-peru.jpg" alt="Ausangate ceremony, Peru"/>
 <span style="position:absolute;bottom:16px;left:20px;font-family:'Josefin Sans',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#ede4d0;text-shadow:0 1px 6px rgba(0,0,0,0.6);">Ausangate &middot; Peru</span>
-</div>
-</div>
-</section>
-<!-- FOUNDER / HOW THIS BEGAN -->
-<section class="founder" id="how-this-began">
-<div class="founder-inner">
-<div class="founder-grid">
-<div class="founder-right">
-<div class="founder-header">
-<p class="founder-eyebrow" style="; text-align:left;">How this began</p>
-<h2 class="founder-name" style="; text-align:left; margin-left:0;">Merve Purde</h2>
-<p class="founder-role" style="; text-align:left;">Founder · Guide · Facilitator</p>
-</div>
-<div class="gold-rule"></div>
-<div class="founder-bio" style="; text-align:left; margin-left:0;"><p style="; text-align:left; margin-left:0;; text-align:left;">Hello, I’m Merve.</p><p style="; text-align:left;">I work with movement, presence, and time spent close to the land, often alongside a small circle of collaborators.</p><p style="; text-align:left;">Wisdom Walk began with a simple question: what kind of journey do I actually want to be part of?</p><p style="; text-align:left;">Something slower, with space for silence and a bit more attention to what’s actually there.</p><p style="; text-align:left;">Over time, my path has taken me through different places and ways of working — from time spent in the Andes and India, to quieter moments in monasteries, deserts, and shared practices with teachers and communities along the way.</p><p style="; text-align:left;">I’ve been returning to Ayvalık for over a decade, working with olive trees and staying in relationship with the land over time.</p><p style="; text-align:left;">These experiences weren’t something to collect, but to stay with. They’ve shaped the way I listen, the way I work, and what I’m able to hold.</p><p style="; text-align:left;">Over time, I’ve come to see that the most valuable thing I can offer isn’t something I explain.</p><p style="; text-align:left;">It’s presence.</p><p style="; text-align:left;">The pace, the attention, and the willingness to stay with something a little longer than usual.</p><p style="; text-align:left;">Each journey is intentionally small — so there’s space to really meet each other, and for something to shift.</p><p style="; text-align:left;">That intimacy isn’t a detail. It’s the point.</p></div>
-</div>
 </div>
 </div>
 </section>
@@ -1478,6 +1409,121 @@ section:not(.principles-section):not(#principles) p {
 </div>
 </div>
 </section>
+<!-- FOUNDER / HOW THIS BEGAN -->
+<section class="founder" id="how-this-began">
+<div class="founder-inner" style="max-width:1080px !important;">
+<div class="founder-grid" style="display:grid !important; grid-template-columns:1fr 1.6fr !important; gap:72px !important; align-items:start !important; max-width:1080px !important;">
+<div class="founder-photo-col">
+  <img src="photos/mervepurde/mervehero.jpg" alt="Merve Purde" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; display:block; filter:sepia(8%) contrast(1.04);">
+</div>
+<div class="founder-right">
+<div class="founder-header">
+<p class="founder-eyebrow" style="text-align:left;">How this began</p>
+<h2 class="founder-name" style="text-align:left; margin-left:0;">Merve Purde</h2>
+<p class="founder-role" style="text-align:left;">Founder · Guide · Facilitator</p>
+</div>
+<div class="gold-rule"></div>
+<div class="founder-bio" style="text-align:left; margin-left:0;">
+<p>Hello, I'm Merve.</p>
+<p>I work with movement, presence, and time spent close to the land, often alongside a small circle of collaborators.</p>
+<p>Wisdom Walk began with a simple question: what kind of journey do I actually want to be part of?</p>
+<p>Something slower, with space for silence and a bit more attention to what's actually there.</p>
+<p>Over time, my path has taken me through different places and ways of working, from time spent in the Andes and India to quieter moments in monasteries, deserts, and shared practices with teachers and communities along the way.</p>
+<p>I've been returning to Ayvalık for over a decade, working with olive trees and staying in relationship with the land over time.</p>
+<p>These experiences weren't something to collect, but to stay with. They've shaped the way I listen, the way I work, and what I'm able to hold.</p>
+<p>For many years now, I've worked as a movement and meditation facilitator, guiding practices rooted in the body, breath, and presence. The journeys I hold weave together the inner and outer landscape, what is happening around us and what is moving within.</p>
+<p>Over time, I've come to see that the most valuable thing I can offer isn't something I explain.</p>
+<p>It's presence.</p>
+<p>The pace, the attention, and the willingness to stay with something a little longer than usual.</p>
+<p>Each journey is intentionally small, so there's space to really meet each other and for something to shift.</p>
+<p>That intimacy isn't a detail. It's the point.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<style>
+@media (max-width: 880px) {
+  #how-this-began .founder-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  #how-this-began .founder-photo-col img {
+    aspect-ratio: 4/3 !important;
+  }
+}
+</style>
+<!-- HOW WE WALK — green harvest background -->
+<section style="position:relative; padding: 88px 80px; overflow:hidden;">
+  <div style="position:absolute; inset:0; background-image:url('photos/olive-2025/IMG_1119.JPG'); background-size:cover; background-position:center; filter:blur(18px) saturate(0.7) brightness(0.55); transform:scale(1.08); z-index:0;"></div>
+  <div style="position:absolute; inset:0; background:rgba(18,28,14,0.48); z-index:1;"></div>
+  <div style="position:relative; z-index:2; max-width: 860px; margin: 0 auto; text-align:center;">
+    <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(16px,1.8vw,21px); line-height:2.2; color:rgba(237,228,208,0.78); font-weight:300; font-style:italic; letter-spacing:0.3px;">How we walk shapes how we see, and how we meet the world.<br>We create the kind of space where something real can happen:<br>through pace, attention, and the way we are together.<br>Each walk is guided by a few simple orientations: held lightly, and shaped by the land itself.</p>
+  </div>
+</section>
+<!-- PRINCIPLES -->
+<section class="hold-space" style="background:#f0ece0 !important; padding: 80px 80px;">
+<div style="max-width: 1100px; margin: 0 auto;">
+  <p style="font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(122,104,48,0.65); text-align:center; margin-bottom:52px;">&#10022; &nbsp; How we walk</p>
+  <div style="position:relative;">
+    <!-- connecting line -->
+    <div style="position:absolute; top:36px; left:calc(10% + 36px); right:calc(10% + 36px); height:1px; background:linear-gradient(to right, transparent, rgba(196,165,90,0.38) 10%, rgba(196,165,90,0.38) 90%, transparent); pointer-events:none;"></div>
+    <div class="principles-h-row" style="display:flex; align-items:flex-start;">
+
+      <div class="principles-h-item" style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 12px; position:relative; z-index:1;">
+        <div style="width:72px; height:72px; border-radius:50%; background:rgba(247,243,234,0.97); border:0.5px solid rgba(196,165,90,0.28); display:flex; align-items:center; justify-content:center; margin-bottom:22px; flex-shrink:0;">
+          <svg viewBox="0 0 36 36" width="28" height="28" fill="none" stroke="rgba(122,104,48,0.72)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 14a6 6 0 1 0-12 0v5c0 2 1 3 2 4l1 3"/><path d="M15 26h4a2 2 0 0 0 0-4h-1"/><path d="M28 11a11 11 0 0 0-20 6v3"/></svg>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; font-weight:400; color:#2a2822; line-height:1.2; margin-bottom:10px;">Listening comes first</h3>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:16px; line-height:1.7; color:#4a4238; font-weight:400;">We come to each land as students. In the mountains of Peru, meaning doesn't arrive right away. What's asked is simple: a willingness to be taught.</p>
+      </div>
+
+      <div class="principles-h-item" style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 12px; position:relative; z-index:1;">
+        <div style="width:72px; height:72px; border-radius:50%; background:rgba(247,243,234,0.97); border:0.5px solid rgba(196,165,90,0.28); display:flex; align-items:center; justify-content:center; margin-bottom:22px; flex-shrink:0;">
+          <svg viewBox="0 0 36 36" width="28" height="28" fill="none" stroke="rgba(122,104,48,0.72)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 28L18 7l15 21"/><path d="M10 28l8-12 8 12"/><line x1="2" y1="28" x2="34" y2="28"/></svg>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; font-weight:400; color:#2a2822; line-height:1.2; margin-bottom:10px;">The land leads</h3>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:16px; line-height:1.7; color:#4a4238; font-weight:400;">Mountains, ancient cities, forests, deserts: each arrives with its own teaching. We follow where it leads.</p>
+      </div>
+
+      <div class="principles-h-item" style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 12px; position:relative; z-index:1;">
+        <div style="width:72px; height:72px; border-radius:50%; background:rgba(247,243,234,0.97); border:0.5px solid rgba(196,165,90,0.28); display:flex; align-items:center; justify-content:center; margin-bottom:22px; flex-shrink:0;">
+          <svg viewBox="0 0 36 36" width="28" height="28" fill="none" stroke="rgba(122,104,48,0.72)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 30C18 30 8 24 8 14a10 10 0 0 1 20 0c0 10-10 16-10 16z"/><line x1="18" y1="30" x2="18" y2="18"/><path d="M18 22 l-5-4"/><path d="M18 18 l5-4"/></svg>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; font-weight:400; color:#2a2822; line-height:1.2; margin-bottom:10px;">The body remembers</h3>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:16px; line-height:1.7; color:#4a4238; font-weight:400;">Movement, breath, stillness: not as techniques, but as languages the body already knows. Safety comes first. Depth follows.</p>
+      </div>
+
+      <div class="principles-h-item" style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 12px; position:relative; z-index:1;">
+        <div style="width:72px; height:72px; border-radius:50%; background:rgba(247,243,234,0.97); border:0.5px solid rgba(196,165,90,0.28); display:flex; align-items:center; justify-content:center; margin-bottom:22px; flex-shrink:0;">
+          <svg viewBox="0 0 36 36" width="28" height="28" fill="none" stroke="rgba(122,104,48,0.72)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18Q18 8 32 18Q18 28 4 18"/><circle cx="18" cy="18" r="4"/><circle cx="18" cy="18" r="1.5" fill="rgba(122,104,48,0.72)" stroke="none"/></svg>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; font-weight:400; color:#2a2822; line-height:1.2; margin-bottom:10px;">Stay present with the unknown</h3>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:16px; line-height:1.7; color:#4a4238; font-weight:400;">We are already in the unknown. Each place reminds us of that, in its own way.</p>
+      </div>
+
+      <div class="principles-h-item" style="flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 12px; position:relative; z-index:1;">
+        <div style="width:72px; height:72px; border-radius:50%; background:rgba(247,243,234,0.97); border:0.5px solid rgba(196,165,90,0.28); display:flex; align-items:center; justify-content:center; margin-bottom:22px; flex-shrink:0;">
+          <svg viewBox="0 0 36 36" width="28" height="28" fill="none" stroke="rgba(122,104,48,0.72)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="18" r="7"/><circle cx="23" cy="18" r="7"/></svg>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; font-weight:400; color:#2a2822; line-height:1.2; margin-bottom:10px;">Together, in this</h3>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:16px; line-height:1.7; color:#4a4238; font-weight:400;">We become mirrors and guides for one another. A kind of strength that comes from moving together.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>
+<style>
+@media (max-width: 880px) {
+  .principles-h-row { flex-wrap: wrap !important; gap: 32px 0; }
+  .principles-h-item { flex: 0 0 33.33% !important; }
+}
+@media (max-width: 600px) {
+  .principles-h-row { flex-direction: column !important; align-items: center !important; }
+  .principles-h-item { flex: none !important; width: 100% !important; max-width: 340px; }
+}
+</style>
 <!-- FAQ -->
 <section class="faq-section">
 <div class="faq-inner">
@@ -1491,7 +1537,7 @@ section:not(.principles-section):not(#principles) p {
           <span class="faq-icon"></span>
 </button>
 <div class="faq-answer">
-          Anyone who feels a pull toward something slower, more real, more grounded — and is ready to explore that in community, in nature, and through the body. Some people come having done years of inner work. Others come following a feeling they cannot quite name. What matters is not where you are starting from, but your willingness to show up and slow down.
+          Anyone who feels a pull toward something slower, more real, more grounded: and is ready to explore that in community, in nature, and through the body. Some people come having done years of inner work. Others come following a feeling they cannot quite name. What matters is not where you are starting from, but your willingness to show up and slow down.
         </div>
 </div>
 <div class="faq-item">
@@ -1509,7 +1555,7 @@ section:not(.principles-section):not(#principles) p {
           <span class="faq-icon"></span>
 </button>
 <div class="faq-answer">
-          It depends on the journey. Walks involve daily hiking — typically 4 to 8 hours on foot, sometimes at altitude — and ask for a genuine level of physical readiness. Harvests are much gentler: we move through land slowly, work with our hands, and rest when the body asks. For any journey, please share any physical considerations when you write to us and we will talk it through honestly.
+          It depends on the journey. Walks involve daily hiking: typically 4 to 8 hours on foot, sometimes at altitude: and ask for a genuine level of physical readiness. Harvests are much gentler: we move through land slowly, work with our hands, and rest when the body asks. For any journey, please share any physical considerations when you write to us and we will talk it through honestly.
         </div>
 </div>
 <div class="faq-item">
@@ -1518,7 +1564,7 @@ section:not(.principles-section):not(#principles) p {
           <span class="faq-icon"></span>
 </button>
 <div class="faq-answer">
-          Walks are multi-day journeys through sacred land — high-altitude trails, ancient paths, remote valleys. They ask for more physical commitment and tend to move something deep. Harvests are shorter, seasonal retreats (2 to 3 days) built around the harvest cycle — working the land, shared tables, somatic practice. Quieter in form, but no less real in effect.
+          Walks are multi-day journeys through sacred land: high-altitude trails, ancient paths, remote valleys. They ask for more physical commitment and tend to move something deep. Harvests are shorter, seasonal retreats (2 to 3 days) built around the harvest cycle: working the land, shared tables, somatic practice. Quieter in form, but no less real in effect.
         </div>
 </div>
 <div class="faq-item">
@@ -1527,7 +1573,7 @@ section:not(.principles-section):not(#principles) p {
           <span class="faq-icon"></span>
 </button>
 <div class="faq-answer">
-          We keep groups small — between 8 and 15 people. Not as a policy, but because we have learned that real connection needs a certain scale to form. Large groups create audiences. Small ones create community.
+          We keep groups small: between 8 and 15 people. Not as a policy, but because we have learned that real connection needs a certain scale to form. Large groups create audiences. Small ones create community.
         </div>
 </div>
 <div class="faq-item">
@@ -1545,7 +1591,7 @@ section:not(.principles-section):not(#principles) p {
           <span class="faq-icon"></span>
 </button>
 <div class="faq-answer">
-          Life happens, and we understand that. We share our full cancellation terms when we confirm a journey together. If something changes on your end, please reach out as early as possible — we will always try to find a fair way forward.
+          Life happens, and we understand that. We share our full cancellation terms when we confirm a journey together. If something changes on your end, please reach out as early as possible: we will always try to find a fair way forward.
         </div>
 </div>
 <div class="faq-item">
@@ -1554,7 +1600,7 @@ section:not(.principles-section):not(#principles) p {
           <span class="faq-icon"></span>
 </button>
 <div class="faq-answer">
-          Yes — and most people do. Solo travelers often find that the group becomes something they did not expect: a real, temporary community. Friendships from these walks tend to outlast the journey by years. You will not be the only one there alone.
+          Yes: and most people do. Solo travelers often find that the group becomes something they did not expect: a real, temporary community. Friendships from these walks tend to outlast the journey by years. You will not be the only one there alone.
         </div>
 </div>
 <div class="faq-item">
@@ -1626,16 +1672,36 @@ section:not(.principles-section):not(#principles) p {
 <h2>Bring your circle.<br/>We'll hold <em>the container.</em></h2>
 </div>
 <div class="bespoke-right">
-<p style="; text-align:left;">Are you a facilitator, a teacher, or a group with a shared intention? We can design a walk around your community — same lands, same depth, your own rhythm. A bespoke journey, held with care.</p>
+<p style="; text-align:left;">Are you a facilitator, a teacher, or a group with a shared intention? We can design a walk around your community: same lands, same depth, your own rhythm. A bespoke journey, held with care.</p>
 <a class="bespoke-btn" href="mailto:hellowisdomwalk@gmail.com">Let's talk →</a>
 </div>
 </div>
+</section>
+<!-- LA FAMILIA BANNER -->
+<section class="circle-banner" id="community">
+  <div class="circle-banner-inner">
+    <div class="circle-banner-text">
+      <div class="circle-banner-label">&#10022; &nbsp; La Familia</div>
+      <p class="circle-banner-copy">Field notes from the road.<br>Early access to new journeys and harvests. A quiet welcome.</p>
+    </div>
+    <div class="circle-banner-form">
+      <form action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST">
+        <input name="_subject" type="hidden" value="New La Familia signup from about page"/>
+        <input name="_captcha" type="hidden" value="false"/>
+        <input name="_template" type="hidden" value="table"/>
+        <input name="_next" type="hidden" value="https://wisdomwalk.earth/la-familia"/>
+        <input type="email" name="email" class="circle-banner-input" placeholder="your e-mail" required>
+        <button type="submit" class="circle-banner-btn">Join La Familia &rarr;</button>
+      </form>
+      <p class="circle-banner-note">No noise &nbsp;&middot;&nbsp; Only what matters</p>
+    </div>
+  </div>
 </section>
 <!-- FOOTER -->
 <footer>
 <a class="footer-logo" href="index.html">Wisdom Walk</a>
 <div class="footer-links">
-<a href="walks.html">Walks</a>
+<a href="journeys.html">Journeys</a>
 <a href="harvests.html">Harvests</a>
 <a href="about.html">About</a>
 <a href="la-familia.html">La Familia</a>

@@ -245,23 +245,30 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   background: rgba(196,165,90,0.12);
 }
 .walks-card {
-  background: #f7f3ea;
+  background: #1e1c18;
   display: flex;
   flex-direction: column;
-}
-.walks-card:nth-child(even) {
-  background: #f0ebe0;
+  position: relative;
+  overflow: hidden;
 }
 .walks-card-img {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 4/5;
   object-fit: cover;
+  object-position: center top;
   display: block;
-  filter: sepia(8%) contrast(1.04) brightness(0.92);
+  filter: sepia(8%) contrast(1.06) brightness(0.82);
+  transition: transform 0.7s ease;
+}
+.walks-card:hover .walks-card-img { transform: scale(1.04); }
+.walks-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(14,12,8,0.88) 0%, rgba(14,12,8,0.28) 45%, transparent 70%);
+  pointer-events: none; z-index: 1;
 }
 .walks-card-body {
-  padding: 32px 36px 40px;
-  flex: 1;
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  padding: 28px 32px 36px;
   display: flex;
   flex-direction: column;
 }
@@ -278,7 +285,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   font-size: clamp(22px, 2.5vw, 30px);
   font-weight: 300;
   font-style: italic;
-  color: #2a2822;
+  color: rgba(237,228,208,0.95);
   margin-bottom: 8px;
 }
 .walks-card-date {
@@ -287,24 +294,23 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: rgba(196,165,90,0.75);
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 .walks-card-desc {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 300;
-  line-height: 1.85;
-  color: #4a4238;
-  margin-bottom: 18px;
-  flex: 1;
+  line-height: 1.8;
+  color: rgba(237,228,208,0.72);
+  margin-bottom: 14px;
 }
 .walks-card-tags {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(122,104,48,0.62);
-  margin-bottom: 24px;
+  color: rgba(196,165,90,0.6);
+  margin-bottom: 20px;
   line-height: 1.8;
 }
 .walks-card-link {
@@ -334,6 +340,36 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 
 /* PAST JOURNEYS */
+.past-hero {
+  position: relative; height: 52vh; min-height: 360px; overflow: hidden;
+  display: flex; align-items: flex-end;
+}
+.past-hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('photos/upcominghero/pastjourneys.JPEG'), url('photos/mainpagegallery/sacred-valley-peru.JPG');
+  background-size: cover; background-position: center 25%;
+  filter: saturate(0.82) contrast(1.08) brightness(0.78) sepia(0.1);
+}
+.past-hero-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(14,12,8,0.22) 0%, rgba(14,12,8,0.72) 100%);
+}
+.past-hero-content {
+  position: relative; z-index: 2;
+  padding: 0 80px 56px;
+  max-width: 900px;
+}
+.past-hero-eyebrow {
+  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 3.5px;
+  text-transform: uppercase; color: rgba(196,165,90,0.85); margin-bottom: 16px;
+}
+.past-hero-title {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5vw, 64px);
+  font-weight: 300; font-style: italic; color: #ede4d0; line-height: 1.1;
+}
+@media (max-width: 768px) { .past-hero-content { padding: 0 32px 40px; } .past-hero { height: 44vh; } }
+@media (max-width: 480px) { .past-hero-content { padding: 0 20px 32px; } }
+
 .past-section { background: #f7f3ea; padding: 80px; }
 .past-inner { max-width: 1100px; margin: 0 auto; }
 .past-header { margin-bottom: 56px; }
@@ -940,7 +976,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <p class="hero-label">7–14 days · Retreat journeys</p>
 <h1 class="hero-title">Journeys</h1>
 <div class="hero-rule"></div>
-<p class="hero-body">Small group journeys across different lands, each with its own rhythm, its own way of being.</p>
+<p class="hero-body">Small group retreat journeys across sacred lands, each with its own rhythm, its own way of being.</p>
 <p class="hero-meta">7–14 days · Small group</p>
 <div class="hero-cta-group"><a class="hero-cta" href="#upcoming">Upcoming</a><a class="hero-cta-secondary" href="#past-journeys">Past</a></div></div>
 </section>
@@ -948,7 +984,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <section style="background:#f7f3ea; padding:0;">
 <div class="what-section">
 <p class="what-eyebrow">What Is a Journey</p>
-<h2 class="what-title">Modern pilgrimages for curious souls.</h2>
+<h2 class="what-title">Modern pilgrimages for curious minds and open hearts.</h2>
 <div class="what-body">
 <p>We follow a route over several days: sometimes returning to the same places, sometimes moving on. Over time, something shifts in how the land is felt, and how we move through it.</p>
 <p>Each day takes shape around the land itself: its paths, stories, people, rituals, silence, and what unfolds along the way. Some parts are planned, some are left open. The rhythm changes as the journey moves, and so does the way we pay attention.</p>
@@ -988,13 +1024,17 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 </div>
 </section>
 <!-- PAST JOURNEYS -->
-<section class="past-section" id="past-journeys">
-<div class="past-inner">
-<div class="past-header">
-<p class="past-eyebrow">Where We Have Journeyed</p>
-<h2 class="past-title">Past Journeys</h2>
-<p class="past-intro">Each place has held us in its own way.<br/>Something of it stays, long after we leave.</p>
+<div id="past-journeys">
+<div class="past-hero">
+  <div class="past-hero-bg"></div>
+  <div class="past-hero-veil"></div>
+  <div class="past-hero-content">
+    <p class="past-hero-eyebrow">&#10022; Where We Have Walked</p>
+    <h2 class="past-hero-title">Where We Have Walked</h2>
+  </div>
 </div>
+<section class="past-section">
+<div class="past-inner">
 <!-- 1: Sacred Valley, Peru 2025 -->
 <article class="journey-card" style="background:#f7f3ea;">
 <div class="journey-upper">
@@ -1316,6 +1356,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 </article>
 </div>
 </section>
+</div>
 <!-- APPLY CTA -->
 <section class="apply-cta">
 <div class="apply-cta-inner">

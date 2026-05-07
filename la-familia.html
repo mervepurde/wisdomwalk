@@ -325,8 +325,22 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .bespoke-btn:hover { background: rgba(106,88,40,0.1); border-color: #3a2e10; color: #3a2e10; }
 
+/* CIRCLE BANNER */
+.circle-banner { background: #f7f3ea; border-top: 0.5px solid rgba(122,104,48,0.12); padding: 64px 56px; }
+.circle-banner-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; flex-wrap: wrap; }
+.circle-banner-label { font-family: 'Josefin Sans', sans-serif; font-size: 8px; letter-spacing: 5px; text-transform: uppercase; color: rgba(122,104,48,0.55); margin-bottom: 10px; }
+.circle-banner-copy { font-size: 16px; line-height: 2; color: #5a5040; font-weight: 300; }
+.circle-banner-form { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.circle-banner-form form { display: flex; align-items: center; gap: 12px; }
+.circle-banner-input { padding: 13px 20px; width: 280px; background: white; border: 0.5px solid rgba(122,104,48,0.25); color: #3a3028; font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.5px; outline: none; }
+.circle-banner-btn { margin-top: 0; padding: 0; cursor: pointer; background: none; border: none; font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(122,104,48,0.8); transition: color 0.3s; white-space: nowrap; }
+.circle-banner-note { font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(122,104,48,0.45); margin-top: 14px; width: 280px; }
+@media (max-width: 880px) { .circle-banner-inner { flex-direction: column; gap: 28px; } }
+@media (max-width: 600px) { .circle-banner { padding: 40px 24px; } .circle-banner-input { width: 100%; } .circle-banner-form form { flex-direction: column; align-items: flex-start; width: 100%; } .circle-banner-note { width: 100%; } }
+@media (max-width: 480px) { .circle-banner { padding: 36px 16px; } }
+
 /* FOOTER */
-footer { background: #141210; padding: 56px 80px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
 .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 3px; font-weight: 300; font-style: italic; color: rgba(237,228,208,0.5); text-decoration: none; }
 .footer-copy { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 1px; color: rgba(237,228,208,0.45); }
 .footer-links { display: flex; gap: 28px; }
@@ -526,7 +540,7 @@ function handleSubmit(e) {
 <div class="nav-row-main">
 <a class="nav-logo" href="index.html">WISDOM WALK</a>
 <div class="nav-links">
-<a href="walks.html">Walks</a>
+<a href="journeys.html">Journeys</a>
 <a href="harvests.html">Harvests</a>
 <a href="about.html">About</a>
 </div>
@@ -542,7 +556,7 @@ function handleSubmit(e) {
 </div>
 </div>
 <div class="nav-mobile-menu" id="mobileMenu">
-<a href="walks.html">Walks</a>
+<a href="journeys.html">Journeys</a>
 <a href="harvests.html">Harvests</a>
 <a href="about.html">About</a>
 <a href="la-familia.html">La Familia</a>
@@ -582,7 +596,7 @@ function handleSubmit(e) {
 <span class="comm-card-icon">✦</span>
 <span class="comm-card-title">A place or a harvest</span>
 </div>
-<p class="comm-card-text">That story takes us to a place — sometimes a country, sometimes a harvest — and it shapes how the month unfolds.</p>
+<p class="comm-card-text">That story takes us to a place: sometimes a country, sometimes a harvest: and it shapes how the month unfolds.</p>
 </div>
 <div class="comm-card">
 <div class="comm-card-header">
@@ -596,7 +610,7 @@ function handleSubmit(e) {
 <span class="comm-card-icon">✦</span>
 <span class="comm-card-title">Practices &amp; reflection</span>
 </div>
-<p class="comm-card-text">There are always practices — for the body or the mind — and moments to reflect. Occasionally, we gather live.</p>
+<p class="comm-card-text">There are always practices: for the body or the mind: and moments to reflect. Occasionally, we gather live.</p>
 </div>
 </div>
 </div>
@@ -663,7 +677,7 @@ function handleSubmit(e) {
 <div>
 <div class="apply-label">✦ Applications</div>
 <h2 class="apply-title">Begin the conversation</h2>
-<p class="apply-body">We review every application personally. Tell us what's drawing you here. There are no right answers — only honest ones.</p>
+<p class="apply-body">We review every application personally. Tell us what's drawing you here. There are no right answers: only honest ones.</p>
 <p class="apply-note">
         We typically respond within 2–3 days.<br/>
         All walks are application only.<br/>
@@ -719,15 +733,33 @@ function handleSubmit(e) {
 <h2>Bring your circle.<br/>We'll hold <em>the container.</em></h2>
 </div>
 <div class="bespoke-right">
-<p>Are you a facilitator, a teacher, or a group with a shared intention? We can design a walk around your community — same lands, same depth, your own rhythm. A bespoke journey, held with care.</p>
+<p>Are you a facilitator, a teacher, or a group with a shared intention? We can design a walk around your community: same lands, same depth, your own rhythm. A bespoke journey, held with care.</p>
 <a class="bespoke-btn" href="mailto:hellowisdomwalk@gmail.com">Let's talk →</a>
 </div>
 </div>
 </section>
+<!-- LA FAMILIA BANNER -->
+<section class="circle-banner">
+  <div class="circle-banner-inner">
+    <div class="circle-banner-left">
+      <div class="circle-banner-label">✦ &nbsp; La Familia &nbsp; ✦</div>
+      <p class="circle-banner-copy">Slow letters. Quiet invitations.<br/>The kind of news worth waiting for.</p>
+    </div>
+    <div class="circle-banner-form">
+      <form action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New subscriber — La Familia page">
+        <input type="hidden" name="_captcha" value="false">
+        <input class="circle-banner-input" type="email" name="email" placeholder="YOUR EMAIL" required>
+        <button class="circle-banner-btn" type="submit">Join →</button>
+      </form>
+      <p class="circle-banner-note">No noise. Unsubscribe any time.</p>
+    </div>
+  </div>
+</section>
 <footer>
 <a class="footer-logo" href="index.html">WISDOM WALK</a>
 <div class="footer-links">
-<a href="walks.html">Walks</a>
+<a href="journeys.html">Journeys</a>
 <a href="harvests.html">Harvests</a>
 <a href="about.html">About</a>
 <a href="la-familia.html">La Familia</a>
