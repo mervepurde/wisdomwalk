@@ -249,76 +249,108 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 @media (max-width: 768px) { .upcoming-pair { grid-template-columns: 1fr; } .upcoming-group-header { flex-direction: column; gap: 4px; } }
 
-/* TESTIMONIALS — after upcoming, light bg */
+/* TESTIMONIALS — warm harvest bg, cardless typographic layout */
 .testimonials {
-  background: #ece5d6;
-  padding: 64px 56px;
+  background: #e8b46a;
+  padding: 26px 80px 30px;
+  border-top: 0.5px solid rgba(122,104,48,0.12);
+  border-bottom: 0.5px solid rgba(122,104,48,0.12);
   position: relative; overflow: hidden;
+}
+.testimonials::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 78% 96% at 50% 50%, rgba(255,244,214,0.38) 0%, rgba(201,116,32,0.18) 100%);
+  pointer-events: none;
+}
+.testimonials-header { text-align: center; margin-bottom: 18px; }
+.testimonials-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(122,104,48,0.72); display: block;
 }
 .testimonials-inner {
   position: relative; z-index: 2;
-  max-width: 580px; margin: 0 auto;
+  max-width: 640px; margin: 0 auto;
 }
-.testimonials-label {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
-  color: rgba(122,104,48,0.7); margin-bottom: 24px; display: block;
+.testimonials-pair-slide { display: none; }
+.testimonials-pair-slide.active { display: block; animation: fadeInT 0.45s ease; }
+@keyframes fadeInT { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.testimonials-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 0.5px solid rgba(122,104,48,0.18);
+  padding-top: 22px;
+  max-width: 560px; margin: 0 auto;
 }
-.testimonials-quote-mark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 110px; line-height: 0.55;
-  color: rgba(122,104,48,0.1); display: block;
-  font-weight: 300; margin-bottom: 8px;
-  pointer-events: none; user-select: none;
+.testimonials-grid.solo { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+.testimonial-card {
+  padding: 0;
+  border-right: none;
 }
-.testimonial-slide { display: none; }
-.testimonial-slide.active { display: block; animation: fadeInT 0.45s ease; }
-@keyframes fadeInT { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.testimonials-grid .testimonial-card:last-child {
+  padding: 0;
+  border-right: none;
+}
+.testimonials-grid.solo .testimonial-card {
+  padding: 0; border-right: none;
+}
+.testimonials-quote-mark { display: none; }
 .testimonial-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(17px, 2vw, 20px); line-height: 1.8;
-  color: rgba(42,40,34,0.88); font-style: italic; margin-bottom: 28px;
+  font-size: clamp(15px, 1.65vw, 18px); line-height: 1.8;
+  color: rgba(42,40,34,0.78); font-style: italic;
+  margin-bottom: 20px;
 }
-.testimonial-attribution { display: flex; align-items: flex-start; gap: 16px; }
-.testimonial-attr-line { width: 28px; height: 0.5px; background: rgba(122,104,48,0.4); margin-top: 10px; flex-shrink: 0; }
+.testimonial-text::before {
+  content: '\201C';
+  color: rgba(122,104,48,0.48);
+  font-size: 1.15em; margin-right: 1px;
+}
+.testimonial-attribution { display: flex; align-items: center; gap: 12px; }
+.testimonial-attr-line { width: 20px; height: 0.5px; background: rgba(122,104,48,0.36); flex-shrink: 0; }
 .testimonial-name {
-  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 2px;
-  text-transform: uppercase; color: rgba(42,40,34,0.6); display: block;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.2px;
+  text-transform: uppercase; color: rgba(42,40,34,0.58); display: block;
 }
 .testimonial-journeys {
-  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 1.5px;
-  text-transform: uppercase; color: rgba(122,104,48,0.65); display: block; margin-top: 5px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(122,104,48,0.58); display: block; margin-top: 3px;
 }
-.testimonials-nav { display: flex; align-items: center; gap: 16px; margin-top: 32px; }
+.testimonials-nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; }
 .testimonials-btn {
-  background: none; border: 0.5px solid rgba(42,40,34,0.22);
-  width: 40px; height: 40px; border-radius: 50%;
-  cursor: pointer; color: rgba(42,40,34,0.55);
-  font-size: 16px; line-height: 1;
+  background: rgba(247,243,234,0.18); border: 0.5px solid rgba(122,104,48,0.28);
+  width: 34px; height: 34px; border-radius: 50%;
+  cursor: pointer; color: rgba(122,104,48,0.58);
+  font-size: 14px; line-height: 1;
   display: flex; align-items: center; justify-content: center; transition: all 0.25s;
 }
-.testimonials-btn:hover { border-color: rgba(122,104,48,0.5); color: rgba(122,104,48,0.9); }
-.testimonials-dots { display: flex; gap: 8px; align-items: center; }
+.testimonials-btn:hover { border-color: rgba(122,104,48,0.65); color: rgba(42,40,34,0.88); }
+.testimonials-dots { display: flex; gap: 7px; align-items: center; }
 .testimonials-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: rgba(42,40,34,0.2); cursor: pointer; transition: all 0.3s;
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(122,104,48,0.24); cursor: pointer; transition: all 0.3s;
 }
-.testimonials-dot.active { background: rgba(122,104,48,0.55); width: 22px; border-radius: 2.5px; }
-@media (max-width: 768px) { .testimonials { padding: 64px 24px; } }
-@media (max-width: 480px) { .testimonials { padding: 48px 16px; } .testimonial-text { font-size: 18px; line-height: 1.8; } .testimonials-quote-mark { font-size: 110px; } }
+.testimonials-dot.active { background: rgba(122,104,48,0.62); width: 18px; border-radius: 2px; }
+@media (max-width: 880px) {
+  .testimonials-grid { grid-template-columns: 1fr; border-top: 0.5px solid rgba(122,104,48,0.18); padding-top: 20px; gap: 0; }
+  .testimonial-card, .testimonials-grid .testimonial-card:last-child { padding: 0; border-right: none; border-top: none; }
+}
+@media (max-width: 768px) { .testimonials { padding: 30px 32px 34px; } }
+@media (max-width: 480px) { .testimonials { padding: 26px 20px 30px; } .testimonial-text { font-size: 15px; } }
 
 /* STATS */
-.stats { background: #f7f3ea; padding: 72px 56px; border-top: 0.5px solid rgba(122,104,48,0.1); }
+.stats { background: #f7f3ea; padding: 22px 56px; border-top: 0.5px solid rgba(122,104,48,0.1); }
 .stats-grid {
   display: grid; grid-template-columns: repeat(4, 1fr);
   text-align: center; max-width: 820px; margin: 0 auto;
 }
-.stat { padding: 16px; border-right: 0.5px solid rgba(122,104,48,0.12); }
+.stat { padding: 8px 16px; border-right: 0.5px solid rgba(122,104,48,0.12); }
 .stat:last-child { border-right: none; }
-.stat-num { font-size: 36px; font-weight: 300; color: #8a7a4a; margin-bottom: 10px; }
+.stat-num { font-size: 26px; font-weight: 300; color: #8a7a4a; margin-bottom: 4px; }
 .stat-label {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px;
-  text-transform: uppercase; color: #9a8a5a; line-height: 1.7;
+  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: #9a8a5a; line-height: 1.4;
 }
 
 /* GALLERY */
@@ -399,7 +431,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .insta-item:hover .insta-item-overlay { background: rgba(14,12,8,0.28); }
 .insta-note {
   text-align: center; margin-top: 18px; max-width: 960px; margin-left: auto; margin-right: auto;
-  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 2px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.2px;
   text-transform: uppercase; color: rgba(122,104,48,0.45);
 }
 @media (max-width: 768px) { .insta-section { padding: 48px 24px; } .insta-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -499,7 +531,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
   .hero h1 { font-size: clamp(28px, 5vw, 42px); margin-bottom: 24px; }
   .hero-tag { font-size: 9px; letter-spacing: 4px; margin-bottom: 24px; }
   .hero-stanzas p { font-size: 15px; line-height: 1.85; }
-  .stats { padding: 48px 24px; }
+  .stats { padding: 34px 24px; }
   .stats-grid { grid-template-columns: 1fr; gap: 24px; }
   .stat { padding: 12px; border-right: none; border-bottom: 0.5px solid rgba(122,104,48,0.12); }
   .stat:last-child { border-bottom: none; }
@@ -669,6 +701,108 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
   </div>
 </section>
 
+<!-- TESTIMONIALS — after stats, warm harvest bg, 1 per slide -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <span class="testimonials-label">&#10022; Words from the path</span>
+    </div>
+    <div id="testimonialsCarousel">
+
+      <!-- Slide 1: Arsay -->
+      <div class="testimonials-pair-slide active">
+        <div class="testimonials-grid solo">
+          <div class="testimonial-card">
+            <span class="testimonials-quote-mark">&ldquo;</span>
+            <p class="testimonial-text">Being with you gives me the opportunity to journey into myself: to bravely step into rooms that have stayed hidden, and sit there to my heart&rsquo;s content.</p>
+            <div class="testimonial-attribution">
+              <div class="testimonial-attr-line"></div>
+              <div>
+                <span class="testimonial-name">Arsay</span>
+                <span class="testimonial-journeys">Bali &rsquo;23 &nbsp;&middot;&nbsp; Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Auroville &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Elif -->
+      <div class="testimonials-pair-slide">
+        <div class="testimonials-grid solo">
+          <div class="testimonial-card">
+            <span class="testimonials-quote-mark">&ldquo;</span>
+            <p class="testimonial-text">With you, I began in India, deepened in the Sacred Valley of Peru, and experienced something entirely new along the Nile in Egypt. India opened something inward, Peru opened space for deeper connection and discovery. Egypt offered a completely different perspective within the layers of ancient history, civilizations, and time. Each journey was different: but what they all had in common was leaving a lasting mark on me.</p>
+            <div class="testimonial-attribution">
+              <div class="testimonial-attr-line"></div>
+              <div>
+                <span class="testimonial-name">Elif</span>
+                <span class="testimonial-journeys">Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Peru &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Sezen -->
+      <div class="testimonials-pair-slide">
+        <div class="testimonials-grid solo">
+          <div class="testimonial-card">
+            <span class="testimonials-quote-mark">&ldquo;</span>
+            <p class="testimonial-text">In 2025, following a challenging illness and treatment, I joined a journey and a harvest with Merve. What I found: practices built on trust, an atmosphere that was heartfelt and non-judgmental, and a community carefully brought together. The spaces she opens are not merely experiences: they offer ground where one can come back into contact with themselves, find balance, and deepen.</p>
+            <div class="testimonial-attribution">
+              <div class="testimonial-attr-line"></div>
+              <div>
+                <span class="testimonial-name">Sezen</span>
+                <span class="testimonial-journeys">Peru &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Alican -->
+      <div class="testimonials-pair-slide">
+        <div class="testimonials-grid solo">
+          <div class="testimonial-card">
+            <span class="testimonials-quote-mark">&ldquo;</span>
+            <p class="testimonial-text">On this journey I dove into the realm of mysteries. The wisdom of the mountains passed into my soul and the healing of the Amazon worked through my body. I grew my heart and became one with my soul. I became a warrior of the light.</p>
+            <div class="testimonial-attribution">
+              <div class="testimonial-attr-line"></div>
+              <div>
+                <span class="testimonial-name">Alican</span>
+                <span class="testimonial-journeys">Peru &rsquo;24</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Selin -->
+      <div class="testimonials-pair-slide">
+        <div class="testimonials-grid solo">
+          <div class="testimonial-card">
+            <span class="testimonials-quote-mark">&ldquo;</span>
+            <p class="testimonial-text">The trust that comes from walking a path with Merve became the reality of becoming one great family. From the will to walk alone, to becoming one.</p>
+            <div class="testimonial-attribution">
+              <div class="testimonial-attr-line"></div>
+              <div>
+                <span class="testimonial-name">Selin</span>
+                <span class="testimonial-journeys">Peru &rsquo;24</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="testimonials-nav">
+      <button class="testimonials-btn" onclick="prevTestimonial()">&#8592;</button>
+      <div class="testimonials-dots" id="testimonialsDots"></div>
+      <button class="testimonials-btn" onclick="nextTestimonial()">&#8594;</button>
+    </div>
+  </div>
+</section>
+
 <!-- UPCOMING -->
 <section class="upcoming" id="upcoming">
   <div class="upcoming-header">
@@ -728,77 +862,6 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
           <div class="upcard-date">Oct 9&ndash;11 &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; Ayval&#305;k, Turkey</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS — after upcoming, light background -->
-<section class="testimonials" id="testimonials">
-  <div class="testimonials-inner">
-    <span class="testimonials-label">&#10022; Words from the path</span>
-    <span class="testimonials-quote-mark">&ldquo;</span>
-    <div id="testimonialsCarousel">
-
-      <div class="testimonial-slide active">
-        <p class="testimonial-text">Being with you gives me the opportunity to journey into myself: to bravely step into rooms that have stayed hidden, and sit there to my heart&rsquo;s content.</p>
-        <div class="testimonial-attribution">
-          <div class="testimonial-attr-line"></div>
-          <div>
-            <span class="testimonial-name">Arsay</span>
-            <span class="testimonial-journeys">Bali &rsquo;23 &nbsp;&middot;&nbsp; Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Auroville &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-slide">
-        <p class="testimonial-text">With you, I began in India, deepened in the Sacred Valley of Peru, and experienced something entirely new along the Nile in Egypt. India opened something inward, Peru opened space for deeper connection and discovery. Egypt offered a completely different perspective within the layers of ancient history, civilizations, and time. Each journey was different: but what they all had in common was leaving a lasting mark on me.</p>
-        <div class="testimonial-attribution">
-          <div class="testimonial-attr-line"></div>
-          <div>
-            <span class="testimonial-name">Elif</span>
-            <span class="testimonial-journeys">Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Peru &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-slide">
-        <p class="testimonial-text">In 2025, following a challenging illness and treatment, I joined a journey and a harvest with Merve. What I found: practices built on trust, an atmosphere that was heartfelt and non-judgmental, and a community carefully brought together. The spaces she opens are not merely experiences: they offer ground where one can come back into contact with themselves, find balance, and deepen. Whatever she facilitates, as long as my dates allow, I will join without hesitation and with joy.</p>
-        <div class="testimonial-attribution">
-          <div class="testimonial-attr-line"></div>
-          <div>
-            <span class="testimonial-name">Sezen</span>
-            <span class="testimonial-journeys">Peru &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-slide">
-        <p class="testimonial-text">On this journey I dove into the realm of mysteries. The wisdom of the mountains passed into my soul and the healing of the Amazon worked through my body. I grew my heart and became one with my soul. I became a warrior of the light.</p>
-        <div class="testimonial-attribution">
-          <div class="testimonial-attr-line"></div>
-          <div>
-            <span class="testimonial-name">Alican</span>
-            <span class="testimonial-journeys">Peru &rsquo;24</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-slide">
-        <p class="testimonial-text">The trust that comes from walking a path with Merve became the reality of becoming one great family. From the will to walk alone, to becoming one.</p>
-        <div class="testimonial-attribution">
-          <div class="testimonial-attr-line"></div>
-          <div>
-            <span class="testimonial-name">Selin</span>
-            <span class="testimonial-journeys">Peru &rsquo;24</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="testimonials-nav">
-      <button class="testimonials-btn" onclick="prevTestimonial()">&#8592;</button>
-      <div class="testimonials-dots" id="testimonialsDots"></div>
-      <button class="testimonials-btn" onclick="nextTestimonial()">&#8594;</button>
     </div>
   </div>
 </section>
@@ -892,10 +955,10 @@ function toggleMobileMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
 }
 
-// Testimonials carousel — 12 second auto-advance, pause on hover
+// Testimonials carousel — one testimonial per slide, 12 second auto-advance, pause on hover
 document.addEventListener('DOMContentLoaded', function() {
   let testimonialIdx = 0;
-  const slides = document.querySelectorAll('.testimonial-slide');
+  const slides = document.querySelectorAll('.testimonials-pair-slide');
   const dotsContainer = document.getElementById('testimonialsDots');
 
   if (dotsContainer && slides.length) {
