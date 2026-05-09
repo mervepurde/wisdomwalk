@@ -245,11 +245,14 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   background: rgba(196,165,90,0.12);
 }
 .walks-card {
-  background: #1e1c18;
+  background: #f7f3ea;
   display: flex;
   flex-direction: column;
+}
+.walks-card-visual {
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 .walks-card-img {
   width: 100%;
@@ -261,14 +264,14 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   transition: transform 0.7s ease;
 }
 .walks-card:hover .walks-card-img { transform: scale(1.04); }
-.walks-card::after {
+.walks-card-visual::after {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(14,12,8,0.88) 0%, rgba(14,12,8,0.28) 45%, transparent 70%);
   pointer-events: none; z-index: 1;
 }
 .walks-card-body {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-  padding: 28px 32px 36px;
+  padding: 24px 28px 24px;
   display: flex;
   flex-direction: column;
 }
@@ -277,31 +280,38 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(196,165,90,0.78);
-  margin-bottom: 14px;
+  color: rgba(196,165,90,0.85);
+  margin-bottom: 10px;
 }
 .walks-card-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(22px, 2.5vw, 30px);
   font-weight: 300;
   font-style: italic;
-  color: rgba(237,228,208,0.95);
-  margin-bottom: 8px;
+  color: rgba(237,228,208,0.97);
+  margin-bottom: 6px;
 }
 .walks-card-date {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 10px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(196,165,90,0.75);
-  margin-bottom: 14px;
+  color: rgba(196,165,90,0.82);
+  margin-bottom: 0;
+}
+.walks-card-footer {
+  background: #f7f3ea;
+  padding: 24px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .walks-card-desc {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
-  line-height: 1.8;
-  color: rgba(237,228,208,0.72);
+  line-height: 1.85;
+  color: #4a4238;
   margin-bottom: 14px;
 }
 .walks-card-tags {
@@ -309,7 +319,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(196,165,90,0.6);
+  color: rgba(122,104,48,0.65);
   margin-bottom: 20px;
   line-height: 1.8;
 }
@@ -336,7 +346,8 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 @media (max-width: 480px) {
   .walks-upcoming-section { padding: 32px 16px; }
-  .walks-card-body { padding: 24px 20px 28px; }
+  .walks-card-body { padding: 20px 20px 20px; }
+  .walks-card-footer { padding: 20px 20px 28px; }
 }
 
 /* PAST JOURNEYS */
@@ -1002,23 +1013,33 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 </div>
 <div class="walks-cards-grid">
 <article class="walks-card">
+<div class="walks-card-visual">
 <img alt="Oaxaca, Mexico" class="walks-card-img" src="photos/upcominghero/mexicoupcoming-hero.jpg"/>
 <div class="walks-card-body">
 <p class="walks-card-tag">Mexico · Oaxaca</p>
 <h3 class="walks-card-title">Oaxaca &amp; the South</h3>
 <p class="walks-card-date">Autumn 2026 · 10 days</p>
+</div>
+</div>
+<div class="walks-card-footer">
 <p class="walks-card-desc">Moving through villages, markets, and surrounding landscapes, with time spent in the everyday life of the region.</p>
-<p class="walks-card-tags">Ancient sites · cenotes · temazcal · cacao</p><div class="walk-cta"><a href="about.html#apply">Join the journey →</a></div>
+<p class="walks-card-tags">Ancient sites · cenotes · temazcal · cacao</p>
+<div class="walk-cta"><a href="about.html#apply">Join the journey →</a></div>
 </div>
 </article>
 <article class="walks-card">
+<div class="walks-card-visual">
 <img alt="Sacred Valley and Amazon, Peru" class="walks-card-img" src="photos/upcominghero/peruamazoniaupcoming-hero.jpg"/>
 <div class="walks-card-body">
 <p class="walks-card-tag">Peru · Andes &amp; Amazonia</p>
 <h3 class="walks-card-title">Sacred Valley &amp; Amazon</h3>
 <p class="walks-card-date">Autumn 2026 · 12 days</p>
+</div>
+</div>
+<div class="walks-card-footer">
 <p class="walks-card-desc">Moving between mountains and jungle over several days, with time spent in the Sacred Valley and along the river.</p>
-<p class="walks-card-tags">Mountains · jungle · river · plant wisdom</p><div class="walk-cta"><a href="about.html#apply">Join the journey →</a></div>
+<p class="walks-card-tags">Mountains · jungle · river · plant wisdom</p>
+<div class="walk-cta"><a href="about.html#apply">Join the journey →</a></div>
 </div>
 </article>
 </div>
