@@ -982,11 +982,11 @@ document.addEventListener('DOMContentLoaded', function() {
   window.nextTestimonial = function() { goToTestimonial(testimonialIdx + 1); };
   window.prevTestimonial = function() { goToTestimonial(testimonialIdx - 1); };
 
-  let autoPlay = setInterval(window.nextTestimonial, 12000);
+  let autoPlay = setInterval(window.nextTestimonial, 8000);
   const carousel = document.querySelector('.testimonials');
   if (carousel) {
     carousel.addEventListener('mouseenter', function() { clearInterval(autoPlay); });
-    carousel.addEventListener('mouseleave', function() { autoPlay = setInterval(window.nextTestimonial, 12000); });
+    carousel.addEventListener('mouseleave', function() { autoPlay = setInterval(window.nextTestimonial, 8000); });
   }
 });
 </script>
