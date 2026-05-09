@@ -163,17 +163,29 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   font-size: 18px; line-height: 2; color: #3a3028;
   font-weight: 300; margin-bottom: 32px;
 }
+.value-cta-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+@media (max-width: 480px) {
+  .value-cta-group { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+}
 .value-cta {
   display: inline-block;
   font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 3px;
   text-transform: uppercase; color: rgba(122,104,48,0.85); text-decoration: none;
-  border-bottom: 0.5px solid rgba(122,104,48,0.35); padding-bottom: 4px;
-  transition: color 0.3s, border-color 0.3s;
+  border: 0.5px solid rgba(122,104,48,0.32);
+  padding: 12px 18px 10px;
+  background: rgba(255,255,255,0.14);
+  transition: color 0.3s, border-color 0.3s, background 0.3s;
 }
-.value-cta:hover { color: #2a2822; border-color: rgba(122,104,48,0.7); }
+.value-cta:hover { color: #2a2822; border-color: rgba(122,104,48,0.68); background: rgba(255,255,255,0.28); }
 @media (max-width: 880px) { .value-prop { padding: 64px 40px; } .value-prop-inner { grid-template-columns: 1fr; gap: 36px; } }
 @media (max-width: 600px) { .value-prop { padding: 48px 24px; } }
-@media (max-width: 480px) { .value-prop { padding: 40px 16px; } }
+@media (max-width: 480px) { .value-prop { padding: 40px 16px; } .value-cta-group { gap: 18px; } }
 
 /* KEYWORDS BAND */
 .keywords-band {
@@ -267,7 +279,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .testimonials-label {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-  color: rgba(122,104,48,0.72); display: block;
+  color: rgba(82,66,28,0.92); display: block;
 }
 .testimonials-inner {
   position: relative; z-index: 2;
@@ -314,8 +326,8 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   text-transform: uppercase; color: rgba(42,40,34,0.58); display: block;
 }
 .testimonial-journeys {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.5px;
-  text-transform: uppercase; color: rgba(122,104,48,0.58); display: block; margin-top: 3px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 1.4px;
+  text-transform: uppercase; color: rgba(64,50,22,0.82); display: block; margin-top: 3px;
 }
 .testimonials-nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; }
 .testimonials-btn {
@@ -620,7 +632,10 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
     <div class="value-right">
       <p class="value-eyebrow">Journeys beyond the ordinary.<br>For curious minds and open hearts.</p>
       <p class="value-body">Wisdom Walk offers modern pilgrimages and seasonal harvest gatherings across sacred lands: from Peru to India, from Egypt to Anatolia.</p>
-      <a href="journeys.html#past-journeys" class="value-cta">Explore Journeys &rarr;</a>
+      <div class="value-cta-group">
+        <a href="journeys.html" class="value-cta">Explore Journeys</a>
+        <a href="harvests.html" class="value-cta">Explore Harvests</a>
+      </div>
     </div>
   </div>
 </section>
