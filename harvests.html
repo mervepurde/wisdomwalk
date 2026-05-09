@@ -311,51 +311,65 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .harvest-card {
   background: #f7f3ea; display: flex; flex-direction: column;
 }
+.harvest-card-visual {
+  position: relative; overflow: hidden; flex-shrink: 0;
+}
 .harvest-card-img {
-  width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
-  filter: sepia(10%) contrast(1.04) brightness(0.92);
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block;
+  filter: sepia(10%) contrast(1.04) brightness(0.82);
+  transition: transform 0.7s ease;
 }
-.harvest-card-img-placeholder {
-  width: 100%; aspect-ratio: 4/3;
-  background: linear-gradient(135deg, #e8e0d0 0%, #d4c8b0 100%);
-  display: flex; align-items: center; justify-content: center;
+.harvest-card:hover .harvest-card-img { transform: scale(1.04); }
+.harvest-card-visual::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(14,12,8,0.88) 0%, rgba(14,12,8,0.28) 45%, transparent 70%);
+  pointer-events: none; z-index: 1;
 }
-.harvest-card-body { padding: 32px 36px 40px; flex: 1; display: flex; flex-direction: column; }
+.harvest-card-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  padding: 28px 32px 28px;
+  display: flex; flex-direction: column;
+}
 .harvest-card-tag {
-  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 3px;
-  text-transform: uppercase; color: rgba(196,165,90,0.78); margin-bottom: 14px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(196,165,90,0.85); margin-bottom: 12px;
 }
 .harvest-card-title {
-  font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.5vw, 30px);
-  font-weight: 300; font-style: italic; color: #2a2822; margin-bottom: 6px;
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3vw, 38px);
+  font-weight: 300; font-style: italic; color: rgba(237,228,208,0.97); margin-bottom: 8px;
 }
 .harvest-card-location {
-  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 1.5px;
-  text-transform: uppercase; color: rgba(42,40,34,0.45); margin-bottom: 4px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: rgba(237,228,208,0.6); margin-bottom: 4px;
 }
 .harvest-card-date {
-  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 1.5px;
-  text-transform: uppercase; color: rgba(196,165,90,0.75); margin-bottom: 20px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: rgba(196,165,90,0.85); margin-bottom: 0;
+}
+.harvest-card-body {
+  padding: 24px 28px 32px; flex: 1; display: flex; flex-direction: column;
+  background: #f7f3ea;
 }
 .harvest-card-desc {
   font-family: 'Cormorant Garamond', serif; font-size: 16px;
   font-weight: 300; line-height: 1.85; color: #4a4238;
-  margin-bottom: 28px; flex: 1;
+  margin-bottom: 24px; flex: 1;
 }
 .harvest-card-link {
   font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
-  text-transform: uppercase; color: #c4a55a; text-decoration: none;
-  border-bottom: 0.5px solid rgba(196,165,90,0.35); padding-bottom: 4px;
+  text-transform: uppercase; color: #9a7836; text-decoration: none;
+  border-bottom: 0.5px solid rgba(154,120,54,0.35); padding-bottom: 4px;
   transition: all 0.3s; display: inline-block; align-self: flex-start;
 }
-.harvest-card-link:hover { color: #d4b56a; border-color: rgba(196,165,90,0.88); }
+.harvest-card-link:hover { color: #6a4f1f; border-color: rgba(154,120,54,0.8); }
 @media (max-width: 768px) {
   .upcoming-cards-section { padding: 48px 24px; }
   .harvest-cards-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .upcoming-cards-section { padding: 32px 16px; }
-  .harvest-card-body { padding: 24px 20px 28px; }
+  .harvest-card-overlay { padding: 20px 20px 20px; }
+  .harvest-card-body { padding: 20px 20px 28px; }
 }
 
 /* GROVE SECTION */
@@ -731,12 +745,16 @@ img[src="photos/upcominghero/lavenderupcoming-hero.jpg"] {
 
       <!-- Lavender Harvest -->
       <div class="harvest-card">
-        <img src="photos/upcominghero/lavenderupcoming-hero.jpg" alt="Lavender Harvest" class="harvest-card-img" style="object-position: center top;">
+        <div class="harvest-card-visual">
+          <img src="photos/upcominghero/lavenderupcoming-hero.jpg" alt="Lavender Harvest" class="harvest-card-img" style="object-position: center top;">
+          <div class="harvest-card-overlay">
+            <p class="harvest-card-tag">Harvest</p>
+            <h3 class="harvest-card-title">Lavender Harvest</h3>
+            <p class="harvest-card-location">Ida Mountains, Turkey</p>
+            <p class="harvest-card-date">26–28 June 2026</p>
+          </div>
+        </div>
         <div class="harvest-card-body">
-          <p class="harvest-card-tag">Harvest</p>
-          <h3 class="harvest-card-title">Lavender Harvest</h3>
-          <p class="harvest-card-location">Ida Mountains, Turkey</p>
-          <p class="harvest-card-date">26–28 June 2026</p>
           <p class="harvest-card-desc">Three days in the Ida Mountains during the lavender harvest.<br><br>Mornings in the fields, afternoons unfolding slowly, and long evenings around the table. Time slows down, and the rhythm of the place starts to set the pace.</p>
           <a href="la-familia.html#apply" class="harvest-card-link">Join the harvest &rarr;</a>
         </div>
@@ -744,12 +762,16 @@ img[src="photos/upcominghero/lavenderupcoming-hero.jpg"] {
 
       <!-- Olive Harvest -->
       <div class="harvest-card">
-        <img src="photos/upcominghero/oliveupcoming-hero.jpg" alt="Olive Harvest, Ayvalık" class="harvest-card-img" style="object-position: center top;">
+        <div class="harvest-card-visual">
+          <img src="photos/upcominghero/oliveupcoming-hero.jpg" alt="Olive Harvest, Ayvalık" class="harvest-card-img" style="object-position: center top;">
+          <div class="harvest-card-overlay">
+            <p class="harvest-card-tag">Harvest</p>
+            <h3 class="harvest-card-title">Olive Harvest</h3>
+            <p class="harvest-card-location">Ayvalık, Turkey</p>
+            <p class="harvest-card-date">9–11 October 2026</p>
+          </div>
+        </div>
         <div class="harvest-card-body">
-          <p class="harvest-card-tag">Harvest</p>
-          <h3 class="harvest-card-title">Olive Harvest</h3>
-          <p class="harvest-card-location">Ayvalık, Turkey</p>
-          <p class="harvest-card-date">9–11 October 2026</p>
           <p class="harvest-card-desc">A few days in Ayvalık during the olive harvest.<br><br>Mornings in the groves, hands moving through the branches, and evenings that gather slowly around the table. The pace softens, and the land begins to lead.</p>
           <a href="la-familia.html#apply" class="harvest-card-link">Join the harvest &rarr;</a>
         </div>
