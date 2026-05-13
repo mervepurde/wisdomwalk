@@ -103,8 +103,8 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .hero-rule { width: 44px; height: 0.5px; background: rgba(196,165,90,0.3); margin: 0 auto 48px; }
 .hero-stanzas { margin-bottom: 48px; }
 .hero-stanzas p {
-  font-size: clamp(16px, 2vw, 17px); line-height: 2; color: rgba(237,228,208,0.82);
-  font-weight: 300; margin-bottom: 0;
+  font-size: clamp(18px, 2.4vw, 23px); line-height: 1.95; color: rgba(237,228,208,0.88);
+  font-weight: 300; font-style: italic; margin-bottom: 0;
 }
 
 .hero-cta-wrap { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
@@ -197,15 +197,19 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 /* KEYWORDS BAND */
 .keywords-band {
   background: #f7f3ea;
-  padding: 24px 56px 32px;
-  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  padding: 20px 56px 26px;
+  display: flex; justify-content: center; gap: 10px; flex-wrap: nowrap;
   border-bottom: 0.5px solid rgba(122,104,48,0.1);
+  overflow-x: auto;
 }
+.keywords-band::-webkit-scrollbar { display: none; }
 .keywords-band span {
-  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 4px;
-  text-transform: uppercase; color: rgba(122,104,48,0.9); font-weight: 400;
+  font-family: 'Josefin Sans', sans-serif; font-size: 9.5px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(122,104,48,0.9); font-weight: 600;
+  white-space: nowrap;
 }
-@media (max-width: 480px) { .keywords-band { padding: 20px 16px 24px; gap: 12px; } .keywords-band span { font-size: 9px; letter-spacing: 3px; } }
+@media (max-width: 768px) { .keywords-band { justify-content: flex-start; padding: 16px 24px 20px; gap: 8px; } .keywords-band span { font-size: 9px; letter-spacing: 2.5px; } }
+@media (max-width: 480px) { .keywords-band { padding: 14px 16px 18px; gap: 7px; } .keywords-band span { font-size: 8.5px; letter-spacing: 2px; } }
 
 /* UPCOMING */
 .upcoming { background: #f0ebe0; padding: 96px 56px 112px; }
@@ -629,7 +633,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
     </div>
     <div class="value-right">
       <p class="value-eyebrow">Journeys beyond the ordinary.<br>For curious minds and open hearts.</p>
-      <p class="value-body">Wisdom Walk offers modern pilgrimages and seasonal harvest gatherings across sacred lands: from Peru to India, from Egypt to Anatolia.</p>
+      <p class="value-body">Wisdom Walk offers modern pilgrimages and seasonal harvest gatherings across sacred lands: from Peru to India, from Egypt to Anatolia. Spaces for wonder, celebration, adventure, and meaningful connection.</p>
       <div class="value-cta-group">
         <a href="journeys.html" class="value-cta">Explore Journeys</a>
         <a href="harvests.html" class="value-cta">Explore Harvests</a>
@@ -646,7 +650,9 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
   <span>Connection</span><span>&middot;</span>
   <span>Nature</span><span>&middot;</span>
   <span>Culture</span><span>&middot;</span>
-  <span>Presence</span>
+  <span>Presence</span><span>&middot;</span>
+  <span>Celebration</span><span>&middot;</span>
+  <span>Adventure</span>
 </div>
 
 <!-- GALLERY — clickable photos -->
@@ -827,9 +833,9 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
   <div class="upcoming-group">
     <div class="upcoming-group-header">
       <h3 class="upcoming-group-title">Journeys</h3>
-      <span class="upcoming-group-subtitle">7&ndash;14 days &nbsp;&middot;&nbsp; Sacred Land Journeys</span>
+      <span class="upcoming-group-subtitle">7&ndash;14 days &nbsp;&middot;&nbsp; Sacred Lands</span>
     </div>
-    <p class="upcoming-group-intro">Immersive retreat journeys through sacred lands where movement, ritual, and connection become part of the way.</p>
+    <p class="upcoming-group-intro">Immersive retreat experiences through sacred lands where movement, ritual, and connection become part of the way.</p>
     <div class="upcoming-pair">
       <div class="upcoming-pair-card">
         <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Mesoamerican Path, Mexico" class="upcoming-pair-img" style="object-position: center top;">
@@ -856,7 +862,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
   <div class="upcoming-group">
     <div class="upcoming-group-header">
       <h3 class="upcoming-group-title">Harvests</h3>
-      <span class="upcoming-group-subtitle">2&ndash;3 days &nbsp;&middot;&nbsp; Seasonal Harvest Retreats</span>
+      <span class="upcoming-group-subtitle">2&ndash;3 days &nbsp;&middot;&nbsp; Seasonal Harvests</span>
     </div>
     <p class="upcoming-group-intro">Seasonal retreat gatherings rooted in the rhythm of the land with harvests, long tables, and shared rituals.</p>
     <div class="upcoming-pair">

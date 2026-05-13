@@ -687,22 +687,25 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
   /* Video iframe mobile fix */
   .journey-media {
     width: 100%;
-    aspect-ratio: 16/9;
-    max-height: none;
+    aspect-ratio: 9/16;
+    max-height: 75vh;
     min-height: unset;
     position: relative;
     overflow: hidden;
     display: block;
+    border-radius: 16px;
   }
   .journey-media--landscape {
     aspect-ratio: 16/9;
+    max-height: none;
+    border-radius: 0;
   }
   .journey-media iframe {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 316%;
+    width: 316%;
+    height: 100%;
     transform: translate(-50%, -50%);
   }
   .journey-media--landscape iframe {
@@ -985,7 +988,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <div class="hero-bg"></div>
 <div class="hero-overlay"></div>
 <div class="hero-content">
-<p class="hero-label">7–14 days · Retreat journeys</p>
+<p class="hero-label">7–14 days · Sacred Lands</p>
 <h1 class="hero-title">Journeys</h1>
 <div class="hero-rule"></div>
 <p class="hero-body">Small group retreat journeys across sacred lands, each with its own rhythm, its own way of being.</p>
@@ -1001,6 +1004,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <p>We follow a route over several days: sometimes returning to the same places, sometimes moving on. Over time, something shifts in how the land is felt, and how we move through it.</p>
 <p>Each day takes shape around the land itself: its paths, stories, people, rituals, silence, and what unfolds along the way. Some parts are planned, some are left open. The rhythm changes as the journey moves, and so does the way we pay attention.</p>
 <p>Each journey lasts between 7 and 14 days, in small groups. We stay close to the land and spend time with the people who know it well. There is a structure, but it stays open enough for things to unfold.</p>
+<p>And within all of it: there is dance, there is drumming, there is leaping into waterfalls and getting wonderfully lost on roads that lead somewhere unexpected. Your body comes alive. You remember what it feels like to move through the world with joy, with full presence, with celebration at the heart of it.</p>
 </div>
 <div class="what-cta"><a href="about.html#how-we-walk">Learn how we walk →</a></div></div>
 </section>
