@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wisdom Walk — Journeys & Harvests</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@200;300;400&family=Lato:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -287,95 +287,65 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 @media (max-width: 768px) { .upcoming-pair { grid-template-columns: 1fr; } .upcoming-group-header { flex-direction: column; gap: 4px; } }
 
-/* TESTIMONIALS — warm harvest bg, cardless typographic layout */
+/* TESTIMONIALS — editorial single voice, photo bg */
 .testimonials {
-  background: #e8b46a;
-  padding: 26px 80px 30px;
-  border-top: 0.5px solid rgba(122,104,48,0.12);
-  border-bottom: 0.5px solid rgba(122,104,48,0.12);
+  background: url('photos/mainpagegallery/himalayas-india.jpg') center 40% / cover no-repeat;
+  padding: 52px 80px 58px;
+  border-top: none; border-bottom: none;
   position: relative; overflow: hidden;
 }
 .testimonials::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 78% 96% at 50% 50%, rgba(255,244,214,0.38) 0%, rgba(201,116,32,0.18) 100%);
+  background: rgba(14,10,6,0.64);
   pointer-events: none;
 }
-.testimonials-header { text-align: center; margin-bottom: 18px; }
+.testimonials-header { text-align: center; margin-bottom: 28px; }
 .testimonials-label {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 13px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase;
-  color: rgba(14,12,8,0.85); display: block;
+  font-size: 13px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase;
+  color: #fff; display: block;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.80);
 }
 .testimonials-inner {
   position: relative; z-index: 2;
-  max-width: 640px; margin: 0 auto;
+  max-width: 700px; margin: 0 auto;
 }
 .testimonials-pair-slide { display: none; }
-.testimonials-pair-slide.active { display: block; animation: fadeInT 0.45s ease; }
+.testimonials-pair-slide.active { display: block; animation: fadeInT 0.6s ease; }
 @keyframes fadeInT { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-.testimonials-grid {
-  display: grid; grid-template-columns: 1fr;
-  gap: 0;
-  border-top: 0.5px solid rgba(122,104,48,0.18);
-  padding-top: 22px;
-  max-width: 560px; margin: 0 auto;
-}
-.testimonials-grid.solo { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
-.testimonial-card {
-  padding: 0;
-  border-right: none;
-}
-.testimonials-grid .testimonial-card:last-child {
-  padding: 0;
-  border-right: none;
-}
-.testimonials-grid.solo .testimonial-card {
-  padding: 0; border-right: none;
-}
+.testimonial-item { text-align: center; padding: 0; }
 .testimonials-quote-mark { display: none; }
 .testimonial-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(15px, 1.65vw, 18px); line-height: 1.8;
-  color: rgba(42,40,34,0.78); font-style: italic;
-  margin-bottom: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(13px, 1.35vw, 15px); line-height: 1.9;
+  color: rgba(255,248,236,0.92); font-style: italic; font-weight: 400;
+  text-align: center;
+  max-width: 560px; margin: 0 auto 28px;
 }
-.testimonial-text::before {
-  content: '\201C';
-  color: rgba(122,104,48,0.48);
-  font-size: 1.15em; margin-right: 1px;
-}
-.testimonial-attribution { display: flex; align-items: center; gap: 12px; }
-.testimonial-attr-line { width: 20px; height: 0.5px; background: rgba(122,104,48,0.36); flex-shrink: 0; }
+.testimonial-text::before { content: none; }
+.testimonial-attribution { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.testimonial-attr-line { width: 24px; height: 0.5px; background: rgba(255,220,160,0.35); flex-shrink: 0; margin-bottom: 8px; }
 .testimonial-name {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.2px;
-  text-transform: uppercase; color: rgba(42,40,34,0.58); display: block;
+  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 2.8px;
+  text-transform: uppercase; color: rgba(255,248,236,0.75); display: block;
 }
 .testimonial-journeys {
-  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 1.4px;
-  text-transform: uppercase; color: rgba(64,50,22,0.82); display: block; margin-top: 3px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 8.5px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,210,140,0.65); display: block; margin-top: 4px;
 }
-.testimonials-nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; }
+.testimonials-nav { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 32px; }
 .testimonials-btn {
-  background: rgba(247,243,234,0.18); border: 0.5px solid rgba(122,104,48,0.28);
-  width: 34px; height: 34px; border-radius: 50%;
-  cursor: pointer; color: rgba(122,104,48,0.58);
-  font-size: 14px; line-height: 1;
-  display: flex; align-items: center; justify-content: center; transition: all 0.25s;
+  background: transparent; border: 0.5px solid rgba(255,255,255,0.22);
+  width: 28px; height: 28px; border-radius: 50%;
+  cursor: pointer; color: rgba(255,255,255,0.45);
+  font-size: 12px; line-height: 1;
+  display: flex; align-items: center; justify-content: center; transition: all 0.3s;
 }
-.testimonials-btn:hover { border-color: rgba(122,104,48,0.65); color: rgba(42,40,34,0.88); }
-.testimonials-dots { display: flex; gap: 7px; align-items: center; }
-.testimonials-dot {
-  width: 4px; height: 4px; border-radius: 50%;
-  background: rgba(122,104,48,0.24); cursor: pointer; transition: all 0.3s;
-}
-.testimonials-dot.active { background: rgba(122,104,48,0.62); width: 18px; border-radius: 2px; }
-@media (max-width: 880px) {
-  .testimonials-grid { grid-template-columns: 1fr; border-top: 0.5px solid rgba(122,104,48,0.18); padding-top: 20px; gap: 0; }
-  .testimonial-card, .testimonials-grid .testimonial-card:last-child { padding: 0; border-right: none; border-top: none; }
-}
-@media (max-width: 768px) { .testimonials { padding: 30px 32px 34px; } }
-@media (max-width: 480px) { .testimonials { padding: 26px 20px 30px; } .testimonial-text { font-size: 15px; } }
+.testimonials-btn:hover { border-color: rgba(255,220,160,0.55); color: rgba(255,248,236,0.90); }
+.testimonials-dots { display: none; }
+@media (max-width: 768px) { .testimonials { padding: 40px 32px 44px; } }
+@media (max-width: 480px) { .testimonials { padding: 34px 20px 38px; } .testimonial-text { font-size: 14px; } }
 
 /* STATS */
 .stats { background: #f7f3ea; padding: 22px 56px; border-top: 0.5px solid rgba(122,104,48,0.1); }
@@ -724,125 +694,97 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
 <section class="testimonials" id="testimonials">
   <div class="testimonials-inner">
     <div class="testimonials-header">
-      <span class="testimonials-label">&#10022; Words from the path</span>
+      <span class="testimonials-label">&#10022; Voices from the path</span>
     </div>
     <div id="testimonialsCarousel">
 
       <!-- Slide 1: Arsay -->
       <div class="testimonials-pair-slide active">
-        <div class="testimonials-grid solo">
-          <div class="testimonial-card">
-            <span class="testimonials-quote-mark">&ldquo;</span>
-            <p class="testimonial-text">Being with you gives me the opportunity to journey into myself, to bravely enter the hidden rooms within me and sit there freely, just as I wish.</p>
-            <div class="testimonial-attribution">
-              <div class="testimonial-attr-line"></div>
-              <div>
-                <span class="testimonial-name">Arsay</span>
-                <span class="testimonial-journeys">Bali &rsquo;23 &nbsp;&middot;&nbsp; Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Auroville &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
-              </div>
-            </div>
+        <div class="testimonial-item">
+          <span class="testimonials-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">Being with you gives me the opportunity to journey into myself, to bravely enter the hidden rooms within me and sit there freely, just as I wish.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-attr-line"></div>
+            <span class="testimonial-name">Arsay</span>
+            <span class="testimonial-journeys">Bali &rsquo;23 &nbsp;&middot;&nbsp; Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Auroville &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
           </div>
         </div>
       </div>
 
       <!-- Slide 2: Elif -->
       <div class="testimonials-pair-slide">
-        <div class="testimonials-grid solo">
-          <div class="testimonial-card">
-            <span class="testimonials-quote-mark">&ldquo;</span>
-            <p class="testimonial-text">Some experiences don&rsquo;t simply happen and end, they continue to live within you for a long time. That is exactly what these journeys became for me. With you, I first began in India, then deepened in Peru, and later experienced something entirely different along the Nile in Egypt. Each journey opened a different space within me, yet all of them left a lasting impact. Through these journeys, I not only discovered new places, but also learned to look at myself differently. Your guidance, the way you hold space, and your companionship on the path had a deep part in that. Some encounters cannot be coincidence. They leave deep marks on a person&rsquo;s life. These experiences became one of those for me.</p>
-            <div class="testimonial-attribution">
-              <div class="testimonial-attr-line"></div>
-              <div>
-                <span class="testimonial-name">Elif</span>
-                <span class="testimonial-journeys">Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Peru &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25</span>
-              </div>
-            </div>
+        <div class="testimonial-item">
+          <span class="testimonials-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">Some experiences don&rsquo;t simply happen and end, they continue to live within you for a long time. That is exactly what these journeys became for me. With you, I first began in India, then deepened in Peru, and later experienced something entirely different along the Nile in Egypt. Each journey opened a different space within me, yet all of them left a lasting impact. Through these journeys, I not only discovered new places, but also learned to look at myself differently. Your guidance, the way you hold space, and your companionship on the path had a deep part in that. Some encounters cannot be coincidence. They leave deep marks on a person&rsquo;s life. These experiences became one of those for me.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-attr-line"></div>
+            <span class="testimonial-name">Elif</span>
+            <span class="testimonial-journeys">Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Peru &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25</span>
           </div>
         </div>
       </div>
 
       <!-- Slide 3: Ne&#351;e -->
       <div class="testimonials-pair-slide">
-        <div class="testimonials-grid solo">
-          <div class="testimonial-card">
-            <span class="testimonials-quote-mark">&ldquo;</span>
-            <p class="testimonial-text">On every journey I&rsquo;ve taken with Merve, I find myself arriving a little closer to myself. What began in Turkey and deepened through the retreats in India and Peru, each experience has been its own kind of transformation. Through her energy, her presence, and the space she holds, you don&rsquo;t just discover new places along the way, you begin to see yourself differently. Wherever we go, she finds a way to turn the journey into something entirely its own. I am so glad our paths crossed. There is a deep gratitude in my heart, and I am already looking forward, with joy, to wherever the road takes us next.</p>
-            <div class="testimonial-attribution">
-              <div class="testimonial-attr-line"></div>
-              <div>
-                <span class="testimonial-name">Ne&#351;e</span>
-                <span class="testimonial-journeys">Auroville &rsquo;24 &nbsp;&middot;&nbsp; Peru &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
-              </div>
-            </div>
+        <div class="testimonial-item">
+          <span class="testimonials-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">On every journey I&rsquo;ve taken with Merve, I find myself arriving a little closer to myself. What began in Turkey and deepened through the retreats in India and Peru, each experience has been its own kind of transformation. Through her energy, her presence, and the space she holds, you don&rsquo;t just discover new places along the way, you begin to see yourself differently. Wherever we go, she finds a way to turn the journey into something entirely its own. I am so glad our paths crossed. There is a deep gratitude in my heart, and I am already looking forward, with joy, to wherever the road takes us next.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-attr-line"></div>
+            <span class="testimonial-name">Ne&#351;e</span>
+            <span class="testimonial-journeys">Auroville &rsquo;24 &nbsp;&middot;&nbsp; Peru &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
           </div>
         </div>
       </div>
 
       <!-- Slide 4: G&uuml;l -->
       <div class="testimonials-pair-slide">
-        <div class="testimonials-grid solo">
-          <div class="testimonial-card">
-            <span class="testimonials-quote-mark">&ldquo;</span>
-            <p class="testimonial-text">Travelling with Merve means this: she shows the path, but who you become on that path is up to you. I joined one harvest and three journeys with Merve through Bali, India, Peru and Ayval&#305;k, and on these paths I learned beautiful teachings. Merve simply shows the way and offers teachings that may make your path lighter. Meditation and dance are two of the things I placed into my own bag, and with them I continue transforming with gratitude and faith. If one day you walk with Merve, receive what speaks to you and place it into your own bag, it may become a light on your path.</p>
-            <div class="testimonial-attribution">
-              <div class="testimonial-attr-line"></div>
-              <div>
-                <span class="testimonial-name">G&uuml;l</span>
-                <span class="testimonial-journeys">Bali &rsquo;23 &nbsp;&middot;&nbsp; Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Peru &rsquo;24 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;24</span>
-              </div>
-            </div>
+        <div class="testimonial-item">
+          <span class="testimonials-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">Travelling with Merve means this: she shows the path, but who you become on that path is up to you. I joined one harvest and three journeys with Merve through Bali, India, Peru and Ayval&#305;k, and on these paths I learned beautiful teachings. Merve simply shows the way and offers teachings that may make your path lighter. Meditation and dance are two of the things I placed into my own bag, and with them I continue transforming with gratitude and faith. If one day you walk with Merve, receive what speaks to you and place it into your own bag, it may become a light on your path.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-attr-line"></div>
+            <span class="testimonial-name">G&uuml;l</span>
+            <span class="testimonial-journeys">Bali &rsquo;23 &nbsp;&middot;&nbsp; Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Peru &rsquo;24 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;24</span>
           </div>
         </div>
       </div>
 
       <!-- Slide 5: Sezen -->
       <div class="testimonials-pair-slide">
-        <div class="testimonials-grid solo">
-          <div class="testimonial-card">
-            <span class="testimonials-quote-mark">&ldquo;</span>
-            <p class="testimonial-text">Every journey in the world, and every journey within ourselves, carries a certain amount of unknown. Once you begin walking, you never fully know what you will meet along the way. That is exactly why having a good companion in such a space of discovery is so valuable. In 2025, after a difficult illness and treatment process in my life, I joined one Walk and one Harvest with Merve Purde. What I found in these spaces were practices built with care and trust, a sincere and non judgmental atmosphere, and a community brought together thoughtfully. The spaces Merve creates are not only experiences, but also places where a person can reconnect with themselves, find balance, and deepen again.</p>
-            <div class="testimonial-attribution">
-              <div class="testimonial-attr-line"></div>
-              <div>
-                <span class="testimonial-name">Sezen</span>
-                <span class="testimonial-journeys">Peru &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
-              </div>
-            </div>
+        <div class="testimonial-item">
+          <span class="testimonials-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">Every journey in the world, and every journey within ourselves, carries a certain amount of unknown. Once you begin walking, you never fully know what you will meet along the way. That is exactly why having a good companion in such a space of discovery is so valuable. In 2025, after a difficult illness and treatment process in my life, I joined one Walk and one Harvest with Merve Purde. What I found in these spaces were practices built with care and trust, a sincere and non judgmental atmosphere, and a community brought together thoughtfully. The spaces Merve creates are not only experiences, but also places where a person can reconnect with themselves, find balance, and deepen again.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-attr-line"></div>
+            <span class="testimonial-name">Sezen</span>
+            <span class="testimonial-journeys">Peru &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
           </div>
         </div>
       </div>
 
       <!-- Slide 6: Alican -->
       <div class="testimonials-pair-slide">
-        <div class="testimonials-grid solo">
-          <div class="testimonial-card">
-            <span class="testimonials-quote-mark">&ldquo;</span>
-            <p class="testimonial-text">On this journey, I dove into the world of mysteries. I expanded the limits of what I believed I could do in life. The wisdom of the mountains passed into my spirit, and the healing of the Amazon worked through my body. I expanded my heart and became one with my soul. At the end of all these adventures, I became a warrior of light.</p>
-            <div class="testimonial-attribution">
-              <div class="testimonial-attr-line"></div>
-              <div>
-                <span class="testimonial-name">Alican</span>
-                <span class="testimonial-journeys">Peru &rsquo;24</span>
-              </div>
-            </div>
+        <div class="testimonial-item">
+          <span class="testimonials-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">On this journey, I dove into the world of mysteries. I expanded the limits of what I believed I could do in life. The wisdom of the mountains passed into my spirit, and the healing of the Amazon worked through my body. I expanded my heart and became one with my soul. At the end of all these adventures, I became a warrior of light.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-attr-line"></div>
+            <span class="testimonial-name">Alican</span>
+            <span class="testimonial-journeys">Peru &rsquo;24</span>
           </div>
         </div>
       </div>
 
       <!-- Slide 7: Selin -->
       <div class="testimonials-pair-slide">
-        <div class="testimonials-grid solo">
-          <div class="testimonial-card">
-            <span class="testimonials-quote-mark">&ldquo;</span>
-            <p class="testimonial-text">The feeling of trust that comes from walking with Merve eventually turned into the reality of becoming one big family. From the will to walk alone, into becoming one together. Towards the new.</p>
-            <div class="testimonial-attribution">
-              <div class="testimonial-attr-line"></div>
-              <div>
-                <span class="testimonial-name">Selin</span>
-                <span class="testimonial-journeys">Peru &rsquo;24</span>
-              </div>
-            </div>
+        <div class="testimonial-item">
+          <span class="testimonials-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">The feeling of trust that comes from walking with Merve eventually turned into the reality of becoming one big family. From the will to walk alone, into becoming one together. Towards the new.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-attr-line"></div>
+            <span class="testimonial-name">Selin</span>
+            <span class="testimonial-journeys">Peru &rsquo;24</span>
           </div>
         </div>
       </div>
