@@ -343,7 +343,9 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   display: flex; align-items: center; justify-content: center; transition: all 0.3s;
 }
 .testimonials-btn:hover { border-color: rgba(255,220,160,0.55); color: rgba(255,248,236,0.90); }
-.testimonials-dots { display: none; }
+.testimonials-dots { display: flex; align-items: center; gap: 8px; }
+.testimonials-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,220,160,0.25); border: none; cursor: pointer; transition: background 0.3s ease; }
+.testimonials-dot.active { background: rgba(255,220,160,0.75); }
 @media (max-width: 768px) { .testimonials { padding: 40px 32px 44px; } }
 @media (max-width: 480px) { .testimonials { padding: 34px 20px 38px; } .testimonial-text { font-size: 14px; } }
 
