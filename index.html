@@ -917,11 +917,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
       <p class="circle-banner-copy">Field notes from the road.<br>Early access to new journeys and harvests. A quiet welcome.</p>
     </div>
     <div class="circle-banner-form">
-      <form action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST">
-        <input name="_subject" type="hidden" value="New La Familia signup from homepage"/>
-        <input name="_captcha" type="hidden" value="false"/>
-        <input name="_template" type="hidden" value="table"/>
-        <input name="_next" type="hidden" value="https://wisdomwalk.earth/la-familia"/>
+      <form onsubmit="handleKitSubscribe(event)">
         <input type="email" name="email" class="circle-banner-input" placeholder="your e-mail" required>
         <button type="submit" class="circle-banner-btn">Join La Familia &rarr;</button>
       </form>
@@ -985,6 +981,33 @@ document.addEventListener('DOMContentLoaded', function() {
     carousel.addEventListener('mouseleave', function() { autoPlay = setInterval(window.nextTestimonial, 8000); });
   }
 });
+
+async function handleKitSubscribe(e) {
+  e.preventDefault();
+  const form = e.target;
+  const email = form.querySelector('input[type="email"]').value;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '...';
+  try {
+    const res = await fetch('https://api.kit.com/v4/forms/9447114/subscribers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer kit_5ed22726ab0abde1ea61b67e13d6c185' },
+      body: JSON.stringify({ email_address: email })
+    });
+    if (res.ok) {
+      btn.textContent = 'Welcome to La Familia ✦';
+      form.querySelector('input[type="email"]').disabled = true;
+    } else {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+}
 </script>
 </body>
 </html>

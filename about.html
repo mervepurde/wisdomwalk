@@ -1636,7 +1636,7 @@ section:not(.principles-section):not(#principles) p {
       </p>
 </div>
 <div>
-<form action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST"><input name="_template" type="hidden" value="table"/><input name="_captcha" type="hidden" value="false"/><input name="_subject" type="hidden" value="New Wisdom Walk application from About"/>
+<form action="https://formsubmit.co/hello@wisdomwalk.earth" method="POST"><input name="_template" type="hidden" value="table"/><input name="_captcha" type="hidden" value="false"/><input name="_subject" type="hidden" value="New Wisdom Walk application from About"/>
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
 <div class="form-group">
 <label class="form-label">First Name</label>
@@ -1680,7 +1680,7 @@ section:not(.principles-section):not(#principles) p {
 </div>
 <div class="bespoke-right">
 <p style="; text-align:left;">Are you a facilitator, a teacher, or a group with a shared intention? We can design a walk around your community: same lands, same depth, your own rhythm. A bespoke journey, held with care.</p>
-<a class="bespoke-btn" href="mailto:hellowisdomwalk@gmail.com">Let's talk →</a>
+<a class="bespoke-btn" href="mailto:hello@wisdomwalk.earth">Let's talk →</a>
 </div>
 </div>
 </section>
@@ -1692,11 +1692,7 @@ section:not(.principles-section):not(#principles) p {
       <p class="circle-banner-copy">Field notes from the road.<br>Early access to new journeys and harvests. A quiet welcome.</p>
     </div>
     <div class="circle-banner-form">
-      <form action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST">
-        <input name="_subject" type="hidden" value="New La Familia signup from about page"/>
-        <input name="_captcha" type="hidden" value="false"/>
-        <input name="_template" type="hidden" value="table"/>
-        <input name="_next" type="hidden" value="https://wisdomwalk.earth/la-familia"/>
+      <form onsubmit="handleKitSubscribe(event)">
         <input type="email" name="email" class="circle-banner-input" placeholder="your e-mail" required>
         <button type="submit" class="circle-banner-btn">Join La Familia &rarr;</button>
       </form>
@@ -1717,6 +1713,33 @@ section:not(.principles-section):not(#principles) p {
 <p class="footer-copy" style="; text-align:left;">© 2026 Wisdom Walk  ·  <em>Walking the path of remembrance.</em></p>
 </footer>
 <script>
+async function handleKitSubscribe(e) {
+  e.preventDefault();
+  const form = e.target;
+  const email = form.querySelector('input[type="email"]').value;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '...';
+  try {
+    const res = await fetch('https://api.kit.com/v4/forms/9447114/subscribers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer kit_5ed22726ab0abde1ea61b67e13d6c185' },
+      body: JSON.stringify({ email_address: email })
+    });
+    if (res.ok) {
+      btn.textContent = 'Welcome to La Familia ✦';
+      form.querySelector('input[type="email"]').disabled = true;
+    } else {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+}
+
 // Carousel scroll
 function scrollCarousel(dir) {
   const carousel = document.getElementById('photoCarousel');

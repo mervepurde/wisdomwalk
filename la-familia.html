@@ -518,13 +518,31 @@ function toggleMobileMenu() {
 window.addEventListener('scroll', function() {
   document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
 });
-function handleCircleJoin(e) {
+async function handleKitSubscribe(e) {
   e.preventDefault();
-  const email = document.getElementById('circleEmail').value;
-  const btn = e.target.querySelector('.circle-btn');
-  window.location.href = 'mailto:hellowisdomwalk@gmail.com?subject=Join La Familia&body=Please add me to La Familia.%0A%0AMy email: ' + encodeURIComponent(email);
-  btn.textContent = 'Thank you — welcome to La Familia';
+  const form = e.target;
+  const email = form.querySelector('input[type="email"]').value;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
   btn.disabled = true;
+  btn.textContent = '...';
+  try {
+    const res = await fetch('https://api.kit.com/v4/forms/9447114/subscribers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer kit_5ed22726ab0abde1ea61b67e13d6c185' },
+      body: JSON.stringify({ email_address: email })
+    });
+    if (res.ok) {
+      btn.textContent = 'Welcome to La Familia ✦';
+      form.querySelector('input[type="email"]').disabled = true;
+    } else {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
 }
 function handleSubmit(e) {
   e.preventDefault();
@@ -659,12 +677,8 @@ function handleSubmit(e) {
 <h3 class="circle-join-heading">Join <em>La Familia.</em></h3>
 <p class="circle-join-sub">Stay close to the stories, sounds, practices, and places that continue between the walks.</p>
 <!-- MAILCHIMP embed buraya -->
-<form class="circle-form" action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST">
-<input name="_subject" type="hidden" value="New La Familia signup"/>
-<input name="_captcha" type="hidden" value="false"/>
-<input name="_template" type="hidden" value="table"/>
-<input name="_next" type="hidden" value="https://wisdomwalk.earth/la-familia"/>
-<input class="circle-input" id="circleEmail" name="email" placeholder="your e-mail" required="" type="email"/>
+<form class="circle-form" onsubmit="handleKitSubscribe(event)">
+<input class="circle-input" name="email" placeholder="your e-mail" required="" type="email"/>
 <button class="circle-btn" type="submit">Join La Familia</button>
 </form>
 <p class="circle-note">Monthly stories · Practices · Sounds · Occasional gatherings</p>
@@ -685,7 +699,7 @@ function handleSubmit(e) {
       </p>
 </div>
 <div>
-<form action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST">
+<form action="https://formsubmit.co/hello@wisdomwalk.earth" method="POST">
 <input name="_subject" type="hidden" value="New Wisdom Walk application from La Familia"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="_template" type="hidden" value="table"/>
@@ -734,7 +748,7 @@ function handleSubmit(e) {
 </div>
 <div class="bespoke-right">
 <p>Are you a facilitator, a teacher, or a group with a shared intention? We can design a walk around your community: same lands, same depth, your own rhythm. A bespoke journey, held with care.</p>
-<a class="bespoke-btn" href="mailto:hellowisdomwalk@gmail.com">Let's talk →</a>
+<a class="bespoke-btn" href="mailto:hello@wisdomwalk.earth">Let's talk →</a>
 </div>
 </div>
 </section>
@@ -746,9 +760,7 @@ function handleSubmit(e) {
       <p class="circle-banner-copy">Slow letters. Quiet invitations.<br/>The kind of news worth waiting for.</p>
     </div>
     <div class="circle-banner-form">
-      <form action="https://formsubmit.co/hellowisdomwalk@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New subscriber — La Familia page">
-        <input type="hidden" name="_captcha" value="false">
+      <form onsubmit="handleKitSubscribe(event)">
         <input class="circle-banner-input" type="email" name="email" placeholder="YOUR EMAIL" required>
         <button class="circle-banner-btn" type="submit">Join →</button>
       </form>
