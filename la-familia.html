@@ -518,6 +518,46 @@ function toggleMobileMenu() {
 window.addEventListener('scroll', function() {
   document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
 });
+async function handleApplicationSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '...';
+  const email = form.querySelector('[name="email"]').value;
+  const firstName = form.querySelector('[name="first_name"]').value;
+  const lastName = form.querySelector('[name="last_name"]').value;
+  const journey = form.querySelector('[name="journey_interest"]').value;
+  const message = form.querySelector('[name="message"]').value;
+  const laFamilia = form.querySelector('[name="la_familia"]')?.checked;
+  try {
+    await fetch('https://api.convertkit.com/v3/forms/9447418/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        api_key: '5LA2MmcFHb9SN_s_w1aCkQ',
+        email: email,
+        first_name: firstName,
+        fields: { last_name: lastName, journey_interest: journey, application_message: message }
+      })
+    });
+    if (laFamilia) {
+      await fetch('https://api.convertkit.com/v3/forms/9447114/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ api_key: '5LA2MmcFHb9SN_s_w1aCkQ', email: email, first_name: firstName })
+      });
+    }
+    btn.textContent = 'Sent — we\'ll be in touch';
+    btn.style.background = '#8a7a4a';
+    form.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
+  } catch {
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+}
+
 async function handleKitSubscribe(e) {
   e.preventDefault();
   const form = e.target;
@@ -699,10 +739,7 @@ function handleSubmit(e) {
       </p>
 </div>
 <div>
-<form action="https://formsubmit.co/hello@wisdomwalk.earth" method="POST">
-<input name="_subject" type="hidden" value="New Wisdom Walk application from La Familia"/>
-<input name="_captcha" type="hidden" value="false"/>
-<input name="_template" type="hidden" value="table"/>
+<form onsubmit="handleApplicationSubmit(event)">
 <div class="form-grid-2">
 <div class="form-group">
 <label class="form-label">First Name</label>
@@ -731,6 +768,10 @@ function handleSubmit(e) {
 <div class="form-group">
 <label class="form-label">What draws you to this?</label>
 <textarea class="form-input form-textarea" name="message" placeholder="Say as much or as little as feels right…" required=""></textarea>
+</div>
+<div class="form-group" style="display:flex; align-items:flex-start; gap:10px; margin-top:4px;">
+<input type="checkbox" name="la_familia" id="la_familia_check" style="margin-top:3px; accent-color:#c4a55a; flex-shrink:0;"/>
+<label for="la_familia_check" class="form-note" style="margin:0; cursor:pointer;">Also keep me close to La Familia letters and future gatherings.</label>
 </div>
 <button class="form-submit" type="submit">Walk with us</button>
 <p class="form-note">We do not share your information with anyone.<br/>This is the beginning of a real conversation.</p>
