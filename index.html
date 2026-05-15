@@ -991,10 +991,10 @@ async function handleKitSubscribe(e) {
   btn.disabled = true;
   btn.textContent = '...';
   try {
-    const res = await fetch('https://api.kit.com/v4/forms/9447114/subscribers', {
+    const res = await fetch('https://api.convertkit.com/v3/forms/9447114/subscribe', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer kit_2740741928404e9920e54c5dd191459c' },
-      body: JSON.stringify({ email_address: email })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ api_key: '5LA2MmcFHb9SN_s_w1aCkQ', email: email })
     });
     if (res.ok) {
       btn.textContent = 'Welcome to La Familia ✦';
