@@ -8,10 +8,5 @@
         { "key": "X-Content-Type-Options", "value": "nosniff" }
       ]
     }
-  ],
-  "functions": {
-    "api/submit.js": {
-      "runtime": "nodejs22.x"
-    }
-  }
+  ]
 }
