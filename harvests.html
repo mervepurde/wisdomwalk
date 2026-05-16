@@ -879,10 +879,10 @@ async function handleKitSubscribe(e) {
   btn.disabled = true;
   btn.textContent = '...';
   try {
-    const res = await fetch('https://api.convertkit.com/v3/forms/9447114/subscribe', {
+    const res = await fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ api_key: '5LA2MmcFHb9SN_s_w1aCkQ', email: email })
+      body: JSON.stringify({ type: 'newsletter', email: email })
     });
     if (res.ok) {
       btn.textContent = 'Welcome to La Familia ✦';
@@ -896,6 +896,7 @@ async function handleKitSubscribe(e) {
     btn.disabled = false;
   }
 }
+
 </script>
 </body>
 </html>

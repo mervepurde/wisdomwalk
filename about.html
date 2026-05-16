@@ -1732,26 +1732,23 @@ async function handleApplicationSubmit(e) {
   const message = form.querySelector('[name="message"]').value;
   const laFamilia = form.querySelector('[name="la_familia"]')?.checked;
   try {
-    await fetch('https://api.convertkit.com/v3/forms/9447418/subscribe', {
+    const res = await fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        api_key: '5LA2MmcFHb9SN_s_w1aCkQ',
-        email: email,
-        first_name: firstName,
-        fields: { last_name: lastName, journey_interest: journey, application_message: message }
+        type: 'application',
+        email, first_name: firstName, last_name: lastName,
+        journey_interest: journey, message, la_familia: laFamilia
       })
     });
-    if (laFamilia) {
-      await fetch('https://api.convertkit.com/v3/forms/9447114/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ api_key: '5LA2MmcFHb9SN_s_w1aCkQ', email: email, first_name: firstName })
-      });
+    if (res.ok) {
+      btn.textContent = "Sent — we'll be in touch";
+      btn.style.background = '#8a7a4a';
+      form.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
+    } else {
+      btn.textContent = originalText;
+      btn.disabled = false;
     }
-    btn.textContent = 'Sent — we\'ll be in touch';
-    btn.style.background = '#8a7a4a';
-    form.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
   } catch {
     btn.textContent = originalText;
     btn.disabled = false;
@@ -1767,10 +1764,10 @@ async function handleKitSubscribe(e) {
   btn.disabled = true;
   btn.textContent = '...';
   try {
-    const res = await fetch('https://api.convertkit.com/v3/forms/9447114/subscribe', {
+    const res = await fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ api_key: '5LA2MmcFHb9SN_s_w1aCkQ', email: email })
+      body: JSON.stringify({ type: 'newsletter', email: email })
     });
     if (res.ok) {
       btn.textContent = 'Welcome to La Familia ✦';
@@ -1785,7 +1782,6 @@ async function handleKitSubscribe(e) {
   }
 }
 
-// Carousel scroll
 function scrollCarousel(dir) {
   const carousel = document.getElementById('photoCarousel');
   const itemWidth = carousel.querySelector('.col-item').offsetWidth + 4;
