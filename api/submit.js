@@ -63,22 +63,74 @@ async function sendNotificationToMerve({ first_name, last_name, email, journey_i
 
 async function sendConfirmationToApplicant({ first_name, email }) {
   const transporter = createTransporter();
+  const safeName = (first_name || 'friend').replace(/[<>]/g, '');
+
+  const text = [
+    `Dear ${safeName},`,
+    ``,
+    `Thank you for reaching out. Your application has arrived, and it will be read with care.`,
+    ``,
+    `We'll come back to you within 2 to 3 days. If anything moves you in the meantime, you can reply directly to this email.`,
+    ``,
+    `With care,`,
+    `Wisdom Walk`,
+    `wisdomwalk.earth`,
+  ].join('\n');
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Your application has arrived</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f7f3ea;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f7f3ea;">
+      <tr>
+        <td align="center" style="padding:56px 24px;">
+          <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;">
+            <tr>
+              <td align="center" style="padding-bottom:40px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:#7a6830;">
+                Wisdom&nbsp;Walk
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom:32px;">
+                <div style="width:32px;height:1px;background:#c4a55a;opacity:0.6;line-height:1px;font-size:1px;">&nbsp;</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:19px;line-height:1.75;color:#2a2822;font-weight:300;">
+                <p style="margin:0 0 24px 0;">Dear ${safeName},</p>
+                <p style="margin:0 0 24px 0;">Thank you for reaching out. Your application has arrived, and it will be read with care.</p>
+                <p style="margin:0 0 24px 0;">We&rsquo;ll come back to you within 2 to 3 days. If anything moves you in the meantime, you can reply directly to this email.</p>
+                <p style="margin:0 0 8px 0;">With care,</p>
+                <p style="margin:0;font-style:italic;color:#a8853f;font-size:21px;">Wisdom Walk</p>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-top:56px;">
+                <div style="width:32px;height:1px;background:#c4a55a;opacity:0.4;line-height:1px;font-size:1px;">&nbsp;</div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-top:24px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#7a6830;">
+                <a href="https://wisdomwalk.earth" style="color:#7a6830;text-decoration:none;">wisdomwalk.earth</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+
   await transporter.sendMail({
-    from: `"Merve — Wisdom Walk" <${GMAIL_USER}>`,
+    from: `"Wisdom Walk" <${GMAIL_USER}>`,
     to: email,
-    subject: `We received your application`,
-    text: [
-      `Dear ${first_name},`,
-      ``,
-      `Thank you for reaching out. I've received your application and will read it personally.`,
-      ``,
-      `I'll come back to you within 2–3 days. If you have any questions in the meantime, you can reply directly to this email.`,
-      ``,
-      `With care,`,
-      `Merve`,
-      `Wisdom Walk`,
-      `wisdomwalk.earth`,
-    ].join('\n'),
+    subject: `Your application has arrived`,
+    text,
+    html,
   });
 }
 
