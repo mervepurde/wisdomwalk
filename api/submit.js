@@ -7,6 +7,7 @@ const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
 
 const GROUP_IDS = {
   la_familia: '187627532466521921',
+  application_submitted: '187797301812528868',
   'Walk — Amazonia, Peru': '187627862113649676',
   'Walk — Peru, Amazonia': '187627862113649676',
   'Walk — Oaxaca & the Ancient South, Mexico': '187627878071928632',
@@ -61,29 +62,6 @@ async function sendNotificationToMerve({ first_name, last_name, email, journey_i
   });
 }
 
-async function sendConfirmationToApplicant({ first_name, email }) {
-  const transporter = createTransporter();
-  const safeName = (first_name || 'friend').replace(/[<>]/g, '');
-
-  const text = [
-    `Dear ${safeName},`,
-    ``,
-    `Thank you for reaching out. Your application has arrived, and it will be read with care.`,
-    ``,
-    `We'll come back to you within 2 to 3 days. If anything moves you in the meantime, you can reply directly to this email.`,
-    ``,
-    `With care,`,
-    `Wisdom Walk`,
-  ].join('\n');
-
-  await transporter.sendMail({
-    from: `"Wisdom Walk" <${GMAIL_USER}>`,
-    to: email,
-    subject: `Your application has arrived`,
-    text,
-  });
-}
-
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -108,20 +86,15 @@ export default async function handler(req, res) {
       // 1. Merve'ye bildirim maili
       await sendNotificationToMerve({ first_name, last_name, email, journey_interest, message });
 
-      // 2. Başvurucuya otomatik onay maili
-      await sendConfirmationToApplicant({ first_name, email });
-
-      // 3. Mailerlite'a ekle (journey group + La Familia checkbox)
-      const groupIds = [];
+      // 2. Mailerlite'a ekle: Application Submitted (otomasyon trigger) + journey group + La Familia checkbox
+      const groupIds = [GROUP_IDS.application_submitted];
       if (journey_interest && GROUP_IDS[journey_interest]) {
         groupIds.push(GROUP_IDS[journey_interest]);
       }
       if (la_familia) {
         groupIds.push(GROUP_IDS.la_familia);
       }
-      if (groupIds.length > 0) {
-        await addToMailerlite(email, first_name || '', last_name || '', groupIds);
-      }
+      await addToMailerlite(email, first_name || '', last_name || '', groupIds);
 
       return res.status(200).json({ success: true });
     }
