@@ -76,19 +76,11 @@ async function sendConfirmationToApplicant({ first_name, email }) {
     `Wisdom Walk`,
   ].join('\n');
 
-  const html = `<div style="font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.7;color:#2a2822;max-width:560px;margin:0 auto;padding:24px;">
-<p>Dear ${safeName},</p>
-<p>Thank you for reaching out. Your application has arrived, and it will be read with care.</p>
-<p>We'll come back to you within 2 to 3 days. If anything moves you in the meantime, you can reply directly to this email.</p>
-<p>With care,<br>Wisdom Walk</p>
-</div>`;
-
   await transporter.sendMail({
     from: `"Wisdom Walk" <${GMAIL_USER}>`,
     to: email,
     subject: `Your application has arrived`,
     text,
-    html,
   });
 }
 
