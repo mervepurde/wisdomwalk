@@ -210,144 +210,86 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .featured-link:hover { color: #d4b56a; border-color: rgba(196,165,90,0.88); }
 
 
-/* UPCOMING JOURNEYS — cards */
+/* UPCOMING JOURNEYS — compact rows */
 .walks-upcoming-section {
   background: #f7f3ea;
   padding: 72px 80px;
 }
-.walks-upcoming-inner {
-  max-width: 1060px;
-  margin: 0 auto;
-}
-.walks-upcoming-header {
-  margin-bottom: 48px;
-}
+.walks-upcoming-inner { max-width: 1060px; margin: 0 auto; }
+.walks-upcoming-header { margin-bottom: 44px; }
 .walks-upcoming-eyebrow {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: rgba(196,165,90,0.88);
-  margin-bottom: 16px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(196,165,90,0.88); margin-bottom: 16px;
 }
 .walks-upcoming-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 300;
-  font-style: italic;
-  color: #2a2822;
-  line-height: 1.2;
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300; font-style: italic; color: #2a2822; line-height: 1.2;
 }
-.walks-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: rgba(196,165,90,0.12);
-}
-.walks-card {
+.journey-list { display: flex; flex-direction: column; }
+.journey-list-item {
+  display: grid; grid-template-columns: 340px 1fr;
+  border-top: 0.5px solid rgba(196,165,90,0.18);
   background: #f7f3ea;
-  display: flex;
-  flex-direction: column;
+  transition: background 0.3s;
 }
-.walks-card-visual {
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
+.journey-list-item:last-child { border-bottom: 0.5px solid rgba(196,165,90,0.18); }
+.journey-list-item:hover { background: #f2ece0; }
+.journey-list-media {
+  position: relative; overflow: hidden; height: 280px;
 }
-.walks-card-img {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  filter: sepia(8%) contrast(1.06) brightness(0.82);
+.journey-list-media img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top;
+  display: block; filter: sepia(8%) contrast(1.05) brightness(0.84);
   transition: transform 0.7s ease;
 }
-.walks-card:hover .walks-card-img { transform: scale(1.04); }
-.walks-card-visual::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(14,12,8,0.88) 0%, rgba(14,12,8,0.28) 45%, transparent 70%);
-  pointer-events: none; z-index: 1;
+.journey-list-item:hover .journey-list-media img { transform: scale(1.04); }
+.journey-list-info {
+  padding: 32px 40px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-left: 0.5px solid rgba(196,165,90,0.18);
 }
-.walks-card-body {
-  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-  padding: 24px 28px 24px;
-  display: flex;
-  flex-direction: column;
+.jl-region {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9.5px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(196,165,90,0.9); margin-bottom: 8px;
 }
-.walks-card-tag {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(196,165,90,0.85);
-  margin-bottom: 10px;
+.jl-title {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 2.8vw, 36px);
+  font-weight: 300; font-style: italic; color: #2a2822; line-height: 1.15; margin-bottom: 6px;
 }
-.walks-card-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 2.5vw, 30px);
-  font-weight: 300;
-  font-style: italic;
-  color: rgba(237,228,208,0.97);
-  margin-bottom: 6px;
+.jl-subtitle {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9.5px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(122,104,48,0.7); margin-bottom: 18px;
 }
-.walks-card-date {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(196,165,90,0.82);
-  margin-bottom: 0;
+.jl-desc {
+  font-family: 'Cormorant Garamond', serif; font-size: 16px;
+  font-weight: 300; line-height: 1.85; color: #4a4238; margin-bottom: 14px;
+  max-width: 480px;
 }
-.walks-card-footer {
-  background: #f7f3ea;
-  padding: 24px 28px 32px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+.jl-tags {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: rgba(122,104,48,0.58); margin-bottom: 20px; line-height: 1.9;
 }
-.walks-card-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.85;
-  color: #4a4238;
-  margin-bottom: 14px;
+.jl-link {
+  font-family: 'Josefin Sans', sans-serif; font-size: 10.5px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: #9a7836; text-decoration: none;
+  border-bottom: 0.5px solid rgba(154,120,54,0.35); padding-bottom: 3px;
+  transition: all 0.3s; display: inline-block; align-self: flex-start;
 }
-.walks-card-tags {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(122,104,48,0.65);
-  margin-bottom: 20px;
-  line-height: 1.8;
+.jl-link:hover { color: #6a4f1f; border-color: rgba(154,120,54,0.8); }
+@media (max-width: 880px) {
+  .walks-upcoming-section { padding: 52px 40px; }
+  .journey-list-item { grid-template-columns: 260px 1fr; }
+  .journey-list-media { height: 240px; }
+  .journey-list-info { padding: 24px 28px; }
 }
-.walks-card-link {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 11px;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: #9a7836;
-  text-decoration: none;
-  border-bottom: 0.5px solid rgba(154,120,54,0.35);
-  padding-bottom: 4px;
-  transition: all 0.3s;
-  display: inline-block;
-  align-self: flex-start;
-}
-.walks-card-link:hover {
-  color: #6a4f1f;
-  border-color: rgba(154,120,54,0.8);
-}
-@media (max-width: 768px) {
-  .walks-upcoming-section { padding: 48px 24px; }
-  .walks-cards-grid { grid-template-columns: 1fr !important; }
+@media (max-width: 640px) {
+  .walks-upcoming-section { padding: 44px 24px; }
+  .journey-list-item { grid-template-columns: 1fr; }
+  .journey-list-media { height: 220px; }
+  .journey-list-info { border-left: none; border-top: 0.5px solid rgba(196,165,90,0.18); padding: 24px 0; }
 }
 @media (max-width: 480px) {
-  .walks-upcoming-section { padding: 32px 16px; }
-  .walks-card-body { padding: 20px 20px 20px; }
-  .walks-card-footer { padding: 20px 20px 28px; }
+  .walks-upcoming-section { padding: 36px 16px; }
 }
 
 /* PAST JOURNEYS */
@@ -1015,52 +957,56 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <p class="walks-upcoming-eyebrow">Open Applications</p>
 <h2 class="walks-upcoming-title">Upcoming Journeys</h2>
 </div>
-<div class="walks-cards-grid" style="grid-template-columns: 1fr 1fr 1fr;">
-<article class="walks-card">
-<div class="walks-card-visual">
-<img alt="Oaxaca, Mexico" class="walks-card-img" src="photos/upcominghero/mexicoupcoming-hero.jpg"/>
-<div class="walks-card-body">
-<p class="walks-card-tag">Mexico · Oaxaca</p>
-<h3 class="walks-card-title">Oaxaca &amp; Caribbean</h3>
-<p class="walks-card-date">Autumn 2026 · 10 days</p>
-</div>
-</div>
-<div class="walks-card-footer">
-<p class="walks-card-desc">Moving through villages, markets, and surrounding landscapes, with time spent in the everyday life of the region.</p>
-<p class="walks-card-tags">Ancient sites · cenotes · temazcal · cacao</p>
-<div class="walk-cta"><a href="about.html#apply">Join the journey →</a></div>
-</div>
-</article>
-<article class="walks-card">
-<div class="walks-card-visual">
-<img alt="Sacred Valley and Amazon, Peru" class="walks-card-img" src="photos/upcominghero/peruamazoniaupcoming-hero.jpg"/>
-<div class="walks-card-body">
-<p class="walks-card-tag">Peru · Andes &amp; Amazonia</p>
-<h3 class="walks-card-title">Sacred Valley &amp; Amazon</h3>
-<p class="walks-card-date">26 Dec – 7 Jan · 12 days</p>
-</div>
-</div>
-<div class="walks-card-footer">
-<p class="walks-card-desc">Moving between mountains and jungle over several days, with time spent in the Sacred Valley and along the river.</p>
-<p class="walks-card-tags">Mountains · jungle · river · plant wisdom</p>
-<div class="walk-cta"><a href="about.html#apply">Join the journey →</a></div>
-</div>
-</article>
-<article class="walks-card">
-<div class="walks-card-visual">
-<img alt="Auroville, India" class="walks-card-img" src="photos/upcominghero/aurovilleupcoming-hero.jpg" style="object-position: center top;"/>
-<div class="walks-card-body">
-<p class="walks-card-tag">India · Auroville</p>
-<h3 class="walks-card-title">Auroville</h3>
-<p class="walks-card-date">27 Feb – 7 Mar · 2027 · 9 days</p>
-</div>
-</div>
-<div class="walks-card-footer">
-<p class="walks-card-desc">Returning to Auroville — the international community in South India built around the ideal of human unity. Days shaped by movement, silence, and the land.</p>
-<p class="walks-card-tags">Auroville · Pondicherry · movement · silence · community</p>
-<div class="walk-cta"><a href="about.html#apply">Join the journey →</a></div>
-</div>
-</article>
+<div class="journey-list">
+
+  <!-- Mexico -->
+  <div class="journey-list-item">
+    <div class="journey-list-media">
+      <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Oaxaca, Mexico">
+    </div>
+    <div class="journey-list-info">
+      <p class="jl-region">Mexico &middot; Oaxaca</p>
+      <h3 class="jl-title">Oaxaca &amp; Caribbean</h3>
+      <p class="jl-subtitle">12&ndash;22 Nov &middot; 2026 &middot; 10 days</p>
+      <div class="jl-rule"></div>
+      <p class="jl-desc">Moving through villages, markets, and surrounding landscapes, with time spent in the everyday life of the region.</p>
+      <p class="jl-tags">Ancient sites &middot; cenotes &middot; temazcal &middot; cacao</p>
+      <a href="la-familia.html#apply" class="jl-link">Join the journey &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Peru -->
+  <div class="journey-list-item rev">
+    <div class="journey-list-media">
+      <img src="photos/upcominghero/peruamazoniaupcoming-hero.jpg" alt="Sacred Valley and Amazon, Peru" style="object-position: center 30%;">
+    </div>
+    <div class="journey-list-info">
+      <p class="jl-region">Peru &middot; Andes &amp; Amazonia</p>
+      <h3 class="jl-title">Sacred Valley &amp; Amazon</h3>
+      <p class="jl-subtitle">26 Dec &ndash; 7 Jan &middot; 12 days</p>
+      <div class="jl-rule"></div>
+      <p class="jl-desc">Moving between mountains and jungle over several days, with time spent in the Sacred Valley and along the river.</p>
+      <p class="jl-tags">Mountains &middot; jungle &middot; river &middot; plant wisdom</p>
+      <a href="la-familia.html#apply" class="jl-link">Join the journey &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Auroville -->
+  <div class="journey-list-item">
+    <div class="journey-list-media">
+      <img src="photos/upcominghero/aurovilleupcoming-hero.jpg" alt="Auroville, India" style="object-position: center center; transform: scale(1.12); transform-origin: center;">
+    </div>
+    <div class="journey-list-info">
+      <p class="jl-region">India &middot; Auroville</p>
+      <h3 class="jl-title">Auroville</h3>
+      <p class="jl-subtitle">27 Feb &ndash; 7 Mar &middot; 2027 &middot; 9 days</p>
+      <div class="jl-rule"></div>
+      <p class="jl-desc">Returning to Auroville &mdash; the international community in South India built around the ideal of human unity. Days shaped by movement, silence, and the land.</p>
+      <p class="jl-tags">Auroville &middot; Pondicherry &middot; movement &middot; silence &middot; community</p>
+      <a href="la-familia.html#apply" class="jl-link">Join the journey &rarr;</a>
+    </div>
+  </div>
+
 </div>
 </div>
 </section>
