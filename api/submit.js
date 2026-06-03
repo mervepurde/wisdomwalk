@@ -8,9 +8,9 @@ const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
 const GROUP_IDS = {
   la_familia: '187627532466521921',
   application_submitted: '187797301812528868',
-  'Journey — Amazonia, Peru': '187627862113649676',
+  'Journey — Sacred Valley & Amazonia, Peru': '187627862113649676',
   'Journey — Peru, Amazonia': '187627862113649676',
-  'Journey — Oaxaca & the Ancient South, Mexico': '187627878071928632',
+  'Journey — Oaxaca & Caribbean, Mexico': '187627878071928632',
   'Journey — Mexico, Mesoamerican Path': '187627878071928632',
   'Journey — Auroville, India': '187627862113649676',
   'Harvest — Tea, Karadeniz, Turkey': '187627903441176482',
