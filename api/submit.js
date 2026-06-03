@@ -12,9 +12,8 @@ const GROUP_IDS = {
   'Walk — Peru, Amazonia': '187627862113649676',
   'Walk — Oaxaca & the Ancient South, Mexico': '187627878071928632',
   'Walk — Mexico, Mesoamerican Path': '187627878071928632',
-  'Harvest — Lavender, Ida Mountains, Turkey': '187627903441176482',
+  'Harvest — Tea, Karadeniz, Turkey': '187627903441176482',
   'Harvest — Olive, Ayvalık, Turkey': '187627903441176482',
-  'Harvest — Lavender, Ida Mountains': '187627903441176482',
   'Harvest — Olive, Ayvalık': '187627903441176482',
   "I'm open — tell me more": '187627532466521921',
 };
