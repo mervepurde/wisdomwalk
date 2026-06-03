@@ -285,7 +285,61 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   border: 0.5px solid rgba(216,168,90,0.45);
   padding: 3px 8px; margin-bottom: 4px; width: fit-content;
 }
-@media (max-width: 768px) { .upcoming-pair { grid-template-columns: 1fr; } .upcoming-group-header { flex-direction: column; gap: 4px; } }
+@media (max-width: 768px) { .upcoming-pair { grid-template-columns: 1fr !important; } .upcoming-group-header { flex-direction: column; gap: 4px; } }
+
+/* UPCOMING JOURNEY CARDS — walks-card style */
+.walks-cards-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px;
+  background: rgba(122,104,48,0.1);
+}
+.walks-card { background: #f0ebe0; display: flex; flex-direction: column; }
+.walks-card-visual { position: relative; overflow: hidden; flex-shrink: 0; }
+.walks-card-img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top;
+  display: block; filter: sepia(8%) contrast(1.06) brightness(0.82);
+  transition: transform 0.7s ease;
+}
+.walks-card:hover .walks-card-img { transform: scale(1.04); }
+.walks-card-visual::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(14,12,8,0.88) 0%, rgba(14,12,8,0.28) 45%, transparent 70%);
+  pointer-events: none; z-index: 1;
+}
+.walks-card-body {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  padding: 24px 28px 24px; display: flex; flex-direction: column;
+}
+.walks-card-tag {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(196,165,90,0.85); margin-bottom: 10px;
+}
+.walks-card-title {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 300; font-style: italic; color: rgba(237,228,208,0.97); margin-bottom: 6px;
+}
+.walks-card-date {
+  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(196,165,90,0.82);
+}
+.walks-card-footer {
+  background: #f0ebe0; padding: 20px 24px 28px; display: flex; flex-direction: column; flex: 1;
+}
+.walks-card-desc {
+  font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 300;
+  line-height: 1.85; color: #4a4238; margin-bottom: 12px; flex: 0 0 auto;
+}
+.walks-card-tags {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(122,104,48,0.65); margin-bottom: 18px; line-height: 1.8;
+}
+.walks-card-link {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: #9a7836; text-decoration: none;
+  border-bottom: 0.5px solid rgba(154,120,54,0.35); padding-bottom: 4px;
+  transition: all 0.3s; display: inline-block; align-self: flex-start;
+}
+.walks-card-link:hover { color: #6a4f1f; border-color: rgba(154,120,54,0.8); }
+@media (max-width: 768px) { .walks-cards-grid { grid-template-columns: 1fr !important; } }
 
 /* TESTIMONIALS — editorial single voice, photo bg */
 .testimonials {
@@ -593,8 +647,6 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
   <a href="harvests.html">Turkey</a>
   <span class="dest-band-sep">&#10022;</span>
   <a href="harvests.html">Ayval&#305;k</a>
-  <span class="dest-band-sep">&#10022;</span>
-  <a href="harvests.html">Ida Mountains</a>
 </div>
 
 <!-- VALUE PROPOSITION -->
@@ -842,25 +894,52 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
       <span class="upcoming-group-subtitle">7&ndash;14 days &nbsp;&middot;&nbsp; Sacred Lands</span>
     </div>
     <p class="upcoming-group-intro">Immersive retreat experiences through sacred lands where movement, ritual, and connection become part of the way.</p>
-    <div class="upcoming-pair">
-      <div class="upcoming-pair-card">
-        <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Mesoamerican Path, Mexico" class="upcoming-pair-img" style="object-position: center top;">
-        <div class="upcoming-pair-info">
-          <div class="upcard-type">Journey</div>
-          <h3>Mexico &middot; <em>Oaxaca &amp; Caribbean</em></h3>
-          <div class="upcard-date">Nov 20&ndash;28 &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; Mexico</div>
-          <a href="journeys.html" class="upcard-cta">Join the Journey &rarr;</a>
+    <div class="walks-cards-grid">
+      <article class="walks-card">
+        <div class="walks-card-visual">
+          <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Oaxaca, Mexico" class="walks-card-img">
+          <div class="walks-card-body">
+            <p class="walks-card-tag">Mexico &middot; Oaxaca</p>
+            <h3 class="walks-card-title">Oaxaca &amp; Caribbean</h3>
+            <p class="walks-card-date">Nov 20&ndash;28 &middot; 2026 &middot; 10 days</p>
+          </div>
         </div>
-      </div>
-      <div class="upcoming-pair-card">
-        <img src="photos/upcominghero/peruamazoniaupcoming-hero.jpg" alt="Amazonia, Peru" class="upcoming-pair-img" style="object-position: center top;">
-        <div class="upcoming-pair-info">
-          <div class="upcard-type">Journey</div>
-          <h3>Peru &middot; <em>Sacred Valley &amp; Amazon</em></h3>
-          <div class="upcard-date">Late Dec 2026 &nbsp;&middot;&nbsp; Early Jan 2027 &nbsp;&middot;&nbsp; Peru</div>
-          <a href="journeys.html" class="upcard-cta">Join the Journey &rarr;</a>
+        <div class="walks-card-footer">
+          <p class="walks-card-desc">Moving through villages, markets, and surrounding landscapes, with time spent in the everyday life of the region.</p>
+          <p class="walks-card-tags">Ancient sites &middot; cenotes &middot; temazcal &middot; cacao</p>
+          <a href="journeys.html#upcoming" class="walks-card-link">Join the journey &rarr;</a>
         </div>
-      </div>
+      </article>
+      <article class="walks-card">
+        <div class="walks-card-visual">
+          <img src="photos/upcominghero/peruamazoniaupcoming-hero.jpg" alt="Sacred Valley and Amazon, Peru" class="walks-card-img">
+          <div class="walks-card-body">
+            <p class="walks-card-tag">Peru &middot; Andes &amp; Amazonia</p>
+            <h3 class="walks-card-title">Sacred Valley &amp; Amazon</h3>
+            <p class="walks-card-date">26 Dec &ndash; 7 Jan &middot; 12 days</p>
+          </div>
+        </div>
+        <div class="walks-card-footer">
+          <p class="walks-card-desc">Moving between mountains and jungle over several days, with time spent in the Sacred Valley and along the river.</p>
+          <p class="walks-card-tags">Mountains &middot; jungle &middot; river &middot; plant wisdom</p>
+          <a href="journeys.html#upcoming" class="walks-card-link">Join the journey &rarr;</a>
+        </div>
+      </article>
+      <article class="walks-card">
+        <div class="walks-card-visual">
+          <img src="photos/upcominghero/aurovilleupcoming-hero.jpg" alt="Auroville, India" class="walks-card-img">
+          <div class="walks-card-body">
+            <p class="walks-card-tag">India &middot; Auroville</p>
+            <h3 class="walks-card-title">Auroville</h3>
+            <p class="walks-card-date">27 Feb &ndash; 7 Mar &middot; 2027 &middot; 9 days</p>
+          </div>
+        </div>
+        <div class="walks-card-footer">
+          <p class="walks-card-desc">Returning to Auroville &mdash; the international community in South India built around the ideal of human unity. Days shaped by movement, silence, and the land.</p>
+          <p class="walks-card-tags">Auroville &middot; Pondicherry &middot; movement &middot; silence</p>
+          <a href="journeys.html#upcoming" class="walks-card-link">Join the journey &rarr;</a>
+        </div>
+      </article>
     </div>
   </div>
 
@@ -873,12 +952,12 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
     <p class="upcoming-group-intro">Seasonal retreat gatherings rooted in the rhythm of the land with harvests, long tables, and shared rituals.</p>
     <div class="upcoming-pair">
       <div class="upcoming-pair-card">
-        <img src="photos/upcominghero/lavenderupcoming-hero.jpg" alt="Lavender Harvest, Ida Mountains" class="upcoming-pair-img" style="object-position: center top;">
+        <img src="photos/upcominghero/teaupcoming-hero.jpg" alt="Tea Harvest, F&#305;nd&#305;kl&#305; Karadeniz" class="upcoming-pair-img" style="object-position: center top;">
         <div class="upcoming-pair-info">
           <div class="card-priority-tag">&#9889; Now open</div>
           <div class="upcard-type">Harvest</div>
-          <h3>Lavender <em>Harvest</em></h3>
-          <div class="upcard-date">June 26&ndash;28 &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; Ida Mountains, Turkey</div>
+          <h3>Tea <em>Harvest</em></h3>
+          <div class="upcard-date">1&ndash;3 August &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; F&#305;nd&#305;kl&#305;, Karadeniz</div>
           <a href="harvests.html" class="upcard-cta">Join the Harvest &rarr;</a>
         </div>
       </div>

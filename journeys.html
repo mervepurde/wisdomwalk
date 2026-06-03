@@ -342,7 +342,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 @media (max-width: 768px) {
   .walks-upcoming-section { padding: 48px 24px; }
-  .walks-cards-grid { grid-template-columns: 1fr; }
+  .walks-cards-grid { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 480px) {
   .walks-upcoming-section { padding: 32px 16px; }
@@ -1015,7 +1015,7 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <p class="walks-upcoming-eyebrow">Open Applications</p>
 <h2 class="walks-upcoming-title">Upcoming Journeys</h2>
 </div>
-<div class="walks-cards-grid">
+<div class="walks-cards-grid" style="grid-template-columns: 1fr 1fr 1fr;">
 <article class="walks-card">
 <div class="walks-card-visual">
 <img alt="Oaxaca, Mexico" class="walks-card-img" src="photos/upcominghero/mexicoupcoming-hero.jpg"/>
@@ -1037,12 +1037,27 @@ nav.scrolled .nav-hamburger { color: #2a2822; }
 <div class="walks-card-body">
 <p class="walks-card-tag">Peru · Andes &amp; Amazonia</p>
 <h3 class="walks-card-title">Sacred Valley &amp; Amazon</h3>
-<p class="walks-card-date">Autumn 2026 · 12 days</p>
+<p class="walks-card-date">26 Dec – 7 Jan · 12 days</p>
 </div>
 </div>
 <div class="walks-card-footer">
 <p class="walks-card-desc">Moving between mountains and jungle over several days, with time spent in the Sacred Valley and along the river.</p>
 <p class="walks-card-tags">Mountains · jungle · river · plant wisdom</p>
+<div class="walk-cta"><a href="about.html#apply">Join the journey →</a></div>
+</div>
+</article>
+<article class="walks-card">
+<div class="walks-card-visual">
+<img alt="Auroville, India" class="walks-card-img" src="photos/upcominghero/aurovilleupcoming-hero.jpg" style="object-position: center top;"/>
+<div class="walks-card-body">
+<p class="walks-card-tag">India · Auroville</p>
+<h3 class="walks-card-title">Auroville</h3>
+<p class="walks-card-date">27 Feb – 7 Mar · 2027 · 9 days</p>
+</div>
+</div>
+<div class="walks-card-footer">
+<p class="walks-card-desc">Returning to Auroville — the international community in South India built around the ideal of human unity. Days shaped by movement, silence, and the land.</p>
+<p class="walks-card-tags">Auroville · Pondicherry · movement · silence · community</p>
 <div class="walk-cta"><a href="about.html#apply">Join the journey →</a></div>
 </div>
 </article>
