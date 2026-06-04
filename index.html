@@ -234,9 +234,9 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   padding-bottom: 14px; margin-bottom: 12px;
   border-bottom: 0.5px solid rgba(122,104,48,0.15);
 }
-.upcoming-group-title { font-size: 28px; font-weight: 600; color: #1e1c18; }
+.upcoming-group-title { font-size: clamp(38px, 4.5vw, 56px); font-weight: 600; color: #1e1c18; }
 .upcoming-group-subtitle {
-  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 2px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 13px; letter-spacing: 2px;
   text-transform: uppercase; color: rgba(122,104,48,0.88); font-weight: 400;
 }
 .upcoming-group-intro {
@@ -261,8 +261,8 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .upcoming-pair-info { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 4px; }
 .upcard-type {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px;
-  text-transform: uppercase; color: rgba(196,165,90,0.75); margin-bottom: 2px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 13px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(196,165,90,1); margin-bottom: 2px;
 }
 .upcoming-pair-info h3 { font-size: 22px; font-weight: 300; color: rgba(237,228,208,0.95); margin: 2px 0; }
 .upcoming-pair-info h3 em { font-style: italic; color: #d8a85a; }
@@ -310,8 +310,8 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   padding: 24px 28px 24px; display: flex; flex-direction: column;
 }
 .walks-card-tag {
-  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 3px;
-  text-transform: uppercase; color: rgba(196,165,90,0.85); margin-bottom: 10px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 12px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(196,165,90,1); margin-bottom: 10px;
 }
 .walks-card-title {
   font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.2vw, 28px);
@@ -445,8 +445,8 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .gallery-item-name {
   position: absolute; bottom: 16px; left: 18px; z-index: 2;
-  font-family: 'Josefin Sans', sans-serif; font-size: 8px; letter-spacing: 3.5px;
-  text-transform: uppercase; color: rgba(196,165,90,0.65);
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 3.5px;
+  text-transform: uppercase; color: rgba(196,165,90,0.95);
 }
 @media (max-width: 880px) { .gallery-item { grid-column: span 6; height: 200px; } .gallery-item:nth-child(n+5) { grid-column: span 6; } }
 @media (max-width: 600px) { .gallery-item { grid-column: span 12; height: 220px; } .gallery-item:nth-child(n+5) { grid-column: span 12; } }
@@ -659,7 +659,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
     </div>
     <div class="value-right">
       <p class="value-eyebrow">Journeys beyond the ordinary.<br>For curious minds and open hearts.</p>
-      <p class="value-body">Wisdom Walk offers modern pilgrimages and seasonal harvest gatherings across sacred lands: from Peru to India, from Egypt to Anatolia. Spaces for wonder, celebration, adventure, and meaningful connection.</p>
+      <p class="value-body">Wisdom Walk offers 7–14 days <strong>modern pilgrimages</strong> and 2–3 day <strong>seasonal harvest</strong> gatherings across sacred lands: from Peru to India, from Egypt to Anatolia. Spaces for wonder, celebration, adventure, and meaningful connection.</p>
       <div class="value-cta-group">
         <a href="journeys.html" class="value-cta">Explore Journeys</a>
         <a href="harvests.html" class="value-cta">Explore Harvests</a>
@@ -929,7 +929,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
       </article>
       <article class="walks-card">
         <div class="walks-card-visual">
-          <img src="photos/upcominghero/aurovilleupcoming-hero.jpg" alt="Auroville, India" class="walks-card-img" style="object-position: center center; transform: scale(1.12); transform-origin: center;">
+          <img src="photos/upcominghero/aurovilleupcoming-hero.jpg" alt="Auroville, India" class="walks-card-img" style="object-position: center center;">
           <div class="walks-card-body">
             <p class="walks-card-tag">India &middot; Auroville</p>
             <h3 class="walks-card-title">Auroville</h3>
