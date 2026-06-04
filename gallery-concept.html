@@ -1,307 +1,442 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery Concept — Wisdom Walk</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Cormorant Garamond', Georgia, serif; background: #f7f3ea; color: #2a2822; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery Concept — Wisdom Walk</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        background: #f7f3ea;
+        color: #2a2822;
+      }
 
-/* ─── JOURNEY CARD ─── */
-.journey-card {
-  border-top: 0.5px solid rgba(196,165,90,0.15);
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.journey-card:last-child { border-bottom: 0.5px solid rgba(196,165,90,0.15); }
+      /* ─── JOURNEY CARD ─── */
+      .journey-card {
+        border-top: 0.5px solid rgba(196, 165, 90, 0.15);
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .journey-card:last-child {
+        border-bottom: 0.5px solid rgba(196, 165, 90, 0.15);
+      }
 
-/* Top half: media + text */
-.journey-upper {
-  display: grid; grid-template-columns: 1.1fr 1fr;
-}
-.journey-upper.reversed .journey-media { order: 2; }
-.journey-upper.reversed .journey-content { order: 1; padding-left: 0; padding-right: 56px; }
+      /* Top half: media + text */
+      .journey-upper {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+      }
+      .journey-upper.reversed .journey-media {
+        order: 2;
+      }
+      .journey-upper.reversed .journey-content {
+        order: 1;
+        padding-right: 56px;
+      }
 
-.journey-media {
-  overflow: hidden; aspect-ratio: 4/3; position: relative;
-  background: #1a1710;
-}
-.journey-media img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: sepia(8%) contrast(1.04) brightness(0.88);
-  transition: transform 0.7s ease;
-}
-.journey-card:hover .journey-media img { transform: scale(1.03); }
+      .journey-media {
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        position: relative;
+        background: #1a1710;
+      }
+      .journey-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: sepia(8%) contrast(1.04) brightness(0.88);
+        transition: transform 0.7s ease;
+      }
+      .journey-card:hover .journey-media img {
+        transform: scale(1.03);
+      }
 
-.journey-content {
-  padding: 48px 0 48px 56px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.journey-meta-row {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 12px;
-}
-.journey-region {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px;
-  text-transform: uppercase; color: rgba(196,165,90,0.88);
-}
-.journey-year {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
-  color: rgba(196,165,90,0.78);
-}
-.journey-title {
-  font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 300; font-style: italic; color: #2a2822;
-  line-height: 1.2; margin-bottom: 14px;
-}
-.journey-desc {
-  font-family: 'Cormorant Garamond', serif; font-size: 16px;
-  font-weight: 300; line-height: 1.82; color: #4a4238;
-  margin-bottom: 20px;
-}
-.gallery-toggle {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
-  text-transform: uppercase; color: rgba(196,165,90,0.65);
-  cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
-  border: none; background: none; padding: 0; transition: color 0.3s;
-  user-select: none;
-}
-.gallery-toggle:hover { color: #c4a55a; }
-.gallery-toggle .toggle-icon {
-  width: 14px; height: 14px; position: relative;
-  display: inline-flex; align-items: center; justify-content: center;
-}
-.gallery-toggle .toggle-icon::before,
-.gallery-toggle .toggle-icon::after {
-  content: ''; position: absolute;
-  background: currentColor; transition: transform 0.3s, opacity 0.3s;
-}
-.gallery-toggle .toggle-icon::before { width: 10px; height: 0.5px; }
-.gallery-toggle .toggle-icon::after { width: 0.5px; height: 10px; }
-.gallery-toggle.open .toggle-icon::after { transform: rotate(90deg); opacity: 0; }
+      .journey-content {
+        padding: 48px 0 48px 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .journey-meta-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .journey-region {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(196, 165, 90, 0.88);
+      }
+      .journey-year {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 11px;
+        letter-spacing: 1.8px;
+        color: rgba(196, 165, 90, 0.78);
+      }
+      .journey-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(20px, 2.5vw, 28px);
+        font-weight: 300;
+        font-style: italic;
+        color: #2a2822;
+        line-height: 1.2;
+        margin-bottom: 14px;
+      }
+      .journey-desc {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.82;
+        color: #4a4238;
+        margin-bottom: 20px;
+      }
+      .gallery-toggle {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 11px;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: rgba(196, 165, 90, 0.65);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: none;
+        background: none;
+        padding: 0;
+        transition: color 0.3s;
+        user-select: none;
+      }
+      .gallery-toggle:hover {
+        color: #c4a55a;
+      }
+      .gallery-toggle .toggle-icon {
+        width: 14px;
+        height: 14px;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .gallery-toggle .toggle-icon::before,
+      .gallery-toggle .toggle-icon::after {
+        content: "";
+        position: absolute;
+        background: currentColor;
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+      }
+      .gallery-toggle .toggle-icon::before {
+        width: 10px;
+        height: 0.5px;
+      }
+      .gallery-toggle .toggle-icon::after {
+        width: 0.5px;
+        height: 10px;
+      }
+      .gallery-toggle.open .toggle-icon::after {
+        transform: rotate(90deg);
+        opacity: 0;
+      }
 
-/* ─── GALLERY STRIP ─── */
-.journey-gallery-wrap {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.journey-gallery-wrap.open {
-  max-height: 320px;
-}
-.journey-gallery-scroll {
-  display: flex;
-  gap: 1px;
-  background: #141210;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 1px 0;
-}
-.journey-gallery-scroll::-webkit-scrollbar { display: none; }
-.gallery-photo {
-  flex: 0 0 auto;
-  width: 260px;
-  height: 180px;
-  overflow: hidden;
-  position: relative;
-}
-.gallery-photo img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: sepia(10%) brightness(0.78) contrast(1.04);
-  transition: transform 0.5s ease, filter 0.3s;
-}
-.gallery-photo:hover img {
-  transform: scale(1.06);
-  filter: sepia(4%) brightness(0.9);
-}
-/* Fade edges */
-.journey-gallery-scroll-container {
-  position: relative;
-}
-.journey-gallery-scroll-container::before,
-.journey-gallery-scroll-container::after {
-  content: '';
-  position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2;
-  pointer-events: none;
-}
-.journey-gallery-scroll-container::before {
-  left: 0;
-  background: linear-gradient(to right, #141210, transparent);
-}
-.journey-gallery-scroll-container::after {
-  right: 0;
-  background: linear-gradient(to left, #141210, transparent);
-}
+      /* ─── GALLERY STRIP ─── */
+      .journey-gallery-wrap {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .journey-gallery-wrap.open {
+        max-height: 320px;
+      }
+      .journey-gallery-scroll {
+        display: flex;
+        gap: 1px;
+        background: #141210;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 1px 0;
+      }
+      .journey-gallery-scroll::-webkit-scrollbar {
+        display: none;
+      }
+      .gallery-photo {
+        flex: 0 0 auto;
+        width: 260px;
+        height: 180px;
+        overflow: hidden;
+        position: relative;
+      }
+      .gallery-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: sepia(10%) brightness(0.78) contrast(1.04);
+        transition:
+          transform 0.5s ease,
+          filter 0.3s;
+      }
+      .gallery-photo:hover img {
+        transform: scale(1.06);
+        filter: sepia(4%) brightness(0.9);
+      }
+      /* Fade edges */
+      .journey-gallery-scroll-container {
+        position: relative;
+      }
+      .journey-gallery-scroll-container::before,
+      .journey-gallery-scroll-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 48px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .journey-gallery-scroll-container::before {
+        left: 0;
+        background: linear-gradient(to right, #141210, transparent);
+      }
+      .journey-gallery-scroll-container::after {
+        right: 0;
+        background: linear-gradient(to left, #141210, transparent);
+      }
 
-/* ─── PAGE WRAPPER ─── */
-.page { padding: 60px 80px; }
-.section-label {
-  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px;
-  text-transform: uppercase; color: rgba(196,165,90,0.88); margin-bottom: 18px;
-}
-.section-title {
-  font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 46px);
-  font-weight: 300; font-style: italic; color: #2a2822; line-height: 1.2;
-  margin-bottom: 56px;
-}
+      /* ─── PAGE WRAPPER ─── */
+      .page {
+        padding: 60px 80px;
+      }
+      .section-label {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 11px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: rgba(196, 165, 90, 0.88);
+        margin-bottom: 18px;
+      }
+      .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(30px, 4vw, 46px);
+        font-weight: 300;
+        font-style: italic;
+        color: #2a2822;
+        line-height: 1.2;
+        margin-bottom: 56px;
+      }
 
-/* ─── CONCEPT NOTE ─── */
-.concept-note {
-  background: #f0ece0; padding: 32px 40px; margin-bottom: 56px;
-  border-left: 2px solid rgba(196,165,90,0.4);
-}
-.concept-note p {
-  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 1.5px;
-  color: #7a7060; line-height: 1.8;
-}
-.concept-note strong { color: #4a4030; }
+      /* ─── CONCEPT NOTE ─── */
+      .concept-note {
+        background: #f0ece0;
+        padding: 32px 40px;
+        margin-bottom: 56px;
+        border-left: 2px solid rgba(196, 165, 90, 0.4);
+      }
+      .concept-note p {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        color: #7a7060;
+        line-height: 1.8;
+      }
+      .concept-note strong {
+        color: #4a4030;
+      }
 
-/* FINAL PATCH — lavender crop */
-img[src="photos/lavender%20upcoming.jpg"] {
-  object-position: center top !important;
-}
+      /* FINAL PATCH — lavender crop */
+      img[src="photos/lavender%20upcoming.jpg"] {
+        object-position: center top !important;
+      }
 
+      /* FINAL WORDMARK LOGO PATCH */
+      .nav-logo,
+      .footer-logo {
+        font-family: "Cormorant Garamond", Georgia, serif !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 7px !important;
+      }
+      .nav-logo {
+        font-size: 17px !important;
+      }
+      .footer-logo {
+        font-size: 13px !important;
+      }
+      @media (max-width: 600px) {
+        .nav-logo {
+          font-size: 13px !important;
+          letter-spacing: 4px !important;
+        }
+        .footer-logo {
+          font-size: 11px !important;
+          letter-spacing: 4px !important;
+        }
+      }
 
-/* FINAL WORDMARK LOGO PATCH */
-.nav-logo,
-.footer-logo {
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
-  font-style: normal !important;
-  font-weight: 400 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 7px !important;
-}
-.nav-logo {
-  font-size: 17px !important;
-}
-.footer-logo {
-  font-size: 13px !important;
-}
-@media (max-width: 600px) {
-  .nav-logo {
-    font-size: 13px !important;
-    letter-spacing: 4px !important;
-  }
-  .footer-logo {
-    font-size: 11px !important;
-    letter-spacing: 4px !important;
-  }
-}
+      /* LOGO FINAL ALIGN + SIZE */
+      .nav-logo {
+        position: relative;
+        top: 6px;
+        font-size: 18px !important;
+      }
+      @media (max-width: 600px) {
+        .nav-logo {
+          top: 4px;
+          font-size: 14px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <p class="section-label">Design Concept</p>
+      <h2 class="section-title">Past Journeys — Gallery Variant</h2>
 
-
-
-/* LOGO FINAL ALIGN + SIZE */
-.nav-logo {
-  position: relative;
-  top: 6px;
-  font-size: 18px !important;
-}
-@media (max-width: 600px) {
-  .nav-logo {
-    top: 4px;
-    font-size: 14px !important;
-  }
-}
-
-</style>
-</head>
-<body>
-
-<div class="page">
-
-  <p class="section-label">Design Concept</p>
-  <h2 class="section-title">Past Journeys — Gallery Variant</h2>
-
-  <div class="concept-note">
-    <p><strong>Nasıl çalışıyor:</strong> Her kartın altında gizli bir galeri bulunuyor. Kartın sağ tarafında küçük bir "6 photos +" butonu var. Tıklandığında galeri aşağı doğru açılıyor — yatay kaydırılabilir, sabit yükseklikte, karanlık arka planlı bir şerit. Tekrar tıklanırsa kapanıyor. Galeri sayfayı dikey olarak büyütmüyor, yayına girdiğinde de ilk akışı bozmadı. Scroll ile fotoğraflar arasında gezilebiliyor.</p>
-  </div>
-
-  <!-- CARD 1 – Peru 2025 -->
-  <article class="journey-card">
-    <div class="journey-upper">
-      <div class="journey-media">
-        <img src="photos/mainpagegallery/sacred-valley-peru.JPG" alt="Sacred Valley">
+      <div class="concept-note">
+        <p>
+          <strong>Nasıl çalışıyor:</strong> Her kartın altında gizli bir galeri
+          bulunuyor. Kartın sağ tarafında küçük bir "6 photos +" butonu var.
+          Tıklandığında galeri aşağı doğru açılıyor — yatay kaydırılabilir,
+          sabit yükseklikte, karanlık arka planlı bir şerit. Tekrar tıklanırsa
+          kapanıyor. Galeri sayfayı dikey olarak büyütmüyor, yayına girdiğinde
+          de ilk akışı bozmadı. Scroll ile fotoğraflar arasında gezilebiliyor.
+        </p>
       </div>
-      <div class="journey-content">
-        <div class="journey-meta-row">
-          <span class="journey-region">Peru · Cusco Region</span>
-          <span class="journey-year">2025</span>
+
+      <!-- CARD 1 – Peru 2025 -->
+      <article class="journey-card">
+        <div class="journey-upper">
+          <div class="journey-media">
+            <img
+              src="photos/mainpagegallery/sacred-valley-peru.JPG"
+              alt="Sacred Valley"
+            />
+          </div>
+          <div class="journey-content">
+            <div class="journey-meta-row">
+              <span class="journey-region">Peru · Cusco Region</span>
+              <span class="journey-year">2025</span>
+            </div>
+            <h3 class="journey-title">Sacred Valley, Peru</h3>
+            <p class="journey-desc">
+              Our pilgrimage into the heart of the Andes. We walked ancient Inca
+              paths, sat in ceremony at Moray and Salineras, and found ourselves
+              held by the mountains in ways we hadn't expected.
+            </p>
+            <button class="gallery-toggle" onclick="toggleGallery(this)">
+              <span class="toggle-icon"></span>
+              <span class="toggle-label">6 fotoğraf</span>
+            </button>
+          </div>
         </div>
-        <h3 class="journey-title">Sacred Valley, Peru</h3>
-        <p class="journey-desc">Our pilgrimage into the heart of the Andes. We walked ancient Inca paths, sat in ceremony at Moray and Salineras, and found ourselves held by the mountains in ways we hadn't expected.</p>
-        <button class="gallery-toggle" onclick="toggleGallery(this)">
-          <span class="toggle-icon"></span>
-          <span class="toggle-label">6 fotoğraf</span>
-        </button>
-      </div>
-    </div>
-    <div class="journey-gallery-wrap">
-      <div class="journey-gallery-scroll-container">
-        <div class="journey-gallery-scroll">
-          <div class="gallery-photo"><img src="photos/peru-2025/DSCF6777 2200.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/peru-2025/DSCF7012 2200.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/peru-2025/DSCF6549 2200.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/peru-2025/DSCF6853 2200.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/peru-2025/DSCF6596 2200.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/mainpagegallery/ausangate-peru.JPG" alt=""></div>
+        <div class="journey-gallery-wrap">
+          <div class="journey-gallery-scroll-container">
+            <div class="journey-gallery-scroll">
+              <div class="gallery-photo">
+                <img src="photos/peru-2025/DSCF6777 2200.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/peru-2025/DSCF7012 2200.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/peru-2025/DSCF6549 2200.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/peru-2025/DSCF6853 2200.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/peru-2025/DSCF6596 2200.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/mainpagegallery/ausangate-peru.JPG" alt="" />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </article>
+      </article>
 
-  <!-- CARD 2 – Egypt 2025 -->
-  <article class="journey-card">
-    <div class="journey-upper reversed">
-      <div class="journey-media">
-        <img src="photos/mainpagegallery/siwa-egypt.jpg" alt="Egypt">
-      </div>
-      <div class="journey-content">
-        <div class="journey-meta-row">
-          <span class="journey-region">Egypt · Nile & Western Desert</span>
-          <span class="journey-year">2025</span>
+      <!-- CARD 2 – Egypt 2025 -->
+      <article class="journey-card">
+        <div class="journey-upper reversed">
+          <div class="journey-media">
+            <img src="photos/mainpagegallery/siwa-egypt.jpg" alt="Egypt" />
+          </div>
+          <div class="journey-content">
+            <div class="journey-meta-row">
+              <span class="journey-region">Egypt · Nile & Western Desert</span>
+              <span class="journey-year">2025</span>
+            </div>
+            <h3 class="journey-title">Nile & Desert, Egypt</h3>
+            <p class="journey-desc">
+              Following the Nile from its ancient temples to the desert silence
+              of Siwa. We participated in ceremonies at dawn and sat in circle
+              in places that held ten thousand years of human prayer.
+            </p>
+            <button class="gallery-toggle" onclick="toggleGallery(this)">
+              <span class="toggle-icon"></span>
+              <span class="toggle-label">7 fotoğraf</span>
+            </button>
+          </div>
         </div>
-        <h3 class="journey-title">Nile & Desert, Egypt</h3>
-        <p class="journey-desc">Following the Nile from its ancient temples to the desert silence of Siwa. We participated in ceremonies at dawn and sat in circle in places that held ten thousand years of human prayer.</p>
-        <button class="gallery-toggle" onclick="toggleGallery(this)">
-          <span class="toggle-icon"></span>
-          <span class="toggle-label">7 fotoğraf</span>
-        </button>
-      </div>
-    </div>
-    <div class="journey-gallery-wrap">
-      <div class="journey-gallery-scroll-container">
-        <div class="journey-gallery-scroll">
-          <div class="gallery-photo"><img src="photos/egypt-2023/_DSF0610.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/egypt-2023/_DSF6882.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/egypt-2023/_DSF7201.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/egypt-2023/egyptpyramids.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/egypt-2023/_DSF6913.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/egypt-2023/_DSF7493.JPG" alt=""></div>
-          <div class="gallery-photo"><img src="photos/egypt-2023/_DSF8909.JPG" alt=""></div>
+        <div class="journey-gallery-wrap">
+          <div class="journey-gallery-scroll-container">
+            <div class="journey-gallery-scroll">
+              <div class="gallery-photo">
+                <img src="photos/egypt-2023/_DSF0610.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/egypt-2023/_DSF6882.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/egypt-2023/_DSF7201.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/egypt-2023/egyptpyramids.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/egypt-2023/_DSF6913.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/egypt-2023/_DSF7493.JPG" alt="" />
+              </div>
+              <div class="gallery-photo">
+                <img src="photos/egypt-2023/_DSF8909.JPG" alt="" />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </article>
     </div>
-  </article>
 
-</div>
+    <script>
+      function toggleGallery(btn) {
+        const card = btn.closest(".journey-card");
+        const wrap = card.querySelector(".journey-gallery-wrap");
+        const label = btn.querySelector(".toggle-label");
+        const isOpen = wrap.classList.contains("open");
 
-<script>
-function toggleGallery(btn) {
-  const card = btn.closest('.journey-card');
-  const wrap = card.querySelector('.journey-gallery-wrap');
-  const label = btn.querySelector('.toggle-label');
-  const isOpen = wrap.classList.contains('open');
+        wrap.classList.toggle("open");
+        btn.classList.toggle("open");
 
-  wrap.classList.toggle('open');
-  btn.classList.toggle('open');
-
-  const count = label.textContent.split(' ')[0];
-  label.textContent = isOpen ? `${count} fotoğraf` : 'kapat';
-}
-</script>
-</body>
+        const count = label.textContent.split(" ")[0];
+        label.textContent = isOpen ? `${count} fotoğraf` : "kapat";
+      }
+    </script>
+  </body>
 </html>
