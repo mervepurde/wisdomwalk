@@ -385,6 +385,20 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   font-family: 'Josefin Sans', sans-serif; font-size: 13px; letter-spacing: 2px;
   text-transform: uppercase; color: rgba(122,104,48,0.88); font-weight: 400;
 }
+.upcoming-group-cta-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 32px;
+  margin-top: 14px; margin-bottom: 14px;
+}
+.upcoming-group-cta-row .upcoming-group-intro {
+  margin: 0; max-width: 540px;
+}
+.upcoming-group-cta-row .upcoming-group-cta { flex-shrink: 0; }
+@media (max-width: 768px) {
+  .upcoming-group-cta-row {
+    flex-direction: column; align-items: flex-start; gap: 16px;
+  }
+}
 .upcoming-group-intro {
   font-size: 17px; line-height: 1.9; color: #3a3028; font-weight: 300;
   margin-bottom: 28px; max-width: 540px; text-wrap: balance;
@@ -1051,10 +1065,12 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
       <h3 class="upcoming-group-title">Journeys</h3>
       <div class="upcoming-group-meta">
         <span class="upcoming-group-subtitle">7&ndash;14 days &nbsp;&middot;&nbsp; Sacred Lands</span>
-        <a href="journeys.html" class="upcoming-group-cta">Explore Journeys &rarr;</a>
       </div>
     </div>
-    <p class="upcoming-group-intro">Immersive retreat experiences through sacred lands where movement, ritual, and connection become part of the way.</p>
+    <div class="upcoming-group-cta-row">
+      <p class="upcoming-group-intro">Immersive retreat experiences through sacred lands where movement, ritual, and connection become part of the way.</p>
+      <a href="journeys.html" class="upcoming-group-cta">Explore Journeys &rarr;</a>
+    </div>
     <div class="walks-cards-grid">
       <article class="walks-card">
         <div class="walks-card-visual">
@@ -1110,10 +1126,12 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
       <h3 class="upcoming-group-title">Harvests</h3>
       <div class="upcoming-group-meta">
         <span class="upcoming-group-subtitle">2&ndash;3 days &nbsp;&middot;&nbsp; Seasonal Harvests</span>
-        <a href="harvests.html" class="upcoming-group-cta">Explore Harvests &rarr;</a>
       </div>
     </div>
-    <p class="upcoming-group-intro">Seasonal retreat gatherings rooted in the rhythm of the land with harvests, long tables, and shared rituals.</p>
+    <div class="upcoming-group-cta-row">
+      <p class="upcoming-group-intro">Seasonal retreat gatherings rooted in the rhythm of the land with harvests, long tables, and shared rituals.</p>
+      <a href="harvests.html" class="upcoming-group-cta">Explore Harvests &rarr;</a>
+    </div>
     <div class="upcoming-pair">
       <div class="upcoming-pair-card">
         <img src="photos/upcominghero/teaupcoming-hero.jpg" alt="Tea Harvest, F&#305;nd&#305;kl&#305; Karadeniz" class="upcoming-pair-img" style="object-position: center top;">
