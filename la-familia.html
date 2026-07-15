@@ -92,7 +92,7 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 .action-link {
   font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 3px;
   text-transform: uppercase; color: rgba(196,165,90,0.78);
-  text-decoration: none; padding: 6px 40px; transition: color 0.3s;
+  text-decoration: none; padding: 6px 20px; transition: color 0.3s;
 }
 .action-link:hover { color: rgba(196,165,90,0.9); }
 .action-link-apply {
@@ -646,7 +646,7 @@ function handleSubmit(e) {
 <div class="action-group">
 <a class="action-link active" href="la-familia.html">La Familia</a>
 <div class="action-sep"></div>
-<a class="action-link" href="#bespoke">Bespoke</a>
+<a class="action-link" href="upcoming.html">Upcoming</a>
 </div>
 </div>
 <div class="nav-mobile-menu" id="mobileMenu">
@@ -654,7 +654,7 @@ function handleSubmit(e) {
 <a href="harvests.html">Harvests</a>
 <a href="about.html">About</a>
 <a href="la-familia.html">La Familia</a>
-<a href="#bespoke">Bespoke</a>
+<a href="upcoming.html">Upcoming</a>
 </div>
 </nav>
 <!-- PAGE HERO -->
@@ -776,11 +776,10 @@ function handleSubmit(e) {
 <label class="form-label">Which journey interests you?</label>
 <select class="form-select form-input" name="journey_interest" required="">
 <option value="">Select a journey</option>
-<option>Journey — Sacred Valley & Amazonia, Peru</option>
-<option>Journey — Oaxaca &amp; Caribbean, Mexico</option>
-<option>Journey — Auroville, India</option>
-<option>Harvest — Tea, Karadeniz, Turkey</option>
+<option value="Journey — Oaxaca &amp; Caribbean, Mexico">Journey &mdash; Pacific &amp; Caribbean, Mexico</option>
 <option>Harvest — Olive, Ayvalık, Turkey</option>
+<option>Journey — Sacred Valley &amp; Amazonia, Peru</option>
+<option>Journey — Auroville, India</option>
 <option>I'm open — tell me more</option>
 </select>
 </div>
@@ -835,7 +834,7 @@ function handleSubmit(e) {
 <a href="harvests.html">Harvests</a>
 <a href="about.html">About</a>
 <a href="la-familia.html">La Familia</a>
-<a href="#bespoke">Bespoke</a>
+<a href="upcoming.html">Upcoming</a>
 </div>
 <p class="footer-copy">© 2026 Wisdom Walk  ·  <em>Walking the path of remembrance.</em></p>
 </footer>

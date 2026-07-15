@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ERE527MQ9Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ERE527MQ9Y', { anonymize_ip: true });
+</script>
+
+<title>Upcoming — Wisdom Walk</title>
+<meta name="description" content="All upcoming Wisdom Walk journeys and harvests — sacred land pilgrimages and seasonal gatherings open for applications.">
+<link rel="canonical" href="https://www.wisdomwalk.earth/upcoming.html">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="theme-color" content="#1e1c18">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wisdom Walk">
+<meta property="og:title" content="Upcoming — Wisdom Walk">
+<meta property="og:description" content="All upcoming journeys and harvests — from Turkey to Mexico, Peru and India.">
+<meta property="og:url" content="https://www.wisdomwalk.earth/upcoming.html">
+<meta property="og:image" content="https://www.wisdomwalk.earth/photos/wisdom-walk-cover.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@200;300;400&family=Lato:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Cormorant Garamond', Georgia, serif; background: #f7f3ea; color: #2a2822; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; flex-direction: column;
+  background: rgba(14,12,8,0.48);
+  transition: background 0.4s;
+}
+.nav-row-main {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 56px;
+  transition: padding 0.3s;
+  gap: 32px;
+}
+nav.scrolled {
+  background: rgba(14,12,8,0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 0.5px solid rgba(196,165,90,0.1);
+}
+nav.scrolled .nav-row-main { padding: 14px 56px; }
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; letter-spacing: 3px; font-weight: 300; font-style: italic;
+  color: rgba(237,228,208,0.9); text-decoration: none; transition: color 0.4s;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11.5px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(237,228,208,0.82); text-decoration: none; transition: color 0.3s;
+}
+.nav-links a:hover { color: rgba(237,228,208,1); }
+.nav-row-action {
+  display: flex; justify-content: flex-end; align-items: center;
+  padding: 0 56px 0;
+  transition: padding 0.3s, background 0.4s, border-color 0.4s;
+}
+.action-group {
+  display: flex; align-items: center;
+  border-top: 0.5px solid rgba(196,165,90,0.32);
+  padding: 8px 0 12px;
+  transition: border-color 0.4s, padding 0.3s;
+}
+nav.scrolled .nav-row-action { padding: 0 56px 0; }
+nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 0 9px; }
+.action-link {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(196,165,90,0.78);
+  text-decoration: none; padding: 6px 20px; transition: color 0.3s;
+}
+.action-link:hover { color: rgba(196,165,90,0.9); }
+.action-link.active { color: rgba(196,165,90,1); }
+.action-sep { width: 0.5px; height: 10px; background: rgba(196,165,90,0.12); flex-shrink: 0; }
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: rgba(237,228,208,0.9); transition: color 0.3s; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: currentColor; margin: 5px 0; transition: 0.3s; }
+.nav-mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: #f7f3ea; padding: 24px; z-index: 999; border-top: 0.5px solid rgba(42,40,34,0.1); max-height: calc(100vh - 60px); overflow-y: auto; }
+.nav-mobile-menu a { display: block; font-family: 'Josefin Sans', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #2a2822; padding: 14px 0; border-bottom: 0.5px solid rgba(42,40,34,0.08); text-decoration: none; transition: color 0.3s; }
+.nav-mobile-menu a:hover { color: #7a6830; }
+.nav-mobile-menu.open { display: block; }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative; min-height: 62vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; background: #1e1c18;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('photos/upcominghero/upcoming-hero.jpg');
+  background-size: cover; background-position: center 40%;
+  opacity: 0.38;
+}
+.hero-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(30,28,24,0.25) 0%, rgba(30,28,24,0.65) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center; padding: 80px 24px 40px;
+}
+.hero-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; font-weight: 300; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(196,165,90,0.8);
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 7vw, 80px); font-weight: 300;
+  color: rgba(237,228,208,0.95); letter-spacing: 2px;
+  margin-bottom: 16px; line-height: 1.05;
+}
+.hero-rule { width: 40px; height: 0.5px; background: rgba(196,165,90,0.6); margin: 0 auto 20px; }
+.hero-body {
+  font-size: 19px; font-weight: 300; line-height: 1.65;
+  color: rgba(237,228,208,0.65); max-width: 440px; margin: 0 auto;
+}
+
+/* ─── SECTION HEADINGS (journeys.html style) ─── */
+.open-now-section {
+  background: #f0ebe0;
+  padding: 80px 56px 0;
+}
+.coming-up-section {
+  background: #f0ebe0;
+  padding: 80px 56px 104px;
+}
+.section-header {
+  max-width: 880px; margin: 0 auto 48px;
+}
+.section-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; font-weight: 300; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(196,165,90,0.88);
+  margin-bottom: 16px;
+}
+.section-eyebrow.neutral { color: rgba(42,40,34,0.5); }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px); font-weight: 300;
+  font-style: italic; color: #2a2822; line-height: 1.2;
+}
+
+/* Featured card — light, wide image */
+.featured-card {
+  max-width: 880px; margin: 0 auto;
+  display: grid; grid-template-columns: 340px 1fr;
+  overflow: hidden; border: 0.5px solid rgba(42,40,34,0.1);
+  background: #f7f3ea;
+}
+.featured-card-img {
+  position: relative; overflow: hidden;
+}
+.featured-card-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s ease; display: block;
+}
+.featured-card:hover .featured-card-img img { transform: scale(1.04); }
+
+.featured-card-body {
+  padding: 44px 40px 40px;
+  background: #f7f3ea;
+  display: flex; flex-direction: column; justify-content: space-between;
+  gap: 24px;
+}
+.featured-region {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 300; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(42,40,34,0.45);
+  margin-bottom: 8px;
+}
+.featured-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 42px); font-weight: 300;
+  color: #1e1c18; line-height: 1.1; margin-bottom: 8px;
+}
+.featured-title em { font-style: italic; color: #7a6830; }
+.featured-subtitle {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 300; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(106,88,40,0.65);
+  margin-bottom: 16px;
+}
+.featured-rule { height: 0.5px; background: rgba(42,40,34,0.1); margin-bottom: 16px; }
+.featured-desc {
+  font-size: 17px; font-weight: 300; line-height: 1.8;
+  color: rgba(42,40,34,0.7); margin-bottom: 12px;
+}
+.featured-tags {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px; font-weight: 300; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(42,40,34,0.35);
+}
+.featured-cta-wrap { display: flex; flex-direction: column; gap: 10px; align-self: flex-start; }
+.featured-cta {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10.5px; font-weight: 400; letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #f7f3ea; text-decoration: none;
+  background: #2a2822;
+  border: 0.5px solid rgba(42,40,34,0.85);
+  padding: 14px 28px;
+  transition: background 0.3s, color 0.3s;
+}
+.featured-cta:hover { background: #1e1c18; }
+.featured-cta-note {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9.5px; font-weight: 300; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(42,40,34,0.45);
+}
+
+.event-list { max-width: 880px; margin: 0 auto; }
+
+.event-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0 56px;
+  padding: 52px 0;
+  border-top: 0.5px solid rgba(42,40,34,0.12);
+}
+.event-item:last-child { border-bottom: 0.5px solid rgba(42,40,34,0.12); }
+
+.event-date-col { padding-top: 6px; }
+.event-month {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 300; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(106,88,40,0.6);
+  display: block; margin-bottom: 4px;
+}
+.event-day-range {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 300; color: #1e1c18;
+  line-height: 1; display: block;
+}
+.event-year {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 300; letter-spacing: 1.5px;
+  color: rgba(42,40,34,0.35); display: block; margin-top: 6px;
+}
+
+.event-body { flex: 1; }
+.event-tags-row { margin-bottom: 14px; }
+.event-type-tag {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 300; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(106,88,40,0.95);
+  border: 0.5px solid rgba(106,88,40,0.5);
+  padding: 4px 12px;
+}
+.event-type-tag.harvest { color: rgba(55,95,42,1); border-color: rgba(55,95,42,0.45); }
+
+.event-main { display: flex; gap: 32px; align-items: flex-start; }
+.event-image { width: 200px; flex-shrink: 0; aspect-ratio: 4/3; overflow: hidden; }
+.event-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.event-item:hover .event-image img { transform: scale(1.04); }
+
+.event-info { flex: 1; }
+.event-location {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; font-weight: 300; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(42,40,34,0.65);
+  margin-bottom: 8px;
+}
+.event-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3vw, 38px); font-weight: 300;
+  color: #1e1c18; line-height: 1.2; margin-bottom: 8px;
+}
+.event-title em { font-style: italic; color: #6a5820; }
+.event-duration {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 300; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(42,40,34,0.55);
+  margin-bottom: 14px;
+}
+.event-desc {
+  font-size: 17px; font-weight: 300; line-height: 1.75;
+  color: rgba(42,40,34,0.75); margin-bottom: 14px;
+  max-width: 400px;
+}
+.event-keyword-tags {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 300; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(42,40,34,0.45);
+  margin-bottom: 20px;
+}
+.event-cta {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 300; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5a4820; text-decoration: none;
+  border-bottom: 0.5px solid rgba(90,72,32,0.35);
+  padding-bottom: 2px;
+  transition: color 0.3s, border-color 0.3s;
+}
+.event-cta:hover { color: #1e1c18; border-color: rgba(30,28,24,0.5); }
+
+/* ─── APPLY SECTION ─── */
+.apply-section {
+  background: #1a1610;
+  padding: 96px 80px;
+}
+.apply-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; max-width: 960px; margin: 0 auto; align-items: start;
+}
+.apply-label {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 5px;
+  text-transform: uppercase; color: rgba(196,165,90,0.35); margin-bottom: 20px;
+}
+.apply-title {
+  font-size: clamp(30px, 3.5vw, 46px); font-weight: 300; font-style: italic;
+  color: #ede4d0; line-height: 1.2; margin-bottom: 24px;
+}
+.apply-body {
+  font-size: 17px; font-weight: 300; line-height: 2;
+  color: rgba(237,228,208,0.5); margin-bottom: 28px;
+}
+.apply-note {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: rgba(196,165,90,0.45); line-height: 1.9;
+}
+/* Form */
+.form-group { margin-bottom: 18px; }
+.form-label {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(237,228,208,0.35);
+  display: block; margin-bottom: 8px;
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  background: rgba(237,228,208,0.04);
+  border: 0.5px solid rgba(237,228,208,0.12);
+  color: #ede4d0;
+  font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 300;
+  padding: 13px 16px; outline: none; transition: border-color 0.3s;
+  -webkit-appearance: none;
+}
+.form-input::placeholder, .form-textarea::placeholder { color: rgba(237,228,208,0.35); }
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: rgba(196,165,90,0.35);
+  background: rgba(237,228,208,0.06);
+}
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(237,228,208,0.3)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+}
+.form-select option { background: #1a1610; color: #ede4d0; }
+.form-textarea { resize: vertical; min-height: 110px; }
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-submit {
+  width: 100%; background: #c4a55a; border: none;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11.5px; letter-spacing: 2px;
+  text-transform: uppercase; color: #1a1610;
+  padding: 16px 32px; cursor: pointer; transition: background 0.3s; margin-top: 8px;
+}
+.form-submit:hover { background: #d4b56a; }
+.form-note {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.5px;
+  color: rgba(237,228,208,0.4); text-align: center; margin-top: 14px; line-height: 1.8;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: #f7f3ea;
+  border-top: 0.5px solid rgba(42,40,34,0.1);
+  padding: 40px 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 20px;
+}
+.footer-logo {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 13px; font-weight: 300; letter-spacing: 4px;
+  text-transform: uppercase; color: rgba(42,40,34,0.5);
+  text-decoration: none;
+}
+.footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+.footer-links a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 300; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(42,40,34,0.5);
+  text-decoration: none; transition: color 0.3s;
+}
+.footer-links a:hover { color: rgba(42,40,34,0.9); }
+.footer-copy {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 1px;
+  color: rgba(42,40,34,0.35); width: 100%;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 860px) {
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-card-img { aspect-ratio: 16/9; min-height: 260px; }
+  .featured-card-body { padding: 32px 28px; gap: 20px; }
+}
+@media (max-width: 900px) {
+  .nav-row-main { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+  .nav-row-action { display: none; }
+  .hero { min-height: 55vh; }
+  .hero-content { padding: 80px 24px 40px; }
+  .open-now-section, .coming-up-section { padding-left: 24px; padding-right: 24px; }
+  .apply-section { padding: 64px 24px; }
+  .apply-inner { grid-template-columns: 1fr; gap: 40px; }
+  .event-item { grid-template-columns: 1fr; gap: 16px; }
+  .event-date-col { display: flex; align-items: baseline; gap: 12px; }
+  .event-day-range { font-size: 28px; }
+  .event-main { flex-direction: column; gap: 16px; }
+  .event-image { width: 100%; max-width: 100%; }
+  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  nav { position: fixed; }
+  .nav-row-main { padding: 14px 16px; }
+  .hero { min-height: 52vh; }
+  .hero-content { padding: 80px 16px 36px; }
+  .hero-title { font-size: clamp(40px, 10vw, 58px); }
+  .open-now-section { padding: 52px 16px 0; }
+  .coming-up-section { padding: 52px 16px 64px; }
+  .form-grid-2 { grid-template-columns: 1fr; }
+  .apply-section { padding: 52px 16px; }
+}
+</style>
+<style>
+/* WORDMARK LOGO */
+.nav-logo,
+.footer-logo {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 7px !important;
+}
+.nav-logo { font-size: 17px !important; }
+.footer-logo { font-size: 13px !important; }
+@media (max-width: 600px) {
+  .nav-logo { font-size: 13px !important; letter-spacing: 4px !important; }
+  .footer-logo { font-size: 11px !important; letter-spacing: 4px !important; }
+}
+/* LOGO ALIGN */
+.nav-logo { position: relative; top: 6px; font-size: 18px !important; }
+@media (max-width: 600px) { .nav-logo { top: 4px; font-size: 14px !important; } }
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="nav-row-main">
+    <a href="index.html" class="nav-logo">WISDOM WALK</a>
+    <div class="nav-links">
+      <a href="journeys.html">Journeys</a>
+      <a href="harvests.html">Harvests</a>
+      <a href="about.html">About</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-row-action">
+    <div class="action-group">
+      <a href="la-familia.html" class="action-link">La Familia</a>
+      <div class="action-sep"></div>
+      <a href="upcoming.html" class="action-link active">Upcoming</a>
+    </div>
+  </div>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="journeys.html">Journeys</a>
+    <a href="harvests.html">Harvests</a>
+    <a href="about.html">About</a>
+    <a href="la-familia.html">La Familia</a>
+    <a href="upcoming.html">Upcoming</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-content">
+    <p class="hero-label">&#10022; &nbsp; What&rsquo;s opening</p>
+    <h1 class="hero-title">Upcoming</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-body">All journeys and harvests currently open or coming soon.</p>
+  </div>
+</section>
+
+<!-- NOW OPEN -->
+<section class="open-now-section">
+  <div class="section-header">
+    <p class="section-eyebrow">&#10022; Open applications</p>
+    <h2 class="section-title">Now Open</h2>
+  </div>
+
+  <div class="featured-card">
+    <div class="featured-card-img">
+      <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Pacific & Caribbean, Mexico">
+    </div>
+    <div class="featured-card-body">
+      <div>
+        <p class="featured-region">Mexico &nbsp;&middot;&nbsp; Mexico City &middot; Oaxaca &middot; Yucat&aacute;n</p>
+        <h3 class="featured-title">Mexico <em>Journey</em></h3>
+        <p class="featured-subtitle">12&ndash;20 November 2026 &nbsp;&middot;&nbsp; 9 days</p>
+        <div class="featured-rule"></div>
+        <p class="featured-desc">A nine-day journey through three regions of Mexico, exploring the country&rsquo;s living traditions, diverse landscapes, and rich cultural heritage.</p>
+        <p class="featured-desc" style="margin-top: -4px;">From Mexico City and Teotihuacan, we travel to the Pacific coast of Mazunte and Oaxaca, before continuing to the Yucat&aacute;n Peninsula — Chich&eacute;n Itz&aacute;, cenotes, and Isla Mujeres.</p>
+        <p class="featured-desc" style="margin-top: -4px;">Our days include Temazcal, movement and meditation practices, authentic relating, plant medicine and cacao ceremonies, archaeological sites, local markets, shared meals, and time to rest and integrate.</p>
+        <p class="featured-desc" style="margin-top: -4px; font-size: 15px; color: rgba(42,40,34,0.55);">Guided by Merve Purde, together with Abuela Mari Carmen, Aldo Fogazza, and Tunay K&ouml;kden.</p>
+      </div>
+      <div class="featured-cta-wrap">
+        <a href="#apply-form" class="featured-cta">Request Journey Details &nbsp;&rarr;</a>
+        <span class="featured-cta-note">Apply to receive a detailed PDF with full itinerary &amp; pricing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMING UP -->
+<section class="coming-up-section">
+  <div class="section-header">
+    <p class="section-eyebrow neutral">&#10022; On the horizon</p>
+    <h2 class="section-title">Coming Up</h2>
+  </div>
+
+  <div class="event-list">
+
+    <!-- Olive Harvest -->
+    <div class="event-item">
+      <div class="event-date-col">
+        <span class="event-month">October</span>
+        <span class="event-day-range">9&ndash;11</span>
+        <span class="event-year">2026</span>
+      </div>
+      <div class="event-body">
+        <div class="event-tags-row">
+          <span class="event-type-tag harvest">Harvest</span>
+        </div>
+        <div class="event-main">
+          <div class="event-image">
+            <img src="photos/upcominghero/oliveupcoming-hero.jpg" alt="Olive Harvest, Ayvalık" style="object-position: center top;">
+          </div>
+          <div class="event-info">
+            <p class="event-location">Ayval&#305;k &nbsp;&middot;&nbsp; Turkey</p>
+            <h3 class="event-title">Olive <em>Harvest</em></h3>
+            <p class="event-duration">3 days &nbsp;&middot;&nbsp; Seasonal gathering</p>
+            <p class="event-desc">Picking olives among ancient groves, pressing, and long-table meals under October light. A celebration of the land and its rhythm.</p>
+            <p class="event-keyword-tags">Olive groves &nbsp;&middot;&nbsp; Aegean &nbsp;&middot;&nbsp; harvest &nbsp;&middot;&nbsp; long table</p>
+            <a href="#apply-form" class="event-cta">Join this Harvest &nbsp;&rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Peru -->
+    <div class="event-item">
+      <div class="event-date-col">
+        <span class="event-month">December</span>
+        <span class="event-day-range">27&ndash;</span>
+        <span class="event-month" style="margin-top:4px;">January</span>
+        <span class="event-day-range" style="font-size:26px;">9</span>
+        <span class="event-year">2026 / 27</span>
+      </div>
+      <div class="event-body">
+        <div class="event-tags-row">
+          <span class="event-type-tag">Journey</span>
+        </div>
+        <div class="event-main">
+          <div class="event-image">
+            <img src="photos/upcominghero/peruamazoniaupcoming-hero.jpg" alt="Sacred Valley & Amazon, Peru" style="object-position: center 30%;">
+          </div>
+          <div class="event-info">
+            <p class="event-location">Peru &nbsp;&middot;&nbsp; Andes &amp; Amazonia</p>
+            <h3 class="event-title">Sacred Valley &amp; <em>Amazon</em></h3>
+            <p class="event-duration">14 days &nbsp;&middot;&nbsp; 27 December &ndash; 9 January</p>
+            <p class="event-desc">Moving between mountains and jungle over several days, with time in the Sacred Valley and along the river. Plant wisdom, Andean ritual, and the Amazon.</p>
+            <p class="event-keyword-tags">Mountains &nbsp;&middot;&nbsp; jungle &nbsp;&middot;&nbsp; river &nbsp;&middot;&nbsp; plant wisdom</p>
+            <a href="#apply-form" class="event-cta">Join this Journey &nbsp;&rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Auroville -->
+    <div class="event-item">
+      <div class="event-date-col">
+        <span class="event-month">February</span>
+        <span class="event-day-range">27&ndash;</span>
+        <span class="event-month" style="margin-top:4px;">March</span>
+        <span class="event-day-range" style="font-size:26px;">7</span>
+        <span class="event-year">2027</span>
+      </div>
+      <div class="event-body">
+        <div class="event-tags-row">
+          <span class="event-type-tag">Journey</span>
+        </div>
+        <div class="event-main">
+          <div class="event-image">
+            <img src="photos/upcominghero/aurovilleupcoming-hero.jpg" alt="Auroville, India">
+          </div>
+          <div class="event-info">
+            <p class="event-location">India &nbsp;&middot;&nbsp; Auroville</p>
+            <h3 class="event-title"><em>Auroville</em></h3>
+            <p class="event-duration">9 days &nbsp;&middot;&nbsp; 27 February &ndash; 7 March 2027</p>
+            <p class="event-desc">Returning to Auroville &mdash; the international community in South India built around the ideal of human unity. Days shaped by movement, silence, and the land.</p>
+            <p class="event-keyword-tags">Auroville &nbsp;&middot;&nbsp; Pondicherry &nbsp;&middot;&nbsp; movement &nbsp;&middot;&nbsp; silence</p>
+            <a href="#apply-form" class="event-cta">Join this Journey &nbsp;&rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="apply-section" id="apply-form">
+  <div class="apply-inner">
+    <div>
+      <div class="apply-label">&#10022; Applications</div>
+      <h2 class="apply-title">Begin the conversation</h2>
+      <p class="apply-body">We review every application personally. Tell us what&rsquo;s drawing you here. There are no right answers &mdash; only honest ones.</p>
+      <p class="apply-note">
+        We typically respond within 2&ndash;3 days.<br>
+        All walks are application only.<br>
+        We&rsquo;ll schedule a short video call to get to know each other.
+      </p>
+    </div>
+    <div>
+      <form onsubmit="handleApplicationSubmit(event)">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" name="first_name" placeholder="Your name" required type="text">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" name="last_name" placeholder="Your surname" required type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" name="email" placeholder="your@email.com" required type="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Which journey interests you?</label>
+          <select class="form-select form-input" name="journey_interest" required>
+            <option value="">Select a journey</option>
+            <option value="Journey — Oaxaca &amp; Caribbean, Mexico">Journey &mdash; Pacific &amp; Caribbean, Mexico</option>
+            <option value="Harvest — Olive, Ayvalık, Turkey">Harvest &mdash; Olive, Ayval&#305;k, Turkey</option>
+            <option value="Journey — Sacred Valley &amp; Amazonia, Peru">Journey &mdash; Sacred Valley &amp; Amazon, Peru</option>
+            <option value="Journey — Auroville, India">Journey &mdash; Auroville, India</option>
+            <option value="I'm open — tell me more">I&rsquo;m open &mdash; tell me more</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">What draws you to this?</label>
+          <textarea class="form-input form-textarea" name="message" placeholder="Say as much or as little as feels right&hellip;" required></textarea>
+        </div>
+        <div class="form-group" style="display:flex; align-items:flex-start; gap:10px; margin-top:4px;">
+          <input type="checkbox" name="la_familia" id="la_familia_check" style="margin-top:3px; accent-color:#c4a55a; flex-shrink:0;">
+          <label for="la_familia_check" class="form-note" style="margin:0; cursor:pointer; text-align:left;">Also keep me close to La Familia letters and future gatherings.</label>
+        </div>
+        <button class="form-submit" type="submit">Walk with us</button>
+        <p class="form-note">We do not share your information with anyone.<br>This is the beginning of a real conversation.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo">WISDOM WALK</a>
+  <div class="footer-links">
+    <a href="journeys.html">Journeys</a>
+    <a href="harvests.html">Harvests</a>
+    <a href="about.html">About</a>
+    <a href="la-familia.html">La Familia</a>
+    <a href="upcoming.html">Upcoming</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Wisdom Walk &nbsp;&middot;&nbsp; <em>Walking the path of remembrance.</em></p>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 80);
+});
+
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+async function handleApplicationSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '...';
+  const email = form.querySelector('[name="email"]').value;
+  const firstName = form.querySelector('[name="first_name"]').value;
+  const lastName = form.querySelector('[name="last_name"]').value;
+  const journey = form.querySelector('[name="journey_interest"]').value;
+  const message = form.querySelector('[name="message"]').value;
+  const laFamilia = form.querySelector('[name="la_familia"]')?.checked;
+  try {
+    const res = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'application',
+        email, first_name: firstName, last_name: lastName,
+        journey_interest: journey, message, la_familia: laFamilia
+      })
+    });
+    if (res.ok) {
+      btn.textContent = "Sent — we'll be in touch";
+      btn.style.background = '#8a7a4a';
+      form.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
+    } else {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>

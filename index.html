@@ -520,6 +520,19 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   transition: all 0.3s; display: inline-block; align-self: flex-start;
 }
 .walks-card-link:hover { color: #4e3a0e; border-color: rgba(154,120,54,1); }
+.walks-card-open-badge {
+  position: absolute; top: 16px; left: 16px; z-index: 3;
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #1e1c18;
+  background: rgba(196,165,90,0.96); padding: 5px 12px;
+}
+.walks-card-link-open {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: #f7f3ea; text-decoration: none;
+  background: #2a2822; padding: 10px 20px;
+  transition: background 0.3s; display: inline-block; align-self: flex-start; margin-top: auto;
+}
+.walks-card-link-open:hover { background: #1e1c18; }
 @media (max-width: 768px) { .walks-cards-grid { grid-template-columns: 1fr !important; } }
 
 /* TESTIMONIALS — editorial single voice, photo bg */
@@ -633,29 +646,24 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 @media (max-width: 600px) { .gallery-item { grid-column: span 12; height: 220px; } .gallery-item:nth-child(n+5) { grid-column: span 12; } }
 
 /* INSTAGRAM LINK */
-.insta-section {
+.social-section {
   background: #f7f3ea;
-  padding: 20px 56px;
+  padding: 18px 56px;
   border-top: 0.5px solid rgba(122,104,48,0.1);
   border-bottom: 0.5px solid rgba(122,104,48,0.1);
-  display: flex; justify-content: center;
+  display: flex; justify-content: center; align-items: center;
+  gap: 28px; flex-wrap: wrap;
 }
-.insta-link {
-  display: flex; align-items: center; gap: 12px;
-  text-decoration: none; color: rgba(122,104,48,0.72);
-  transition: color 0.3s;
+.social-link {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none; color: rgba(122,104,48,0.68);
+  transition: color 0.3s; font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
 }
-.insta-link:hover { color: rgba(122,104,48,1); }
-.insta-link svg { width: 16px; height: 16px; flex-shrink: 0; }
-.insta-link-text {
-  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 2.5px;
-  text-transform: uppercase;
-}
-.insta-link-sep { color: rgba(122,104,48,0.3); font-size: 8px; }
-.insta-link-handle {
-  font-family: 'Josefin Sans', sans-serif; font-size: 10px; letter-spacing: 2px;
-  text-transform: none; color: rgba(122,104,48,0.5);
-}
+.social-link:hover { color: rgba(122,104,48,1); }
+.social-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+.social-sep { color: rgba(122,104,48,0.25); font-size: 7px; }
+@media (max-width: 600px) { .social-section { gap: 16px; padding: 16px 24px; } }
 
 /* LA FAMILIA BANNER */
 .circle-banner { background: #f7f3ea; border-top: 0.5px solid rgba(122,104,48,0.12); padding: 64px 56px; }
@@ -780,7 +788,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
     <div class="action-group">
       <a href="la-familia.html" class="action-link">La Familia</a>
       <div class="action-sep"></div>
-      <a href="la-familia.html#bespoke" class="action-link">Bespoke</a>
+      <a href="upcoming.html" class="action-link">Upcoming</a>
     </div>
   </div>
   <div class="nav-mobile-menu" id="mobileMenu">
@@ -788,7 +796,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
     <a href="harvests.html">Harvests</a>
     <a href="about.html">About</a>
     <a href="la-familia.html">La Familia</a>
-    <a href="la-familia.html#bespoke">Bespoke</a>
+    <a href="upcoming.html">Upcoming</a>
   </div>
 </nav>
 
@@ -804,7 +812,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
       <p>Some places move something in you<br>you hadn&rsquo;t yet come across.<br>We walk for that.</p>
     </div>
     <div class="hero-cta-wrap">
-      <a href="#upcoming" class="hero-cta">Upcoming Journeys</a>
+      <a href="upcoming.html" class="hero-cta">Upcoming Journeys</a>
       <a href="journeys.html#past-journeys" class="hero-cta-ghost">Past Journeys</a>
     </div>
   </div>
@@ -841,8 +849,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
     </div>
     <div class="value-right">
       <p class="value-eyebrow">Journeys beyond the ordinary.<br>For curious minds and open hearts.</p>
-      <p class="value-body" style="margin-bottom: 6px;">Wisdom Walk offers 7–14 days <strong class="value-highlight">modern pilgrimage journeys</strong> and 2–3 day <strong class="value-highlight">seasonal harvest gatherings</strong> across sacred lands: from Peru to India, from Egypt to Anatolia.</p>
-      <p class="value-body">Spaces for wonder, celebration, adventure, meaningful connection, and inner exploration.</p>
+      <p class="value-body">Wisdom Walk offers 7–14 days <strong class="value-highlight">modern pilgrimage journeys</strong> and 2–3 day <strong class="value-highlight">seasonal harvest gatherings</strong> across sacred lands: from Peru to India, from Egypt to Anatolia.</p>
       <div class="value-cta-group">
         <a href="journeys.html" class="value-cta">Explore Journeys</a>
         <a href="harvests.html" class="value-cta">Explore Harvests</a>
@@ -997,12 +1004,25 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
           <div class="testimonial-attribution">
             <div class="testimonial-attr-line"></div>
             <span class="testimonial-name">G&uuml;l</span>
-            <span class="testimonial-journeys">Bali &rsquo;23 &nbsp;&middot;&nbsp; Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Peru &rsquo;24 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;24</span>
+            <span class="testimonial-journeys">Bali &rsquo;23 &nbsp;&middot;&nbsp; Himalayas &rsquo;23 &nbsp;&middot;&nbsp; Peru &rsquo;24 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
           </div>
         </div>
       </div>
 
-      <!-- Slide 5: Sezen -->
+      <!-- Slide 5: Pınar -->
+      <div class="testimonials-pair-slide">
+        <div class="testimonial-item">
+          <span class="testimonials-quote-mark">&ldquo;</span>
+          <p class="testimonial-text">When I first stepped into the dance space she opened, I couldn&rsquo;t make sense of what was happening &mdash; I was crying and laughing at the same time. The trust she offered through her presence brought me peace; her joy filled me with joy. On the path I set out on to understand myself and existence, there were moments of fear and moments of feeling lost. In those moments, her guidance and wisdom were by my side &mdash; I saw her sincerity and felt at ease. It turns out it&rsquo;s possible to choose to live with ease, with love, with delight. Through these journeys I came to know people in whose company I feel truly myself and deeply enjoy, and the wisdom of nature. How beautiful it is to remember you are not alone &mdash; to feel held, to laugh together. I&rsquo;m so glad I went, so glad I was there. So glad, in fact, that I went back to Peru&nbsp;;)</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-attr-line"></div>
+            <span class="testimonial-name">P&#305;nar</span>
+            <span class="testimonial-journeys">Peru &rsquo;24 &nbsp;&middot;&nbsp; Egypt &rsquo;25 &nbsp;&middot;&nbsp; Peru &rsquo;25 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Sezen -->
       <div class="testimonials-pair-slide">
         <div class="testimonial-item">
           <span class="testimonials-quote-mark">&ldquo;</span>
@@ -1023,7 +1043,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
           <div class="testimonial-attribution">
             <div class="testimonial-attr-line"></div>
             <span class="testimonial-name">Selim</span>
-            <span class="testimonial-journeys">Peru &rsquo;24 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;24</span>
+            <span class="testimonial-journeys">Peru &rsquo;24 &nbsp;&middot;&nbsp; Ayval&#305;k &rsquo;25</span>
           </div>
         </div>
       </div>
@@ -1087,17 +1107,18 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
     <div class="walks-cards-grid">
       <article class="walks-card">
         <div class="walks-card-visual">
-          <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Oaxaca, Mexico" class="walks-card-img">
+          <div class="walks-card-open-badge">&#9679; Now Open</div>
+          <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Pacific &amp; Caribbean, Mexico" class="walks-card-img">
           <div class="walks-card-body">
-            <p class="walks-card-tag">Mexico &middot; Oaxaca</p>
-            <h3 class="walks-card-title">Oaxaca &amp; Caribbean</h3>
-            <p class="walks-card-date">12&ndash;22 Nov &middot; 2026 &middot; 10 days</p>
+            <p class="walks-card-tag">Mexico City &nbsp;&middot;&nbsp; Oaxaca &middot; Yucat&aacute;n</p>
+            <h3 class="walks-card-title">Mexico <em>Journey</em></h3>
+            <p class="walks-card-date">12&ndash;20 Nov &middot; 2026 &middot; 9 days</p>
           </div>
         </div>
         <div class="walks-card-footer">
-          <p class="walks-card-desc">Moving through villages, markets, and surrounding landscapes, with time spent in the everyday life of the region.</p>
-          <p class="walks-card-tags">Ancient sites &middot; cenotes &middot; temazcal &middot; cacao</p>
-          <a href="journeys.html#upcoming" class="walks-card-link">Join the journey &rarr;</a>
+          <p class="walks-card-desc">Nine days through three regions of Mexico &mdash; ancient sites, the Pacific coast, plant ceremonies, and the Yucat&aacute;n Peninsula.</p>
+          <p class="walks-card-tags">Teotihuacan &middot; Mazunte &middot; temazcal &middot; cenotes &middot; cacao</p>
+          <a href="upcoming.html" class="walks-card-link-open">Apply now &rarr;</a>
         </div>
       </article>
       <article class="walks-card">
@@ -1106,7 +1127,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
           <div class="walks-card-body">
             <p class="walks-card-tag">Peru &middot; Andes &amp; Amazonia</p>
             <h3 class="walks-card-title">Sacred Valley &amp; Amazon</h3>
-            <p class="walks-card-date">27 Dec &ndash; 9 Jan &middot; 14 days</p>
+            <p class="walks-card-date">27 Dec &ndash; 9 Jan &middot; 2026/27 &middot; 14 days</p>
           </div>
         </div>
         <div class="walks-card-footer">
@@ -1170,16 +1191,41 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
 </section>
 
 <!-- INSTAGRAM LINK -->
-<section class="insta-section">
-  <a href="https://www.instagram.com/wisdom_walk_/" target="_blank" rel="noopener" class="insta-link">
+<section class="social-section">
+  <a href="https://www.instagram.com/wisdom_walk_/" target="_blank" rel="noopener" class="social-link">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
       <circle cx="12" cy="12" r="4"/>
       <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
     </svg>
-    <span class="insta-link-text">Follow on Instagram</span>
-    <span class="insta-link-sep">&#10022;</span>
-    <span class="insta-link-handle">@wisdom_walk_</span>
+    Instagram
+  </a>
+  <span class="social-sep">&#10022;</span>
+  <a href="https://wisdomwalk.substack.com/" target="_blank" rel="noopener" class="social-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="2"/>
+      <line x1="3" y1="9" x2="21" y2="9"/>
+      <line x1="3" y1="14" x2="21" y2="14"/>
+    </svg>
+    Substack
+  </a>
+  <span class="social-sep">&#10022;</span>
+  <a href="https://open.spotify.com/user/31xjcwpu5mlp7avx4km65si2bgdm" target="_blank" rel="noopener" class="social-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M8 14.5c2.5-1 5.5-1 8 0"/>
+      <path d="M6.5 11.5c3.5-1.5 7.5-1.5 11 0"/>
+      <path d="M7.5 8.5c3-1.2 6-1.2 9 0"/>
+    </svg>
+    Spotify
+  </a>
+  <span class="social-sep">&#10022;</span>
+  <a href="https://www.youtube.com/@WisdomWalkEarth" target="_blank" rel="noopener" class="social-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="5" width="20" height="14" rx="3"/>
+      <polygon points="10,9 10,15 16,12" fill="currentColor" stroke="none"/>
+    </svg>
+    YouTube
   </a>
 </section>
 
@@ -1207,7 +1253,7 @@ footer { background: #3b3b28; padding: 56px 80px; display: flex; justify-content
     <a href="harvests.html">Harvests</a>
     <a href="about.html">About</a>
     <a href="la-familia.html">La Familia</a>
-    <a href="la-familia.html#bespoke">Bespoke</a>
+    <a href="upcoming.html">Upcoming</a>
   </div>
   <p class="footer-copy">&copy; 2026 Wisdom Walk &nbsp;&middot;&nbsp; <em>Walking the path of remembrance.</em></p>
 </footer>
