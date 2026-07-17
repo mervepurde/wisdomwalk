@@ -411,7 +411,8 @@ footer {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 860px) {
   .featured-card { grid-template-columns: 1fr; }
-  .featured-card-img { aspect-ratio: 16/9; min-height: 260px; }
+  .featured-card-img { aspect-ratio: 16/9; min-height: 260px; height: 260px; }
+  .featured-card-img img { height: 100%; width: 100%; }
   .featured-card-body { padding: 32px 28px; gap: 20px; }
 }
 @media (max-width: 900px) {
@@ -515,7 +516,7 @@ footer {
 
   <div class="featured-card">
     <div class="featured-card-img">
-      <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Pacific & Caribbean, Mexico">
+      <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Pacific & Caribbean, Mexico" style="object-position: center 45%;">
     </div>
     <div class="featured-card-body">
       <div>
