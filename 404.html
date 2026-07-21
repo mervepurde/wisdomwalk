@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="robots" content="noindex, follow">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ERE527MQ9Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ERE527MQ9Y', { anonymize_ip: true });
+</script>
+
+<title>Page Not Found — Wisdom Walk</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="theme-color" content="#1e1c18">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Cormorant Garamond', Georgia, serif; background: #1e1c18; color: #ede4d0; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; flex-direction: column;
+  background: rgba(14,12,8,0.48);
+  transition: background 0.4s;
+}
+.nav-row-main {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 56px;
+  transition: padding 0.3s;
+}
+.nav-row-action {
+  display: flex; justify-content: flex-end; align-items: center;
+  padding: 0 56px 0;
+  transition: padding 0.3s, background 0.4s, border-color 0.4s;
+}
+.action-group {
+  display: flex; align-items: center;
+  border-top: 0.5px solid rgba(196,165,90,0.32);
+  padding: 8px 0 12px;
+  transition: border-color 0.4s, padding 0.3s;
+}
+nav.scrolled {
+  background: rgba(14,12,8,0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 0.5px solid rgba(196,165,90,0.1);
+}
+nav.scrolled .nav-row-main { padding: 14px 56px; }
+nav.scrolled .nav-row-action { padding: 0 56px 0; }
+nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 0 9px; }
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; letter-spacing: 3px; font-weight: 300; font-style: italic;
+  color: rgba(237,228,208,0.9); text-decoration: none; transition: color 0.4s;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11.5px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(237,228,208,0.82); text-decoration: none; transition: color 0.3s;
+}
+.nav-links a:hover { color: rgba(237,228,208,1); }
+.action-link {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(196,165,90,0.78);
+  text-decoration: none; padding: 6px 20px; transition: color 0.3s;
+}
+.action-link:hover { color: rgba(196,165,90,0.9); }
+.action-sep { width: 0.5px; height: 10px; background: rgba(196,165,90,0.12); flex-shrink: 0; }
+
+/* HAMBURGER MENU */
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: rgba(237,228,208,0.9); transition: color 0.3s; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: currentColor; margin: 5px 0; transition: 0.3s; }
+.nav-mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: #f7f3ea; padding: 24px; z-index: 999; border-top: 0.5px solid rgba(42,40,34,0.1); max-height: calc(100vh - 60px); overflow-y: auto; }
+.nav-mobile-menu a { display: block; font-family: 'Josefin Sans', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #2a2822; padding: 14px 0; border-bottom: 0.5px solid rgba(42,40,34,0.08); text-decoration: none; transition: color 0.3s; }
+.nav-mobile-menu a:hover { color: #7a6830; }
+.nav-mobile-menu.open { display: block; }
+
+/* NOT FOUND SECTION */
+.notfound {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 160px 24px 80px;
+  background:
+    linear-gradient(rgba(14,12,8,0.72), rgba(14,12,8,0.72)),
+    url("photos/wisdom-walk-cover.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.notfound-eyebrow {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; color: rgba(196,165,90,0.85); margin-bottom: 20px;
+}
+.notfound-title {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
+  font-size: clamp(48px, 8vw, 96px); line-height: 1.05; color: #ede4d0; margin-bottom: 24px;
+}
+.notfound-subtitle {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(18px, 2vw, 22px);
+  color: rgba(237,228,208,0.82); max-width: 520px; margin: 0 auto 44px; line-height: 1.6;
+}
+.notfound-actions { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.notfound-btn {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; text-decoration: none; padding: 15px 32px;
+  border: 0.5px solid rgba(196,165,90,0.4); color: #ede4d0; transition: border-color 0.3s, background 0.3s;
+}
+.notfound-btn:hover { border-color: rgba(196,165,90,0.8); background: rgba(196,165,90,0.08); }
+.notfound-btn.primary { background: rgba(196,165,90,0.15); }
+.notfound-btn.primary:hover { background: rgba(196,165,90,0.25); }
+
+/* FOOTER */
+footer {
+  background: #3b3b28; padding: 56px 80px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif; font-size: 16px;
+  letter-spacing: 3px; font-weight: 300; font-style: italic;
+  color: rgba(237,228,208,0.5); text-decoration: none;
+}
+.footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+.footer-links a {
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: rgba(237,228,208,0.55); text-decoration: none; transition: color 0.3s;
+}
+.footer-links a:hover { color: rgba(237,228,208,0.7); }
+.footer-copy {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 1px;
+  color: rgba(237,228,208,0.45);
+}
+
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+  .nav-logo { font-size: 17px; }
+  .notfound { padding: 140px 24px 64px; }
+  footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  nav { position: fixed; }
+  .nav-row-main { padding: 14px 16px; }
+  .nav-logo { font-size: 15px; letter-spacing: 2px; }
+  .nav-hamburger { padding: 6px; }
+  .nav-mobile-menu { top: 50px; padding: 16px; }
+  .nav-mobile-menu a { font-size: 12px; padding: 12px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+<div class="nav-row-main">
+<a class="nav-logo" href="index.html">WISDOM WALK</a>
+<div class="nav-links">
+<a href="journeys.html">Journeys</a>
+<a href="harvests.html">Harvests</a>
+<a href="about.html">About</a>
+</div>
+<button aria-label="Menu" class="nav-hamburger" onclick="toggleMobileMenu()">
+<span></span><span></span><span></span>
+</button>
+</div>
+<div class="nav-row-action">
+<div class="action-group">
+<a class="action-link" href="la-familia.html">La Familia</a>
+<div class="action-sep"></div>
+<a class="action-link" href="upcoming.html">Upcoming</a>
+</div>
+</div>
+<div class="nav-mobile-menu" id="mobileMenu">
+<a href="journeys.html">Journeys</a>
+<a href="harvests.html">Harvests</a>
+<a href="about.html">About</a>
+<a href="la-familia.html">La Familia</a>
+<a href="upcoming.html">Upcoming</a>
+</div>
+</nav>
+
+<section class="notfound">
+<p class="notfound-eyebrow">Lost along the way</p>
+<h1 class="notfound-title">This path<br>doesn't exist.</h1>
+<p class="notfound-subtitle">The page you're looking for has wandered off. Let's bring you back to the trail.</p>
+<div class="notfound-actions">
+<a class="notfound-btn primary" href="index.html">Return Home</a>
+<a class="notfound-btn" href="upcoming.html">See Upcoming Journeys</a>
+</div>
+</section>
+
+<footer>
+<a class="footer-logo" href="index.html">Wisdom Walk</a>
+<div class="footer-links">
+<a href="journeys.html">Journeys</a>
+<a href="harvests.html">Harvests</a>
+<a href="about.html">About</a>
+<a href="la-familia.html">La Familia</a>
+<a href="upcoming.html">Upcoming</a>
+</div>
+<p class="footer-copy">© 2026 Wisdom Walk  ·  <em>Walking the path of remembrance.</em></p>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
+</body>
+</html>

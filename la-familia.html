@@ -736,7 +736,7 @@ function handleSubmit(e) {
 <p class="circle-join-sub">Stay close to the stories, sounds, practices, and places that continue between the walks.</p>
 <!-- MAILCHIMP embed buraya -->
 <form class="circle-form" onsubmit="handleKitSubscribe(event)">
-<input class="circle-input" name="email" placeholder="your e-mail" required="" type="email"/>
+<input class="circle-input" name="email" placeholder="your e-mail" aria-label="Email address" required="" type="email"/>
 <button class="circle-btn" type="submit">Join La Familia</button>
 </form>
 <p class="circle-note">Practices · Sounds · Occasional gatherings</p>
@@ -820,7 +820,7 @@ function handleSubmit(e) {
     </div>
     <div class="circle-banner-form">
       <form onsubmit="handleKitSubscribe(event)">
-        <input class="circle-banner-input" type="email" name="email" placeholder="YOUR EMAIL" required>
+        <input class="circle-banner-input" type="email" name="email" placeholder="YOUR EMAIL" aria-label="Email address" required>
         <button class="circle-banner-btn" type="submit">Join →</button>
       </form>
       <p class="circle-banner-note">No noise. Unsubscribe any time.</p>

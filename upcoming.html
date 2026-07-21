@@ -174,6 +174,44 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
 }
 .featured-card:hover .featured-card-img img { transform: scale(1.04); }
 
+/* Carousel */
+.carousel { position: absolute; inset: 0; overflow: hidden; }
+.carousel-track {
+  display: flex; height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.carousel-slide {
+  flex: 0 0 100%; height: 100%; display: block; position: relative;
+}
+.carousel-slide img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.carousel-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 3; width: 34px; height: 34px; border-radius: 50%;
+  border: 0.5px solid rgba(255,255,255,0.5);
+  background: rgba(20,18,14,0.35); color: #fff;
+  font-family: 'Cormorant Garamond', serif; font-size: 22px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; transition: opacity 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+.carousel:hover .carousel-arrow { opacity: 1; }
+.carousel-arrow:hover { background: rgba(20,18,14,0.6); }
+.carousel-arrow.prev { left: 12px; }
+.carousel-arrow.next { right: 12px; }
+.carousel-dots {
+  position: absolute; bottom: 14px; left: 0; right: 0; z-index: 3;
+  display: flex; justify-content: center; gap: 7px;
+}
+.carousel-dot {
+  width: 7px; height: 7px; padding: 0; border: none; border-radius: 50%;
+  background: rgba(255,255,255,0.45); cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.carousel-dot.active { background: #fff; transform: scale(1.25); }
+@media (max-width: 900px) { .carousel-arrow { opacity: 1; } }
+
 .featured-card-body {
   padding: 44px 40px 40px;
   background: #f7f3ea;
@@ -517,7 +555,27 @@ footer {
 
   <div class="featured-card">
     <div class="featured-card-img">
-      <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Pacific & Caribbean, Mexico" style="object-position: center 45%;">
+      <div class="carousel" data-autoplay="5000">
+        <div class="carousel-track">
+          <!-- Slide 1: Mexico poster (always first) -->
+          <div class="carousel-slide">
+            <img src="photos/upcominghero/mexicoupcoming-hero.jpg" alt="Mexico — Wisdom Walk">
+          </div>
+          <!-- Instagram posts: her yeni gönderi için bir <a> bloğu ekleyin.
+               1) Gönderinin görselini photos/instagram/ klasörüne koyun (kare veya 4:5 en iyi durur)
+               2) href'e Instagram gönderisinin bağlantısını yazın
+               Görsel bulunamazsa o slayt otomatik gizlenir. -->
+          <a class="carousel-slide" href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <img src="photos/instagram/mexico-1.jpg" alt="Wisdom Walk Instagram" loading="lazy">
+          </a>
+          <a class="carousel-slide" href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <img src="photos/instagram/mexico-2.jpg" alt="Wisdom Walk Instagram" loading="lazy">
+          </a>
+        </div>
+        <button class="carousel-arrow prev" type="button" aria-label="Previous">&#8249;</button>
+        <button class="carousel-arrow next" type="button" aria-label="Next">&#8250;</button>
+        <div class="carousel-dots"></div>
+      </div>
     </div>
     <div class="featured-card-body">
       <div>
@@ -747,6 +805,64 @@ async function handleApplicationSubmit(e) {
     btn.disabled = false;
   }
 }
+
+// Carousel (auto-hides slides whose image fails to load)
+function setupCarousel(root) {
+  const track = root.querySelector('.carousel-track');
+  const dotsWrap = root.querySelector('.carousel-dots');
+  const prevBtn = root.querySelector('.carousel-arrow.prev');
+  const nextBtn = root.querySelector('.carousel-arrow.next');
+  const interval = parseInt(root.getAttribute('data-autoplay'), 10) || 0;
+  let index = 0, timer = null;
+
+  const slides = () => Array.from(root.querySelectorAll('.carousel-slide'));
+
+  function go(i) {
+    const s = slides();
+    if (!s.length) return;
+    index = (i + s.length) % s.length;
+    track.style.transform = 'translateX(' + (-index * 100) + '%)';
+    Array.from(dotsWrap.children).forEach((d, di) => d.classList.toggle('active', di === index));
+  }
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    slides().forEach((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'carousel-dot' + (i === index ? ' active' : '');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Slide ' + (i + 1));
+      b.addEventListener('click', () => { go(i); restart(); });
+      dotsWrap.appendChild(b);
+    });
+  }
+  function startAuto() { if (interval && slides().length > 1) { stopAuto(); timer = setInterval(() => go(index + 1), interval); } }
+  function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+  function restart() { stopAuto(); startAuto(); }
+  function refreshControls() {
+    const multi = slides().length > 1;
+    [prevBtn, nextBtn, dotsWrap].forEach(el => { el.style.display = multi ? '' : 'none'; });
+    buildDots();
+    go(Math.min(index, slides().length - 1));
+    startAuto();
+  }
+
+  // Drop any slide whose image can't load (e.g. Instagram placeholder not added yet)
+  slides().forEach(slide => {
+    const img = slide.querySelector('img');
+    if (!img) return;
+    const remove = () => { slide.remove(); refreshControls(); };
+    if (img.complete && img.naturalWidth === 0) remove();
+    else img.addEventListener('error', remove);
+  });
+
+  prevBtn.addEventListener('click', () => { go(index - 1); restart(); });
+  nextBtn.addEventListener('click', () => { go(index + 1); restart(); });
+  root.addEventListener('mouseenter', stopAuto);
+  root.addEventListener('mouseleave', startAuto);
+
+  refreshControls();
+}
+document.querySelectorAll('.carousel').forEach(setupCarousel);
 </script>
 </body>
 </html>
