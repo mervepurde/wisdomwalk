@@ -259,6 +259,74 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   transition: background 0.3s, color 0.3s;
 }
 .featured-cta:hover { background: #1e1c18; }
+.featured-cta-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.featured-cta-secondary {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10.5px; font-weight: 400; letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #2a2822; text-decoration: none;
+  background: transparent;
+  border: 0.5px solid rgba(42,40,34,0.85);
+  padding: 14px 28px;
+  line-height: 1; cursor: pointer;
+  -webkit-appearance: none; appearance: none;
+  transition: background 0.3s, color 0.3s;
+}
+.featured-cta-secondary:hover { background: #2a2822; color: #f7f3ea; }
+
+/* ─── DOWNLOAD (email-gated) MODAL ─── */
+.dl-overlay {
+  position: fixed; inset: 0; z-index: 3000;
+  background: rgba(20,18,14,0.55); backdrop-filter: blur(2px);
+  display: none; align-items: center; justify-content: center; padding: 24px;
+}
+.dl-overlay.open { display: flex; }
+.dl-modal {
+  position: relative; width: 100%; max-width: 430px;
+  background: #f7f3ea; border: 0.5px solid rgba(42,40,34,0.18);
+  padding: 44px 40px 38px;
+}
+.dl-close {
+  position: absolute; top: 12px; right: 16px;
+  background: none; border: 0; cursor: pointer;
+  font-family: 'Cormorant Garamond', serif; font-size: 26px; line-height: 1;
+  color: rgba(42,40,34,0.45); transition: color 0.3s;
+}
+.dl-close:hover { color: #2a2822; }
+.dl-label {
+  font-family: 'Josefin Sans', sans-serif; font-size: 10.5px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #8a7a4a; margin: 0 0 10px;
+}
+.dl-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300;
+  font-style: italic; line-height: 1.2; color: #2a2822; margin: 0 0 12px;
+}
+.dl-body {
+  font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 300;
+  line-height: 1.7; color: rgba(42,40,34,0.6); margin: 0 0 22px;
+}
+.dl-input {
+  width: 100%; background: #fff;
+  border: 0.5px solid rgba(42,40,34,0.2); color: #2a2822;
+  font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 300;
+  padding: 13px 16px; outline: none; margin-bottom: 12px;
+  -webkit-appearance: none; transition: border-color 0.3s;
+}
+.dl-input::placeholder { color: rgba(42,40,34,0.4); }
+.dl-input:focus { border-color: rgba(196,165,90,0.6); }
+.dl-submit {
+  width: 100%; background: #2a2822; border: none;
+  font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: #f7f3ea;
+  padding: 15px 32px; cursor: pointer; transition: background 0.3s;
+}
+.dl-submit:hover { background: #1e1c18; }
+.dl-note {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9.5px; letter-spacing: 1.2px;
+  text-transform: uppercase; color: rgba(42,40,34,0.4);
+  text-align: center; margin: 14px 0 0; line-height: 1.7;
+}
 .featured-cta-note {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 9.5px; font-weight: 300; letter-spacing: 1.5px;
@@ -589,7 +657,10 @@ footer {
         <p class="featured-desc" style="margin-top: -4px; font-size: 15px; color: rgba(42,40,34,0.55);">Guided by Merve Purde, together with Abuela Mari Carmen, Aldo Fogazza, and Tunay K&ouml;kden.</p>
       </div>
       <div class="featured-cta-wrap">
-        <a href="#apply-form" class="featured-cta">Request Journey Details &nbsp;&rarr;</a>
+        <div class="featured-cta-row">
+          <a href="#apply-form" class="featured-cta">Request Journey Details &nbsp;&rarr;</a>
+          <button type="button" class="featured-cta-secondary" onclick="openDownloadModal()">Download Details &nbsp;&darr;</button>
+        </div>
         <span class="featured-cta-note">Apply to receive a detailed PDF with full itinerary &amp; pricing</span>
       </div>
     </div>
@@ -748,6 +819,22 @@ footer {
   </div>
 </section>
 
+<!-- DOWNLOAD MODAL (email-gated PDF) -->
+<div class="dl-overlay" id="dlOverlay" onclick="if(event.target===this)closeDownloadModal()">
+  <div class="dl-modal" role="dialog" aria-modal="true" aria-labelledby="dlTitle">
+    <button type="button" class="dl-close" aria-label="Close" onclick="closeDownloadModal()">&times;</button>
+    <p class="dl-label">&#10022; Mexico Journey</p>
+    <h3 class="dl-title" id="dlTitle">Receive the details</h3>
+    <p class="dl-body">Leave your email and we&rsquo;ll open the full itinerary &amp; pricing PDF for you &mdash; and keep you close to news from this journey.</p>
+    <form onsubmit="handleDownloadSubmit(event)">
+      <input class="dl-input" type="text" name="first_name" placeholder="Your name (optional)" autocomplete="given-name">
+      <input class="dl-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+      <button class="dl-submit" type="submit">Get the PDF &nbsp;&darr;</button>
+    </form>
+    <p class="dl-note">We do not share your information with anyone.</p>
+  </div>
+</div>
+
 <footer>
   <a href="index.html" class="footer-logo">WISDOM WALK</a>
   <div class="footer-links">
@@ -767,6 +854,54 @@ window.addEventListener('scroll', function() {
 
 function toggleMobileMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ─── Email-gated PDF download ───
+const MEXICO_PDF_URL = "photos/" + encodeURIComponent("MEXICO'26 np.pdf");
+
+function openDownloadModal() {
+  document.getElementById('dlOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDownloadModal() {
+  document.getElementById('dlOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeDownloadModal();
+});
+
+function triggerPdfDownload() {
+  const a = document.createElement('a');
+  a.href = MEXICO_PDF_URL;
+  a.download = "Mexico Journey 2026 — Wisdom Walk.pdf";
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+async function handleDownloadSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '...';
+  const email = form.querySelector('[name="email"]').value;
+  const firstName = form.querySelector('[name="first_name"]').value;
+  try {
+    await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'download', email, first_name: firstName })
+    });
+  } catch {
+    // Even if the subscribe call fails, let them have the PDF.
+  }
+  triggerPdfDownload();
+  btn.textContent = 'Opening your PDF…';
+  setTimeout(closeDownloadModal, 1400);
 }
 
 async function handleApplicationSubmit(e) {
