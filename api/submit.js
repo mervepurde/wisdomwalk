@@ -81,6 +81,15 @@ export default async function handler(req, res) {
       return res.status(ok ? 200 : 500).json({ success: ok });
     }
 
+    // PDF download — capture email into the Mexico interest group
+    if (type === 'download') {
+      const ok = await addToMailerlite(
+        email, first_name || '', last_name || '',
+        [GROUP_IDS['Journey — Oaxaca & Caribbean, Mexico']]
+      );
+      return res.status(ok ? 200 : 500).json({ success: ok });
+    }
+
     // Application form
     if (type === 'application') {
       // 1. Merve'ye bildirim maili
