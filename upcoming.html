@@ -659,9 +659,35 @@ footer {
       <div class="featured-cta-wrap">
         <div class="featured-cta-row">
           <a href="#apply-form" class="featured-cta">Request Journey Details &nbsp;&rarr;</a>
-          <button type="button" class="featured-cta-secondary" onclick="openDownloadModal()">Download Details &nbsp;&darr;</button>
+          <button type="button" class="featured-cta-secondary" onclick="openDownloadModal('mexico')">Download Details &nbsp;&darr;</button>
         </div>
         <span class="featured-cta-note">Apply to receive a detailed PDF with full itinerary &amp; pricing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="featured-card" style="margin-top: 56px;">
+    <div class="featured-card-img">
+      <img src="photos/upcominghero/grapecomingup-hero.jpg" alt="Mesa Misteriosa &mdash; Grape Harvest, Torres Vedras, Portugal">
+    </div>
+    <div class="featured-card-body">
+      <div>
+        <p class="featured-region">Portugal &nbsp;&middot;&nbsp; Torres Vedras</p>
+        <h3 class="featured-title">Mesa <em>Misteriosa</em></h3>
+        <p class="featured-subtitle">11&ndash;13 September 2026 &nbsp;&middot;&nbsp; 3 days &middot; Grape Harvest</p>
+        <div class="featured-rule"></div>
+        <p class="featured-desc">A grape harvest weekend of nature, taste, touch, and meaningful connections. Set in the heart of Portugal&rsquo;s harvest season, this weekend invites you to taste, touch, and feel your way into nature&rsquo;s wisdom. A table is set, and no one yet knows quite what will unfold around it.</p>
+        <p class="featured-desc" style="margin-top: -4px;">The time of harvest has always carried deep meaning. We gather in community to celebrate the land and give thanks for its abundance, journeying into our own mysteries and uncovering what&rsquo;s ripe and ready within.</p>
+        <p class="featured-desc" style="margin-top: -4px;">Nature is our teacher. Embodiment, authentic relating, and shared ritual are the doorways in &mdash; each one another way to open our senses and receive what she has to offer.</p>
+        <p class="featured-desc" style="margin-top: -4px;">The weekend unfolds through layers of intimacy: rooting down until our heartbeat finds the pulse of the earth, movement journeys that let the elements live in the body, partner practices and connection games, nature rituals, hands in the vine, a long feast inspired by Dionysos and the Eleusinian mysteries, and a closing fire dance to claim what we&rsquo;ve become.</p>
+        <p class="featured-desc" style="margin-top: -4px; font-size: 15px; color: rgba(42,40,34,0.55);">Guided by Merve Purde &amp; Joscha Raue<br>Wisdom Walk &amp; <a href="https://www.planetir.org/home" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Planetir</a></p>
+      </div>
+      <div class="featured-cta-wrap">
+        <div class="featured-cta-row">
+          <a href="#apply-form" class="featured-cta">Request Harvest Details &nbsp;&rarr;</a>
+          <button type="button" class="featured-cta-secondary" onclick="openDownloadModal('grape')">Download Details &nbsp;&darr;</button>
+        </div>
+        <span class="featured-cta-note">Apply to receive a detailed PDF with the full weekend guide &amp; pricing</span>
       </div>
     </div>
   </div>
@@ -799,6 +825,7 @@ footer {
             <option value="">Select a journey</option>
             <option value="Journey — Oaxaca &amp; Caribbean, Mexico">Journey &mdash; Pacific &amp; Caribbean, Mexico</option>
             <option value="Harvest — Olive, Ayvalık, Turkey">Harvest &mdash; Olive, Ayval&#305;k, Turkey</option>
+            <option value="Harvest — Grape, Torres Vedras, Portugal">Harvest &mdash; Grape, Torres Vedras, Portugal</option>
             <option value="Journey — Sacred Valley &amp; Amazonia, Peru">Journey &mdash; Sacred Valley &amp; Amazon, Peru</option>
             <option value="Journey — Auroville, India">Journey &mdash; Auroville, India</option>
             <option value="I'm open — tell me more">I&rsquo;m open &mdash; tell me more</option>
@@ -823,7 +850,7 @@ footer {
 <div class="dl-overlay" id="dlOverlay" onclick="if(event.target===this)closeDownloadModal()">
   <div class="dl-modal" role="dialog" aria-modal="true" aria-labelledby="dlTitle">
     <button type="button" class="dl-close" aria-label="Close" onclick="closeDownloadModal()">&times;</button>
-    <p class="dl-label">&#10022; Mexico Journey</p>
+    <p class="dl-label" id="dlLabel">&#10022; Mexico Journey</p>
     <h3 class="dl-title" id="dlTitle">Receive the details</h3>
     <p class="dl-body">Leave your email and we&rsquo;ll open the full itinerary &amp; pricing PDF for you &mdash; and keep you close to news from this journey.</p>
     <form onsubmit="handleDownloadSubmit(event)">
@@ -857,9 +884,26 @@ function toggleMobileMenu() {
 }
 
 // ─── Email-gated PDF download ───
-const MEXICO_PDF_URL = "photos/mexico-journey-2026.pdf";
+const DOWNLOADS = {
+  mexico: {
+    label: '\u2726 Mexico Journey',
+    pdf: 'photos/mexico-journey-2026.pdf',
+    filename: 'Mexico Journey 2026 — Wisdom Walk.pdf',
+    interest: 'mexico',
+  },
+  grape: {
+    label: '\u2726 Mesa Misteriosa',
+    pdf: 'photos/mesa-misteriosa-2026.pdf',
+    filename: 'Mesa Misteriosa 2026 — Wisdom Walk.pdf',
+    interest: 'harvest',
+  },
+};
+let currentDownload = DOWNLOADS.mexico;
 
-function openDownloadModal() {
+function openDownloadModal(kind) {
+  currentDownload = DOWNLOADS[kind] || DOWNLOADS.mexico;
+  const labelEl = document.getElementById('dlLabel');
+  if (labelEl) labelEl.textContent = currentDownload.label;
   document.getElementById('dlOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -873,8 +917,8 @@ document.addEventListener('keydown', function(e) {
 
 function triggerPdfDownload() {
   const a = document.createElement('a');
-  a.href = MEXICO_PDF_URL;
-  a.download = "Mexico Journey 2026 — Wisdom Walk.pdf";
+  a.href = currentDownload.pdf;
+  a.download = currentDownload.filename;
   a.rel = 'noopener';
   document.body.appendChild(a);
   a.click();
@@ -894,7 +938,7 @@ async function handleDownloadSubmit(e) {
     await fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type: 'download', email, first_name: firstName })
+      body: JSON.stringify({ type: 'download', interest: currentDownload.interest, email, first_name: firstName })
     });
   } catch {
     // Even if the subscribe call fails, let them have the PDF.

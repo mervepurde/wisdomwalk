@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Merve Purde — Somatic Movement & Embodiment</title>
+<meta name="description" content="Merve Purde — Somatic Movement & Embodiment Facilitator. Guiding journeys through movement, conscious connection and earth wisdom.">
+<link rel="canonical" href="https://www.mervepurde.com/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#faf9f7">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Merve Purde">
+<meta property="og:title" content="Merve Purde — Somatic Movement & Embodiment">
+<meta property="og:description" content="Guiding journeys through movement, conscious connection and earth wisdom.">
+<meta property="og:url" content="https://www.mervepurde.com/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#faf9f7;      /* near-white, barely warm */
+  --paper-2:#f1efe9;    /* faint neutral for image slots */
+  --ink:#141414;
+  --soft:#6b6862;
+  --accent:#2436e6;     /* electric cobalt — swap to #f0402a for vermilion */
+  --line:rgba(20,20,20,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--paper); color:var(--ink);
+  overflow-x:hidden; line-height:1.6; font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent); color:#fff;}
+.serif{font-family:'Instrument Serif',Georgia,serif; font-weight:400;}
+h1,h2,h3{font-family:'Instrument Serif',Georgia,serif; font-weight:400; letter-spacing:.2px;}
+a{color:inherit; text-decoration:none;}
+.wrap{max-width:1280px; margin:0 auto; padding:0 56px;}
+@media(max-width:640px){ .wrap{padding:0 24px;} }
+
+.label{font-size:11px; letter-spacing:2.4px; text-transform:uppercase; color:var(--soft); font-weight:400;}
+.num{font-size:12px; letter-spacing:1px; color:var(--accent); font-weight:400;}
+
+/* ---------- NAV ---------- */
+nav{ position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:26px 56px; transition:all .45s ease; }
+nav.scrolled{ padding:15px 56px; background:rgba(250,249,247,0.8);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+.logo{ font-family:'Instrument Serif',serif; font-size:25px; letter-spacing:.3px; }
+.logo em{ font-style:italic; color:var(--accent); }
+.nav-right{ display:flex; align-items:center; gap:36px; }
+.nav-links{ display:flex; gap:32px; }
+.nav-links a{ font-size:12.5px; letter-spacing:.3px; opacity:.8; transition:.3s; position:relative; }
+.nav-links a::after{ content:''; position:absolute; left:0; bottom:-5px; width:0; height:1px; background:var(--accent); transition:width .3s; }
+.nav-links a:hover{ opacity:1; } .nav-links a:hover::after{ width:100%; }
+.nav-lang{ font-size:11px; letter-spacing:1px; color:var(--soft); }
+.nav-lang b{ color:var(--ink); font-weight:500; }
+@media(max-width:860px){ .nav-links{display:none;} nav,nav.scrolled{padding:18px 24px;} }
+
+/* ---------- HERO ---------- */
+.hero{ min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:150px 0 70px; position:relative; }
+.hero .label{ margin-bottom:40px; }
+.hero h1{ font-size:clamp(52px,10.5vw,148px); line-height:0.92; letter-spacing:-1px; }
+.hero h1 .l2{ display:block; padding-left:8vw; }
+.hero h1 em, .cycle{ font-style:italic; color:var(--accent); }
+.cycle{ display:inline-block; transition:opacity .5s ease, transform .5s ease; }
+.cycle.out{ opacity:0; transform:translateY(12px); }
+.hero-foot{ display:flex; justify-content:space-between; align-items:flex-end; margin-top:64px; gap:40px; flex-wrap:wrap; }
+.hero-sub{ font-size:16px; color:var(--soft); max-width:420px; line-height:1.7; }
+.hero-scroll{ font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--soft); display:flex; align-items:center; gap:10px; }
+.hero-scroll .ln{ width:46px; height:1px; background:var(--ink); opacity:.4; display:inline-block; animation:pull 2.4s ease-in-out infinite; transform-origin:left; }
+@keyframes pull{ 0%,100%{transform:scaleX(.5);opacity:.25;} 50%{transform:scaleX(1);opacity:.5;} }
+
+/* ---------- image slot ---------- */
+.slot{ position:relative; overflow:hidden; background:var(--paper-2); }
+.slot::before{ content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(120% 120% at 78% 12%, rgba(36,54,230,0.05), transparent 55%),
+    linear-gradient(150deg,#f3f1eb 0%, #eae7df 60%, #e3e0d6 100%); }
+.slot::after{ content:attr(data-cap); position:absolute; left:18px; bottom:15px;
+  font-family:'Instrument Serif',serif; font-style:italic; font-size:15px; color:rgba(20,20,20,.32); letter-spacing:.2px; }
+.slot .tag{ position:absolute; top:16px; right:18px; z-index:2; }
+
+/* ---------- reveal ---------- */
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity 1.05s ease, transform 1.05s ease; }
+.reveal.in{ opacity:1; transform:none; }
+
+/* ---------- STATEMENT ---------- */
+.statement{ padding:170px 0 120px; }
+.statement .wrap{ max-width:1080px; }
+.statement p{ font-family:'Instrument Serif',serif; font-size:clamp(30px,5vw,66px); line-height:1.14; letter-spacing:-.3px; }
+.statement p .q{ color:var(--soft); }
+.statement p em{ font-style:italic; color:var(--accent); }
+
+/* ---------- BLEED ---------- */
+.bleed .slot{ aspect-ratio:21/9; }
+@media(max-width:860px){ .bleed .slot{ aspect-ratio:4/3; } }
+
+/* ---------- GATHERINGS (editorial index w/ hover preview) ---------- */
+.index{ padding:150px 0 120px; }
+.index-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:26px; padding-bottom:26px; border-bottom:1px solid var(--line); flex-wrap:wrap; gap:12px; }
+.index-head h2{ font-size:clamp(30px,4vw,52px); line-height:1; }
+.index-head .label{ max-width:300px; text-align:right; }
+.index-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:60px; align-items:start; }
+.rows{ display:flex; flex-direction:column; }
+.row{ display:grid; grid-template-columns:44px 1fr auto; align-items:center; gap:18px;
+  padding:30px 4px; border-bottom:1px solid var(--line); cursor:pointer; transition:padding .4s ease, color .3s; }
+.row:hover{ padding-left:16px; }
+.row .r-name{ font-family:'Instrument Serif',serif; font-size:clamp(26px,3vw,40px); line-height:1; transition:color .3s; }
+.row:hover .r-name{ color:var(--accent); }
+.row .r-cat{ font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--soft); }
+.row .r-arrow{ font-size:20px; color:var(--accent); opacity:0; transform:translateX(-8px); transition:.35s; }
+.row:hover .r-arrow{ opacity:1; transform:none; }
+.preview{ position:sticky; top:120px; aspect-ratio:4/5; }
+.preview .slot{ position:absolute; inset:0; opacity:0; transition:opacity .6s ease; }
+.preview .slot.active{ opacity:1; }
+.preview .cap{ position:absolute; left:0; bottom:-30px; }
+@media(max-width:860px){
+  .index-grid{ grid-template-columns:1fr; } .preview{ display:none; }
+  .row-media{ margin:16px 0 6px; } .row-media .slot{ aspect-ratio:16/10; }
+  .index-head .label{ text-align:left; }
+}
+.row-media{ display:none; }
+@media(max-width:860px){ .row-media{ display:block; } }
+
+/* ---------- MERVE ---------- */
+.merve{ padding:40px 0 150px; }
+.merve-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center; }
+.merve .slot{ aspect-ratio:4/5; }
+.merve h2{ font-size:clamp(32px,4.6vw,60px); line-height:1.08; margin:16px 0 26px; }
+.merve h2 em{ font-style:italic; color:var(--accent); }
+.merve p{ font-size:17px; color:var(--soft); margin-bottom:18px; max-width:480px; }
+.linkline{ display:inline-flex; align-items:center; gap:10px; margin-top:10px; font-size:13px; letter-spacing:.4px; color:var(--ink); border-bottom:1px solid var(--accent); padding-bottom:5px; transition:.3s; }
+.linkline:hover{ gap:16px; color:var(--accent); }
+@media(max-width:860px){ .merve-grid{ grid-template-columns:1fr; gap:38px; } }
+
+/* ---------- INVITATION ---------- */
+.invite{ padding:20px 0 170px; text-align:center; }
+.invite .rule{ width:1px; height:70px; background:var(--line); margin:0 auto 50px; }
+.invite h2{ font-size:clamp(44px,8vw,120px); line-height:0.98; letter-spacing:-1px; }
+.invite h2 em{ font-style:italic; color:var(--accent); }
+.invite p{ font-size:17px; color:var(--soft); max-width:500px; margin:28px auto 42px; }
+.btn{ display:inline-block; font-size:12.5px; letter-spacing:.6px; padding:15px 30px; border-radius:40px; background:var(--ink); color:var(--paper); transition:.32s; }
+.btn:hover{ background:var(--accent); transform:translateY(-2px); }
+.invite-links{ margin-top:46px; display:flex; gap:28px; justify-content:center; }
+.invite-links a{ font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--soft); border-bottom:1px solid var(--line); padding-bottom:4px; transition:.3s; }
+.invite-links a:hover{ color:var(--accent); border-color:var(--accent); }
+
+/* ---------- FOOTER ---------- */
+footer{ border-top:1px solid var(--line); padding:34px 56px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+footer .logo{ font-size:20px; }
+footer p{ font-size:11.5px; color:var(--soft); letter-spacing:.4px; }
+@media(max-width:640px){ footer{ padding:26px 24px; } }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="logo">Merve <em>Purde</em></a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#statement">The Work</a>
+      <a href="#gatherings">Gatherings</a>
+      <a href="#merve">Merve</a>
+    </div>
+    <span class="nav-lang"><b>EN</b> · TR</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="label reveal in">Somatic Movement &amp; Embodiment</div>
+    <h1 class="reveal in">
+      Coming home
+      <span class="l2">to <span class="cycle" id="cycle">your body</span></span>
+    </h1>
+    <div class="hero-foot reveal in">
+      <p class="hero-sub">Guiding journeys through movement, conscious connection and earth wisdom. Movement is the doorway — what we're really practising is relationship.</p>
+      <div class="hero-scroll">Scroll <span class="ln"></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- STATEMENT -->
+<section class="statement" id="statement">
+  <div class="wrap">
+    <p class="reveal"><span class="q">For over a decade I've worked with movement —</span> but really, I've worked with <em>remembering</em>. How to be in a body. How to be with each other. How to be on the earth.</p>
+  </div>
+</section>
+
+<!-- BLEED -->
+<section class="bleed">
+  <div class="wrap">
+    <div class="slot reveal" data-cap="full-bleed — people in motion, light, laughter"></div>
+  </div>
+</section>
+
+<!-- GATHERINGS -->
+<section class="index" id="gatherings">
+  <div class="wrap">
+    <div class="index-head reveal">
+      <h2>Where we meet</h2>
+      <div class="label">A few rooms in the same house.<br>Come into whichever one is calling.</div>
+    </div>
+    <div class="index-grid">
+      <div class="rows reveal">
+
+        <a href="#" class="row" data-img="0">
+          <span class="num">01</span>
+          <span><span class="r-name">Movement</span><br><span class="r-cat">move · workshops &amp; studio</span></span>
+          <span class="r-arrow">→</span>
+        </a>
+        <div class="row-media"><div class="slot" data-cap="studio floor, bare feet, moving bodies"></div></div>
+
+        <a href="#" class="row" data-img="1">
+          <span class="num">02</span>
+          <span><span class="r-name">Relating</span><br><span class="r-cat">relate · circles &amp; one-to-one</span></span>
+          <span class="r-arrow">→</span>
+        </a>
+        <div class="row-media"><div class="slot" data-cap="two people, eye contact, soft light"></div></div>
+
+        <a href="https://www.wisdomwalk.earth/" target="_blank" rel="noopener" class="row" data-img="2">
+          <span class="num">03</span>
+          <span><span class="r-name">Wisdom Walk</span><br><span class="r-cat">journey · retreats &amp; pilgrimages</span></span>
+          <span class="r-arrow">→</span>
+        </a>
+        <div class="row-media"><div class="slot" data-cap="a trail, mountains, walking"></div></div>
+
+        <a href="#" class="row" data-img="3">
+          <span class="num">04</span>
+          <span><span class="r-name">Ritual</span><br><span class="r-cat">remember · earth wisdom</span></span>
+          <span class="r-arrow">→</span>
+        </a>
+        <div class="row-media"><div class="slot" data-cap="hands, earth, quiet ritual"></div></div>
+
+      </div>
+
+      <div class="preview reveal">
+        <div class="slot active" data-cap="studio floor, bare feet, moving bodies"></div>
+        <div class="slot" data-cap="two people, eye contact, soft light"></div>
+        <div class="slot" data-cap="a trail, mountains, walking — Wisdom Walk"></div>
+        <div class="slot" data-cap="hands, earth, quiet ritual"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MERVE -->
+<section class="merve" id="merve">
+  <div class="wrap merve-grid">
+    <div class="slot reveal" data-cap="you — laughing, real, in your own light"></div>
+    <div class="reveal">
+      <div class="label">Merve</div>
+      <h2>I dance, I travel, and I make space for people to <em>come home to themselves</em>.</h2>
+      <p>My path has led me across continents and thresholds — from the red mountains of Peru to the banks of the Ganges, from silent monasteries to the deserts of Egypt. Now rooted in Portugal, I create spaces where the body becomes a language of transformation.</p>
+      <p>I'm contemplative, but I'm also playful. I laugh a lot. Depth and lightness belong in the same room.</p>
+      <a href="#" class="linkline">Read my story <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- INVITATION -->
+<section class="invite">
+  <div class="wrap">
+    <div class="rule reveal"></div>
+    <div class="label reveal">Stay close</div>
+    <h2 class="reveal">Let's stay<br><em>in touch</em>.</h2>
+    <p class="reveal">No noise — just the occasional note when a gathering, a journey or a piece of writing finds its way into the world.</p>
+    <a href="mailto:purde.merve@gmail.com" class="btn reveal">Say hello</a>
+    <div class="invite-links reveal">
+      <a href="https://www.instagram.com/merve.purde/" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:purde.merve@gmail.com">Email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="logo">Merve <em>Purde</em></a>
+  <p>Somatic Movement &amp; Embodiment · Portugal · © 2026</p>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+
+  // hero word cycle
+  const words = ['your body', 'each other', 'the earth', 'yourself'];
+  let i = 0; const el = document.getElementById('cycle');
+  setInterval(() => {
+    el.classList.add('out');
+    setTimeout(() => { i = (i+1) % words.length; el.textContent = words[i]; el.classList.remove('out'); }, 500);
+  }, 2600);
+
+  // gatherings hover preview (desktop)
+  const previews = document.querySelectorAll('.preview .slot');
+  document.querySelectorAll('.row').forEach(row => {
+    row.addEventListener('mouseenter', () => {
+      const idx = +row.dataset.img;
+      previews.forEach((p, n) => p.classList.toggle('active', n === idx));
+    });
+  });
+
+  // reveal
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.reveal').forEach(n => io.observe(n));
+</script>
+
+</body>
+</html>

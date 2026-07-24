@@ -16,6 +16,8 @@ const GROUP_IDS = {
   'Harvest — Tea, Karadeniz, Turkey': '187627903441176482',
   'Harvest — Olive, Ayvalık, Turkey': '187627903441176482',
   'Harvest — Olive, Ayvalık': '187627903441176482',
+  'Harvest — Grape, Torres Vedras, Portugal': '187627903441176482',
+  'Harvest Interest': '187627903441176482',
   "I'm open — tell me more": '187627532466521921',
 };
 
@@ -70,7 +72,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { type, email, first_name, last_name, journey_interest, message, la_familia } = req.body;
+  const { type, interest, email, first_name, last_name, journey_interest, message, la_familia } = req.body;
 
   if (!email) return res.status(400).json({ error: 'Email required' });
 
@@ -81,11 +83,16 @@ export default async function handler(req, res) {
       return res.status(ok ? 200 : 500).json({ success: ok });
     }
 
-    // PDF download — capture email into the Mexico interest group
+    // PDF download — capture email into the matching interest group.
+    // interest === 'harvest' (Mesa Misteriosa / Grape) → Harvest Interest group;
+    // otherwise default to the Mexico journey group.
     if (type === 'download') {
+      const downloadGroup = interest === 'harvest'
+        ? GROUP_IDS['Harvest Interest']
+        : GROUP_IDS['Journey — Oaxaca & Caribbean, Mexico'];
       const ok = await addToMailerlite(
         email, first_name || '', last_name || '',
-        [GROUP_IDS['Journey — Oaxaca & Caribbean, Mexico']]
+        [downloadGroup]
       );
       return res.status(ok ? 200 : 500).json({ success: ok });
     }
