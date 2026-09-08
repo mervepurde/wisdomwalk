@@ -328,6 +328,13 @@ nav.scrolled .action-group { border-top-color: rgba(196,165,90,0.2); padding: 0 
   padding: 15px 32px; cursor: pointer; transition: background 0.3s;
 }
 .dl-submit:hover { background: #1e1c18; }
+.dl-check {
+  display: flex; align-items: flex-start; gap: 9px;
+  margin: 2px 0 14px; text-align: left; cursor: pointer;
+  font-family: 'Cormorant Garamond', serif; font-size: 14px;
+  line-height: 1.45; color: rgba(42,40,34,0.68);
+}
+.dl-check input { margin: 3px 0 0; accent-color: #c4a55a; flex-shrink: 0; }
 .dl-note {
   font-family: 'Josefin Sans', sans-serif; font-size: 9.5px; letter-spacing: 1.2px;
   text-transform: uppercase; color: rgba(42,40,34,0.4);
@@ -800,6 +807,10 @@ footer {
     <form onsubmit="handleDownloadSubmit(event)">
       <input class="dl-input" type="text" name="first_name" placeholder="Your name (optional)" autocomplete="given-name">
       <input class="dl-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+      <label class="dl-check">
+        <input type="checkbox" name="la_familia">
+        <span>Also keep me close to La Familia letters and future gatherings.</span>
+      </label>
       <button class="dl-submit" type="submit">Get the PDF &nbsp;&darr;</button>
     </form>
     <p class="dl-note">We do not share your information with anyone.</p>
@@ -871,11 +882,12 @@ async function handleDownloadSubmit(e) {
   btn.textContent = '...';
   const email = form.querySelector('[name="email"]').value;
   const firstName = form.querySelector('[name="first_name"]').value;
+  const laFamilia = form.querySelector('[name="la_familia"]').checked;
   try {
     await fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type: 'download', interest: currentDownload.interest, email, first_name: firstName })
+      body: JSON.stringify({ type: 'download', interest: currentDownload.interest, email, first_name: firstName, la_familia: laFamilia })
     });
   } catch {
     // Even if the subscribe call fails, let them have the PDF.

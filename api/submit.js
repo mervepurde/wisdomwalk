@@ -101,9 +101,12 @@ export default async function handler(req, res) {
     //   3) Merve'ye bildirim maili gönder
     if (type === 'download') {
       await sendDownloadNotificationToMerve({ first_name, last_name, email });
+      const groupIds = [GROUP_IDS['Mexico Interest'], GROUP_IDS.application_submitted];
+      // "Also keep me close to La Familia letters" kutucuğu işaretliyse newsletter grubuna da ekle
+      if (la_familia) groupIds.push(GROUP_IDS.la_familia);
       const ok = await addToMailerlite(
         email, first_name || '', last_name || '',
-        [GROUP_IDS['Mexico Interest'], GROUP_IDS.application_submitted]
+        groupIds
       );
       return res.status(ok ? 200 : 500).json({ success: ok });
     }
