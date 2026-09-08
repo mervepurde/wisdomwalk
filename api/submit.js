@@ -13,11 +13,8 @@ const GROUP_IDS = {
   'Journey — Oaxaca & Caribbean, Mexico': '187627878071928632',
   'Journey — Mexico, Mesoamerican Path': '187627878071928632',
   'Journey — Auroville, India': '187627862113649676',
-  'Harvest — Tea, Karadeniz, Turkey': '187627903441176482',
-  'Harvest — Olive, Ayvalık, Turkey': '187627903441176482',
-  'Harvest — Olive, Ayvalık': '187627903441176482',
-  'Harvest — Grape, Torres Vedras, Portugal': '187627903441176482',
-  'Harvest Interest': '187627903441176482',
+  // Mexico "Download Details" formundan gelenler buraya.
+  'Mexico Interest': process.env.MAILERLITE_MEXICO_INTEREST_GROUP_ID || '187627878071928632',
   "I'm open — tell me more": '187627532466521921',
 };
 
@@ -64,6 +61,21 @@ async function sendNotificationToMerve({ first_name, last_name, email, journey_i
   });
 }
 
+async function sendDownloadNotificationToMerve({ first_name, last_name, email }) {
+  const transporter = createTransporter();
+  await transporter.sendMail({
+    from: `"Wisdom Walk" <${GMAIL_USER}>`,
+    to: GMAIL_USER,
+    subject: `New PDF download — Mexico${first_name ? ` — ${first_name} ${last_name || ''}`.trimEnd() : ''}`,
+    text: [
+      `Someone downloaded the Mexico details PDF.`,
+      ``,
+      `Name: ${first_name || ''} ${last_name || ''}`.trimEnd(),
+      `Email: ${email}`,
+    ].join('\n'),
+  });
+}
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -83,16 +95,15 @@ export default async function handler(req, res) {
       return res.status(ok ? 200 : 500).json({ success: ok });
     }
 
-    // PDF download — capture email into the matching interest group.
-    // interest === 'harvest' (Mesa Misteriosa / Grape) → Harvest Interest group;
-    // otherwise default to the Mexico journey group.
+    // Mexico "Download Details" PDF — hepsi bir arada:
+    //   1) Mexico Interest grubuna ekle
+    //   2) Application Submitted grubuna ekle (application-received otomasyonunu tetikler)
+    //   3) Merve'ye bildirim maili gönder
     if (type === 'download') {
-      const downloadGroup = interest === 'harvest'
-        ? GROUP_IDS['Harvest Interest']
-        : GROUP_IDS['Journey — Oaxaca & Caribbean, Mexico'];
+      await sendDownloadNotificationToMerve({ first_name, last_name, email });
       const ok = await addToMailerlite(
         email, first_name || '', last_name || '',
-        [downloadGroup]
+        [GROUP_IDS['Mexico Interest'], GROUP_IDS.application_submitted]
       );
       return res.status(ok ? 200 : 500).json({ success: ok });
     }
