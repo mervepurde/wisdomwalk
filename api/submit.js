@@ -12,7 +12,7 @@ const GROUP_IDS = {
   'Journey — Peru, Amazonia': '187627862113649676',
   'Journey — Oaxaca & Caribbean, Mexico': '187627878071928632',
   'Journey — Mexico, Mesoamerican Path': '187627878071928632',
-  'Journey — Auroville, India': '187627862113649676',
+  'Journey — Auroville, India': '193322867805389963',
   // Mexico "Download Details" formundan gelenler buraya.
   'Mexico Interest': process.env.MAILERLITE_MEXICO_INTEREST_GROUP_ID || '187627878071928632',
   "I'm open — tell me more": '187627532466521921',
@@ -29,6 +29,11 @@ function createTransporter() {
 }
 
 async function addToMailerlite(email, firstName, lastName, groupIds) {
+  if (!MAILERLITE_API_KEY) {
+    console.error('[mailerlite] MAILERLITE_API_KEY is missing — subscriber NOT added:', email);
+    return false;
+  }
+  const cleanGroups = groupIds.filter(Boolean);
   const res = await fetch(`${MAILERLITE_API_URL}/subscribers`, {
     method: 'POST',
     headers: {
@@ -38,9 +43,15 @@ async function addToMailerlite(email, firstName, lastName, groupIds) {
     body: JSON.stringify({
       email,
       fields: { name: firstName, last_name: lastName },
-      groups: groupIds.filter(Boolean),
+      groups: cleanGroups,
     }),
   });
+  if (!res.ok) {
+    // Log the exact reason (401 = bad/missing key, 422 = invalid group ID or email, etc.)
+    let detail = '';
+    try { detail = await res.text(); } catch {}
+    console.error(`[mailerlite] add failed (${res.status}) for ${email} — groups [${cleanGroups.join(', ')}]: ${detail}`);
+  }
   return res.ok;
 }
 
@@ -124,9 +135,12 @@ export default async function handler(req, res) {
       if (la_familia) {
         groupIds.push(GROUP_IDS.la_familia);
       }
-      await addToMailerlite(email, first_name || '', last_name || '', groupIds);
+      const mlOk = await addToMailerlite(email, first_name || '', last_name || '', groupIds);
 
-      return res.status(200).json({ success: true });
+      // Still return 200 so the applicant sees success (Merve already got the
+      // notification email, so the conversation can start) — but surface the
+      // MailerLite result so a failed subscribe is no longer invisible.
+      return res.status(200).json({ success: true, mailerlite: mlOk });
     }
 
     return res.status(400).json({ error: 'Invalid type' });
