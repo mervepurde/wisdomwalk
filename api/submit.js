@@ -18,6 +18,13 @@ const GROUP_IDS = {
   "I'm open — tell me more": '187627532466521921',
 };
 
+// "Request the details" formlarının interest -> grup eşlemesi (henüz PDF olmayan journey'ler için)
+const INTEREST_GROUPS = {
+  mexico: GROUP_IDS['Mexico Interest'],
+  peru: GROUP_IDS['Journey — Sacred Valley & Amazonia, Peru'],
+  auroville: GROUP_IDS['Journey — Auroville, India'],
+};
+
 function createTransporter() {
   return nodemailer.createTransport({
     service: 'gmail',
@@ -87,6 +94,22 @@ async function sendDownloadNotificationToMerve({ first_name, last_name, email })
   });
 }
 
+async function sendRequestNotificationToMerve({ first_name, last_name, email, interest }) {
+  const transporter = createTransporter();
+  const label = interest ? interest.charAt(0).toUpperCase() + interest.slice(1) : 'a journey';
+  await transporter.sendMail({
+    from: `"Wisdom Walk" <${GMAIL_USER}>`,
+    to: GMAIL_USER,
+    subject: `New details request — ${label}${first_name ? ` — ${first_name} ${last_name || ''}`.trimEnd() : ''}`,
+    text: [
+      `Someone requested the details for the ${label} journey.`,
+      ``,
+      `Name: ${first_name || ''} ${last_name || ''}`.trimEnd(),
+      `Email: ${email}`,
+    ].join('\n'),
+  });
+}
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -119,6 +142,19 @@ export default async function handler(req, res) {
         email, first_name || '', last_name || '',
         groupIds
       );
+      return res.status(ok ? 200 : 500).json({ success: ok });
+    }
+
+    // "Request the details" — PDF henüz hazır olmayan journey'ler (ör. Peru):
+    //   1) journey interest grubuna ekle
+    //   2) Application Submitted grubuna ekle (application-received otomasyonunu tetikler)
+    //   3) La Familia kutucuğu işaretliyse newsletter grubuna da ekle
+    //   4) Merve'ye bildirim maili gönder
+    if (type === 'request') {
+      await sendRequestNotificationToMerve({ first_name, last_name, email, interest });
+      const groupIds = [INTEREST_GROUPS[interest], GROUP_IDS.application_submitted];
+      if (la_familia) groupIds.push(GROUP_IDS.la_familia);
+      const ok = await addToMailerlite(email, first_name || '', last_name || '', groupIds);
       return res.status(ok ? 200 : 500).json({ success: ok });
     }
 

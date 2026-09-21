@@ -671,6 +671,44 @@ footer {
     </div>
   </div>
 
+  <div class="featured-card" style="margin-top: 56px;">
+    <div class="featured-card-img">
+      <div class="carousel" data-autoplay="5000">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="photos/upcominghero/peruamazoniaupcoming-hero.jpg" alt="Sacred Valley &amp; Amazon, Peru — Wisdom Walk">
+          </div>
+          <div class="carousel-slide">
+            <img src="photos/peru-2025/magicwalk-hero.jpg" alt="Peru — Wisdom Walk" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="photos/peru-2025/the%20circle%20hero.JPEG" alt="Peru — Wisdom Walk" loading="lazy">
+          </div>
+        </div>
+        <button class="carousel-arrow prev" type="button" aria-label="Previous">&#8249;</button>
+        <button class="carousel-arrow next" type="button" aria-label="Next">&#8250;</button>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
+    <div class="featured-card-body">
+      <div>
+        <p class="featured-region">Peru &nbsp;&middot;&nbsp; Andes &middot; Sacred Valley &middot; Amazonia</p>
+        <h3 class="featured-title">Sacred Valley &amp; <em>Amazon</em></h3>
+        <p class="featured-subtitle">27 December 2026 &ndash; 9 January 2027 &nbsp;&middot;&nbsp; 14 days</p>
+        <div class="featured-rule"></div>
+        <p class="featured-desc">A fourteen-day journey moving between the high Andes and the Amazon &mdash; from the Sacred Valley of the Incas to the rivers and forests of the jungle.</p>
+        <p class="featured-desc" style="margin-top: -4px;">Our days weave together Andean ritual and mountain silence, plant wisdom, movement and meditation, sacred sites, and time along the river to rest and integrate.</p>
+        <p class="featured-desc" style="margin-top: -4px;">We close the old year in the mountains and open the new one in the heart of the Amazon &mdash; a threshold walked slowly, together.</p>
+      </div>
+      <div class="featured-cta-wrap">
+        <div class="featured-cta-row">
+          <button type="button" class="featured-cta" style="cursor:pointer; -webkit-appearance:none; appearance:none;" onclick="openRequestModal('peru')">Request Journey Details &nbsp;&rarr;</button>
+        </div>
+        <span class="featured-cta-note">Leave your email and we&rsquo;ll share the full itinerary &amp; pricing personally</span>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- COMING UP -->
@@ -681,35 +719,6 @@ footer {
   </div>
 
   <div class="event-list">
-
-    <!-- Peru -->
-    <div class="event-item">
-      <div class="event-date-col">
-        <span class="event-month">December</span>
-        <span class="event-day-range">27&ndash;</span>
-        <span class="event-month" style="margin-top:4px;">January</span>
-        <span class="event-day-range" style="font-size:26px;">9</span>
-        <span class="event-year">2026 / 27</span>
-      </div>
-      <div class="event-body">
-        <div class="event-tags-row">
-          <span class="event-type-tag">Journey</span>
-        </div>
-        <div class="event-main">
-          <div class="event-image">
-            <img src="photos/upcominghero/peruamazoniaupcoming-hero.jpg" alt="Sacred Valley & Amazon, Peru" style="object-position: center 30%;">
-          </div>
-          <div class="event-info">
-            <p class="event-location">Peru &nbsp;&middot;&nbsp; Andes &amp; Amazonia</p>
-            <h3 class="event-title">Sacred Valley &amp; <em>Amazon</em></h3>
-            <p class="event-duration">14 days &nbsp;&middot;&nbsp; 27 December &ndash; 9 January</p>
-            <p class="event-desc">Moving between mountains and jungle over several days, with time in the Sacred Valley and along the river. Plant wisdom, Andean ritual, and the Amazon.</p>
-            <p class="event-keyword-tags">Mountains &nbsp;&middot;&nbsp; jungle &nbsp;&middot;&nbsp; river &nbsp;&middot;&nbsp; plant wisdom</p>
-            <a href="#apply-form" class="event-cta">Join this Journey &nbsp;&rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Auroville -->
     <div class="event-item">
@@ -817,6 +826,26 @@ footer {
   </div>
 </div>
 
+<!-- REQUEST DETAILS MODAL (email → journey interest group, no PDF yet) -->
+<div class="dl-overlay" id="reqOverlay" onclick="if(event.target===this)closeRequestModal()">
+  <div class="dl-modal" role="dialog" aria-modal="true" aria-labelledby="reqTitle">
+    <button type="button" class="dl-close" aria-label="Close" onclick="closeRequestModal()">&times;</button>
+    <p class="dl-label" id="reqLabel">&#10022; Peru Journey</p>
+    <h3 class="dl-title" id="reqTitle">Request the details</h3>
+    <p class="dl-body">Leave your email and we&rsquo;ll personally share the full itinerary &amp; pricing for this journey &mdash; and keep you close to news as it opens.</p>
+    <form onsubmit="handleRequestSubmit(event)">
+      <input class="dl-input" type="text" name="first_name" placeholder="Your name (optional)" autocomplete="given-name">
+      <input class="dl-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+      <label class="dl-check">
+        <input type="checkbox" name="la_familia">
+        <span>Also keep me close to La Familia letters and future gatherings.</span>
+      </label>
+      <button class="dl-submit" type="submit">Request the details &nbsp;&rarr;</button>
+    </form>
+    <p class="dl-note">We do not share your information with anyone.</p>
+  </div>
+</div>
+
 <footer>
   <a href="index.html" class="footer-logo">WISDOM WALK</a>
   <div class="footer-links">
@@ -860,7 +889,7 @@ function closeDownloadModal() {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeDownloadModal();
+  if (e.key === 'Escape') { closeDownloadModal(); closeRequestModal(); }
 });
 
 function triggerPdfDownload() {
@@ -895,6 +924,57 @@ async function handleDownloadSubmit(e) {
   triggerPdfDownload();
   btn.textContent = 'Opening your PDF…';
   setTimeout(closeDownloadModal, 1400);
+}
+
+// ─── Email → journey interest group (no PDF yet) ───
+const REQUESTS = {
+  peru: {
+    label: '\u2726 Peru Journey',
+    interest: 'peru',
+  },
+};
+let currentRequest = REQUESTS.peru;
+
+function openRequestModal(kind) {
+  currentRequest = REQUESTS[kind] || REQUESTS.peru;
+  const labelEl = document.getElementById('reqLabel');
+  if (labelEl) labelEl.textContent = currentRequest.label;
+  document.getElementById('reqOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeRequestModal() {
+  document.getElementById('reqOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+async function handleRequestSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '...';
+  const email = form.querySelector('[name="email"]').value;
+  const firstName = form.querySelector('[name="first_name"]').value;
+  const laFamilia = form.querySelector('[name="la_familia"]').checked;
+  try {
+    const res = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'request', interest: currentRequest.interest, email, first_name: firstName, la_familia: laFamilia })
+    });
+    if (res.ok) {
+      btn.textContent = 'Thank you — we\u2019ll be in touch';
+      form.querySelectorAll('input').forEach(el => el.disabled = true);
+      setTimeout(closeRequestModal, 1600);
+    } else {
+      btn.textContent = original;
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = original;
+    btn.disabled = false;
+  }
 }
 
 async function handleApplicationSubmit(e) {
