@@ -25,6 +25,12 @@ const INTEREST_GROUPS = {
   auroville: GROUP_IDS['Journey — Auroville, India'],
 };
 
+// Email-gated PDF download formlarının interest -> grup eşlemesi (PDF'i hazır olan journey'ler için)
+const DOWNLOAD_INTEREST_GROUPS = {
+  mexico: GROUP_IDS['Mexico Interest'],
+  peru: GROUP_IDS['Journey — Sacred Valley & Amazonia, Peru'],
+};
+
 function createTransporter() {
   return nodemailer.createTransport({
     service: 'gmail',
@@ -79,14 +85,15 @@ async function sendNotificationToMerve({ first_name, last_name, email, journey_i
   });
 }
 
-async function sendDownloadNotificationToMerve({ first_name, last_name, email }) {
+async function sendDownloadNotificationToMerve({ first_name, last_name, email, interest }) {
   const transporter = createTransporter();
+  const label = interest ? interest.charAt(0).toUpperCase() + interest.slice(1) : 'a journey';
   await transporter.sendMail({
     from: `"Wisdom Walk" <${GMAIL_USER}>`,
     to: GMAIL_USER,
-    subject: `New PDF download — Mexico${first_name ? ` — ${first_name} ${last_name || ''}`.trimEnd() : ''}`,
+    subject: `New PDF download — ${label}${first_name ? ` — ${first_name} ${last_name || ''}`.trimEnd() : ''}`,
     text: [
-      `Someone downloaded the Mexico details PDF.`,
+      `Someone downloaded the ${label} details PDF.`,
       ``,
       `Name: ${first_name || ''} ${last_name || ''}`.trimEnd(),
       `Email: ${email}`,
@@ -129,14 +136,14 @@ export default async function handler(req, res) {
       return res.status(ok ? 200 : 500).json({ success: ok });
     }
 
-    // Mexico "Download Details" PDF — hepsi bir arada:
-    //   1) Mexico Interest grubuna ekle
+    // "Download Program" PDF (Mexico, Peru, ...) — hepsi bir arada:
+    //   1) İlgili journey'nin Interest grubuna ekle
     //   2) Application Submitted grubuna ekle (application-received otomasyonunu tetikler)
-    //   3) Merve'ye bildirim maili gönder
+    //   3) La Familia kutucuğu işaretliyse newsletter grubuna da ekle
+    //   4) Merve'ye bildirim maili gönder
     if (type === 'download') {
-      await sendDownloadNotificationToMerve({ first_name, last_name, email });
-      const groupIds = [GROUP_IDS['Mexico Interest'], GROUP_IDS.application_submitted];
-      // "Also keep me close to La Familia letters" kutucuğu işaretliyse newsletter grubuna da ekle
+      await sendDownloadNotificationToMerve({ first_name, last_name, email, interest });
+      const groupIds = [DOWNLOAD_INTEREST_GROUPS[interest], GROUP_IDS.application_submitted];
       if (la_familia) groupIds.push(GROUP_IDS.la_familia);
       const ok = await addToMailerlite(
         email, first_name || '', last_name || '',

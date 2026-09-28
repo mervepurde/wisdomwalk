@@ -702,9 +702,10 @@ footer {
       </div>
       <div class="featured-cta-wrap">
         <div class="featured-cta-row">
-          <button type="button" class="featured-cta" style="cursor:pointer; -webkit-appearance:none; appearance:none;" onclick="openRequestModal('peru')">Request Journey Details &nbsp;&rarr;</button>
+          <a href="#apply-form" class="featured-cta">Request Journey Details &nbsp;&rarr;</a>
+          <button type="button" class="featured-cta-secondary" onclick="openDownloadModal('peru')">Download Program &nbsp;&darr;</button>
         </div>
-        <span class="featured-cta-note">Leave your email and we&rsquo;ll share the full itinerary &amp; pricing personally</span>
+        <span class="featured-cta-note">Apply to receive a detailed PDF with full itinerary &amp; pricing</span>
       </div>
     </div>
   </div>
@@ -873,6 +874,12 @@ const DOWNLOADS = {
     pdf: 'photos/mexico-journey-2026.pdf',
     filename: 'Mexico Journey 2026 — Wisdom Walk.pdf',
     interest: 'mexico',
+  },
+  peru: {
+    label: '\u2726 Peru Journey',
+    pdf: 'photos/peru-journey-2026.pdf',
+    filename: 'Peru Journey 2026 — Wisdom Walk.pdf',
+    interest: 'peru',
   },
 };
 let currentDownload = DOWNLOADS.mexico;
