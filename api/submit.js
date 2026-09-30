@@ -15,6 +15,9 @@ const GROUP_IDS = {
   'Journey — Auroville, India': '193322867805389963',
   // Mexico "Download Details" formundan gelenler buraya.
   'Mexico Interest': process.env.MAILERLITE_MEXICO_INTEREST_GROUP_ID || '187627878071928632',
+  // Odisha, India (Inside India collaboration) — henüz MailerLite'ta grup açılmadı.
+  // Grup oluşturulunca ID'yi buraya ya da MAILERLITE_ODISHA_INTEREST_GROUP_ID env var'ına ekle.
+  'Journey — Odisha, India': process.env.MAILERLITE_ODISHA_INTEREST_GROUP_ID || null,
   "I'm open — tell me more": '187627532466521921',
 };
 
@@ -23,12 +26,14 @@ const INTEREST_GROUPS = {
   mexico: GROUP_IDS['Mexico Interest'],
   peru: GROUP_IDS['Journey — Sacred Valley & Amazonia, Peru'],
   auroville: GROUP_IDS['Journey — Auroville, India'],
+  odisha: GROUP_IDS['Journey — Odisha, India'],
 };
 
 // Email-gated PDF download formlarının interest -> grup eşlemesi (PDF'i hazır olan journey'ler için)
 const DOWNLOAD_INTEREST_GROUPS = {
   mexico: GROUP_IDS['Mexico Interest'],
   peru: GROUP_IDS['Journey — Sacred Valley & Amazonia, Peru'],
+  odisha: GROUP_IDS['Journey — Odisha, India'],
 };
 
 function createTransporter() {

@@ -710,6 +710,46 @@ footer {
     </div>
   </div>
 
+  <div class="featured-card" style="margin-top: 56px;">
+    <div class="featured-card-img">
+      <div class="carousel" data-autoplay="5000">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="photos/odisha-india-2027/konark-dancer.jpg" alt="Odissi dancer at Konark — Odisha, India">
+          </div>
+          <div class="carousel-slide">
+            <img src="photos/odisha-india-2027/bhubaneswar-temple.jpg" alt="Shiva temples of Bhubaneswar — Odisha, India" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="photos/odisha-india-2027/puri-dancers.jpg" alt="Gotipua dancers in Puri — Odisha, India" loading="lazy">
+          </div>
+        </div>
+        <button class="carousel-arrow prev" type="button" aria-label="Previous">&#8249;</button>
+        <button class="carousel-arrow next" type="button" aria-label="Next">&#8250;</button>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
+    <div class="featured-card-body">
+      <div>
+        <p class="featured-region">Odisha, India &nbsp;&middot;&nbsp; Bhubaneswar &middot; Puri &middot; Konark</p>
+        <h3 class="featured-title">Temples, Tantra &amp; <em>Dance</em></h3>
+        <p class="featured-subtitle">1&ndash;7 December 2026 &nbsp;&middot;&nbsp; 7 days</p>
+        <div class="featured-rule"></div>
+        <p class="featured-desc">A seven-day immersion into the sacred feminine pulse of Odisha &mdash; moving between the temple towns of Bhubaneswar, Puri, and Konark, where tantric &#346;akti lineages, goddess shrines, and cosmic geometry still shape a living culture.</p>
+        <p class="featured-desc" style="margin-top: -4px;">We walk the ancient Shiva&ndash;Shakti temples of Bhubaneswar, enter the circular Yogini temple at Hirapur, meet dancers and artisans carrying living traditions in Puri, and read the sculpted bodies of the Sun Temple at Konark &mdash; architecture as a mandala of movement, light, and devotion.</p>
+        <p class="featured-desc" style="margin-top: -4px;">Along the way, Odissi dance arises as the embodied expression of this &#346;akti tradition &mdash; inspired by &ldquo;In the Footsteps of the Alasa Kany&#257;.&rdquo;</p>
+        <p class="featured-desc" style="margin-top: -4px; font-size: 15px; color: rgba(42,40,34,0.55);">Curated and led by Dr. Rekha Tandon, in collaboration with Inside India &mdash; Auroville&rsquo;s travel company.</p>
+      </div>
+      <div class="featured-cta-wrap">
+        <div class="featured-cta-row">
+          <a href="#apply-form" class="featured-cta">Request Journey Details &nbsp;&rarr;</a>
+          <button type="button" class="featured-cta-secondary" onclick="openDownloadModal('odisha')">Download Program &nbsp;&darr;</button>
+        </div>
+        <span class="featured-cta-note">Apply to receive a detailed PDF with full itinerary &amp; pricing</span>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- COMING UP -->
@@ -789,6 +829,7 @@ footer {
             <option value="Journey — Oaxaca &amp; Caribbean, Mexico">Journey &mdash; Pacific &amp; Caribbean, Mexico</option>
             <option value="Journey — Sacred Valley &amp; Amazonia, Peru">Journey &mdash; Sacred Valley &amp; Amazon, Peru</option>
             <option value="Journey — Auroville, India">Journey &mdash; Auroville, India</option>
+            <option value="Journey — Odisha, India">Journey &mdash; Temples, Tantra &amp; Dance, Odisha</option>
             <option value="I'm open — tell me more">I&rsquo;m open &mdash; tell me more</option>
           </select>
         </div>
@@ -880,6 +921,12 @@ const DOWNLOADS = {
     pdf: 'photos/peru-journey-2026.pdf',
     filename: 'Peru Journey 2026 — Wisdom Walk.pdf',
     interest: 'peru',
+  },
+  odisha: {
+    label: '\u2726 Odisha Journey',
+    pdf: 'photos/odisha-india-2027.pdf',
+    filename: 'Odisha, India Journey 2026 — Wisdom Walk.pdf',
+    interest: 'odisha',
   },
 };
 let currentDownload = DOWNLOADS.mexico;
